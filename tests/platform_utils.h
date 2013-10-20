@@ -1,0 +1,46 @@
+#ifndef PLATFORM_UTILS_H_
+#define PLATFORM_UTILS_H_
+
+#include <stdint.h>
+
+
+#ifdef CHIBIOS_PRINTF
+#include "ch.h"
+#include "hal.h"
+
+int ch_putchar(int c);
+
+fm_set_out_f(ch_putchar);
+#define fm_putchar(c) chIOPut((BaseChannel *)&SD2, c)
+
+#else
+
+#include <stdlib.h>
+#include <stdio.h>
+#define fm_putchar putchar
+#endif
+
+#include "format.h"
+#include "format_printf.h"
+
+
+
+#define error(_format, ...) fm_printf("\nERROR: %d :" _format, __LINE__, ##__VA_ARGS__)
+#define warn(_format, ...)  fm_printf("\nWARN: %d :"  _format, __LINE__, ##__VA_ARGS__)
+#define info(_format, ...)  fm_printf(_format, ##__VA_ARGS__)
+
+#define UNUSED(x)   (void)(x);
+
+
+
+void init(void);
+
+
+void start_count_time(void);
+void stop_count_time(void);
+uint32_t get_us(void);
+
+
+
+
+#endif

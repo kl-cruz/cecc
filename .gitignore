@@ -1,0 +1,11 @@
+build*
+*.map
+*.lst
+*.bin
+*.elf
+*.dmp
+*.hex
+*.o
+*~
+*.svn*
+*.dep*

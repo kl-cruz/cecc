@@ -3,22 +3,29 @@
 
 #include <stdint.h>
 
+//Platform dependent code
 
-#ifdef CHIBIOS_PRINTF
+#ifdef CHIBIOS_PRINTF //microcontrollers
 #include "ch.h"
 #include "hal.h"
 
 int ch_putchar(int c);
 
-fm_set_out_f(ch_putchar);
+//fm_set_out_f(ch_putchar);
 #define fm_putchar(c) chIOPut((BaseChannel *)&SD2, c)
 
-#else
+//STM32 not support assert for now
+#define assert(c) (void)(c)
 
+#else //PC
+#include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
 #define fm_putchar putchar
 #endif
+
+
+//Platform independent code
 
 #include "format.h"
 #include "format_printf.h"

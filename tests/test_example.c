@@ -1,7 +1,6 @@
 /*
  * test_example.c
  *
- * Copyright (c) 2013, Sastrion Sp. z o.o.
  * All rights reserved.
  *
  *  Created on: 17-10-2013

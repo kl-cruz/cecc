@@ -6,9 +6,6 @@
 #include "platform_utils.h"
 
 
-
-
-
 unsigned int get_ms_time(void) { return 0;}
 
 #ifdef SEATEST_INTERNAL_TESTS
@@ -34,14 +31,6 @@ static seatest_void_void fixture_teardown_cb = NULL;
 static char buffer[SEATEST_PRINT_BUFFER_SIZE];
 
 void (*seatest_simple_test_result)(int passed, char* reason, const char* function, unsigned int line) = seatest_simple_test_result_log;
-
-void fill_random(uint8_t *buffer, uint16_t size)
-{
-	/*srand();
-	for (int i = 0; i < size; i++) {
-		buffer[i] = rand() % 256;
-	}*/
-}
 
 void fill_seq(uint8_t *buffer, uint16_t length)
 {

@@ -63,6 +63,7 @@ int fm_putchar(int c)
 	return chIOPut((BaseChannel *)&SD2, c);
 }
 #else
+
 #include <sys/time.h>
 #include <stdio.h>
 

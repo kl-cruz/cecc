@@ -25,8 +25,8 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 
 uint32_t bn_inv(void);
-//functions
 
+//functions
 uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b);
 
 #endif /* BIGNUM_H_ */

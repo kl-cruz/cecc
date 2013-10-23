@@ -30,16 +30,23 @@
  */
 uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
-	/*assert_values()
-	 ;*/
+
 	//count number
 	uint32_t i;
 	uint64_t temp = 0;
 	for (i = 0; i < result->length; i++) {
-		temp += (uint64_t) a->number[i] + b->number[i];
+		if (i < a->length) {
+			temp += (uint64_t) a->number[i];
+		}
+		if (i < b->length) {
+			temp += (uint64_t) b->number[i];
+		}
+
+		//	temp += (uint64_t) a->number[i] + b->number[i];
 		result->number[i] = temp;
 		temp = (temp >> 32);
 	}
+
 	return temp;
 }
 
@@ -56,7 +63,6 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 	 ;*/
 
 	//count number
-
 	uint32_t i, borrow;
 	uint64_t temp;
 	borrow = 0;
@@ -108,17 +114,20 @@ uint32_t bn_inv()
 
 uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
+	assert(b != a);
+	assert(a != result);
+	assert(b != result);
+	assert(result->length >= p->length);
 	//assert_values();
-	int len = result->length;
-	uint32_t res_tab[5] = { 0, 0, 0, 0, 0 };
-	bn_uint_t result_temp = { res_tab, 5 };
-	//bn_uint_t *result_temp = BN_INIT()
+	/*int len = a->length;
+	 bn_uint_t result_temp = BN_INIT(6);*/
+	uint32_t tab[a->length + 1];
+	bn_uint_t result_temp = { .number = tab, .length = a->length + 1 };
 	//debug("About variable: [len=%d, pointer=%p]", result_temp.length, &result_temp);
-	//count number
 	uint32_t carry;
 
 	carry = bn_add(a, b, &result_temp);
-	res_tab[4] = carry;
+	//result->number[4] = carry;
 
 	if (bn_is_greater(&result_temp, p) == 1) {
 		bn_sub(&result_temp, p, &result_temp);

@@ -17,6 +17,8 @@ uint32_t test_sub2(void);
 uint32_t test_mul(void);
 
 uint32_t test_field_add(void);
+uint32_t test_field_sub(void);
+uint32_t test_field_sub2(void);
 
 
 #endif /* TEST_BIGNUM_H_ */

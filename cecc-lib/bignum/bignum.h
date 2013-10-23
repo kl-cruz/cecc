@@ -17,11 +17,9 @@ typedef struct bn_uint {
 	uint32_t length;
 } bn_uint_t;
 
-#define BN_INIT(_len) ( {uint32_t tab_len=_len; \
-						uint32_t tab[tab_len]; \
-						bn_uint_t result= {.number = tab, .length = tab_len}; \
-						bn_uint_t *result_ret= &result \
-						result_ret;})
+#define BN_INIT(_len) ( {uint32_t tab[_len]; \
+						bn_uint_t result= {.number = tab, .length = _len}; \
+						result;})
 
 //operators
 uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);

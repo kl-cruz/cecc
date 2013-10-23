@@ -21,7 +21,7 @@
 								assert(to->length >= length)
 
 /**
- *
+ * @brief
  * @param a addend
  * @param b addend
  * @param result a+b, table with length = a.length+1 to store whole result
@@ -48,11 +48,11 @@ uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 }
 
 /**
- *
+ * @brief
  * @param a minuend
- * @param b  subtrahend
+ * @param b subtrahend
  * @param result a-b
- * @return
+ * @return borrow
  */
 uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
@@ -75,11 +75,11 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 }
 
 /**
- *
+ * @brief
  * @param a first argument
  * @param b second argument
  * @param result a*b
- * @return
+ * @return 0
  */
 uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
@@ -109,6 +109,15 @@ uint32_t bn_inv()
 	return 0;
 }
 
+/**
+ * @brief
+ * @param a addend
+ * @param b addend
+ * @param p field size
+ * @param result a+b mod p
+ * @return 0
+ */
+
 uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
 	assert(b != a);
@@ -116,7 +125,7 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	assert(b != result);
 	assert(result->length >= p->length);
 
-	BN_CREATE_VARIABLE(result_temp,a->length+1);
+	BN_CREATE_VARIABLE(result_temp, a->length + 1);
 
 	bn_add(a, b, &result_temp);
 
@@ -128,10 +137,18 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	return 0;
 }
 
+/**
+ * @brief Operation a-b mod p
+ * @param a minuend
+ * @param b subtrahend
+ * @param p field size
+ * @param result a-b mod p
+ * @return 0
+ */
 uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
 
-	BN_CREATE_VARIABLE(result_temp,result->length);
+	BN_CREATE_VARIABLE(result_temp, result->length);
 
 	//count number
 	uint32_t borrow;
@@ -145,7 +162,54 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 }
 
 /**
- *
+ * @brief Copy number from `from` to `to`
+ * @param from
+ * @param to
+ * @param length number of uint32_t's to copy
+ * @return number of copied uint32_t's
+ */
+uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length)
+{
+	copy_assert_values()
+	;
+
+	uint32_t i;
+	for (i = 0; i < length; ++i) {
+		to->number[i] = from->number[i];
+	}
+	return i + 1;
+}
+
+/**
+ * @brief Invert bits in number
+ * @param to
+ * @return
+ */
+uint32_t bn_inv_bits(bn_uint_t *num)
+{
+	uint32_t i;
+	for (i = 0; i < num->length; ++i) {
+		num->number[i] = ~num->number[i];
+	}
+	return 0;
+}
+
+/**
+ * @brief Zeroed number
+ * @param num
+ * @return 0
+ */
+uint32_t bn_zero(bn_uint_t *num)
+{
+	uint32_t i;
+	for (i = 0; i < num->length; ++i) {
+		num->number[i] = 0;
+	}
+	return 0;
+}
+
+/**
+ * @brief Check if element a equals b
  * @param a first number to check
  * @param b second number to check
  * @return 0 numbers are equal
@@ -157,47 +221,18 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 	if (b == a) {
 		return 0;
 	}
-	if (b->length != a->length) {
-		return 1;
-	}
-	uint32_t i;
-	for (i = 0; i < a->length; ++i) {
-		if (a->number[i] != b->number[i]) {
-			return 2;
-		}
-	}
-	return 0;
+	return (bn_is_greater(a, b) == 0) ? 0 : 2;
 }
 
-uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length)
-{
-	copy_assert_values()
-	;
-
-	uint32_t i;
-	for (i = 0; i < length; ++i) {
-		to->number[i] = from->number[i];
-	}
-	return 0;
-}
-
-uint32_t bn_inv_bits(bn_uint_t *to)
-{
-	uint32_t i;
-	for (i = 0; i < to->length; ++i) {
-		to->number[i] = ~to->number[i];
-	}
-	return 0;
-}
-
-uint32_t bn_zero(bn_uint_t *num)
-{
-	uint32_t i;
-	for (i = 0; i < num->length; ++i) {
-		num->number[i] = 0;
-	}
-	return 0;
-}
+/**
+ * @brief Check if element a is greater than b
+ * @param a first number to check
+ * @param b second number to check
+ * @return 0 numbers are equal
+ * @return 1 element a is greater than b
+ * @return 2 element a is smaller than b
+ * @return 3 size a and b mismatch
+ */
 
 uint32_t bn_is_greater(bn_uint_t *a, bn_uint_t *b)
 {

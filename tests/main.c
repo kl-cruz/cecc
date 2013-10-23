@@ -37,17 +37,34 @@ void execute_function_with_count_time(void (*function)(void))
 int main(void)
 {
 	init();
-	fm_printf("###################\n");
-	fm_printf("# Start tests     #\n");
-	fm_printf("###################\n");
+	info("###################\n");
+	info("# Start tests     #\n");
+	info("###################\n");
 
 	//execute_function_with_count_time(tests);
+	info("----------------------TEST ADD--------------------------------------------\n");
 	test_add();
+	info("----------------------TEST ADD2-------------------------------------------\n");
+	test_add2();
+	info("----------------------TEST ADD3-------------------------------------------\n");
+	test_add3();
+	info("----------------------TEST SUB--------------------------------------------\n");
 	test_sub();
-	test_mul();
+	info("----------------------TEST SUB2-------------------------------------------\n");
+	test_sub2();
 
-	fm_printf("###################\n");
-	fm_printf("# Finish tests    #\n");
-	fm_printf("###################\n");
+	/*
+	info("----------------------TEST MUL--------------------------------------------\n");
+	test_mul();*/
+
+	info("----------------------TEST FIELD SUB--------------------------------------\n");
+	//test_field_sub();
+	test_field_sub2();
+	info("----------------------TEST FIELD ADD--------------------------------------\n");
+	test_field_add();
+
+	info("###################\n");
+	info("# Finish tests    #\n");
+	info("###################\n");
 	return 0;
 }

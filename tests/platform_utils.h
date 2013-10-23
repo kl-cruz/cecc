@@ -30,11 +30,19 @@ int ch_putchar(int c);
 #include "format.h"
 #include "format_printf.h"
 
+#ifndef PRINT_INFO_DISABLE
 
+#define error(_format, ...) fm_printf("\nERROR: %d :" # _format, __LINE__, ##__VA_ARGS__)
+#define warn(_format, ...)  fm_printf("\nWARN: %d :" #  _format, __LINE__, ##__VA_ARGS__)
+#define info(_format, ...)  fm_printf("\nINFO: %d :" # _format, __LINE__, ##__VA_ARGS__)
+#define debug(_format, ...) fm_printf("\nDEBUG: %d :"# _format, __LINE__, ##__VA_ARGS__)
 
-#define error(_format, ...) fm_printf("\nERROR: %d :" _format, __LINE__, ##__VA_ARGS__)
-#define warn(_format, ...)  fm_printf("\nWARN: %d :"  _format, __LINE__, ##__VA_ARGS__)
-#define info(_format, ...)  fm_printf(_format, ##__VA_ARGS__)
+#else
+#define error(_format, ...)
+#define warn(_format, ...)
+#define info(_format, ...)
+#define debug(_format, ...)
+#endif
 
 #define UNUSED(x)   (void)(x);
 

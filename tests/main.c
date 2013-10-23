@@ -8,22 +8,29 @@
  */
 
 #include "platform_utils.h"
-#include "seatest.h"
+
 
 //tests
 #include "test_example.h"
 #include  "test_bignum.h"
+#include "seatest.h"
 
-void lol(void)
+void tests_bignumber()
 {
-	assert_true(test_example() == 1);
+	assert_true(test_add() == 0);
+	assert_true(test_add2() == 0);
+	assert_true(test_sub() == 0);
+	assert_true(test_sub2() == 0);
+	assert_true(test_mul() == 0);
+	assert_true(test_field_add() == 0);
+	assert_true(test_field_sub() == 0);
+//	assert_true(test_field__sub2() == 0);
+
 }
 
 void tests(void)
 {
-	test_fixture_start();
-	run_test(lol);
-	test_fixture_end();
+	run_test(tests_bignumber);
 }
 
 void execute_function_with_count_time(void (*function)(void))
@@ -36,32 +43,39 @@ void execute_function_with_count_time(void (*function)(void))
 
 int main(void)
 {
+
 	init();
-	info("###################\n");
+
+	test_fixture_start()
+	;
+	run_test(tests_bignumber);
+	test_fixture_end()
+	;
+
+	/*info("###################\n");
 	info("# Start tests     #\n");
-	info("###################\n");
+	info("###################\n");*/
 
-	//execute_function_with_count_time(tests);
-	info("----------------------TEST ADD--------------------------------------------\n");
-	test_add();
-	info("----------------------TEST ADD2-------------------------------------------\n");
-	test_add2();
-	info("----------------------TEST SUB--------------------------------------------\n");
-	test_sub();
-	info("----------------------TEST SUB2-------------------------------------------\n");
-	test_sub2();
-	info("----------------------TEST MUL--------------------------------------------\n");
-	test_mul();
+	/*info("----------------------TEST ADD--------------------------------------------\n");
+	 test_add();
+	 info("----------------------TEST ADD2-------------------------------------------\n");
+	 test_add2();
+	 info("----------------------TEST SUB--------------------------------------------\n");
+	 test_sub();
+	 info("----------------------TEST SUB2-------------------------------------------\n");
+	 test_sub2();
+	 info("----------------------TEST MUL--------------------------------------------\n");
+	 test_mul();
 
-	info("----------------------TEST FIELD SUB--------------------------------------\n");
-	test_field_sub();
-	info("----------------------TEST FIELD SUB3-------------------------------------\n");
-	test_field_sub2();
-	info("----------------------TEST FIELD ADD--------------------------------------\n");
-	test_field_add();
+	 info("----------------------TEST FIELD SUB--------------------------------------\n");
+	 test_field_sub();
+	 info("----------------------TEST FIELD SUB3-------------------------------------\n");
+	 test_field_sub2();
+	 info("----------------------TEST FIELD ADD--------------------------------------\n");
+	 test_field_add();*/
 
-	info("###################\n");
+	/*info("###################\n");
 	info("# Finish tests    #\n");
-	info("###################\n");
+	info("###################\n");*/
 	return 0;
 }

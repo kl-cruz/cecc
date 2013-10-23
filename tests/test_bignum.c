@@ -21,25 +21,24 @@ void print_number(bn_uint_t *a)
 	for (i = a->length; i > 0; --i) {
 		fm_printf("%8x ", a->number[i - 1]);
 	}
+	fm_printf("\n");
 }
 
-void print_values(bn_uint_t *a, bn_uint_t *b, bn_uint_t *res, bn_uint_t *resok)
+int print_values(int num_args, ...)
 {
-	fm_printf("\n\n-----a    :");
-	print_number(a);
-	fm_printf("  -----\n");
+	bn_uint_t *val ;
+   va_list ap;
+   int i;
+   fm_printf("\n");
+   va_start(ap, num_args);
+   for(i = 0; i < num_args; i++)
+   {
+      val = va_arg(ap, bn_uint_t*);
+      print_number(val);
+   }
+   va_end(ap);
 
-	fm_printf("-----b    :");
-	print_number(b);
-	fm_printf("  -----\n");
-
-	fm_printf("-----res  :");
-	print_number(res);
-	fm_printf("  -----\n");
-
-	fm_printf("-----resok:");
-	print_number(resok);
-	fm_printf("  -----\n\n");
+   return val;
 }
 
 uint32_t test_add()
@@ -53,13 +52,13 @@ uint32_t test_add()
 	stop_count_time();
 	uint32_t t = get_us();
 
-	//print_values(&test_a, &test_b, &res, &add_res);
+	//print_values(4,&test_a, &test_b, &res, &add_res);
 	info("Execution time: %d us", t);
 	if (bn_is_equal(&res, &add_res) == 0) {
 		info("Add working!");
 		return 0;
 	} else {
-		info("Add not working! %d", bn_is_equal(&res, &add_res));
+		error("Add not working! %d", bn_is_equal(&res, &add_res));
 		return 1;
 	}
 	return 0;
@@ -82,7 +81,7 @@ uint32_t test_add2()
 		info("Add working!\n");
 		return 0;
 	} else {
-		info("Add not working! %d\n", bn_is_equal(&res, &add_res));
+		error("Add not working! %d\n", bn_is_equal(&res, &add_res));
 		return 1;
 	}
 	return 0;
@@ -106,7 +105,7 @@ uint32_t test_sub()
 		info("Sub working!\n");
 		return 0;
 	} else {
-		info("Sub not working! %d \n", bn_is_equal(&res, &sub_res));
+		error("Sub not working! %d \n", bn_is_equal(&res, &sub_res));
 		return 1;
 	}
 	return 0;
@@ -129,7 +128,7 @@ info("Execution time: %d us\n", t);
 		info("Sub working!\n");
 		return 0;
 	} else {
-		info("Sub not working! %d \n", bn_is_equal(&res, &sub_res));
+		error("Sub not working! %d \n", bn_is_equal(&res, &sub_res));
 		return 1;
 	}
 return 0;
@@ -158,7 +157,7 @@ uint32_t test_mul()
 		info("Mul working!\n");
 		return 0;
 	} else {
-		info("Mul not working!\n");
+		error("Mul not working!\n");
 		return 1;
 	}
 	return 0;
@@ -168,15 +167,22 @@ uint32_t test_field_add()
 {
 	uint32_t res_tab[4] = { 0, 0, 0, 0 };
 	bn_uint_t res = { res_tab,4 };
-
+	info("Start testing a+b mod p");
 	start_count_time();
 	bn_field_add(&test_amod, &test_bmod, &test_p, &res);
 	stop_count_time();
 	uint32_t t = get_us();
-	/*print_values(&test_amod, &test_bmod, &res, &addmod_res);
-	print_values(&test_p, &test_p, &test_p, &test_p);*/
+	//print_values(&test_amod, &test_bmod, &res, &addmod_res);
+	/*print_values(&test_p, &test_p, &test_p, &test_p);*/
 
 	info("Execution time: %d us\n", t);
+	if (bn_is_equal(&res, &addmod_res) == 0) {
+		info("Field add working!\n");
+		return 0;
+	} else {
+		error("Field add not working!\n");
+		return 1;
+	}
 	return 0;
 
 }
@@ -185,13 +191,20 @@ uint32_t test_field_sub()
 {
 	uint32_t res_tab[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 	bn_uint_t res = { res_tab, 4 };
-
+	info("Start testing a-b mod p");
 	start_count_time();
 	bn_field_sub(&test_amod, &test_bmod, &test_p, &res);
 	stop_count_time();
 	uint32_t t = get_us();
 	//print_values(&test_amod, &test_bmod, &res, &submod_res);
-
+	info("Execution time: %d us\n", t);
+	if (bn_is_equal(&res, &submod_res) == 0) {
+		info("Field add working!\n");
+		return 0;
+	} else {
+		error("Field add not working!\n");
+		return 1;
+	}
 	info("Execution time: %d us\n", t);
 	return 0;
 }
@@ -200,7 +213,7 @@ uint32_t test_field_sub2()
 {
 	uint32_t res_tab[4] = { 0, 0, 0, 0};
 	bn_uint_t res = { res_tab, 4 };
-
+	info("Start testing b-a mod p");
 	start_count_time();
 	bn_field_sub(&test_bmod, &test_amod, &test_p, &res);
 	stop_count_time();
@@ -208,6 +221,13 @@ uint32_t test_field_sub2()
 	//print_values(&test_bmod, &test_amod, &res, &submod2_res);
 
 	info("Execution time: %d us\n", t);
+	if (bn_is_equal(&res, &submod2_res) == 0) {
+		info("Field add working!\n");
+		return 0;
+	} else {
+		error("Field add not working!\n");
+		return 1;
+	}
 	return 0;
 
 }

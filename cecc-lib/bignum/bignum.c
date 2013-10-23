@@ -15,7 +15,6 @@
 						assert(a != result); \
 						assert(b != result); \
 						assert(b->length == a->length)
-//assert(result->length == a->length)
 
 #define copy_assert_values() 	assert(from != to); \
 								assert(from->length >= length); \
@@ -41,8 +40,6 @@ uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 		if (i < b->length) {
 			temp += (uint64_t) b->number[i];
 		}
-
-		//	temp += (uint64_t) a->number[i] + b->number[i];
 		result->number[i] = temp;
 		temp = (temp >> 32);
 	}
@@ -118,16 +115,10 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	assert(a != result);
 	assert(b != result);
 	assert(result->length >= p->length);
-	//assert_values();
-	/*int len = a->length;
-	 bn_uint_t result_temp = BN_INIT(6);*/
-	uint32_t tab[a->length + 1];
-	bn_uint_t result_temp = { .number = tab, .length = a->length + 1 };
-	//debug("About variable: [len=%d, pointer=%p]", result_temp.length, &result_temp);
-	uint32_t carry;
 
-	carry = bn_add(a, b, &result_temp);
-	//result->number[4] = carry;
+	BN_CREATE_VARIABLE(result_temp,a->length+1);
+
+	bn_add(a, b, &result_temp);
 
 	if (bn_is_greater(&result_temp, p) == 1) {
 		bn_sub(&result_temp, p, &result_temp);
@@ -139,14 +130,8 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 
 uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
-	//assert_values();
-	/*int len = result->length;
-	 bn_uint_t *result_temp = ( {uint32_t test[len];
-	 bn_uint_t rest= {.number = test, .length = len};
-	 &rest;});*/
 
-	uint32_t res_tab[5] = { 0, 0, 0, 0, 0 };
-	bn_uint_t result_temp = { res_tab, 5 };
+	BN_CREATE_VARIABLE(result_temp,result->length);
 
 	//count number
 	uint32_t borrow;
@@ -158,13 +143,6 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	}
 	return 0;
 }
-
-//Mersenne prime modulus
-/*uint32_t bn_a_mod_p(bn_uint_t *a, bn_uint_t *p)
- {
-
- return 0;
- }*/
 
 /**
  *
@@ -215,9 +193,7 @@ uint32_t bn_inv_bits(bn_uint_t *to)
 uint32_t bn_zero(bn_uint_t *num)
 {
 	uint32_t i;
-	debug("trying to zeroed number");
 	for (i = 0; i < num->length; ++i) {
-		debug("iteration: %d", i);
 		num->number[i] = 0;
 	}
 	return 0;

@@ -32,10 +32,10 @@ int ch_putchar(int c);
 
 #ifndef PRINT_INFO_DISABLE
 
-#define error(_format, ...) fm_printf("\nERROR: %d :" # _format, __LINE__, ##__VA_ARGS__)
-#define warn(_format, ...)  fm_printf("\nWARN: %d :" #  _format, __LINE__, ##__VA_ARGS__)
-#define info(_format, ...)  fm_printf("\nINFO: %d :" # _format, __LINE__, ##__VA_ARGS__)
-#define debug(_format, ...) fm_printf("\nDEBUG: %d :"# _format, __LINE__, ##__VA_ARGS__)
+#define error(_format, ...) fm_printf("\nERROR: %s [%d] :" # _format, __FILE__,__LINE__, ##__VA_ARGS__)
+#define warn(_format, ...)  fm_printf("\nWARN: %s [%d] :" #  _format, __FILE__,__LINE__, ##__VA_ARGS__)
+#define info(_format, ...)  fm_printf("\nINFO: %s [%d] :" # _format, __FILE__,__LINE__, ##__VA_ARGS__)
+#define debug(_format, ...) fm_printf("\nDEBUG: %s [%d] :"# _format, __FILE__,__LINE__, ##__VA_ARGS__)
 
 #else
 #define error(_format, ...)

@@ -249,7 +249,7 @@ void seatest_header_printer(char* s, int length, char f)
 	for (i = (d + l + 2); i < length; i++)
 		buffer[i] = f;
 
-	info(buffer);
+	info("%s",buffer);
 }
 
 void seatest_test_fixture_start(char* filepath)
@@ -265,7 +265,6 @@ void seatest_test_fixture_start(char* filepath)
 
 void seatest_test_fixture_end()
 {
-
 	if (seatest_machine_readable) {
 		info("summary,%s,%d,%d",seatest_current_fixture,sea_tests_run-seatest_fixture_tests_run, sea_tests_failed-seatest_fixture_tests_failed);
 	} else {
@@ -376,7 +375,7 @@ void seatest_assert_last_passed()
 void seatest_assert_last_failed()
 {
 	assert_int_equal(0, sea_test_last_passed);
-}
+}*/
 
 void seatest_disable_logging()
 {

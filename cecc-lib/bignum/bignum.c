@@ -104,11 +104,6 @@ uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 	return 0;
 }
 
-uint32_t bn_inv()
-{
-	return 0;
-}
-
 /**
  * @brief
  * @param a addend
@@ -120,9 +115,9 @@ uint32_t bn_inv()
 
 uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
-	assert(b != a);
+	/*assert(b != a);
 	assert(a != result);
-	assert(b != result);
+	assert(b != result);*/
 	assert(result->length >= p->length);
 
 	BN_CREATE_VARIABLE(result_temp, a->length + 1);
@@ -147,16 +142,63 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
  */
 uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
-
-	BN_CREATE_VARIABLE(result_temp, result->length);
-
 	//count number
 	uint32_t borrow;
 
 	borrow = bn_sub(a, b, result);
 	if (borrow == 1) {
-		bn_add(result, p, &result_temp);
-		bn_copy(&result_temp, result, result->length);
+		bn_add(result, p, result);
+	}
+	return 0;
+}
+
+/**
+ * @brief Function to inverse number and count modulo p -> 1/a mod p. Function uses extended euclidean algorithm
+ * @param a
+ * @param p
+ * @param result
+ * @return
+ */
+uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
+{
+	BN_CREATE_VARIABLE(u, a->length);
+	BN_CREATE_VARIABLE(v, p->length);
+	BN_CREATE_VARIABLE(x1, a->length);
+	BN_CREATE_VARIABLE(x2, a->length);
+	while ((bn_is_one(&u) == 0) && (bn_is_one(&v) == 0)) {
+		while (bn_is_even(&u)) {
+			bn_shr(&u);
+			if (bn_is_even(&x1)) {
+				bn_shr(&x1);
+			} else {
+				bn_field_add(&x1, p, p, &x1);
+				bn_shr(&x1);
+			}
+		}
+		while (bn_is_even(&v)) {
+			bn_shr(&v);
+			if (bn_is_even(&x2)) {
+				bn_shr(&x2);
+			} else {
+				bn_field_add(&x2, p, p, &x2);
+				bn_shr(&x2);
+			}
+		}
+		if (bn_is_greater(&u, &v)) {
+			bn_field_sub(&u, &v, p, &u);
+			bn_field_sub(&x1, &x2, p, &x1);
+		} else {
+			bn_field_sub(&v, &u, p, &v);
+			bn_field_sub(&x2, &x1, p, &x2);
+		}
+	}
+	if(bn_is_one(&u))
+	{
+		bn_copy(&x1,result,x1.length);
+	}
+	else
+	{
+		bn_copy(&x2,result,x1.length);
 	}
 	return 0;
 }
@@ -204,6 +246,23 @@ uint32_t bn_zero(bn_uint_t *num)
 	uint32_t i;
 	for (i = 0; i < num->length; ++i) {
 		num->number[i] = 0;
+	}
+	return 0;
+}
+
+/**
+ * @brief Shift right
+ * @param num number
+ * @return 0
+ */
+uint32_t bn_shr(bn_uint_t *num)
+{
+	uint32_t i;
+	num->number[0] = num->number[0] >> 1;
+	for (i = 1; i < num->length; ++i) {
+		num->number[i - 1] &= ~(num->number[i - 1] & 0x80000000); //zero MSB
+		num->number[i - 1] |= (num->number[i] & 0x1) << 31;
+		num->number[i] = num->number[i] >> 1;
 	}
 	return 0;
 }
@@ -258,3 +317,71 @@ uint32_t bn_is_greater(bn_uint_t *a, bn_uint_t *b)
 	}
 	return 0;
 }
+/**
+ * @brief Check if number equals 1
+ * @param num
+ * @return
+ */
+uint32_t bn_is_one(bn_uint_t *num)
+{
+	uint32_t i;
+	for (i = 1; i < num->length; ++i) {
+		if (num->number[i] != 0) {
+			return 0;
+		}
+	}
+	if (num->number[i] == 1) {
+		return 1;
+	}
+	return 0;
+}
+
+/**
+ * @brief Check if number is odd
+ * @param num
+ * @return
+ */
+uint32_t bn_is_odd(bn_uint_t *num)
+{
+	if ((num->number[num->length - 1] & 0x1) == 1) {
+		return 1;
+	}
+	return 0;
+}
+
+/**
+ * @brief Check if number is even
+ * @param num
+ * @return
+ */
+uint32_t bn_is_even(bn_uint_t *num)
+{
+	return bn_is_odd(num) == 1 ? 0 : 1;
+}
+
+/**
+ * @brief Slow but properly working modulus algorithm
+ * @param num
+ * @param p
+ * @param result
+ * @return
+ */
+uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p, bn_uint_t *result)
+{
+	bn_copy(num, result, result->length);
+	if (is_number_positive) {
+		while (bn_is_greater(result, p) == 1) {
+			bn_sub(result, p, result);
+		}
+	} else {
+		/*
+		 * Strange condition, but negative number (unsigned integer) is represented as big number (variable underflow):
+		 * 0x01-0x02 = -0x01 but it is represented as 0xFF
+		 */
+		while (bn_is_greater(result, p) == 1) {
+			bn_add(result, p, result);
+		}
+	}
+	return 0;
+}
+

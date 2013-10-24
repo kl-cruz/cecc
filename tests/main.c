@@ -17,6 +17,8 @@
 
 void tests_bignumber()
 {
+
+	assert_true(test_shr() == 0);
 	assert_true(test_add() == 0);
 	assert_true(test_add2() == 0);
 	assert_true(test_sub() == 0);
@@ -25,6 +27,8 @@ void tests_bignumber()
 	assert_true(test_field_add() == 0);
 	assert_true(test_field_sub() == 0);
 	assert_true(test_field_sub2() == 0);
+	//assert_true(test_field_inv() == 0);
+
 
 }
 

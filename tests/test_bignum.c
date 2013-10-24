@@ -177,3 +177,38 @@ uint32_t test_field_sub2()
 
 }
 
+uint32_t test_field_inv()
+{
+	uint32_t res_tab[4] = { 0, 0, 0, 0 };
+	bn_uint_t res = { res_tab, 4 };
+	info("Start testing a^-1 mod p");
+	start_count_time();
+	bn_field_inverse(&test_amod,&test_p,&res);
+	stop_count_time();
+	uint32_t t = get_us();
+	//print_values(&test_bmod, &test_amod, &res, &submod2_res);
+
+	info("Execution time: %d us", t);
+	info("--------------------------------------------", t);
+	return bn_is_equal(&res, &a1_modp_res);
+
+}
+
+uint32_t test_shr()
+{
+	uint32_t res_tab[4] = { 0, 0, 0, 0 };
+	bn_uint_t res = { res_tab, 4 };
+	info("Start testing a >> 1");
+	start_count_time();
+	bn_copy(&test_amod,&res,res.length);
+	bn_shr(&res);
+	stop_count_time();
+	uint32_t t = get_us();
+	//print_values(2, &test_amod, &res);
+
+	info("Execution time: %d us", t);
+	info("--------------------------------------------", t);
+	return bn_is_equal(&res, &a_shr_1_res);
+
+}
+

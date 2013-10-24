@@ -66,6 +66,10 @@ uint32_t res_sub_amod_bmod_modp[4] = { 0xcbcb0b64, 0x34f1de24, 0x711d5987, 0x12b
 uint32_t res_sub2_amod_bmod_modp[4] = { 0x3434f49b, 0xcb0e21db, 0x8ee2a676, 0xed4a2e86 };
 //7bddab77 95860698 aa67d3a2 89bf7011
 uint32_t res_add_amod_bmod_modp[4] = { 0x89bf7011, 0xaa67d3a2, 0x9586067a, 0x7bddab77 };
+//0x3257ccb2 ba247274 563c9063 f92a1d5b
+uint32_t res_amod_inv_modp[4] = { 0xf92a1d5b, 0x563c9063, 0xba247274, 0x3257ccb2 };
+//0x63a4df3c 41a8d7ff f7d66c71 d5629edd
+uint32_t res_a_shr1[4] = { 0xd5629edd, 0xf7d66c71, 0x41a8d7ff, 0x63a4df3c };
 
 bn_uint_t test_amod = { test_tab_amod, 4 };
 bn_uint_t test_bmod = { test_tab_bmod, 4 };
@@ -74,5 +78,7 @@ bn_uint_t test_p = { test_tab_p, 4 };
 bn_uint_t submod_res = { res_sub_amod_bmod_modp, 4 };
 bn_uint_t submod2_res = { res_sub2_amod_bmod_modp, 4 };
 bn_uint_t addmod_res = { res_add_amod_bmod_modp, 4};
+bn_uint_t a1_modp_res = { res_amod_inv_modp, 4};
+bn_uint_t a_shr_1_res = { res_a_shr1, 4};
 
 #endif /* TEST_BIGNUM_VALUES_H_ */

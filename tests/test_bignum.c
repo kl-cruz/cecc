@@ -39,151 +39,93 @@ int print_values(int num_args, ...)
 	return 0;
 }
 
-uint32_t test_add()
+uint32_t test_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
-	uint32_t res_tab[8] = { 0, 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 8 };
+	BN_CREATE_VARIABLE(res, expected_result->length);
 
 	info("Start testing a+b");
 	start_count_time();
-	bn_add(&test_a, &test_b, &res);
+	bn_add(a, b, &res);
 	stop_count_time();
 	uint32_t t = get_us();
 
 	//print_values(4,&test_a, &test_b, &res, &add_res);
 	info("Execution time: %d us", t);
 	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &add_res);
+	return bn_is_equal(&res, expected_result);
 
 }
 
-uint32_t test_add2()
+uint32_t test_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
-	uint32_t res_tab[8] = { 0 };
-	bn_uint_t res = { res_tab, 8 };
-
-	info("Start testing b+a");
-	start_count_time();
-	bn_add(&test_amod, &test_bmod, &res);
-	stop_count_time();
-	uint32_t t = get_us();
-
-	//print_values(&test_b, &test_a, &res, &add_res);
-	info("Execution time: %d us", t);
-	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &add_res);
-
-}
-
-uint32_t test_sub()
-{
-	uint32_t res_tab[8] = { 0, 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 8 };
+	BN_CREATE_VARIABLE(res, expected_result->length);
 	info("Start testing b-a");
+	bn_zero(&res);
 	start_count_time();
-	bn_sub(&test_b, &test_a, &res);
+	bn_sub(a, b, &res);
 	stop_count_time();
 	uint32_t t = get_us();
 
-	//print_values(&test_b, &test_a, &res, &sub_res);
+	//print_values(4,a,b, &res, expected_result);
 
 	info("Execution time: %d us", t);
 	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &sub_res);
+	return bn_is_equal(&res, expected_result);
 
 }
 
-uint32_t test_sub2()
+uint32_t test_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
-	uint32_t res_tab[8] = { 0, 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 8 };
-	info("Start testing a-b");
-	start_count_time();
-	bn_sub(&test_a, &test_b, &res);
-	stop_count_time();
-	uint32_t t = get_us();
-
-	//print_values(&test_a, &test_b, &res, &sub_res2);
-
-	info("Execution time: %d us", t);
-	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &sub_res2);
-
-}
-
-uint32_t test_mul()
-{
-	uint32_t res_tab[8] = { 0, 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 8 };
+	BN_CREATE_VARIABLE(res, expected_result->length);
 	info("Start testing a*b");
 	start_count_time();
-	bn_mul(&test_b, &test_a, &res);
+	bn_mul(a, b, &res);
 	stop_count_time();
 	uint32_t t = get_us();
 
+	//print_values(4,a,b, &res, expected_result);
 	info("Execution time: %d us", t);
 	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &mul_res);
+	return bn_is_equal(&res, expected_result);
 }
 
-uint32_t test_field_add()
+uint32_t test_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
 {
-	uint32_t res_tab[4] = { 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 4 };
+	BN_CREATE_VARIABLE(res, expected_result->length);
 	info("Start testing a+b mod p");
 	start_count_time();
-	bn_field_add(&test_amod, &test_bmod, &test_p, &res);
+	bn_field_add(a, b, p, &res);
 	stop_count_time();
 	uint32_t t = get_us();
-	//print_values(&test_amod, &test_bmod, &res, &addmod_res);
-	/*print_values(&test_p, &test_p, &test_p, &test_p);*/
+	//print_values(4,a,b, &res, expected_result);
 
 	info("Execution time: %d us", t);
 	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &addmod_res);
+	return bn_is_equal(&res, expected_result);
 
 }
 
-uint32_t test_field_sub()
+uint32_t test_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
 {
-	uint32_t res_tab[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 4 };
+	BN_CREATE_VARIABLE(res, expected_result->length);
 	info("Start testing a-b mod p");
 	start_count_time();
-	bn_field_sub(&test_amod, &test_bmod, &test_p, &res);
+	bn_field_sub(a, b, p, &res);
 	stop_count_time();
 	uint32_t t = get_us();
-	//print_values(&test_amod, &test_bmod, &res, &submod_res);
+	//print_values(4, a, b, &res, expected_result);
 	info("Execution time: %d us", t);
 	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &submod_res);
+	return bn_is_equal(&res, expected_result);
 
 }
 
-uint32_t test_field_sub2()
+uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
 {
-	uint32_t res_tab[4] = { 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 4 };
-	info("Start testing b-a mod p");
-	start_count_time();
-	bn_field_sub(&test_bmod, &test_amod, &test_p, &res);
-	stop_count_time();
-	uint32_t t = get_us();
-	//print_values(&test_bmod, &test_amod, &res, &submod2_res);
-
-	info("Execution time: %d us", t);
-	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &submod2_res);
-
-}
-
-uint32_t test_field_inv()
-{
-	uint32_t res_tab[4] = { 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 4 };
+	BN_CREATE_VARIABLE(res, expected_result->length);
 	info("Start testing a^-1 mod p");
 	start_count_time();
-	bn_field_inverse(&test_amod,&test_p,&res);
+	bn_field_inverse(&test_amod, &test_p, &res);
 	stop_count_time();
 	uint32_t t = get_us();
 	//print_values(&test_bmod, &test_amod, &res, &submod2_res);
@@ -194,13 +136,12 @@ uint32_t test_field_inv()
 
 }
 
-uint32_t test_shr()
+uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
 {
-	uint32_t res_tab[4] = { 0, 0, 0, 0 };
-	bn_uint_t res = { res_tab, 4 };
+	BN_CREATE_VARIABLE(res, a->length);
 	info("Start testing a >> 1");
 	start_count_time();
-	bn_copy(&test_amod,&res,res.length);
+	bn_copy(a, &res, res.length);
 	bn_shr(&res);
 	stop_count_time();
 	uint32_t t = get_us();
@@ -208,7 +149,7 @@ uint32_t test_shr()
 
 	info("Execution time: %d us", t);
 	info("--------------------------------------------", t);
-	return bn_is_equal(&res, &a_shr_1_res);
+	return bn_is_equal(&res, expected_result);
 
 }
 

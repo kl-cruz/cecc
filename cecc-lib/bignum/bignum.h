@@ -48,5 +48,6 @@ uint32_t bn_is_odd(bn_uint_t *num);
 uint32_t bn_is_even(bn_uint_t *num);
 uint32_t bn_shr(bn_uint_t *num);
 uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p, bn_uint_t *result);
+int bn_print_values(int num_args, ...);
 
 #endif /* BIGNUM_H_ */

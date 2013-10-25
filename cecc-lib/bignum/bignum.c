@@ -116,8 +116,8 @@ uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
 	/*assert(b != a);
-	assert(a != result);
-	assert(b != result);*/
+	 assert(a != result);
+	 assert(b != result);*/
 	assert(result->length >= p->length);
 
 	BN_CREATE_VARIABLE(result_temp, a->length + 1);
@@ -142,13 +142,45 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
  */
 uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
-	//count number
-	uint32_t borrow;
+	uint32_t carry, i;
+	carry = 0;
+	for (i = 0; i < result->length; i++) {
 
-	borrow = bn_sub(a, b, result);
-	if (borrow == 1) {
-		bn_add(result, p, result);
+		if (a->number[i] >= b->number[i]) {
+			result->number[i] = a->number[i] - b->number[i];
+			if ((result->number[i] == 0x0) && (carry == 0x1))
+				result->number[i] = 0xffffffff;
+			else {
+				result->number[i] -= carry;
+				carry = 0x0;
+			}
+		} else {
+			result->number[i] = a->number[i] + ~(b->number[i]) + 0x1 - carry;
+			carry = 0x1;
+		}
+		/*info("iteration: %d", i);
+		print_values(1, result);*/
 	}
+	//info("all info");
+	//print_values(4, a, b, p, result);
+	//while ((carry == 0x1) || (bn_is_greater(result, p) == 1)) {
+	if (carry == 0x1) {
+			bn_add(result, p, result);
+			//print_values(2, result,p);
+		}
+	while (bn_is_greater(result, p) ==1) {
+			bn_add(result, p, result);
+			//print_values(2, result,p);
+		}
+	//info("end func");
+	/*
+	 //count number
+	 uint32_t borrow;
+
+	 borrow = bn_sub(a, b, result);
+	 if (borrow == 1) {
+	 bn_add(result, p, result);
+	 }*/
 	return 0;
 }
 
@@ -161,12 +193,21 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
  */
 uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 {
+	//TODO można zastąpić x1 lub x2 zmienną result. mniej miejsca w pamięci i szybsze będzie
+	uint32_t i;
 	BN_CREATE_VARIABLE(u, a->length);
 	BN_CREATE_VARIABLE(v, p->length);
 	BN_CREATE_VARIABLE(x1, a->length);
 	BN_CREATE_VARIABLE(x2, a->length);
-	while ((bn_is_one(&u) == 0) && (bn_is_one(&v) == 0)) {
+	while ((bn_is_one(&u) || bn_is_one(&v) == 0)) {
+		for (i = 0; i < u.length; ++i) {
+			debug("u[%d]=%8x", i, u.number[i]);
+		}
+		for (i = 0; i < v.length; ++i) {
+			debug("v[%d]=%8x", i, v.number[i]);
+		}
 		while (bn_is_even(&u)) {
+			//debug("2");
 			bn_shr(&u);
 			if (bn_is_even(&x1)) {
 				bn_shr(&x1);
@@ -176,6 +217,7 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 			}
 		}
 		while (bn_is_even(&v)) {
+			//debug("3");
 			bn_shr(&v);
 			if (bn_is_even(&x2)) {
 				bn_shr(&x2);
@@ -185,20 +227,19 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 			}
 		}
 		if (bn_is_greater(&u, &v)) {
+			debug("u>v");
 			bn_field_sub(&u, &v, p, &u);
 			bn_field_sub(&x1, &x2, p, &x1);
 		} else {
+			debug("u<=v");
 			bn_field_sub(&v, &u, p, &v);
 			bn_field_sub(&x2, &x1, p, &x2);
 		}
 	}
-	if(bn_is_one(&u))
-	{
-		bn_copy(&x1,result,x1.length);
-	}
-	else
-	{
-		bn_copy(&x2,result,x1.length);
+	if (bn_is_one(&u)) {
+		bn_copy(&x1, result, x1.length);
+	} else {
+		bn_copy(&x2, result, x1.length);
 	}
 	return 0;
 }
@@ -277,10 +318,18 @@ uint32_t bn_shr(bn_uint_t *num)
  */
 uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 {
+	if (b->length != a->length) {
+		return 1;
+	}
 	if (b == a) {
 		return 0;
 	}
-	return (bn_is_greater(a, b) == 0) ? 0 : 2;
+	if (bn_is_greater(a, b) == 0) {
+		return 0;
+	}
+	info("Values not equal! a and b:");
+	bn_print_values(2, a, b);
+	return 2;
 }
 
 /**
@@ -343,7 +392,7 @@ uint32_t bn_is_one(bn_uint_t *num)
  */
 uint32_t bn_is_odd(bn_uint_t *num)
 {
-	if ((num->number[num->length - 1] & 0x1) == 1) {
+	if ((num->number[0] & 0x1) == 1) {
 		return 1;
 	}
 	return 0;
@@ -382,6 +431,31 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p, bn_ui
 			bn_add(result, p, result);
 		}
 	}
+	return 0;
+}
+
+void bn_print_number(bn_uint_t *a)
+{
+	uint32_t i = 0;
+	for (i = a->length; i > 0; --i) {
+		fm_printf("%8x ", a->number[i - 1]);
+	}
+	fm_printf("\n");
+}
+
+int bn_print_values(int num_args, ...)
+{
+	bn_uint_t *val;
+	va_list ap;
+	int i;
+	fm_printf("\n");
+	va_start(ap, num_args);
+	for (i = 0; i < num_args; i++) {
+		val = va_arg(ap, bn_uint_t*);
+		bn_print_number(val);
+	}
+	va_end(ap);
+
 	return 0;
 }
 

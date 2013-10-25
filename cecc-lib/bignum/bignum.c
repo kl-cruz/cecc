@@ -71,6 +71,9 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 		}
 		borrow = ((uint32_t) (temp >> 32)) & 0x1;
 	}
+	if (result->length > a->length) {
+		result->number[a->length] = temp >> 32;
+	}
 	return borrow;
 }
 
@@ -142,45 +145,37 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
  */
 uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result)
 {
-	uint32_t carry, i;
-	carry = 0;
-	for (i = 0; i < result->length; i++) {
+	/*result is number with length > a->length to reach some kind of precision on variable underflow
+	 * what does it mean...
+	 * imagine that we have got numbers like this:
+	 * a (32bit)=  0x527153b62ff316b846b7dab4861eff01
+	 * b (32bit)=  0xf42f2dcd176364c40ba6233d4bfd9153
+	 * p (32bit)=  0xffffffffab4325642feda869a8b80ef9
+	 * res (32bit)=0x5e4225e9188fb1f43b11b7773a216dae
+	 *
+	 * with first look everything is ok, but is't a little glitch.
+	 * Resolution 32bit for result is too small to show borrow (it is necessary to properly working)
+	 * and with this small glitch it looks good. Now look at res with 48 bit resolution
+	 * res (48bit)=0xffffffff5e4225e9188fb1f43b11b7773a216dae
+	 * and compare it with p, also 48 bit:
+	 * p (48bit)=  0x00000000ffffffffab4325642feda869a8b80ef9
+	 * Now operation res mod p show what we must do to properly count the number ;)
+	 *
+	 * Other libraries forget about this little glitch. I don't know why...
+	 *
+	*/
 
-		if (a->number[i] >= b->number[i]) {
-			result->number[i] = a->number[i] - b->number[i];
-			if ((result->number[i] == 0x0) && (carry == 0x1))
-				result->number[i] = 0xffffffff;
-			else {
-				result->number[i] -= carry;
-				carry = 0x0;
-			}
-		} else {
-			result->number[i] = a->number[i] + ~(b->number[i]) + 0x1 - carry;
-			carry = 0x1;
-		}
-		/*info("iteration: %d", i);
-		print_values(1, result);*/
+
+	BN_CREATE_VARIABLE(res, a->length + 1);
+
+	bn_zero(&res);
+
+	bn_sub(a, b, &res);
+	while (bn_is_greater(&res, p) == 1) {
+		bn_add(&res, p, &res);
 	}
-	//info("all info");
-	//print_values(4, a, b, p, result);
-	//while ((carry == 0x1) || (bn_is_greater(result, p) == 1)) {
-	if (carry == 0x1) {
-			bn_add(result, p, result);
-			//print_values(2, result,p);
-		}
-	while (bn_is_greater(result, p) ==1) {
-			bn_add(result, p, result);
-			//print_values(2, result,p);
-		}
-	//info("end func");
-	/*
-	 //count number
-	 uint32_t borrow;
+	bn_copy(&res,result,result->length);
 
-	 borrow = bn_sub(a, b, result);
-	 if (borrow == 1) {
-	 bn_add(result, p, result);
-	 }*/
 	return 0;
 }
 

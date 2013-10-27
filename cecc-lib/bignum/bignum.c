@@ -41,8 +41,15 @@ uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 			temp += (uint64_t) b->number[i];
 		}
 		result->number[i] = temp;
+		//debug("temp_bef:%x result[%d]=%x", temp, i, result->number[i]);
 		temp = (temp >> 32);
+		//debug("temp_aft:%x", temp);
+
 	}
+	/*if (result->length > a->length) {
+	 result->number[a->length] = temp;
+	 //TODO ogarnąć bo tutaj jest jakiś bug
+	 }*/
 
 	return temp;
 }
@@ -123,14 +130,42 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	 assert(b != result);*/
 	assert(result->length >= p->length);
 
-	BN_CREATE_VARIABLE(result_temp, a->length + 1);
+	BN_CREATE_VARIABLE(res, a->length + 1);
+	bn_zero(&res);
+	uint32_t carry;
+	carry = bn_add(a, b, &res);
 
-	bn_add(a, b, &result_temp);
+	/*debug("carry=%d", carry);
+	print_values(4, a, b, p, &res);*/
+	bn_copy(&res, result, result->length);
+	if (res.number[res.length-1]>0) {
+		uint32_t number;
+		do {
+			number = result->number[result->length - 1];
+			bn_sub(result, p, result);
+		//	debug("result:%x number:%x",result->number[result->length - 1],number);
 
-	if (bn_is_greater(&result_temp, p) == 1) {
-		bn_sub(&result_temp, p, &result_temp);
+		} while (result->number[result->length - 1] < number);
+
 	}
-	bn_copy(&result_temp, result, result->length);
+	//debug("result without carry:");
+	//print_values(1, result);
+	while (bn_is_greater(result, p) == 1) {
+		bn_sub(result, p, result);
+		//print_values(1, result);
+	}
+
+/*	debug("result and p:");
+		print_values(2, result,p);*/
+
+	/*
+	 if (bn_is_greater(&res, p) == 1) {
+	 bn_sub(&res, p, &res);
+	 print_values(1,&res);
+	 }
+	 //bn_mod(result, 1, p);
+
+	 bn_copy(&res, result, result->length);*/
 
 	return 0;
 }
@@ -163,18 +198,39 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	 *
 	 * Other libraries forget about this little glitch. I don't know why...
 	 *
-	*/
+	 */
 
-
+	uint32_t borrow;
 	BN_CREATE_VARIABLE(res, a->length + 1);
-
 	bn_zero(&res);
+	borrow = bn_sub(a, b, &res);
+	debug("borrow:%d", borrow);
 
-	bn_sub(a, b, &res);
-	while (bn_is_greater(&res, p) == 1) {
-		bn_add(&res, p, &res);
+	bn_copy(&res, result, result->length);
+	print_values(5, a, b, p, &res, result);
+	if (borrow == 0) {
+		bn_mod(result, 1, p);
+	} else {
+		bn_mod(result, 0, p);
 	}
-	bn_copy(&res,result,result->length);
+
+	/*if(res.number[res.length-1]==0)
+	 {
+	 while ((bn_is_greater_len(&res, p, p->length)==1))// || (res.number[res.length]>0)) {
+	 {	//while (bn_is_greater(&res, p) == 1) {
+	 bn_sub(&res, p, &res);
+	 print_values(4, a, b, p, &res);
+	 }
+	 }
+	 else //number is <0
+	 {
+
+	 }
+	 while ((bn_is_greater_len(&res, p, p->length)==1))// || (res.number[res.length]>0)) {
+	 {	//while (bn_is_greater(&res, p) == 1) {
+	 bn_add(&res, p, &res);
+	 print_values(4, a, b, p, &res);
+	 }*/
 
 	return 0;
 }
@@ -340,27 +396,57 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 uint32_t bn_is_greater(bn_uint_t *a, bn_uint_t *b)
 {
 	int32_t i;
+	//debug("a.length=%d | b.length=%d ", a->length, b->length);
 	if (a->length - b->length > 1) {
+		//debug("a and b have different lengths [1]");
 		return 3;
 	}
-	if (a->length - b->length == 1) {
-		if (a->number[b->length] != 0)
+	if ((a->length) - (b->length) == 1) {
+		//debug("check a and b [2]");
+		if (a->number[b->length] != 0) {
+			//debug("a is greater than b [2]");
 			return 1;
+		}
 	}
-	if (b->length - a->length == 1) {
-		if (b->number[a->length] != 0)
+	if ((b->length) - (a->length) == 1) {
+		//debug("check a and b [3]");
+		if (b->number[a->length] != 0) {
+			//debug("a is smaller than b [3]");
 			return 2;
+		}
 	}
-	for (i = a->length - 1; i >= 0; --i) {
+	uint32_t range = (a->length > b->length) ? b->length : a->length;
+	for (i = range - 1; i >= 0; --i) {
 		if (a->number[i] > b->number[i]) {
+			//debug("a is greater than b [4]");
 			return 1;
 		}
 		if (a->number[i] < b->number[i]) {
+			//debug("a is smaller than b [5]");
 			return 2;
 		}
 	}
+	//debug("a and b are equal");
 	return 0;
 }
+
+uint32_t bn_is_greater_len(bn_uint_t *a, bn_uint_t *b, uint32_t from)
+{
+	int32_t i;
+	for (i = from - 1; i >= 0; --i) {
+		if (a->number[i] > b->number[i]) {
+			debug("a is greater than b [4]");
+			return 1;
+		}
+		if (a->number[i] < b->number[i]) {
+			debug("a is smaller than b [5]");
+			return 2;
+		}
+	}
+	debug("a and b are equal");
+	return 0;
+}
+
 /**
  * @brief Check if number equals 1
  * @param num
@@ -410,21 +496,34 @@ uint32_t bn_is_even(bn_uint_t *num)
  * @param result
  * @return
  */
-uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p, bn_uint_t *result)
+uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 {
-	bn_copy(num, result, result->length);
+	/*
+	 * algorytm:
+	 * jeśli liczba jest dodatnia to odejmujemy do uzyskania liczby mniejszej niż modulo.
+	 * jeśli liczba jest ujemna to dodajemy aż do uzyskania wyniku mniejszego niż modulo
+	 * */
+	assert(p->length == num->length);
+
+	//bn_copy(num, result, result->length);
 	if (is_number_positive) {
-		while (bn_is_greater(result, p) == 1) {
-			bn_sub(result, p, result);
+		while (bn_is_greater(num, p) == 1) {
+			debug("execute modulus positive");
+			bn_sub(num, p, num);
 		}
 	} else {
 		/*
 		 * Strange condition, but negative number (unsigned integer) is represented as big number (variable underflow):
 		 * 0x01-0x02 = -0x01 but it is represented as 0xFF
 		 */
-		while (bn_is_greater(result, p) == 1) {
-			bn_add(result, p, result);
-		}
+		//add modulo to reach positive number
+		uint32_t last_number;
+		do {
+			last_number = num->number[num->length - 1];
+			debug("execute modulus negative");
+			bn_add(num, p, num);
+
+		} while (last_number < num->number[num->length - 1]);
 	}
 	return 0;
 }

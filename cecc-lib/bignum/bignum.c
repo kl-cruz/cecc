@@ -204,10 +204,10 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	BN_CREATE_VARIABLE(res, a->length + 1);
 	bn_zero(&res);
 	borrow = bn_sub(a, b, &res);
-	debug("borrow:%d", borrow);
+	//debug("borrow:%d", borrow);
 
 	bn_copy(&res, result, result->length);
-	print_values(5, a, b, p, &res, result);
+	//print_values(5, a, b, p, &res, result);
 	if (borrow == 0) {
 		bn_mod(result, 1, p);
 	} else {
@@ -508,7 +508,7 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 	//bn_copy(num, result, result->length);
 	if (is_number_positive) {
 		while (bn_is_greater(num, p) == 1) {
-			debug("execute modulus positive");
+	//		debug("execute modulus positive");
 			bn_sub(num, p, num);
 		}
 	} else {
@@ -520,7 +520,7 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 		uint32_t last_number;
 		do {
 			last_number = num->number[num->length - 1];
-			debug("execute modulus negative");
+//			debug("execute modulus negative");
 			bn_add(num, p, num);
 
 		} while (last_number < num->number[num->length - 1]);

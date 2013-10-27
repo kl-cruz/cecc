@@ -9,3 +9,5 @@ build*
 *~
 *.svn*
 *.dep*
+Generating
+*.jar

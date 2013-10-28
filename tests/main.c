@@ -10,33 +10,68 @@
 #include "platform_utils.h"
 
 //tests
-#include "test_example.h"
 #include  "test_bignum.h"
 #include  "test_bignum_fixtures.h"
 #include "seatest.h"
 
-void tests_bignumber(void)
+void tests_shr(void)
 {
-	/*assert_true(test_shr(&shr_128_a, &res_shr_128) == 0);
-	 assert_true(test_shr(&shr_256_a, &res_shr_256) == 0);
-	 assert_true(test_add(&add128_a, &add128_b, &res_add128) == 0);
-	 assert_true(test_add(&add256_a, &add256_b, &res_add256) == 0);
-	 assert_true(test_sub(&sub128_a, &sub128_b, &res_sub128) == 0);
-	 assert_true(test_sub(&sub256_a, &sub256_b, &res_sub256) == 0);
-
-	 */
-	assert_true(test_field_sub(&sub_mod_p_128_a, &sub_mod_p_128_b, &sub_mod_p_128_p, &res_sub_mod_p_128) == 0);
-	assert_true(test_field_sub(&sub_mod_p_256_a, &sub_mod_p_256_b, &sub_mod_p_256_p, &res_sub_mod_p_256) == 0);
-	//assert_true(test_mul(&mul128_a,&mul128_b,&res_mul128) == 0);
-	//assert_true(test_mul(&mul256_a,&mul256_b,&res_mul256) == 0);
-	assert_true(test_field_add(&add_mod_p_128_a, &add_mod_p_128_b, &add_mod_p_128_p, &res_add_mod_p_128) == 0);
-	assert_true(test_field_add(&add_mod_p_256_a, &add_mod_p_256_b, &add_mod_p_256_p, &res_add_mod_p_256) == 0);
-
+	uint32_t i;
+	for (i = 0; i < shr_128_tab_len; ++i) {
+		assert_true(test_shr(shr_128_test_tab[i][0], shr_128_test_tab[i][1]) == 0);
+	}
+	for (i = 0; i < shr_256_tab_len; ++i) {
+		assert_true(test_shr(shr_256_test_tab[i][0], shr_256_test_tab[i][1]) == 0);
+	}
 }
-
-void tests(void)
+void tests_add(void)
 {
-	run_test(tests_bignumber);
+	uint32_t i;
+	for (i = 0; i < add_128_tab_len; ++i) {
+		assert_true(test_add(add_128_test_tab[i][0], add_128_test_tab[i][1], add_128_test_tab[i][2]) == 0);
+	}
+	for (i = 0; i < add_256_tab_len; ++i) {
+		assert_true(test_add(add_256_test_tab[i][0], add_256_test_tab[i][1], add_256_test_tab[i][2]) == 0);
+	}
+}
+void tests_sub(void)
+{
+	uint32_t i;
+	for (i = 0; i < sub_128_tab_len; ++i) {
+		assert_true(test_sub(sub_128_test_tab[i][0], sub_128_test_tab[i][1], sub_128_test_tab[i][2]) == 0);
+	}
+	for (i = 0; i < sub_256_tab_len; ++i) {
+		assert_true(test_sub(sub_256_test_tab[i][0], sub_256_test_tab[i][1], sub_256_test_tab[i][2]) == 0);
+	}
+}
+void tests_field_add(void)
+{
+	uint32_t i;
+	for (i = 0; i < add_mod_128_tab_len; ++i) {
+		assert_true(
+				test_field_add(add_mod_128_test_tab[i][0], add_mod_128_test_tab[i][1], add_mod_128_test_tab[i][2], add_mod_128_test_tab[i][3]) == 0);
+	}
+	for (i = 0; i < add_mod_256_tab_len; ++i) {
+		assert_true(
+				test_field_add(add_mod_256_test_tab[i][0], add_mod_256_test_tab[i][1], add_mod_256_test_tab[i][2], add_mod_256_test_tab[i][3]) == 0);
+	}
+}
+void tests_field_sub(void)
+{
+	uint32_t i;
+	for (i = 0; i < sub_mod_128_tab_len; ++i) {
+		assert_true(
+				test_field_sub(sub_mod_128_test_tab[i][0], sub_mod_128_test_tab[i][1], sub_mod_128_test_tab[i][2], sub_mod_128_test_tab[i][3]) == 0);
+	}
+	for (i = 0; i < sub_mod_256_tab_len; ++i) {
+		assert_true(
+				test_field_sub(sub_mod_256_test_tab[i][0], sub_mod_256_test_tab[i][1], sub_mod_256_test_tab[i][2], sub_mod_256_test_tab[i][3]) == 0);
+	}
+}
+void tests_field_inv(void)
+{
+	/*assert_true(test_field_inv(&mod_inv_128_a, &mod_inv_128_p, &res_mod_inv_128) == 0);
+	 assert_true(test_field_inv(&mod_inv_256_a, &mod_inv_256_p, &res_mod_inv_256) == 0);*/
 }
 
 int main(void)
@@ -46,7 +81,12 @@ int main(void)
 
 	test_fixture_start()
 	;
-	run_test(tests_bignumber);
+	run_test(tests_shr);
+	run_test(tests_add);
+	run_test(tests_sub);
+	run_test(tests_field_add);
+	run_test(tests_field_sub);
+	run_test(tests_field_inv);
 	test_fixture_end()
 	;
 

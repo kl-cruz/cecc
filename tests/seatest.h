@@ -10,7 +10,7 @@ Defines
 
 #define SEATEST_VERSION            "0.5"
 #define SEATEST_PROJECT_HOME       "http://code.google.com/p/seatest/"
-#define SEATEST_PRINT_BUFFER_SIZE  128
+#define SEATEST_PRINT_BUFFER_SIZE  2048
 
 /*
 Typedefs
@@ -75,6 +75,15 @@ void set_fixture_setup(void (*setup)( void ));
 void set_fixture_teardown(void (*teardown)( void ));
 
 #define run_test(test) do { \
+	suite_setup(); \
+	fixture_setup(); \
+	test(); \
+	fixture_teardown(); \
+	suite_teardown(); \
+	seatest_run_test(__FILE__, #test);  \
+} while (0)
+
+#define run_test_log_xml(test) do { \
 	suite_setup(); \
 	fixture_setup(); \
 	test(); \

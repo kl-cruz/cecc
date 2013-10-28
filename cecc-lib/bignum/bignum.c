@@ -136,36 +136,19 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	carry = bn_add(a, b, &res);
 
 	/*debug("carry=%d", carry);
-	print_values(4, a, b, p, &res);*/
+	 print_values(4, a, b, p, &res);*/
 	bn_copy(&res, result, result->length);
-	if (res.number[res.length-1]>0) {
+	if (res.number[res.length - 1] > 0) {
 		uint32_t number;
 		do {
 			number = result->number[result->length - 1];
 			bn_sub(result, p, result);
-		//	debug("result:%x number:%x",result->number[result->length - 1],number);
-
 		} while (result->number[result->length - 1] < number);
 
 	}
-	//debug("result without carry:");
-	//print_values(1, result);
 	while (bn_is_greater(result, p) == 1) {
 		bn_sub(result, p, result);
-		//print_values(1, result);
 	}
-
-/*	debug("result and p:");
-		print_values(2, result,p);*/
-
-	/*
-	 if (bn_is_greater(&res, p) == 1) {
-	 bn_sub(&res, p, &res);
-	 print_values(1,&res);
-	 }
-	 //bn_mod(result, 1, p);
-
-	 bn_copy(&res, result, result->length);*/
 
 	return 0;
 }
@@ -204,33 +187,13 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	BN_CREATE_VARIABLE(res, a->length + 1);
 	bn_zero(&res);
 	borrow = bn_sub(a, b, &res);
-	//debug("borrow:%d", borrow);
 
 	bn_copy(&res, result, result->length);
-	//print_values(5, a, b, p, &res, result);
 	if (borrow == 0) {
 		bn_mod(result, 1, p);
 	} else {
 		bn_mod(result, 0, p);
 	}
-
-	/*if(res.number[res.length-1]==0)
-	 {
-	 while ((bn_is_greater_len(&res, p, p->length)==1))// || (res.number[res.length]>0)) {
-	 {	//while (bn_is_greater(&res, p) == 1) {
-	 bn_sub(&res, p, &res);
-	 print_values(4, a, b, p, &res);
-	 }
-	 }
-	 else //number is <0
-	 {
-
-	 }
-	 while ((bn_is_greater_len(&res, p, p->length)==1))// || (res.number[res.length]>0)) {
-	 {	//while (bn_is_greater(&res, p) == 1) {
-	 bn_add(&res, p, &res);
-	 print_values(4, a, b, p, &res);
-	 }*/
 
 	return 0;
 }
@@ -250,6 +213,8 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 	BN_CREATE_VARIABLE(v, p->length);
 	BN_CREATE_VARIABLE(x1, a->length);
 	BN_CREATE_VARIABLE(x2, a->length);
+	bn_copy(a, &u, a->length);
+	bn_copy(p, &v, a->length);
 	while ((bn_is_one(&u) || bn_is_one(&v) == 0)) {
 		for (i = 0; i < u.length; ++i) {
 			debug("u[%d]=%8x", i, u.number[i]);
@@ -378,8 +343,8 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 	if (bn_is_greater(a, b) == 0) {
 		return 0;
 	}
-	info("Values not equal! a and b:");
-	bn_print_values(2, a, b);
+	/*info("Values not equal! a and b:");
+	 bn_print_values(2, a, b);*/
 	return 2;
 }
 
@@ -508,7 +473,7 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 	//bn_copy(num, result, result->length);
 	if (is_number_positive) {
 		while (bn_is_greater(num, p) == 1) {
-	//		debug("execute modulus positive");
+			//		debug("execute modulus positive");
 			bn_sub(num, p, num);
 		}
 	} else {

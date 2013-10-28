@@ -17,10 +17,6 @@ typedef struct bn_uint {
 	uint32_t length;
 } bn_uint_t;
 
-#define BN_INIT(_len) ( {uint32_t tab[_len]; \
-						bn_uint_t result= {.number = tab, .length = _len}; \
-						result;})
-
 #define BN_CREATE_VARIABLE(_name, _len) uint32_t TAB_BN_CREATE_VARIABLE##_name[_len]; \
 				bn_uint_t _name = {.number = TAB_BN_CREATE_VARIABLE##_name, .length = _len}
 

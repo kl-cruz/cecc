@@ -70,8 +70,13 @@ void tests_field_sub(void)
 }
 void tests_field_inv(void)
 {
-	/*assert_true(test_field_inv(&mod_inv_128_a, &mod_inv_128_p, &res_mod_inv_128) == 0);
-	 assert_true(test_field_inv(&mod_inv_256_a, &mod_inv_256_p, &res_mod_inv_256) == 0);*/
+	uint32_t i;
+	for (i = 0; i < inv_mod_128_tab_len; ++i) {
+		assert_true(test_field_inv(inv_mod_128_test_tab[i][0], inv_mod_128_test_tab[i][1], inv_mod_128_test_tab[i][2]) == 0);
+	}
+	for (i = 0; i < inv_mod_256_tab_len; ++i) {
+		assert_true(test_field_inv(inv_mod_256_test_tab[i][0], inv_mod_256_test_tab[i][1], inv_mod_256_test_tab[i][2]) == 0);
+	}
 }
 
 int main(void)

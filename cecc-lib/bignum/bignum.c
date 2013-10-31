@@ -44,12 +44,7 @@ uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 		//debug("temp_bef:%x result[%d]=%x", temp, i, result->number[i]);
 		temp = (temp >> 32);
 		//debug("temp_aft:%x", temp);
-
 	}
-	/*if (result->length > a->length) {
-	 result->number[a->length] = temp;
-	 //TODO ogarnąć bo tutaj jest jakiś bug
-	 }*/
 
 	return temp;
 }
@@ -132,8 +127,7 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 
 	BN_CREATE_VARIABLE(res, a->length + 1);
 	bn_zero(&res);
-	uint32_t carry;
-	carry = bn_add(a, b, &res);
+	bn_add(a, b, &res);
 
 	/*debug("carry=%d", carry);
 	 print_values(4, a, b, p, &res);*/
@@ -199,65 +193,95 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 }
 
 /**
- * @brief Function to inverse number and count modulo p -> 1/a mod p. Function uses extended euclidean algorithm
+ * @brief Function to inverse number and count modulo p -> 1/a mod p. Function uses extended euclidean algorithm. Be careful! p must be odd number and a<p!
  * @param a
  * @param p
  * @param result
  * @return
  */
+
 uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 {
-	//TODO można zastąpić x1 lub x2 zmienną result. mniej miejsca w pamięci i szybsze będzie
-	uint32_t i;
+	if (bn_is_greater(a, p) == 1) {
+		error("bad numbers!");
+		return 0;
+	}
+	if ((p->number[0] & 0x1) == 0) {
+		error("bad numbers!");
+		return 0;
+	}
 	BN_CREATE_VARIABLE(u, a->length);
 	BN_CREATE_VARIABLE(v, p->length);
-	BN_CREATE_VARIABLE(x1, a->length);
-	BN_CREATE_VARIABLE(x2, a->length);
-	bn_copy(a, &u, a->length);
-	bn_copy(p, &v, a->length);
-	while ((bn_is_one(&u) || bn_is_one(&v) == 0)) {
-		for (i = 0; i < u.length; ++i) {
-			debug("u[%d]=%8x", i, u.number[i]);
-		}
-		for (i = 0; i < v.length; ++i) {
-			debug("v[%d]=%8x", i, v.number[i]);
-		}
-		while (bn_is_even(&u)) {
-			//debug("2");
+	BN_CREATE_VARIABLE(r, a->length);
+	BN_CREATE_VARIABLE(s, a->length);
+	BN_CREATE_VARIABLE(temp, a->length + 1);
+	bn_zero(result);
+	bn_zero(&r);
+	bn_zero(&s);
+	bn_zero(&temp);
+	bn_copy(p, &u, p->length);
+	bn_copy(a, &v, a->length);
+	s.number[0] = 1;
+	uint32_t borrow;
+
+	while (bn_is_greater(&v, result)) {
+		if ((u.number[0] & 0x1) == 0) {
 			bn_shr(&u);
-			if (bn_is_even(&x1)) {
-				bn_shr(&x1);
+			if ((r.number[0] & 0x1) == 0) {
+				bn_shr(&r);
 			} else {
-				bn_field_add(&x1, p, p, &x1);
-				bn_shr(&x1);
+				bn_add(&r, p, &temp);
+				bn_shr(&temp);
+				bn_copy(&temp, &r, r.length);
+				//dodawanie z przesunięciem
 			}
-		}
-		while (bn_is_even(&v)) {
-			//debug("3");
+		} else if ((v.number[0] & 0x1) == 0) {
 			bn_shr(&v);
-			if (bn_is_even(&x2)) {
-				bn_shr(&x2);
+			if ((s.number[0] & 0x1) == 0) {
+				bn_shr(&s);
 			} else {
-				bn_field_add(&x2, p, p, &x2);
-				bn_shr(&x2);
+				bn_add(&s, p, &temp);
+				bn_shr(&temp);
+				bn_copy(&temp, &s, s.length);
+				//dodawanie z przesunięciem
+			}
+		} else if (bn_is_greater(&u, &v) == 1) {
+			bn_sub(&u, &v, &u);
+
+			borrow = bn_sub(&r, &s, &r);
+			if (borrow > 0) {
+				bn_add(&r, p, &r);
+			}
+		} else
+
+		{
+			bn_sub(&v, &u, &v);
+			borrow = bn_sub(&s, &r, &s);
+			if (borrow > 0) {
+				bn_add(&s, p, &s);
 			}
 		}
-		if (bn_is_greater(&u, &v)) {
-			debug("u>v");
-			bn_field_sub(&u, &v, p, &u);
-			bn_field_sub(&x1, &x2, p, &x1);
-		} else {
-			debug("u<=v");
-			bn_field_sub(&v, &u, p, &v);
-			bn_field_sub(&x2, &x1, p, &x2);
-		}
+
 	}
-	if (bn_is_one(&u)) {
-		bn_copy(&x1, result, x1.length);
-	} else {
-		bn_copy(&x2, result, x1.length);
+	result->number[0] = 1;
+	if (bn_is_greater(&u, result)) {
+		bn_zero(result);
+		return 0;
 	}
+
+	bn_copy(&r, result, result->length);
+	/*if(bn_is_greater(&r,&p))
+	 {
+	 bn_zero(result);
+	 return 0;
+	 }
+	 if(bn_is_greater(&u,result))
+	 {
+	 bn_zero(result);
+	 return 0;
+	 }*/
 	return 0;
+
 }
 
 /**

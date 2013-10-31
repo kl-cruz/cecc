@@ -205,6 +205,12 @@ public class Fixture_generator {
         }
         add_to_header_file("};");
     }
+    
+    public static boolean odd(BigInteger val) {
+    if(!val.mod(new BigInteger("2")).equals(BigInteger.ZERO))
+        return true;
+    return false;
+}
 
     public static void inv_mod_list(int samples, int bit_len) {
         String var_name = "inv_mod_" + bit_len + "_";
@@ -218,6 +224,10 @@ public class Fixture_generator {
             is_normal = false;
             while (is_normal == false) {
                 randomize_abp(bit_len);
+                if(a.compareTo(p)>=0)
+                        continue;
+                if(!odd(p))
+                        continue;
                 try {
                     result = a.modInverse(p);
                     translate_bigint_and_write(a, var_namea + i);
@@ -265,6 +275,22 @@ public class Fixture_generator {
         inv_mod_list(10, 256);
 
         close_header_file();
+        //test code
+       /* Boolean is_normal = false;
+                while (is_normal == false) {
+                randomize_abp(16);
+                try {
+                    if(a.compareTo(p)>=0)
+                        continue;
+                    if(((p.toByteArray()[0])<<8)==0)
+                        continue;
+                    result = a.modInverse(p);
+                    System.out.println(a.toString(16)+" "+p.toString(16)+" "+result.toString(16));
+                    is_normal = true;
+                } catch (Exception e) {
+                    is_normal = false;
+                }
+            }*/
 
     }
 }

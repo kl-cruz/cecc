@@ -134,6 +134,29 @@ public class Fixture_generator {
         }
         add_to_header_file("};");
     }
+    
+    public static void mul_list(int samples, int bit_len) {
+        String var_name = "mul_" + bit_len + "_";
+        String var_namea = var_name + "a_";
+        String var_nameb = var_name + "b_";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        for (int i = 0; i < samples; ++i) {
+            randomize_abp(bit_len);
+            translate_bigint_and_write(a, var_namea + i);
+            translate_bigint_and_write(b, var_nameb + i);
+            translate_bigint_and_write(a.multiply(b), var_nameres + i);
+        }
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][3]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameb + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
 
     public static void add_mod_list(int samples, int bit_len) {
         String var_name = "add_mod_" + bit_len + "_";
@@ -273,6 +296,10 @@ public class Fixture_generator {
 
         inv_mod_list(10, 128);
         inv_mod_list(10, 256);
+        
+        mul_list(10, 128);
+        mul_list(10, 256);
+
 
         close_header_file();
         //test code

@@ -90,20 +90,20 @@ uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
 	assert_values()
 	;
-
+	bn_zero(result);
 	uint32_t i, j, r = 0, carry = 0;
 	uint64_t mul, num_r, num_rr;
 	for (i = 0; i < b->length; i++) {
-		r = i;
 		for (j = 0; j < a->length; j++) {
+			r = i+j;
 			mul = (uint64_t) (a->number[j]) * (b->number[i]);
 			num_r = (uint64_t) ((result->number[r]) + (mul & 0xFFFFFFFF));
 			result->number[r] = (uint32_t) num_r;
 			num_rr = (uint64_t) (result->number[r + 1] + (mul >> 32) + (num_r >> 32) + carry);
 			carry = num_rr >> 32;
 			result->number[r + 1] = (uint32_t) num_rr;
-			++r;
 		}
+
 		carry = 0;
 	}
 	return 0;
@@ -367,8 +367,8 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 	if (bn_is_greater(a, b) == 0) {
 		return 0;
 	}
-	/*info("Values not equal! a and b:");
-	 bn_print_values(2, a, b);*/
+	info("Values not equal! a and b:");
+	 bn_print_values(2, a, b);
 	return 2;
 }
 

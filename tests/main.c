@@ -24,6 +24,7 @@ void tests_shr(void)
 		assert_true(test_shr(shr_256_test_tab[i][0], shr_256_test_tab[i][1]) == 0);
 	}
 }
+
 void tests_add(void)
 {
 	uint32_t i;
@@ -34,6 +35,7 @@ void tests_add(void)
 		assert_true(test_add(add_256_test_tab[i][0], add_256_test_tab[i][1], add_256_test_tab[i][2]) == 0);
 	}
 }
+
 void tests_sub(void)
 {
 	uint32_t i;
@@ -44,6 +46,18 @@ void tests_sub(void)
 		assert_true(test_sub(sub_256_test_tab[i][0], sub_256_test_tab[i][1], sub_256_test_tab[i][2]) == 0);
 	}
 }
+
+void tests_mul(void)
+{
+	uint32_t i;
+	for (i = 0; i < mul_128_tab_len; ++i) {
+		assert_true(test_mul(mul_128_test_tab[i][0], mul_128_test_tab[i][1], mul_128_test_tab[i][2]) == 0);
+	}
+	for (i = 0; i < mul_256_tab_len; ++i) {
+		assert_true(test_mul(mul_256_test_tab[i][0], mul_256_test_tab[i][1], mul_256_test_tab[i][2]) == 0);
+	}
+}
+
 void tests_field_add(void)
 {
 	uint32_t i;
@@ -56,6 +70,7 @@ void tests_field_add(void)
 				test_field_add(add_mod_256_test_tab[i][0], add_mod_256_test_tab[i][1], add_mod_256_test_tab[i][2], add_mod_256_test_tab[i][3]) == 0);
 	}
 }
+
 void tests_field_sub(void)
 {
 	uint32_t i;
@@ -89,6 +104,7 @@ int main(void)
 	run_test(tests_shr);
 	run_test(tests_add);
 	run_test(tests_sub);
+	run_test(tests_mul);
 	run_test(tests_field_add);
 	run_test(tests_field_sub);
 	run_test(tests_field_inv);

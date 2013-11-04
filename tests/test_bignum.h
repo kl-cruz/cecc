@@ -19,11 +19,14 @@ uint32_t test_field_add(bn_uint_t *a,bn_uint_t *b, bn_uint_t *p,bn_uint_t *expec
 uint32_t test_field_sub(bn_uint_t *a,bn_uint_t *b, bn_uint_t *p,bn_uint_t *expected_result);
 uint32_t test_field_inv(bn_uint_t *a,bn_uint_t *p,bn_uint_t *expected_result);
 
+uint32_t test_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result);
+uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result);
+
 //uint32_t test_shr(void);
 uint32_t test_shr(bn_uint_t *a,bn_uint_t *expected_result);
 
 void seatest_bn_uint_equal(bn_uint_t *a,bn_uint_t *b,bn_uint_t *expected, bn_uint_t *actual, const char *function, unsigned int line);
-#define assert_bn_uint_equal(a,b,expected, actual) do { seatest_bn_uint_equal(a,b,expected, actual, __FUNCTION__, __LINE__); } while (0)
+
 
 
 #endif /* TEST_BIGNUM_H_ */

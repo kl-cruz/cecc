@@ -22,9 +22,7 @@ typedef struct bn_uint {
 
 //operators
 uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
-
 uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
-
 uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 
 
@@ -39,7 +37,7 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b);
 uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length);
 uint32_t bn_inv_bits(bn_uint_t *to);
 uint32_t bn_zero(bn_uint_t *num);
-uint32_t bn_is_greater(bn_uint_t *a, bn_uint_t *b);
+uint32_t bn_compare(bn_uint_t *a, bn_uint_t *b);
 uint32_t bn_is_greater_len(bn_uint_t *a, bn_uint_t *b, uint32_t from);
 uint32_t bn_is_one(bn_uint_t *num);
 uint32_t bn_is_odd(bn_uint_t *num);

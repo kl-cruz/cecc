@@ -32,6 +32,7 @@ uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result);
 uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result);
 uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result);
+uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result);
 
 //functions
 uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b);
@@ -44,7 +45,9 @@ uint32_t bn_is_one(bn_uint_t *num);
 uint32_t bn_is_odd(bn_uint_t *num);
 uint32_t bn_is_even(bn_uint_t *num);
 uint32_t bn_shr(bn_uint_t *num);
+uint32_t bn_shr_word(bn_uint_t *num, bn_uint_t *result, uint32_t shift);
 uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p);
+uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result);
 int bn_print_values(int num_args, ...);
 
 #endif /* BIGNUM_H_ */

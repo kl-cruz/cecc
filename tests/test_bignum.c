@@ -41,28 +41,6 @@ int print_values(int num_args, ...)
 	return 0;
 }
 
-char *bn_uint_to_char(bn_uint_t *a)
-{
-	uint32_t byte_len = a->length * 8;
-	char *buf = malloc(byte_len+1);
-	memset(buf,0,byte_len);
-	uint32_t i = 0;
-	char from[11];
-	for (i = a->length; i > 0; --i) {
-		fm_snprintf(from, 11, "%8x ", a->number[i - 1]);
-		strcat(buf,from);
-		memset(from,0,11);
-	}
-	return buf;
-}
-
-void seatest_bn_uint_equal(bn_uint_t *a,bn_uint_t *b,bn_uint_t *expected, bn_uint_t *actual, const char *function, unsigned int line)
-{
-	char buf[SEATEST_PRINT_BUFFER_SIZE];
-	fm_snprintf(buf, SEATEST_PRINT_BUFFER_SIZE, "Values\na:%s\nb:%s \nExpected \n%s \nto be the same as \n%s", bn_uint_to_char(a),bn_uint_to_char(b),bn_uint_to_char(actual), bn_uint_to_char(expected));
-	seatest_simple_test_result(bn_is_equal(expected,actual)==0, buf, function, line);
-}
-
 uint32_t test_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
@@ -142,7 +120,7 @@ uint32_t test_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *exp
 	uint32_t t = get_us();
 	//print_values(4, a, b, &res, expected_result);
 	/*info("Execution time: %d us", t);
-	info("--------------------------------------------", t);*/
+	 info("--------------------------------------------", t);*/
 	return bn_is_equal(&res, expected_result);
 
 }
@@ -163,6 +141,23 @@ uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
 
 }
 
+uint32_t test_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result)
+{
+	BN_CREATE_VARIABLE(res, expected_result->length);
+	//info("Start testing a+b mod p");
+	start_count_time();
+	bn_field_mul_barret(a, b, mi, p, &res);
+	stop_count_time();
+	uint32_t t = get_us();
+	//print_values(4,a,b, &res, expected_result);
+
+	info("Execution time: %d us", t);
+	//info("--------------------------------------------");
+	//print_values(1, &res);
+	return bn_is_equal(&res, expected_result);
+
+}
+
 uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, a->length);
@@ -173,6 +168,41 @@ uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
 	stop_count_time();
 	uint32_t t = get_us();
 	//print_values(2, &test_amod, &res);
+
+	//info("Execution time: %d us", t);
+	//info("--------------------------------------------", t);
+	return bn_is_equal(&res, expected_result);
+
+}
+
+uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result)
+{
+	BN_CREATE_VARIABLE(res, expected_result->length);
+	//info("Start testing a >> 1");
+	start_count_time();
+	bn_copy(a, &res, res.length);
+	bn_barret_modulus(a, mi, p, &res);
+	stop_count_time();
+	uint32_t t = get_us();
+	//print_values(2, &res,expected_result);
+
+	//info("Execution time: %d us", t);
+	//info("--------------------------------------------", t);
+	return bn_is_equal(&res, expected_result);
+
+}
+
+uint32_t test_mod(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
+{
+	BN_CREATE_VARIABLE(res, a->length);
+	info("Start testing a >> 1");
+	info("Start testing a >> 1");
+	start_count_time();
+	bn_copy(a, &res, res.length);
+	bn_mod_faster(a, p, &res);
+	stop_count_time();
+	uint32_t t = get_us();
+	//print_values(2, &res,expected_result);
 
 	//info("Execution time: %d us", t);
 	//info("--------------------------------------------", t);

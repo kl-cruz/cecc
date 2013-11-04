@@ -13,8 +13,8 @@
 
 #define assert_values() assert(b != a); \
 						assert(a != result); \
-						assert(b != result); \
-						assert(b->length == a->length)
+						assert(b != result);
+//assert(b->length == a->length)
 
 #define copy_assert_values() 	assert(from != to); \
 								assert(from->length >= length); \
@@ -60,21 +60,40 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
 	/*assert_values()
 	 ;*/
-
+	//debug("---------------------------------------->NEW SUB");
 	//count number
+	//print_values(2, a, b);
+	/*if (a != result) {
+	 bn_zero(result);
+	 }*/
 	uint32_t i, borrow;
 	uint64_t temp;
 	borrow = 0;
-	for (i = 0; i < a->length; i++) {
-		temp = (uint64_t) a->number[i] - (uint64_t) b->number[i] - borrow;
-		result->number[i] = (uint32_t) temp;
-		if ((temp >> 32) > 0) {
-			borrow = 1;
+	if (a->length == b->length) {
+		//debug("a and b length equal");
+		for (i = 0; i < a->length; i++) {
+			temp = (uint64_t) a->number[i] - (uint64_t) b->number[i] - borrow;
+			result->number[i] = (uint32_t) temp;
+			borrow = ((uint32_t) (temp >> 32)) & 0x1;
 		}
-		borrow = ((uint32_t) (temp >> 32)) & 0x1;
-	}
-	if (result->length > a->length) {
-		result->number[a->length] = temp >> 32;
+		if (result->length > a->length) {
+			result->number[a->length] = temp >> 32;
+		}
+	} else {
+		//debug("a and b length not equal");
+		for (i = 0; i < a->length; i++) {
+			if (i < a->length) {
+				temp = (uint64_t) a->number[i];
+			}
+			if (i < b->length) {
+				temp -= (uint64_t) b->number[i];
+			}
+			temp -= borrow;
+			result->number[i] = (uint32_t) temp;
+
+			borrow = ((uint32_t) (temp >> 32)) & 0x1;
+			//print_values(1, result);
+		}
 	}
 	return borrow;
 }
@@ -95,7 +114,18 @@ uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 	uint64_t mul, num_r, num_rr;
 	for (i = 0; i < b->length; i++) {
 		for (j = 0; j < a->length; j++) {
-			r = i+j;
+			r = i + j;
+
+			if (j < a->length) {
+				mul = (uint64_t) a->number[j];
+			} else {
+				mul = 0;
+			}
+			if (i < b->length) {
+				mul *= (uint64_t) b->number[i];
+			} else {
+				mul = 0;
+			}
 			mul = (uint64_t) (a->number[j]) * (b->number[i]);
 			num_r = (uint64_t) ((result->number[r]) + (mul & 0xFFFFFFFF));
 			result->number[r] = (uint32_t) num_r;
@@ -126,11 +156,10 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	assert(result->length >= p->length);
 
 	BN_CREATE_VARIABLE(res, a->length + 1);
+	BN_CREATE_VARIABLE(res2, a->length + 1);
 	bn_zero(&res);
 	bn_add(a, b, &res);
 
-	/*debug("carry=%d", carry);
-	 print_values(4, a, b, p, &res);*/
 	bn_copy(&res, result, result->length);
 	if (res.number[res.length - 1] > 0) {
 		uint32_t number;
@@ -284,6 +313,126 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 
 }
 
+uint32_t bn_modulus(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
+{
+	bn_zero(result);
+
+}
+
+uint32_t bn_ffff(bn_uint_t *a, uint32_t word_length)
+{
+	bn_zero(a);
+	uint32_t i;
+	for (i = 0; i < word_length; ++i) {
+		a->number[i] = 0xffffffff;
+	}
+	return 0;
+
+}
+
+uint32_t bn_and(bn_uint_t *a, bn_uint_t *and, bn_uint_t *result)
+{
+	assert(a->length == and->length);
+	assert(a->length == result->length);
+	uint32_t i;
+	for (i = 0; i < a->length; ++i) {
+		result->number[i] = a->number[i] & and->number[i];
+	}
+	return 0;
+
+}
+
+uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result)
+{
+	/*BN_CREATE_VARIABLE(q, a->length);
+	 BN_CREATE_VARIABLE(z, a->length + 1);
+	 BN_CREATE_VARIABLE(r1, a->length);
+	 BN_CREATE_VARIABLE(r2, a->length + p->length);
+	 BN_CREATE_VARIABLE(tmp, a->length + mi->length);
+	 BN_CREATE_VARIABLE(tmpmod, a->length + p->length);
+
+	 //Working version
+	 bn_shr_word(a, &q, p->length - 1);
+	 //debug("bn_shr_word");
+	 //print_values(2, a, &q);
+
+	 //debug("bn_mul");
+	 bn_mul(mi, &q, &tmp);
+	 //print_values(3, mi, &q, &tmp);
+
+	 //debug("bn_shr_word");
+	 bn_shr_word(&tmp, &q, p->length + 1);
+	 //print_values(2, &tmp, &q);
+
+	 //debug("bn_mul");
+	 bn_mul(&q, p, &tmp);
+	 //print_values(3, &q, p, &tmp);
+
+	 //debug("bn_sub");
+	 bn_sub(a, &tmp, &r2);
+	 //print_values(3, &q, p, &r2);
+
+	 bn_ffff(&tmpmod, p->length + 1);
+	 bn_and(&r2, &tmpmod, &r2);
+
+	 //Potencjalny błąd. sprawdzamy tylko czy r2>p. Co w przypadku gdy są równe?
+	 while (bn_is_greater(&r2, &p) == 1) {
+	 //debug("greater");
+	 bn_sub(&r2, p, &r2);
+	 }
+	 if (bn_is_equal(&r2, &p) == 0) {
+	 //debug("equal");
+	 bn_zero(&r2);
+	 }
+	 bn_copy(&r2, result, result->length);*/
+	if (bn_is_greater(p, a) == 1) {
+		bn_copy(a, result, a->length);
+		return 0;
+	}
+	BN_CREATE_VARIABLE(q, a->length);
+	BN_CREATE_VARIABLE(z, a->length + 1);
+	BN_CREATE_VARIABLE(r1, a->length);
+	BN_CREATE_VARIABLE(r2, a->length + p->length);
+	BN_CREATE_VARIABLE(tmp, a->length + mi->length);
+	BN_CREATE_VARIABLE(tmpmod, a->length);
+	BN_CREATE_VARIABLE(tmpmod2, a->length + p->length);
+
+	bn_shr_word(a, &q, p->length - 1);
+	bn_mul(mi, &q, &tmp);
+	bn_shr_word(&tmp, &q, p->length + 1);
+
+	bn_ffff(&tmpmod, p->length + 1);
+	bn_ffff(&tmpmod2, p->length + 1);
+	bn_and(a, &tmpmod, &r1);
+	bn_mul(&q, p, &r2);
+	bn_and(&r2, &tmpmod2, &r2);
+
+	bn_zero(&z);
+	if (bn_is_greater(&r1, &r2) == 2) {
+		bn_copy(&tmpmod, &z, tmpmod.length);
+		bn_sub(&z, &r2, &z);
+		bn_add(&z, &r1, &z);
+	} else {
+		bn_sub(&r1, &r2, &z);
+	}
+
+	while (bn_is_greater(&z, p) == 1) {
+		bn_sub(&z, p, &z);
+	}
+	bn_copy(&z, result, result->length);
+}
+
+uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result)
+{
+	BN_CREATE_VARIABLE(res, a->length * 2);
+	bn_zero(result);
+	bn_zero(&res);
+	bn_mul(a, b, &res);
+	//print_values(4, a, b, mi, &res);
+	bn_barret_modulus(&res, mi, p, result);
+	return 0;
+}
+
 /**
  * @brief Copy number from `from` to `to`
  * @param from
@@ -349,6 +498,32 @@ uint32_t bn_shr(bn_uint_t *num)
 }
 
 /**
+ * @brief Shift right 32bit data * shift
+ * @param num number
+ * @return 0
+ */
+uint32_t bn_shr_word(bn_uint_t *num, bn_uint_t *result, uint32_t shift)
+{
+	uint32_t i;
+	for (i = 0; i < (num->length - shift) && i < result->length; i++)
+		result->number[i] = num->number[i + shift];
+	for (/* reuse i */; i < result->length; i++)
+		result->number[i] = 0;
+	return 0;
+}
+
+uint32_t bn_shl_word(bn_uint_t *num, bn_uint_t *result, uint32_t shift)
+{
+	uint32_t i;
+	bn_zero(result);
+	debug("shift=%d, res_len=%d", shift, result->length);
+	for (i = shift; i < result->length; i++) {
+		result->number[i] = num->number[i - shift];
+	}
+	return 0;
+}
+
+/**
  * @brief Check if element a equals b
  * @param a first number to check
  * @param b second number to check
@@ -368,7 +543,7 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 		return 0;
 	}
 	info("Values not equal! a and b:");
-	 bn_print_values(2, a, b);
+	bn_print_values(2, a, b);
 	return 2;
 }
 
@@ -385,37 +560,67 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 uint32_t bn_is_greater(bn_uint_t *a, bn_uint_t *b)
 {
 	int32_t i;
-	//debug("a.length=%d | b.length=%d ", a->length, b->length);
-	if (a->length - b->length > 1) {
-		//debug("a and b have different lengths [1]");
-		return 3;
-	}
-	if ((a->length) - (b->length) == 1) {
-		//debug("check a and b [2]");
-		if (a->number[b->length] != 0) {
-			//debug("a is greater than b [2]");
-			return 1;
+	/*	//debug("a.length=%d | b.length=%d ", a->length, b->length);
+	 if (a->length - b->length > 1) {
+	 //debug("a and b have different lengths [1]");
+	 return 3;
+	 }
+	 if ((a->length) - (b->length) == 1) {
+	 //debug("check a and b [2]");
+	 if (a->number[b->length] != 0) {
+	 //debug("a is greater than b [2]");
+	 return 1;
+	 }
+	 }
+	 if ((b->length) - (a->length) == 1) {
+	 //debug("check a and b [3]");
+	 if (b->number[a->length] != 0) {
+	 //debug("a is smaller than b [3]");
+	 return 2;
+	 }
+	 }
+	 uint32_t range = (a->length > b->length) ? b->length : a->length;
+	 for (i = range - 1; i >= 0; --i) {
+	 if (a->number[i] > b->number[i]) {
+	 //debug("a is greater than b [4]");
+	 return 1;
+	 }
+	 if (a->number[i] < b->number[i]) {
+	 //debug("a is smaller than b [5]");
+	 return 2;
+	 }
+	 }*/
+
+	//the same length
+	if (a->length == b->length) {
+		for (i = a->length - 1; i >= 0; --i) {
+			if (a->number[i] > b->number[i]) {
+				return 1;
+			}
+			if (a->number[i] < b->number[i]) {
+				return 2;
+			}
+		}
+	} else {
+		uint32_t an, bn; //
+		uint32_t max = (a->length > b->length) ? a->length : b->length;
+		an = bn = 0;
+		for (i = max - 1; i >= 0; --i) {
+			if (i < a->length) {
+				an = a->number[i];
+			}
+			if (i < b->length) {
+				bn = b->number[i];
+			}
+			if (an > bn) {
+				return 1;
+			}
+			if (an < bn) {
+				return 2;
+			}
 		}
 	}
-	if ((b->length) - (a->length) == 1) {
-		//debug("check a and b [3]");
-		if (b->number[a->length] != 0) {
-			//debug("a is smaller than b [3]");
-			return 2;
-		}
-	}
-	uint32_t range = (a->length > b->length) ? b->length : a->length;
-	for (i = range - 1; i >= 0; --i) {
-		if (a->number[i] > b->number[i]) {
-			//debug("a is greater than b [4]");
-			return 1;
-		}
-		if (a->number[i] < b->number[i]) {
-			//debug("a is smaller than b [5]");
-			return 2;
-		}
-	}
-	//debug("a and b are equal");
+//debug("a and b are equal");
 	return 0;
 }
 
@@ -494,7 +699,7 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 	 * */
 	assert(p->length == num->length);
 
-	//bn_copy(num, result, result->length);
+//bn_copy(num, result, result->length);
 	if (is_number_positive) {
 		while (bn_is_greater(num, p) == 1) {
 			//		debug("execute modulus positive");
@@ -513,6 +718,24 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 			bn_add(num, p, num);
 
 		} while (last_number < num->number[num->length - 1]);
+	}
+	return 0;
+}
+
+uint32_t bn_mod_faster(bn_uint_t *num, bn_uint_t *p, bn_uint_t *result)
+{
+	bn_zero(result);
+	BN_CREATE_VARIABLE(q, num->length);
+	BN_CREATE_VARIABLE(q1, num->length);
+	BN_CREATE_VARIABLE(r, num->length);
+	BN_CREATE_VARIABLE(qbt, num->length);
+	bn_shl_word(num, &qbt, p->length);
+
+	bn_copy(num, &r, r.length);
+	bn_sub(&r, &qbt, &r);
+	bn_print_values(4, num, &qbt, &q, &r);
+	while (bn_is_greater(&q, result) != 0) {
+		//bn
 	}
 	return 0;
 }

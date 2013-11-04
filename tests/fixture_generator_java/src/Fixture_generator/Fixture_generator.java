@@ -134,7 +134,7 @@ public class Fixture_generator {
         }
         add_to_header_file("};");
     }
-    
+
     public static void mul_list(int samples, int bit_len) {
         String var_name = "mul_" + bit_len + "_";
         String var_namea = var_name + "a_";
@@ -208,6 +208,157 @@ public class Fixture_generator {
         add_to_header_file("};");
     }
 
+    public static void mul_mod_barret_list(int samples, int bit_len, String ps) {
+        String var_name = "mul_mod_barret_" + bit_len + "_";
+        String var_namea = var_name + "a_";
+        String var_nameb = var_name + "b_";
+        String var_namep = var_name + "p_";
+        String var_namemi = var_name + "mi_";
+        String bt = "";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        int max_f = bit_len / 16;
+        for (int r = 0; r < max_f; ++r) {
+            bt += "ffffffff";
+        }
+        BigInteger bti = new BigInteger(bt, 16);
+        for (int i = 0; i < samples; ++i) {
+
+
+            randomize_abp(bit_len);
+            p = new BigInteger(ps, 16);
+
+            translate_bigint_and_write(a, var_namea + i);
+            translate_bigint_and_write(b, var_nameb + i);
+
+            translate_bigint_and_write((a.multiply(b)).mod(p), var_nameres + i);
+        }
+
+        translate_bigint_and_write(bti.divide(p), var_namemi);
+        translate_bigint_and_write(p, var_namep);
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][3]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameb + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+
+    public static void mod_barret_list_secp128r2(int samples) {
+        String var_name = "mod_barret_128" + "_";
+        String var_namea = var_name + "a_";
+        String var_nameb = var_name + "b_";
+        String var_namep = var_name + "p_";
+        String var_namemi = var_name + "mi_";
+        String bt = "";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        Boolean is_normal = false;
+        int max_f = 128 / 16;
+        for (int r = 0; r < max_f; ++r) {
+            bt += "ffffffff";
+        }
+        BigInteger bti = new BigInteger(bt, 16);
+        for (int i = 0; i < samples; ++i) {
+
+            randomize_abp(256);
+            p = new BigInteger("fffffffdffffffffffffffffffffffff", 16);
+
+            translate_bigint_and_write(a, var_namea + i);
+
+            translate_bigint_and_write(a.mod(p), var_nameres + i);
+        }
+
+        translate_bigint_and_write(bti.divide(p), var_namemi);
+        translate_bigint_and_write(p, var_namep);
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][2]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+
+    public static void mod_barret_list_secp256r1(int samples) {
+        String var_name = "mod_barret_256" + "_";
+        String var_namea = var_name + "a_";
+        String var_nameb = var_name + "b_";
+        String var_namep = var_name + "p_";
+        String var_namemi = var_name + "mi_";
+        String bt = "";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        Boolean is_normal = false;
+        int max_f = 256 / 16;
+        for (int r = 0; r < max_f; ++r) {
+            bt += "ffffffff";
+        }
+        BigInteger bti = new BigInteger(bt, 16);
+        for (int i = 0; i < samples; ++i) {
+
+            randomize_abp(512);
+            p = new BigInteger("ffffffff00000001000000000000000000000000ffffffffffffffffffffffff", 16);
+
+            translate_bigint_and_write(a, var_namea + i);
+
+            translate_bigint_and_write(a.mod(p), var_nameres + i);
+        }
+
+        translate_bigint_and_write(bti.divide(p), var_namemi);
+        translate_bigint_and_write(p, var_namep);
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][2]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+    
+    public static void mod_barret_list(int samples,int bit_len, String ps) {
+        String var_name = "mod_barret_" + bit_len + "_";
+        String var_namea = var_name + "a_";
+        String var_namep = var_name + "p_";
+        String var_namemi = var_name + "mi_";
+        String bt = "";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        int max_f = bit_len / 16;
+        for (int r = 0; r < max_f; ++r) {
+            bt += "ffffffff";
+        }
+        BigInteger bti = new BigInteger(bt, 16);
+        for (int i = 0; i < samples; ++i) {
+
+            randomize_abp(bit_len*2);
+            p = new BigInteger(ps, 16);
+
+            translate_bigint_and_write(a, var_namea + i);
+
+            translate_bigint_and_write(a.mod(p), var_nameres + i);
+        }
+
+        translate_bigint_and_write(bti.divide(p), var_namemi);
+        translate_bigint_and_write(p, var_namep);
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][2]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+
     public static void shr_list(int samples, int bit_len) {
         String var_name = "shr_" + bit_len + "_";
         String var_namea = var_name + "a_";
@@ -228,12 +379,13 @@ public class Fixture_generator {
         }
         add_to_header_file("};");
     }
-    
+
     public static boolean odd(BigInteger val) {
-    if(!val.mod(new BigInteger("2")).equals(BigInteger.ZERO))
-        return true;
-    return false;
-}
+        if (!val.mod(new BigInteger("2")).equals(BigInteger.ZERO)) {
+            return true;
+        }
+        return false;
+    }
 
     public static void inv_mod_list(int samples, int bit_len) {
         String var_name = "inv_mod_" + bit_len + "_";
@@ -247,10 +399,12 @@ public class Fixture_generator {
             is_normal = false;
             while (is_normal == false) {
                 randomize_abp(bit_len);
-                if(a.compareTo(p)>=0)
-                        continue;
-                if(!odd(p))
-                        continue;
+                if (a.compareTo(p) >= 0) {
+                    continue;
+                }
+                if (!odd(p)) {
+                    continue;
+                }
                 try {
                     result = a.modInverse(p);
                     translate_bigint_and_write(a, var_namea + i);
@@ -279,45 +433,90 @@ public class Fixture_generator {
 
         create_header_file(fixture_filename);
 
-        add_list(10, 128);
-        add_list(10, 256);
+        add_list(1, 128);
+        add_list(1, 256);
 
-        sub_list(10, 128);
-        sub_list(10, 256);
+        sub_list(1, 128);
+        sub_list(1, 256);
 
-        add_mod_list(10, 128);
-        add_mod_list(10, 256);
+        add_mod_list(1, 128);
+        add_mod_list(1, 256);
 
-        sub_mod_list(10, 128);
-        sub_mod_list(10, 256);
+        sub_mod_list(1, 128);
+        sub_mod_list(1, 256);
 
-        shr_list(10, 128);
-        shr_list(10, 256);
+        shr_list(1, 128);
+        shr_list(1, 256);
 
-        inv_mod_list(10, 128);
-        inv_mod_list(10, 256);
+        inv_mod_list(1, 128);
+        inv_mod_list(1, 256);
+
+        mul_list(1, 128);
+        mul_list(1, 256);
+
+        //secp128r1
+        mod_barret_list(10, 128, "fffffffdffffffffffffffffffffffff");
+        mul_mod_barret_list(10, 128, "fffffffdffffffffffffffffffffffff");
         
-        mul_list(10, 128);
-        mul_list(10, 256);
+        //secp256r1
+        mod_barret_list(10, 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
+        mul_mod_barret_list(10, 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
 
 
         close_header_file();
         //test code
        /* Boolean is_normal = false;
-                while (is_normal == false) {
-                randomize_abp(16);
-                try {
-                    if(a.compareTo(p)>=0)
-                        continue;
-                    if(((p.toByteArray()[0])<<8)==0)
-                        continue;
-                    result = a.modInverse(p);
-                    System.out.println(a.toString(16)+" "+p.toString(16)+" "+result.toString(16));
-                    is_normal = true;
-                } catch (Exception e) {
-                    is_normal = false;
-                }
-            }*/
+        while (is_normal == false) {
+        randomize_abp(16);
+        try {
+        if (a.compareTo(p) >= 0) {
+        continue;
+        }
+        if (((p.toByteArray()[0]) << 8) == 0) {
+        continue;
+        }
+        result = a.modInverse(p);
+        System.out.println(a.toString(16) + " " + p.toString(16) + " " + result.toString(16));
+        is_normal = true;
+        } catch (Exception e) {
+        is_normal = false;
+        }
+        }
+        p = new BigInteger("fffffffdffffffffffffffffffffffff", 16);
+        a = new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16);
+        result = a.divide(p);
+        //System.out.println(a.toString(16) + " " + b.toString(16) + " " + result.toString(16));
+        System.out.println(a.toString(16));
+        System.out.println(p.toString(16));
+        System.out.println(result.toString(16));
+        
+        a = new BigInteger("ace6faada7179e84f3b9cac2fc632551", 16);
+        b = new BigInteger("1ce6faada7179e84f3b9cac2fc632551", 16);
+        result = a.multiply(b);
+        System.out.println("a:" + a.toString(16));
+        System.out.println("b:" + b.toString(16));
+        System.out.println("res:" + result.toString(16));
+        result = result.mod(p);
+        System.out.println("mod:" + result.toString(16));
+        
+        
+        /*        Random rand = new Random();
+        a = new BigInteger(512, rand);
+        p = new BigInteger("ffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551", 16);
+        result = a.mod(p);
+        System.out.println("a:"+a.toString(16));
+        System.out.println("p:"+p.toString(16));
+        System.out.println("res:"+result.toString(16));
+        
+        BigInteger z,y,x,n,m;
+        z=new BigInteger("0", 16);
+        y=new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16);
+        x=new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16);
+        n=new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFF", 16);
+        m=new BigInteger("1", 16);
+        result=(z.subtract(y)).add(x).add(n).subtract(m);
+        System.out.println("res:"+result.toString(16));*/
+
 
     }
 }

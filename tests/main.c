@@ -60,7 +60,7 @@ void tests_mul(void)
 
 void tests_field_add(void)
 {
-	uint32_t i;
+	uint32_t i = 0;
 	for (i = 0; i < add_mod_128_tab_len; ++i) {
 		assert_true(
 				test_field_add(add_mod_128_test_tab[i][0], add_mod_128_test_tab[i][1], add_mod_128_test_tab[i][2], add_mod_128_test_tab[i][3]) == 0);
@@ -83,6 +83,21 @@ void tests_field_sub(void)
 				test_field_sub(sub_mod_256_test_tab[i][0], sub_mod_256_test_tab[i][1], sub_mod_256_test_tab[i][2], sub_mod_256_test_tab[i][3]) == 0);
 	}
 }
+
+void tests_field_mul(void)
+{
+	uint32_t i;
+	for (i = 0; i < mul_mod_barret_128_tab_len; ++i) {
+	 assert_true(
+	 test_field_mul_barret(mul_mod_barret_128_test_tab[i][0], mul_mod_barret_128_test_tab[i][1],&mul_mod_barret_128_mi_,&mul_mod_barret_128_p_, mul_mod_barret_128_test_tab[i][2]) == 0);
+	 }
+	for (i = 0; i < mul_mod_barret_256_tab_len; ++i) {
+		assert_true(
+				test_field_mul_barret(mul_mod_barret_256_test_tab[i][0], mul_mod_barret_256_test_tab[i][1], &mul_mod_barret_256_mi_,
+						&mul_mod_barret_256_p_, mul_mod_barret_256_test_tab[i][2]) == 0);
+	}
+}
+
 void tests_field_inv(void)
 {
 	uint32_t i;
@@ -91,6 +106,17 @@ void tests_field_inv(void)
 	}
 	for (i = 0; i < inv_mod_256_tab_len; ++i) {
 		assert_true(test_field_inv(inv_mod_256_test_tab[i][0], inv_mod_256_test_tab[i][1], inv_mod_256_test_tab[i][2]) == 0);
+	}
+}
+
+void tests_barret_modulus(void)
+{
+	uint32_t i = 0;
+	for (i = 0; i < mod_barret_128_tab_len; ++i) {
+		assert_true(test_barret_mod(mod_barret_128_test_tab[i][0], &mod_barret_128_mi_, &mod_barret_128_p_, mod_barret_128_test_tab[i][1]) == 0);
+	}
+	for (i = 0; i < mod_barret_256_tab_len; ++i) {
+		assert_true(test_barret_mod(mod_barret_256_test_tab[i][0], &mod_barret_256_mi_, &mod_barret_256_p_, mod_barret_256_test_tab[i][1]) == 0);
 	}
 }
 
@@ -107,7 +133,9 @@ int main(void)
 	run_test(tests_mul);
 	run_test(tests_field_add);
 	run_test(tests_field_sub);
+	run_test(tests_field_mul);
 	run_test(tests_field_inv);
+	run_test(tests_barret_modulus);
 	test_fixture_end()
 	;
 

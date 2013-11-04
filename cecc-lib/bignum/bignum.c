@@ -280,7 +280,6 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 		bn_zero(result);
 		return 0;
 	}
-
 	bn_copy(&r, result, result->length);
 
 	return 0;

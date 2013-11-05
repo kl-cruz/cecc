@@ -4,18 +4,7 @@ File generate using external software
 #ifndef CURVES_H_
 #define CURVES_H_
 #include "bignum.h"
-
-typedef struct {
-    const bn_uint_t *p;
-    const bn_uint_t *a;
-    const bn_uint_t *b;
-    const bn_uint_t *S;
-    const bn_uint_t *G;
-    const bn_uint_t *n;
-    const bn_uint_t *h;
-    const bn_uint_t *barret_mi;
-} ecc_curve_t;
-
+#include "ecc.h"
 
 //variable 'ec_secp256r1_p' value: 0xffffffff00000001000000000000000000000000ffffffffffffffffffffffff
 const uint32_t ec_secp256r1_p_tab [8] = {0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000001, 0xffffffff};

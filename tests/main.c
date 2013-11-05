@@ -12,6 +12,7 @@
 //tests
 #include  "test_bignum.h"
 #include  "test_bignum_fixtures.h"
+#include "test_ecc.h"
 #include "seatest.h"
 
 void tests_shr(void)
@@ -120,11 +121,8 @@ void tests_barret_modulus(void)
 	}
 }
 
-int main(void)
+void bignum_tests(void)
 {
-
-	init();
-
 	test_fixture_start()
 	;
 	run_test(tests_shr);
@@ -138,6 +136,15 @@ int main(void)
 	run_test(tests_barret_modulus);
 	test_fixture_end()
 	;
+}
+
+int main(void)
+{
+
+	init();
+	//bignum_tests();
+	test_ecc_add();
+
 
 	fm_printf("\n");
 	return 0;

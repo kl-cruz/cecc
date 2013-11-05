@@ -321,8 +321,8 @@ public class Fixture_generator {
         }
         add_to_header_file("};");
     }
-    
-    public static void mod_barret_list(int samples,int bit_len, String ps) {
+
+    public static void mod_barret_list(int samples, int bit_len, String ps) {
         String var_name = "mod_barret_" + bit_len + "_";
         String var_namea = var_name + "a_";
         String var_namep = var_name + "p_";
@@ -338,7 +338,7 @@ public class Fixture_generator {
         BigInteger bti = new BigInteger(bt, 16);
         for (int i = 0; i < samples; ++i) {
 
-            randomize_abp(bit_len*2);
+            randomize_abp(bit_len * 2);
             p = new BigInteger(ps, 16);
 
             translate_bigint_and_write(a, var_namea + i);
@@ -430,29 +430,29 @@ public class Fixture_generator {
      */
     public static void main(String[] args) {
 
-        create_header_file(args[0]);
-
+        /* create_header_file(args[0]);
+        
         add_list(1, 128);
         add_list(1, 256);
-
+        
         sub_list(1, 128);
         sub_list(1, 256);
-
+        
         add_mod_list(1, 128);
         add_mod_list(1, 256);
-
+        
         sub_mod_list(1, 128);
         sub_mod_list(1, 256);
-
+        
         shr_list(1, 128);
         shr_list(1, 256);
-
+        
         inv_mod_list(1, 128);
         inv_mod_list(1, 256);
-
+        
         mul_list(1, 128);
         mul_list(1, 256);
-
+        
         //secp128r1
         mod_barret_list(10, 128, "fffffffdffffffffffffffffffffffff");
         mul_mod_barret_list(10, 128, "fffffffdffffffffffffffffffffffff");
@@ -460,61 +460,31 @@ public class Fixture_generator {
         //secp256r1
         mod_barret_list(10, 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
         mul_mod_barret_list(10, 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
-
-
-        close_header_file();
+        
+        
+        close_header_file();*/
         //test code
-       /* Boolean is_normal = false;
-        while (is_normal == false) {
-        randomize_abp(16);
-        try {
-        if (a.compareTo(p) >= 0) {
-        continue;
-        }
-        if (((p.toByteArray()[0]) << 8) == 0) {
-        continue;
-        }
+        /*
+         77846b4f d1149d68 e008e134 43ef0c25 d7def416 3fae05d5  4104df4 ac0600a1 
+ffffffff        1        0        0        0 ffffffff ffffffff ffffffff */
+
+        p = new BigInteger("ffffffff00000001000000000000000000000000ffffffffffffffffffffffff", 16);
+        a = new BigInteger("77846b4fd1149d68e008e13443ef0c25d7def4163fae05d504104df4ac0600a1", 16);
         result = a.modInverse(p);
-        System.out.println(a.toString(16) + " " + p.toString(16) + " " + result.toString(16));
-        is_normal = true;
-        } catch (Exception e) {
-        is_normal = false;
-        }
-        }
-        p = new BigInteger("fffffffdffffffffffffffffffffffff", 16);
-        a = new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16);
-        result = a.divide(p);
         //System.out.println(a.toString(16) + " " + b.toString(16) + " " + result.toString(16));
         System.out.println(a.toString(16));
         System.out.println(p.toString(16));
         System.out.println(result.toString(16));
-        
-        a = new BigInteger("ace6faada7179e84f3b9cac2fc632551", 16);
+
+       /* a = new BigInteger("ace6faada7179e84f3b9cac2fc632551", 16);
         b = new BigInteger("1ce6faada7179e84f3b9cac2fc632551", 16);
         result = a.multiply(b);
         System.out.println("a:" + a.toString(16));
         System.out.println("b:" + b.toString(16));
         System.out.println("res:" + result.toString(16));
         result = result.mod(p);
-        System.out.println("mod:" + result.toString(16));
-        
-        
-        /*        Random rand = new Random();
-        a = new BigInteger(512, rand);
-        p = new BigInteger("ffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551", 16);
-        result = a.mod(p);
-        System.out.println("a:"+a.toString(16));
-        System.out.println("p:"+p.toString(16));
-        System.out.println("res:"+result.toString(16));
-        
-        BigInteger z,y,x,n,m;
-        z=new BigInteger("0", 16);
-        y=new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16);
-        x=new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", 16);
-        n=new BigInteger("FFFFFFFFFFFFFFFFFFFFFFFF", 16);
-        m=new BigInteger("1", 16);
-        result=(z.subtract(y)).add(x).add(n).subtract(m);
-        System.out.println("res:"+result.toString(16));*/
+        System.out.println("mod:" + result.toString(16));*/
+
 
 
     }

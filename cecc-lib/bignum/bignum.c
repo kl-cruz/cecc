@@ -98,8 +98,8 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
  */
 uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
-	assert_values()
-	;
+	assert(a != result);
+	assert(b != result);
 	bn_zero(result);
 	uint32_t i, j, r = 0, carry = 0;
 	uint64_t mul, num_r, num_rr;
@@ -239,7 +239,7 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 	bn_copy(a, &v, a->length);
 	s.number[0] = 1;
 	uint32_t borrow;
-
+	//print_values(4, a, p, &v, result);
 	while (bn_compare(&v, result)) {
 		if ((u.number[0] & 0x1) == 0) {
 			bn_shr(&u);
@@ -334,10 +334,12 @@ uint32_t bn_and(bn_uint_t *a, bn_uint_t *and, bn_uint_t *result)
  */
 uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result)
 {
+	//print_values(2, p, a);
 	if (bn_compare(p, a) == 1) {
 		bn_copy(a, result, a->length);
 		return 0;
 	}
+	//TODO ogarnij to trochę...
 	/*	BN_CREATE_VARIABLE(q, p->length + 1);
 	 BN_CREATE_VARIABLE(z, a->length + 2);
 	 BN_CREATE_VARIABLE(r, p->length + 2);
@@ -442,6 +444,7 @@ uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_
  */
 uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length)
 {
+	//info("length:%d, from:%d, to:%d", length, from->length, to->length);
 	copy_assert_values()
 	;
 	uint32_t i;

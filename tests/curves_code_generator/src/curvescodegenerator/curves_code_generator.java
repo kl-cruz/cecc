@@ -13,7 +13,7 @@ import java.math.BigInteger;
  *
  * @author cruz
  */
-public class CurvesCodeGenerator {
+public class curves_code_generator {
 
     /**/
     public static PrintWriter out = null;
@@ -29,8 +29,9 @@ public class CurvesCodeGenerator {
             out.println("#ifndef CURVES_H_");
             out.println("#define CURVES_H_");
             out.println("#include \"bignum.h\"");
+            out.println("#include \"ecc.h\"");
             out.println("");
-            out.println("typedef struct {");
+            /*out.println("typedef struct {");
             out.println("    const bn_uint_t *p;");
             out.println("    const bn_uint_t *a;");
             out.println("    const bn_uint_t *b;");
@@ -41,7 +42,7 @@ public class CurvesCodeGenerator {
             out.println("    const bn_uint_t *barret_mi;");
             out.println("} ecc_curve_t;");
             out.println("");
-            out.println("");
+            out.println("");*/
             
         } catch (IOException e) {
             e.printStackTrace();

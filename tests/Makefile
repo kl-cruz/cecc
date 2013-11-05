@@ -8,7 +8,8 @@ FWSRC = main.c seatest.c platform_utils.c format/src/format.c format/lib/format_
 		test_example.c \
 		../cecc-lib/bignum/bignum.c \
 		../cecc-lib/ecc/ecc.c \
-		test_bignum.c 
+		test_bignum.c \
+		test_ecc.c
 
 FWINC = . format/src format/lib ../cecc-lib/bignum ../cecc-lib/ecc
 

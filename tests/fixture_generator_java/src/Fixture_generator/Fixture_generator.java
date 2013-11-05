@@ -17,7 +17,6 @@ import java.util.Random;
 public class Fixture_generator {
 
     /**/
-    public static String fixture_filename = "/home/cruz/Kodzenie/Projekty_uczelnia/Inz/cecc/tests/test_bignum_fixtures.h";
     public static PrintWriter out = null;
     public static BigInteger a, b, c, d, p, result;
 
@@ -431,7 +430,7 @@ public class Fixture_generator {
      */
     public static void main(String[] args) {
 
-        create_header_file(fixture_filename);
+        create_header_file(args[0]);
 
         add_list(1, 128);
         add_list(1, 256);

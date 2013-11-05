@@ -59,7 +59,7 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 	 ;*/
 
 	uint32_t i, borrow;
-	uint64_t temp;
+	uint64_t temp = 0;
 	borrow = 0;
 	if (a->length == b->length) {
 		for (i = 0; i < a->length; i++) {
@@ -71,7 +71,7 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 			result->number[a->length] = temp >> 32;
 		}
 	} else {
-		for (i = 0; i < a->length; i++) {
+		for (i = 0; i < result->length; i++) {
 			if (i < a->length) {
 				temp = (uint64_t) a->number[i];
 			}
@@ -83,6 +83,8 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 
 			borrow = ((uint32_t) (temp >> 32)) & 0x1;
 		}
+		//TODO Check this, because it looks ugly.
+		result->number[result->length - 1] = temp >> 32; //God Why this line working?!
 	}
 	return borrow;
 }
@@ -325,7 +327,7 @@ uint32_t bn_and(bn_uint_t *a, bn_uint_t *and, bn_uint_t *result)
 /**
  * Barret modular reduction function -> a mod p
  * @param a number to reduce
- * @param mi number calculate in eg. java (BigInteger). (calculate as FFFF...F/p, where F count is p.length*32)
+ * @param mi number calculate in eg. java (BigInteger). (calculate as FFFF...F/p, where F count is p.length*8	)
  * @param p modulus
  * @param result
  * @return
@@ -336,7 +338,52 @@ uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t 
 		bn_copy(a, result, a->length);
 		return 0;
 	}
-	BN_CREATE_VARIABLE(q, a->length);
+	/*	BN_CREATE_VARIABLE(q, p->length + 1);
+	 BN_CREATE_VARIABLE(z, a->length + 2);
+	 BN_CREATE_VARIABLE(r, p->length + 2);
+	 uint32_t i;
+	 info("r = a mod b^k+1 !");
+	 //r = a mod b^k+1
+	 bn_zero(&r);
+	 for (i = 0; i < p->length + 1; ++i) {
+	 r.number[i] = a->number[i];
+	 }
+	 info("q");
+	 //compute q
+
+	 bn_shr_word(a, &q, p->length - 1);
+	 bn_mul(mi, &q, &z);
+	 bn_shr_word(&z, &q, p->length + 1);
+
+	 //ok we've got q
+	 info("z");
+	 //compute z = q*p mod b^k+1
+	 bn_mul(&q, p, &z);
+	 for (i = p->length + 1; i < z.length; ++i) {
+	 z.number[i] = 0x00;
+	 }
+
+	 //	bn_zero(&z);
+	 //print_values(3,&z,&r,&q);
+	 //compare z>r ?
+	 info("compare");
+	 if (bn_compare(&r, &z) == 1) {
+	 //make q=> b^k+1
+	 for (i = 0; i < p->length + 1; ++i) {
+	 q.number[i] = 0xffffffff;
+	 }
+	 bn_add(&r, &q, &r);
+
+	 };
+	 print_values(3, &z, &r, &q);
+	 bn_sub(&r, &z, &q);
+	 print_values(3, &z, &r, &q);
+	 info("before while");
+	 while (bn_compare(&q, p) == 1) {
+	 bn_sub(&q, p, &q);
+	 }
+	 bn_copy(&q, result, result->length);*/
+	BN_CREATE_VARIABLE(q, p->length + 1);
 	BN_CREATE_VARIABLE(z, a->length + 1);
 	BN_CREATE_VARIABLE(r1, a->length);
 	BN_CREATE_VARIABLE(r2, a->length + p->length);
@@ -355,6 +402,7 @@ uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t 
 	bn_and(&r2, &tmpmod2, &r2);
 
 	bn_zero(&z);
+	//info("compare");
 	if (bn_compare(&r1, &r2) == 2) {
 		bn_copy(&tmpmod, &z, tmpmod.length);
 		bn_sub(&z, &r2, &z);
@@ -362,11 +410,15 @@ uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t 
 	} else {
 		bn_sub(&r1, &r2, &z);
 	}
-
+	//print_values(1,&z);
+	//print_values(3, &z, &r1, &r2);
+	//info("before while");
 	while (bn_compare(&z, p) == 1) {
 		bn_sub(&z, p, &z);
+		//print_values(2, &z, &p);
 	}
 	bn_copy(&z, result, result->length);
+	//print_values(1, result);
 
 	return 0;
 }

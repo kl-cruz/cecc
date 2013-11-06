@@ -29,14 +29,18 @@ const bn_uint_t ecc_x = { .number = resultAddx, .length = 8 };
 uint32_t resultAddy[8] = { 0x744ac264, 0x6d013011, 0x5aa5c9d4, 0xc33b1331, 0x22d7620d, 0x5241a8a1, 0x2e1327d7, 0x8d585cbb };
 const bn_uint_t ecc_y = { .number = resultAddy, .length = 8 };
 
-void test_ecc_add()
+uint32_t test_ecc_secp256r1_add(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *bx, bn_uint_t *by, bn_uint_t *expx, bn_uint_t *expy)
 {
 	BN_CREATE_VARIABLE(outx, ecc_tx.length);
 	BN_CREATE_VARIABLE(outy, ecc_tx.length);
 //TODO zabezpieczyć przed dodawaniem dwóch tych samych punktów
-	start_count_time();
-	ecc_ec_add(&ecc_tx, &ecc_ty, &ecc_sx, &ecc_sy, &outx, &outy, &ec_secp256r1);
-	stop_count_time();
-	info("working time: %d us",get_us());
-	print_values(4, &outx, &ecc_x, &outy, &ecc_y);
+	//start_count_time();
+	ecc_ec_add(ax, ay, bx, by, &outx, &outy, &ec_secp256r1);
+	//stop_count_time();
+	//info("working time: %d us", get_us());
+	//print_values(4, &outx, expx, &outy, expy);
+
+	if ((bn_is_equal(&outx, expx) == 0) && (bn_is_equal(&outy, expy) == 0))
+		return 0;
+	return 1;
 }

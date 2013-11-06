@@ -12,6 +12,7 @@
 //tests
 #include  "test_bignum.h"
 #include  "test_bignum_fixtures.h"
+#include  "test_ecc_fixtures.h"
 #include "test_ecc.h"
 #include "seatest.h"
 
@@ -89,9 +90,10 @@ void tests_field_mul(void)
 {
 	uint32_t i;
 	for (i = 0; i < mul_mod_barret_128_tab_len; ++i) {
-	 assert_true(
-	 test_field_mul_barret(mul_mod_barret_128_test_tab[i][0], mul_mod_barret_128_test_tab[i][1],&mul_mod_barret_128_mi_,&mul_mod_barret_128_p_, mul_mod_barret_128_test_tab[i][2]) == 0);
-	 }
+		assert_true(
+				test_field_mul_barret(mul_mod_barret_128_test_tab[i][0], mul_mod_barret_128_test_tab[i][1], &mul_mod_barret_128_mi_,
+						&mul_mod_barret_128_p_, mul_mod_barret_128_test_tab[i][2]) == 0);
+	}
 	for (i = 0; i < mul_mod_barret_256_tab_len; ++i) {
 		assert_true(
 				test_field_mul_barret(mul_mod_barret_256_test_tab[i][0], mul_mod_barret_256_test_tab[i][1], &mul_mod_barret_256_mi_,
@@ -138,13 +140,29 @@ void bignum_tests(void)
 	;
 }
 
+void tests_ecc_add(void)
+{
+	uint32_t i = 0;
+	for (i = 0; i < mod_barret_256_tab_len; ++i) {
+			assert_true(test_ecc_secp256r1_add(ecc_points_add_secp256r1_test_tab[i][0],ecc_points_add_secp256r1_test_tab[i][1],ecc_points_add_secp256r1_test_tab[i][2],ecc_points_add_secp256r1_test_tab[i][3],ecc_points_add_secp256r1_test_tab[i][4],ecc_points_add_secp256r1_test_tab[i][5]) == 0);
+		}
+}
+
+void ecc_ops_tests(void)
+{
+	test_fixture_start()
+	;
+	run_test(tests_ecc_add);
+	test_fixture_end()
+	;
+}
+
 int main(void)
 {
 
 	init();
-	//bignum_tests();
-	test_ecc_add();
-
+	bignum_tests();
+	ecc_ops_tests();
 
 	fm_printf("\n");
 	return 0;

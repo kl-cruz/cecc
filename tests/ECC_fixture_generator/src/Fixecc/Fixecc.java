@@ -127,8 +127,8 @@ public class Fixecc {
 
             translate_bigint_and_write(ax, var_nameax + i);
             translate_bigint_and_write(bx, var_namebx + i);
-            translate_bigint_and_write(ay, var_nameax + i);
-            translate_bigint_and_write(by, var_namebx + i);
+            translate_bigint_and_write(ay, var_nameay + i);
+            translate_bigint_and_write(by, var_nameby + i);
             translate_bigint_and_write(sx, var_namesx + i);
             translate_bigint_and_write(sy, var_namesy + i);
 

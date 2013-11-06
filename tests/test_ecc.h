@@ -10,6 +10,6 @@
 #ifndef TEST_ECC_H_
 #define TEST_ECC_H_
 
-void test_ecc_add(void);
+uint32_t test_ecc_secp256r1_add(bn_uint_t *ax,bn_uint_t *ay,bn_uint_t *bx,bn_uint_t *by,bn_uint_t *expx,bn_uint_t *expy);
 
 #endif /* TEST_ECC_H_ */

@@ -8,6 +8,7 @@
  */
 #include "ecc.h"
 #include "nist_curves.h"
+#include "platform_utils.h"
 
 const uint32_t ecc_tx_tab[8] = { 0x35e0986b, 0xbb8cf92e, 0x61c89575, 0x39540dc8, 0x5316212e, 0x62f6b3b2, 0x8da1d44e, 0x55a8b00f };
 const bn_uint_t ecc_tx = { .number = ecc_tx_tab, .length = 8 };
@@ -33,6 +34,9 @@ void test_ecc_add()
 	BN_CREATE_VARIABLE(outx, ecc_tx.length);
 	BN_CREATE_VARIABLE(outy, ecc_tx.length);
 //TODO zabezpieczyć przed dodawaniem dwóch tych samych punktów
+	start_count_time();
 	ecc_ec_add(&ecc_tx, &ecc_ty, &ecc_sx, &ecc_sy, &outx, &outy, &ec_secp256r1);
+	stop_count_time();
+	info("working time: %d us",get_us());
 	print_values(4, &outx, &ecc_x, &outy, &ecc_y);
 }

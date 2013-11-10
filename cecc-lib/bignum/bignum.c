@@ -336,7 +336,7 @@ uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t 
 {
 	//print_values(2, p, a);
 	if (bn_compare(p, a) == 1) {
-		bn_copy(a, result, a->length);
+		bn_copy(a, result, result->length);
 		return 0;
 	}
 	//TODO ogarnij to trochę...
@@ -427,7 +427,7 @@ uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t 
 
 uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result)
 {
-	BN_CREATE_VARIABLE(res, a->length * 2);
+	BN_CREATE_VARIABLE(res, result->length * 2);
 	bn_zero(result);
 	bn_zero(&res);
 	bn_mul(a, b, &res);
@@ -444,7 +444,6 @@ uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_
  */
 uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length)
 {
-	//info("length:%d, from:%d, to:%d", length, from->length, to->length);
 	copy_assert_values()
 	;
 	uint32_t i;

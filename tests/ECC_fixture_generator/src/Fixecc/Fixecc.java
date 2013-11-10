@@ -133,6 +133,7 @@ public class Fixecc {
             translate_bigint_and_write(sy, var_namesy + i);
 
         }
+        add_to_header_file(tablength);
         add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][6]={");
         for (int i = 0; i < samples; ++i) {
 
@@ -142,9 +143,58 @@ public class Fixecc {
         add_to_header_file("};");
 
     }
-    
-    private static void generate_keys() throws NoSuchAlgorithmException
-    {
+
+    private static void generate_points_double_fixture(String curve_name, int samples) throws NoSuchAlgorithmException, NoSuchProviderException {
+        ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec(curve_name);
+        ECPoint ga = (ECPoint) ecSpec.getG();
+        SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
+        ECPoint qMultiply = null;
+        BigInteger k = null;
+        BigInteger ax = null;
+        BigInteger ay = null;
+        BigInteger sx = null;
+        BigInteger sy = null;
+
+
+        String var_name = "ecc_points_double_" + curve_name + "_";
+        String var_nameax = var_name + "ax_";
+        String var_nameay = var_name + "ay_";
+        String var_namesx = var_name + "sx_";
+        String var_namesy = var_name + "sy_";
+        String var_nametab = var_name + "test_tab";
+
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+
+        for (int i = 0; i < samples; ++i) {
+            k = new BigInteger(ecSpec.getN().bitLength(), random);
+
+            qMultiply = ga.multiply(k);
+            ax = ga.getX().toBigInteger();
+            ay = ga.getY().toBigInteger();
+            qMultiply = ga.twice();
+            sx = qMultiply.getX().toBigInteger();
+            sy = qMultiply.getY().toBigInteger();
+
+
+
+            translate_bigint_and_write(ax, var_nameax + i);
+            translate_bigint_and_write(ay, var_nameay + i);
+            translate_bigint_and_write(sx, var_namesx + i);
+            translate_bigint_and_write(sy, var_namesy + i);
+
+        }
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][4]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_nameax + i + ",&" + var_nameay + i + ",&" + var_namesx + i + ",&" + var_namesy + i + "},");
+
+        }
+        add_to_header_file("};");
+
+    }
+
+    private static void generate_keys() throws NoSuchAlgorithmException {
         ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec("secp256r1");
         System.out.println(ecSpec.getCurve().getA().toBigInteger().toString(16));
         System.out.println(ecSpec.getCurve().getB().toBigInteger().toString(16));
@@ -170,18 +220,18 @@ public class Fixecc {
 
     public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchProviderException {
 
-      /* 
+        /* 
         //Test for TinyDTLS test values
         ecSpec = ECNamedCurveTable.getParameterSpec("secp256r1");
         System.out.println(ecSpec.getCurve().getA().toBigInteger().toString(16));
         System.out.println(ecSpec.getCurve().getB().toBigInteger().toString(16));
-
+        
         BigInteger p = new BigInteger("ffffffff00000001000000000000000000000000ffffffffffffffffffffffff", 16);
         ECFieldElement.Fp tx = new ECFieldElement.Fp(p, new BigInteger("55a8b00f8da1d44e62f6b3b25316212e39540dc861c89575bb8cf92e35e0986b", 16));
         ECFieldElement.Fp ty = new ECFieldElement.Fp(p, new BigInteger("5421c3209c2d6c704835d82ac4c3dd90f61a8a52598b9e7ab656e9d8c8b24316", 16));
         ECFieldElement.Fp sx = new ECFieldElement.Fp(p, new BigInteger("de2444bebc8d36e682edd27e0f271508617519b3221a8fa0b77cab3989da97c9", 16));
         ECFieldElement.Fp sy = new ECFieldElement.Fp(p, new BigInteger("c093ae7ff36e5380fc01a5aad1e66659702de80f53cec576b6350b243042a256", 16));
-
+        
         ECPoint.Fp t;// 
         ECPoint.Fp s;
         ECPoint r;
@@ -195,9 +245,10 @@ public class Fixecc {
         System.out.println("Sy: " + s.getY().toBigInteger().toString(16));
         System.out.println("Rx: " + r.getX().toBigInteger().toString(16));
         System.out.println("Ry: " + r.getY().toBigInteger().toString(16));
-*/
+         */
         create_header_file(args[0]);
-        generate_points_add_fixture("secp256r1",10);
+        generate_points_add_fixture("secp256r1", 10);
+        generate_points_double_fixture("secp256r1", 10);
         close_header_file();
     }
 }

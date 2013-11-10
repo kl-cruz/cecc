@@ -14,6 +14,7 @@
 typedef struct {
 	const bn_uint_t *p;
 	const bn_uint_t *a;
+	const uint32_t is_a_negative;
 	const bn_uint_t *b;
 	const bn_uint_t *S;
 	const bn_uint_t *G;
@@ -24,5 +25,7 @@ typedef struct {
 
 uint32_t ecc_ec_add(bn_uint_t * in1x, bn_uint_t * in1y, bn_uint_t * in2x, bn_uint_t * in2y, bn_uint_t * outx, bn_uint_t * outy, ecc_curve_t *curve);
 uint32_t ecc_ec_double(bn_uint_t * inx, bn_uint_t * iny, bn_uint_t * outx, bn_uint_t * outy, ecc_curve_t *curve);
+uint32_t ecc_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *outx, bn_uint_t *outy, ecc_curve_t *curve);
+
 
 #endif /* ECC_H_ */

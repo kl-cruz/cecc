@@ -30,6 +30,6 @@ const bn_uint_t ec_secp256r1_S = {.number = ec_secp256r1_S_tab, .length = 5};
 //variable 'ec_secp256r1_mi' value: 0x100000000fffffffffffffffefffffffefffffffeffffffff0000000000000003
 const uint32_t ec_secp256r1_mi_tab [9] = {0x00000003, 0x00000000, 0xffffffff, 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xffffffff, 0x00000000, 0x1};
 const bn_uint_t ec_secp256r1_mi = {.number = ec_secp256r1_mi_tab, .length = 9};
-const ecc_curve_t ec_secp256r1 = {&ec_secp256r1_p, &ec_secp256r1_a, &ec_secp256r1_b, &ec_secp256r1_S, &ec_secp256r1_G, &ec_secp256r1_n, &ec_secp256r1_h, &ec_secp256r1_mi};
+const ecc_curve_t ec_secp256r1 = {&ec_secp256r1_p, &ec_secp256r1_a,1, &ec_secp256r1_b, &ec_secp256r1_S, &ec_secp256r1_G, &ec_secp256r1_n, &ec_secp256r1_h, &ec_secp256r1_mi};
 
 #endif /* CURVES_H_ */

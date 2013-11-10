@@ -92,7 +92,7 @@ public class curves_code_generator {
         add_to_header_file("const bn_uint_t " + var_name + " = {.number = " + var_name + "_tab, .length = " + len + "};");
     }
 
-    public static void create_curve_code(String p, String a,Boolean is_a_negative, String b,String S, String G, String n, String h, String curve_name, int bit_len) {
+    public static void create_curve_code(String p, String a, String b,String S, String G, String n, String h, String curve_name, int bit_len) {
         String var_name = "ec_"+curve_name;
         String var_namea = var_name + "_a";
         String var_nameb = var_name + "_b";
@@ -126,7 +126,7 @@ public class curves_code_generator {
         translate_bigint_and_write(bti.divide(pi), var_namemi);
 
 
-        add_to_header_file("const ecc_curve_t "+var_name+" = {&"+var_namep+", &"+var_namea+","+(is_a_negative?"1":"0")+", &"+var_nameb+", &"+var_nameS+", &"+var_nameG+", &"+var_namen+", &"+var_nameh+", &"+var_namemi+"};");
+        add_to_header_file("const ecc_curve_t "+var_name+" = {&"+var_namep+", &"+var_namea+", &"+var_nameb+", &"+var_nameS+", &"+var_nameG+", &"+var_namen+", &"+var_nameh+", &"+var_namemi+"};");
     }
 
     /**
@@ -140,7 +140,6 @@ public class curves_code_generator {
         create_curve_code(
                /*p*/ "FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF",
                /*a*/ "FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC",
-               /*is_a_negative*/ true,
                /*b*/ "5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B",
                /*S*/ "C49D360886E704936A6678E1139D26B7819F7E90",
                /*G*/ "046B17D1F2E12C424F8BCE6E563A440F277037D812DEB33A0F4A13945D898C2964FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE3356B315ECECBB6406837BF51F5",

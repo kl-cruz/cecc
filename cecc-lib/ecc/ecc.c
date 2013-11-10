@@ -45,12 +45,10 @@ uint32_t ecc_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *qx, bn_uint_t *qy, 
 	bn_field_inverse(sx, curve->p, &lambda);
 	bn_copy(&lambda, sx, sx->length);
 	//here is lambda
-
 	bn_field_mul_barret(sy, sx, curve->barret_mi, curve->p, &lambda);
 	bn_field_mul_barret(&lambda, &lambda, curve->barret_mi, curve->p, sx);
 	bn_field_sub(sx, px, curve->p, sy);
 	bn_field_sub(sy, qx, curve->p, sx);
-
 	//count Sy
 	bn_field_sub(qx, sx, curve->p, sy);
 	bn_field_mul_barret(sy, &lambda, curve->barret_mi, curve->p, &tmp);

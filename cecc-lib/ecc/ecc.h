@@ -14,7 +14,6 @@
 typedef struct {
 	const bn_uint_t *p;
 	const bn_uint_t *a;
-	const uint32_t is_a_negative;
 	const bn_uint_t *b;
 	const bn_uint_t *S;
 	const bn_uint_t *G;

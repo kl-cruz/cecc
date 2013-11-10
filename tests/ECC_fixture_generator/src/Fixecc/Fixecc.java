@@ -144,7 +144,7 @@ public class Fixecc {
 
     }
 
-    private static void generate_points_double_fixture(String curve_name, int samples) throws NoSuchAlgorithmException, NoSuchProviderException {
+    private static void generate_point_double_fixture(String curve_name, int samples) throws NoSuchAlgorithmException, NoSuchProviderException {
         ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec(curve_name);
         ECPoint ga = (ECPoint) ecSpec.getG();
         SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
@@ -156,7 +156,7 @@ public class Fixecc {
         BigInteger sy = null;
 
 
-        String var_name = "ecc_points_double_" + curve_name + "_";
+        String var_name = "ecc_point_double_" + curve_name + "_";
         String var_nameax = var_name + "ax_";
         String var_nameay = var_name + "ay_";
         String var_namesx = var_name + "sx_";
@@ -188,6 +188,58 @@ public class Fixecc {
         for (int i = 0; i < samples; ++i) {
 
             add_to_header_file("{&" + var_nameax + i + ",&" + var_nameay + i + ",&" + var_namesx + i + ",&" + var_namesy + i + "},");
+
+        }
+        add_to_header_file("};");
+
+    }
+
+    private static void generate_point_multiplication_fixture(String curve_name, int samples) throws NoSuchAlgorithmException, NoSuchProviderException {
+        ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec(curve_name);
+        ECPoint ga = (ECPoint) ecSpec.getG();
+        SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
+        ECPoint qMultiply = null;
+        BigInteger k = null;
+        BigInteger px = null;
+        BigInteger py = null;
+        BigInteger sx = null;
+        BigInteger sy = null;
+
+
+        String var_name = "ecc_point_mul_" + curve_name + "_";
+        String var_namepx = var_name + "px_";
+        String var_namepy = var_name + "py_";
+        String var_namesx = var_name + "sx_";
+        String var_namesy = var_name + "sy_";
+        String var_namek = var_name + "k_";
+        String var_nametab = var_name + "test_tab";
+
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+
+        for (int i = 0; i < samples; ++i) {
+            k = new BigInteger(ecSpec.getN().bitLength(), random);
+            qMultiply = ga.multiply(k);
+            px = ga.getX().toBigInteger();
+            py = ga.getY().toBigInteger();
+            k = new BigInteger(ecSpec.getN().bitLength(), random);
+            qMultiply = ga.multiply(k);
+            sx = qMultiply.getX().toBigInteger();
+            sy = qMultiply.getY().toBigInteger();
+
+
+
+            translate_bigint_and_write(k, var_namek + i);
+            translate_bigint_and_write(px, var_namepx + i);
+            translate_bigint_and_write(py, var_namepy + i);
+            translate_bigint_and_write(sx, var_namesx + i);
+            translate_bigint_and_write(sy, var_namesy + i);
+
+        }
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][5]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namepx + i + ",&" + var_namepy + i + ",&" + var_namek + i + ",&" + var_namesx + i + ",&" + var_namesy + i + "},");
 
         }
         add_to_header_file("};");
@@ -248,7 +300,8 @@ public class Fixecc {
          */
         create_header_file(args[0]);
         generate_points_add_fixture("secp256r1", 10);
-        generate_points_double_fixture("secp256r1", 10);
+        generate_point_double_fixture("secp256r1", 10);
+        generate_point_multiplication_fixture("secp256r1", 10);
         close_header_file();
     }
 }

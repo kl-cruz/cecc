@@ -123,3 +123,114 @@ uint32_t ecc_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *outx
 	}
 }
 
+/*
+ * ECDSA algorithms. Based on paper:
+ * The Elliptic Curve Digital Signature Algorithm (ECDSA)
+ * Don Johnson[1] and Alfred Menezes[1,2] and Scott Vanstone[1,2]
+ * [1]Certicom Research, Canada
+ * [2]Dept. of Combinatorics & Optimization, University of Waterloo, Canada
+ * http://cs.ucsb.edu/~koc/ccs130h/notes/ecdsa-cert.pdf (page 26)
+ *
+ * or
+ * http://residentrf.ucoz.ru/_ld/0/34_Digital_Signatu.pdf (page 24)
+ */
+
+/*
+ * Docs for ECDSA recommends SHA-1 as hash function. SHA-1 isn't recommended
+ * by NSA to use in new implementations.
+ * Check if ECDSA could be implemented with SHA-2 (eg. SHA-256)
+ *
+ * see draft below:
+ * http://tools.ietf.org/html/draft-os-ietf-sshfp-ecdsa-sha2-07
+ */
+
+/**
+ * Generate ECDSA signature for hash
+ * @param k random number
+ * @param hash hash
+ * @param d private ecc key
+ * @param r output value r
+ * @param s output value s
+ * @param curve curve
+ * @return 0 Everything is OK
+ * @return 1 Choose other k for proper counting
+ */
+uint32_t ecc_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash, bn_uint_t *d, bn_uint_t *r, bn_uint_t *s, ecc_curve_t *curve)
+{
+	BN_CREATE_VARIABLE(tmp, r->length);
+	BN_CREATE_VARIABLE(tmp2, r->length);
+	bn_zero(&tmp);
+	bn_zero(&tmp2);
+	bn_zero(r);
+	bn_zero(s);
+	ecc_ec_mult(curve->Gx, curve->Gy, k, r, s, curve);
+	if (bn_compare(r, &tmp) == 0) //if r==0 then exit. Change k
+			{
+		return 1;
+	}
+	bn_field_inverse(k, curve->p, &tmp); //k^-1 mod p
+	bn_field_mul_barret(d, r, curve->barret_mi, curve->p, s); //s=dr
+	bn_field_add(s, hash, curve->p, &tmp2); //maybe bug here s=dr+c
+	bn_field_mul_barret(&tmp, &tmp2, curve->barret_mi, curve->p, s); //maybe bug here
+	bn_zero(&tmp);
+	if (bn_compare(s, &tmp) == 0) //if r==0 then exit. Change k
+			{
+		return 1;
+	}
+
+	return 0;
+}
+
+/**
+ * Validate ECDSA signature
+ * @param r
+ * @param s
+ * @param hash
+ * @param pub_k_x public key x
+ * @param pub_k_y public key y
+ * @param curve
+ * @return 0 message is consistent
+ * @return 1 message is not consistent
+ * @return 2 r is greater than field size
+ * @return 3 s is greater than field size
+ */
+
+uint32_t ecc_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, ecc_curve_t *curve)
+{
+	BN_CREATE_VARIABLE(u1, r->length);
+	BN_CREATE_VARIABLE(u2, r->length);
+	BN_CREATE_VARIABLE(tmpx1, r->length);
+	BN_CREATE_VARIABLE(tmpx2, r->length);
+	BN_CREATE_VARIABLE(tmpy1, r->length);
+	BN_CREATE_VARIABLE(tmpy2, r->length);
+
+	bn_zero(&u1);
+	bn_zero(&u2);
+	bn_zero(&tmpx1);
+	bn_zero(&tmpx2);
+	bn_zero(&tmpy1);
+	bn_zero(&tmpy2);
+	if (bn_compare(r, curve->p) == 2) //if r>p then exit.
+			{
+		return 2;
+	}
+	if (bn_compare(s, curve->p) == 2) //if s>p then exit.
+			{
+		return 3;
+	}
+	bn_field_inverse(s, curve->p, &tmpx1); //tmpx1=s^-1 (w=s^-1)
+	bn_field_mul_barret(&tmpx1, r, curve->barret_mi, curve->p, &u2); //u2=rw mod p
+	bn_field_mul_barret(&tmpx1, hash, curve->barret_mi, curve->p, &u1); //u1=hash*w mod p
+
+	//count X
+	bn_zero(&tmpx1);
+	ecc_ec_mult(curve->Gx, curve->Gy, &u1, &tmpx1, &tmpy1, curve);
+	ecc_ec_mult(pub_k_x, pub_k_y, &u2, &tmpx2, &tmpy2, curve);
+	ecc_ec_add(&tmpx1,&tmpy1,&tmpx2,&tmpy2,&u1,&u2,curve);
+	if(bn_compare(&u1,r)==0)
+	{
+		return 0;
+	}
+	return 1;
+}
+

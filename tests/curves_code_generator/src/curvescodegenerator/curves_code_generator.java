@@ -8,6 +8,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
+import org.bouncycastle.jce.ECNamedCurveTable;
+import org.bouncycastle.jce.spec.ECParameterSpec;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.math.BigInteger;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.SecureRandom;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.bouncycastle.math.ec.ECPoint;
 
 /**
  *
@@ -43,7 +55,7 @@ public class curves_code_generator {
             out.println("} ecc_curve_t;");
             out.println("");
             out.println("");*/
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,12 +104,13 @@ public class curves_code_generator {
         add_to_header_file("const bn_uint_t " + var_name + " = {.number = " + var_name + "_tab, .length = " + len + "};");
     }
 
-    public static void create_curve_code(String p, String a, String b,String S, String G, String n, String h, String curve_name, int bit_len) {
-        String var_name = "ec_"+curve_name;
+    public static void create_curve_code(String p, String a, String b, String S, String Gx, String Gy, String n, String h, String curve_name, int bit_len) {
+        String var_name = "ec_" + curve_name;
         String var_namea = var_name + "_a";
         String var_nameb = var_name + "_b";
         String var_namep = var_name + "_p";
-        String var_nameG = var_name + "_G";
+        String var_nameGx = var_name + "_Gx";
+        String var_nameGy = var_name + "_Gy";
         String var_namen = var_name + "_n";
         String var_nameh = var_name + "_h";
         String var_nameS = var_name + "_S";
@@ -111,7 +124,8 @@ public class curves_code_generator {
         BigInteger pi = new BigInteger(p, 16);
         BigInteger ai = new BigInteger(a, 16);
         BigInteger bi = new BigInteger(b, 16);
-        BigInteger Gi = new BigInteger(G, 16);
+        BigInteger Gxi = new BigInteger(Gx, 16);
+        BigInteger Gyi = new BigInteger(Gy, 16);
         BigInteger ni = new BigInteger(n, 16);
         BigInteger Si = new BigInteger(S, 16);
         BigInteger hi = new BigInteger(h, 16);
@@ -119,14 +133,15 @@ public class curves_code_generator {
         translate_bigint_and_write(pi, var_namep);
         translate_bigint_and_write(ai, var_namea);
         translate_bigint_and_write(bi, var_nameb);
-        translate_bigint_and_write(Gi, var_nameG);
+        translate_bigint_and_write(Gxi, var_nameGx);
+        translate_bigint_and_write(Gyi, var_nameGy);
         translate_bigint_and_write(ni, var_namen);
         translate_bigint_and_write(hi, var_nameh);
         translate_bigint_and_write(Si, var_nameS);
         translate_bigint_and_write(bti.divide(pi), var_namemi);
 
 
-        add_to_header_file("const ecc_curve_t "+var_name+" = {&"+var_namep+", &"+var_namea+", &"+var_nameb+", &"+var_nameS+", &"+var_nameG+", &"+var_namen+", &"+var_nameh+", &"+var_namemi+"};");
+        add_to_header_file("const ecc_curve_t " + var_name + " = {&" + var_namep + ", &" + var_namea + ", &" + var_nameb + ", &" + var_nameS + ", &" + var_nameGx + ", &" + var_nameGy + ", &" + var_namen + ", &" + var_nameh + ", &" + var_namemi + "};");
     }
 
     /**
@@ -134,17 +149,19 @@ public class curves_code_generator {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec("secp256r1");
 
         create_header_file(args[0]);
 
         create_curve_code(
-               /*p*/ "FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF",
-               /*a*/ "FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC",
-               /*b*/ "5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B",
-               /*S*/ "C49D360886E704936A6678E1139D26B7819F7E90",
-               /*G*/ "046B17D1F2E12C424F8BCE6E563A440F277037D812DEB33A0F4A13945D898C2964FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE3356B315ECECBB6406837BF51F5",
-               /*n*/ "FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551", 
-               /*h*/ "1", "secp256r1", 256);
+                /*p*/"FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF",
+                /*a*/ "FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC",
+                /*b*/ "5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B",
+                /*S*/ "C49D360886E704936A6678E1139D26B7819F7E90",
+                /*Gx*/ ecSpec.getG().getX().toBigInteger().toString(16),
+                /*Gy*/ ecSpec.getG().getY().toBigInteger().toString(16),
+                /*n*/ "FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551",
+                /*h*/ "1", "secp256r1", 256);
 
         close_header_file();
     }

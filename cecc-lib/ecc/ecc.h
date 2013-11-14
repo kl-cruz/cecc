@@ -21,6 +21,7 @@ typedef struct {
 	const bn_uint_t *n;
 	const bn_uint_t *h;
 	const bn_uint_t *barret_mi;
+	const bn_uint_t *barret_mi_n;
 } ecc_curve_t;
 
 uint32_t ecc_ec_add(bn_uint_t * in1x, bn_uint_t * in1y, bn_uint_t * in2x, bn_uint_t * in2y, bn_uint_t * outx, bn_uint_t * outy, ecc_curve_t *curve);

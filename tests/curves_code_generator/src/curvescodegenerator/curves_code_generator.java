@@ -115,6 +115,7 @@ public class curves_code_generator {
         String var_nameh = var_name + "_h";
         String var_nameS = var_name + "_S";
         String var_namemi = var_name + "_mi";
+        String var_namemi_n = var_name + "_mi_n";
         String bt = "";
         int max_f = bit_len / 16;
         for (int r = 0; r < max_f; ++r) {
@@ -139,9 +140,10 @@ public class curves_code_generator {
         translate_bigint_and_write(hi, var_nameh);
         translate_bigint_and_write(Si, var_nameS);
         translate_bigint_and_write(bti.divide(pi), var_namemi);
+        translate_bigint_and_write(bti.divide(ni), var_namemi_n);
 
 
-        add_to_header_file("const ecc_curve_t " + var_name + " = {&" + var_namep + ", &" + var_namea + ", &" + var_nameb + ", &" + var_nameS + ", &" + var_nameGx + ", &" + var_nameGy + ", &" + var_namen + ", &" + var_nameh + ", &" + var_namemi + "};");
+        add_to_header_file("const ecc_curve_t " + var_name + " = {&" + var_namep + ", &" + var_namea + ", &" + var_nameb + ", &" + var_nameS + ", &" + var_nameGx + ", &" + var_nameGy + ", &" + var_namen + ", &" + var_nameh + ", &" + var_namemi +", &" + var_namemi_n + "};");
     }
 
     /**

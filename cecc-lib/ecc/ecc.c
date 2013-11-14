@@ -160,20 +160,29 @@ uint32_t ecc_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash, bn_uint_t *d, bn
 	BN_CREATE_VARIABLE(tmp, r->length);
 	BN_CREATE_VARIABLE(tmp2, r->length);
 	bn_zero(&tmp);
+	if (bn_compare(k, &tmp) == 0) //if k==0 then exit. Change k
+			{
+		return 1;
+	}
+
 	bn_zero(&tmp2);
 	bn_zero(r);
-	bn_zero(s);
 	ecc_ec_mult(curve->Gx, curve->Gy, k, r, s, curve);
 	if (bn_compare(r, &tmp) == 0) //if r==0 then exit. Change k
 			{
 		return 1;
 	}
-	bn_field_inverse(k, curve->p, &tmp); //k^-1 mod p
-	bn_field_mul_barret(d, r, curve->barret_mi, curve->p, s); //s=dr
-	bn_field_add(s, hash, curve->p, &tmp2); //maybe bug here s=dr+c
-	bn_field_mul_barret(&tmp, &tmp2, curve->barret_mi, curve->p, s); //maybe bug here
+	/*
+	 * Zapamiętać na całe życie że tutaj nie jest coś mod P tylko mod N! Dokładne opisy są dostępne w art naukowych
+	 */
+
+	bn_field_inverse(k, curve->n, &tmp); //k^-1 mod p
+	bn_field_mul_barret(d, r, curve->barret_mi_n, curve->n, s); //s=dr
+	bn_field_add(s, hash, curve->n, &tmp2); //tmp2=dr+c
+	bn_zero(s);
+	bn_field_mul_barret(&tmp, &tmp2, curve->barret_mi_n, curve->n, s); //s
 	bn_zero(&tmp);
-	if (bn_compare(s, &tmp) == 0) //if r==0 then exit. Change k
+	if (bn_compare(s, &tmp) == 0) //if s==0 then exit. Change k
 			{
 		return 1;
 	}
@@ -226,9 +235,8 @@ uint32_t ecc_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
 	bn_zero(&tmpx1);
 	ecc_ec_mult(curve->Gx, curve->Gy, &u1, &tmpx1, &tmpy1, curve);
 	ecc_ec_mult(pub_k_x, pub_k_y, &u2, &tmpx2, &tmpy2, curve);
-	ecc_ec_add(&tmpx1,&tmpy1,&tmpx2,&tmpy2,&u1,&u2,curve);
-	if(bn_compare(&u1,r)==0)
-	{
+	ecc_ec_add(&tmpx1, &tmpy1, &tmpx2, &tmpy2, &u1, &u2, curve);
+	if (bn_compare(&u1, r) == 0) {
 		return 0;
 	}
 	return 1;

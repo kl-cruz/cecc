@@ -54,3 +54,31 @@ uint32_t test_ecc_mul(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *exp
 		return 0;
 	return 1;
 }
+
+uint32_t test_ecdsa_gen_sig(bn_uint_t *k, bn_uint_t *hash, bn_uint_t *d, bn_uint_t *expr, bn_uint_t *exps, ecc_curve_t *curve)
+{
+	BN_CREATE_VARIABLE(r, expr->length);
+	BN_CREATE_VARIABLE(s, exps->length);
+	uint32_t res;
+	start_count_time();
+			res = ecc_ECDSA_signature_gen(k,hash,d, &r, &s, curve);
+			stop_count_time();
+			info("ECDSA signature generation time:%f ms", get_us()/1000.0);
+
+	if ((bn_is_equal(&r, expr) == 0) && (bn_is_equal(&s, exps) == 0) && (res == 0))
+		return 0;
+	return 1;
+}
+
+uint32_t test_ecdsa_val_sig(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, ecc_curve_t *curve)
+{
+	uint32_t res;
+	start_count_time();
+	res=ecc_ECDSA_signature_val(r,s,hash,pub_k_x,pub_k_y,curve);
+			stop_count_time();
+			info("ECDSA signature validation time:%f ms", get_us()/1000.0);
+
+	if (res == 0)
+		return 0;
+	return 1;
+}

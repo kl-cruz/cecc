@@ -123,7 +123,6 @@ uint32_t ecc_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *outx
 	}
 }
 
-
 /*
  * ECDSA algorithms. Based on paper:
  * The Elliptic Curve Digital Signature Algorithm (ECDSA)
@@ -245,3 +244,58 @@ uint32_t ecc_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
 	return 1;
 }
 
+/**
+ * Mock for hash function
+ * @param input
+ * @param output
+ */
+
+void ecc_default_hash(bn_uint_t *input, bn_uint_t *output)
+{
+	bn_copy(input, output, output->length);
+}
+
+/**
+ * Trashes from memory as pseudo random generator
+ * @param output
+ */
+void ecc_default_prgn(bn_uint_t *output)
+{
+	BN_CREATE_VARIABLE(tmp, output->length);
+	bn_copy(&tmp, output, output->length);
+}
+
+/**
+ * @param prgn pseudo random generator function. For use default function use ecc_default_prgn
+ * @param d out -> private key
+ * @param pub_k_x out -> public key x
+ * @param pub_k_y out -> public key y
+ * @param curve
+ * @return
+ */
+uint32_t ecc_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, ecc_curve_t *curve)
+{
+	BN_CREATE_VARIABLE(random_value, d->length);
+	prgn(&random_value);
+	bn_barret_modulus(&random_value, curve->barret_mi_n, curve->n, &random_value);
+	ecc_ec_mult(curve->Gx, curve->Gy, &random_value, pub_k_x, pub_k_y, curve);
+	bn_copy(&random_value, d, d->length);
+}
+
+/*
+ * Properly data for ECDH algorithm
+ *
+ * Validation of Elliptic Curve Public Keys
+ * Adrian Antipa[1],Daniel Brown[1], Alfred Menezes[2],Rene Struik[1], and Scott Vanstone[2]
+ * [1] ->Certicom Research, Canada
+ * {aantipa,dbrown,rstruik}@certicom.com
+ * [2]Dept. of Combinatorics and Optimization, University of Waterloo, Canada
+ * {ajmeneze,savansto}@uwaterloo.ca
+ */
+uint32_t ecc_ECDH_secret_gen(ecc_hash hash_func,bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, bn_uint_t *secret, ecc_curve_t *curve)
+{
+	BN_CREATE_VARIABLE(y, pub_k_y->length);
+	ecc_ec_mult(pub_k_x, pub_k_y, d, secret, &y, curve);
+	hash_func(secret,&y);
+	bn_copy(&y,secret,secret->length);
+}

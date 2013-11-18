@@ -206,44 +206,7 @@ void tests_ecc_ECDSA(void)
 	uint32_t i = 0, res;
 	BN_CREATE_VARIABLE(r, hash.length);
 	BN_CREATE_VARIABLE(s, hash.length);
-	//ecc_ECDSA_secp256r1_test_tab
 
-	//i = ecc_ECDSA_signature_gen(&rand1, &hash1, &key_d, &r, &s, &ec_secp256r1);
-	//i = ecc_ECDSA_signature_gen(ecc_ECDSA_secp256r1_test_tab[i][5], ecc_ECDSA_secp256r1_test_tab[i][2], ecc_ECDSA_secp256r1_test_tab[i][6], &r, &s, &ec_secp256r1);
-	//i = ecc_ECDSA_signature_gen(&ecc_ECDSA_secp256r1_k_0, &ecc_ECDSA_secp256r1_hash_0, &ecc_ECDSA_secp256r1_d_0, &r, &s, &ec_secp256r1);
-	//print_values(5, &rand1, &hash1, &key_d, &r, &s, &ec_secp256r1);
-	info("result:%d", i);
-
-	//ecc_ec_mult(&base_point_x, &base_point_y, &secret, &pubx, &puby, &ec_secp256r1);
-	//i = ecc_ECDSA_signature_val(&r, &s, &hash1,&pubx,&puby, &ec_secp256r1);
-	info("result VALIDATE:%d", i);
-
-	/*
-	 BN_CREATE_VARIABLE(a, hash.length);
-
-	 BN_CREATE_VARIABLE(b, hash.length);
-
-	 BN_CREATE_VARIABLE(c, hash.length);
-
-	 bn_barret_modulus(&a,ec_secp256r1.barret_mi_n,ec_secp256r1.n,&c);
-	 bn_barret_modulus(&b,ec_secp256r1.barret_mi_n,ec_secp256r1.n,&a);
-
-	 bn_field_add(&a,&b,ec_secp256r1.n,&c);
-	 BN_CREATE_VARIABLE(o1, hash.length);
-	 BN_CREATE_VARIABLE(o2, hash.length);
-	 BN_CREATE_VARIABLE(o3, hash.length);
-	 BN_CREATE_VARIABLE(o4, hash.length);
-	 BN_CREATE_VARIABLE(o5, hash.length);
-	 BN_CREATE_VARIABLE(o6, hash.length);
-	 ecc_ec_mult(ec_secp256r1.Gx,ec_secp256r1.Gy,&a,&o1,&o2,&ec_secp256r1);
-	 ecc_ec_mult(ec_secp256r1.Gx,ec_secp256r1.Gy,&b,&o3,&o4,&ec_secp256r1);
-	 ecc_ec_mult(ec_secp256r1.Gx,ec_secp256r1.Gy,&c,&o5,&o6,&ec_secp256r1);
-
-	 ecc_ec_add(&o1,&o2,&o3,&o4,&r,&s,&ec_secp256r1);
-
-	 print_values(8,&o1,&o2,&o3,&o4,&o5,&o6,&r,&s);*/
-	/*bn_uint_t *P_224_SHA_512_tab[10][7]={
-	 {&P_224_SHA_512_Msg16,&P_224_SHA_512_d16,&P_224_SHA_512_Qx16,&P_224_SHA_512_Qy16,&P_224_SHA_512_k16,&P_224_SHA_512_R16,&P_224_SHA_512_S16},*/
 	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
 		start_count_time();
 		res = ecc_ECDSA_signature_gen(P_256_SHA_1_tab[i][4], P_256_SHA_1_tab[i][0], P_256_SHA_1_tab[i][1], &r, &s, &ec_secp256r1);
@@ -252,7 +215,6 @@ void tests_ecc_ECDSA(void)
 		assert_true(res == 0);
 		assert_true(bn_compare(&r, P_256_SHA_1_tab[i][5]) == 0);
 		assert_true(bn_compare(&s, P_256_SHA_1_tab[i][6]) == 0);
-		//print_values(2, &r, &s);
 	}
 	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
 		start_count_time();
@@ -262,7 +224,6 @@ void tests_ecc_ECDSA(void)
 		info("ECDSA signature validation time:%f ms", get_us()/1000.0);
 
 		assert_true(res == 0);
-		//print_values(2, &r, &s);
 	}
 }
 

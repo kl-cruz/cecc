@@ -353,27 +353,15 @@ uint32_t ecc_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
 			{
 		return 3;
 	}
-	//info("w");
 	bn_field_inverse(s, curve->n, &tmpx1); //tmpx1=s^-1 (w=s^-1)
-	//print_values(1, &tmpx1);
-	//info("r");
-	//print_values(1, r);
-	//info("u2");
 	bn_field_mul_barret(&tmpx1, r, curve->barret_mi_n, curve->n, &u2); //u2=rw mod n
-	//print_values(1, &u2);
-	//info("e");
-	//print_values(1, hash);
-	//info("u1");
 	bn_field_mul_barret(&tmpx1, hash, curve->barret_mi_n, curve->n, &u1); //u1=hash*w mod n
-	//print_values(1, &u1);
 
 	//count X
 	bn_zero(&tmpx1);
 	ecc_ec_mult(curve->Gx, curve->Gy, &u1, &tmpx1, &tmpy1, curve);
 	ecc_ec_mult(pub_k_x, pub_k_y, &u2, &tmpx2, &tmpy2, curve);
 	ecc_ec_add(&tmpx1, &tmpy1, &tmpx2, &tmpy2, &u1, &u2, curve);
-	//info("tmp3");
-	//print_values(1, &u1);
 	if (bn_compare(&u1, r) == 0) {
 		return 0;
 	}

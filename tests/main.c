@@ -182,10 +182,10 @@ bn_uint_t base_point_y = { .number = BasePointy, .length = 8 };
 const uint32_t ecdsaTestMessage[8] = { 0x65637572, 0x20612073, 0x68206F66, 0x20686173, 0x69732061, 0x68697320, 0x6F2C2054, 0x48616C6C };
 bn_uint_t hash = { .number = ecdsaTestMessage, .length = 8 };
 
-const uint32_t ecdsaTestSecret[8] = { 0x94A949FA, 0x401455A1, 0xAD7294CA, 0x896A33BB, 0x7A80E714, 0x4321435B, 0x51247A14, 0x41C1CB6B };
+const uint32_t ecdsaTestSecret[8] = { 0x94A949FA, 0x401455A1, 0xAD7294CA, 0x896A33BB, 0x7A80E714, 0x4321435B, 0x51247A14, 0x45C1CB6B };
 bn_uint_t secret = { .number = ecdsaTestSecret, .length = 8 };
 
-const uint32_t ecdsaTestRand1[8] = { 0x1D1E1F20, 0x191A1B1C, 0x15161718, 0x11121314, 0x0D0E0F10, 0x090A0B0C, 0x05060708, 0x01020304 };
+const uint32_t ecdsaTestRand1[8] = { 0x1D1E1F20, 0x191A1B1C, 0x15161718, 0x11121314, 0x0D0E0F10, 0x090A0B0C, 0x05060708, 0x11020304 };
 bn_uint_t random1 = { .number = ecdsaTestRand1, .length = 8 };
 const uint32_t ecdsaTestresultR1[8] = { 0xC3B4035F, 0x515AD0A6, 0xBF375DCA, 0x0CC1E997, 0x7F54FDCD, 0x04D3FECA, 0xB9E396B9, 0x515C3D6E };
 bn_uint_t res_r1 = { .number = ecdsaTestresultR1, .length = 8 };
@@ -199,20 +199,71 @@ bn_uint_t res_r2 = { .number = ecdsaTestresultR2, .length = 8 };
 const uint32_t ecdsaTestresultS2[8] = { 0x433AAB6F, 0x808250B1, 0xE46F90F4, 0xB342E972, 0x18B2F7E4, 0x2DB981A2, 0x6A288FA4, 0x41CF59DB };
 bn_uint_t res_s2 = { .number = ecdsaTestresultS2, .length = 8 };
 
+#include "../cecc-lib/bignum/bignum.h"
+
 void tests_ecc_ECDSA(void)
 {
-	uint32_t i = 0;
+	uint32_t i = 0, res;
 	BN_CREATE_VARIABLE(r, hash.length);
 	BN_CREATE_VARIABLE(s, hash.length);
-	i = ecc_ECDSA_signature_gen(&random1, &hash, &secret, &r, &s, &ec_secp256r1);
-	print_values(5, &random1, &hash, &secret, &r, &s);
+	//ecc_ECDSA_secp256r1_test_tab
+
+	//i = ecc_ECDSA_signature_gen(&rand1, &hash1, &key_d, &r, &s, &ec_secp256r1);
+	//i = ecc_ECDSA_signature_gen(ecc_ECDSA_secp256r1_test_tab[i][5], ecc_ECDSA_secp256r1_test_tab[i][2], ecc_ECDSA_secp256r1_test_tab[i][6], &r, &s, &ec_secp256r1);
+	//i = ecc_ECDSA_signature_gen(&ecc_ECDSA_secp256r1_k_0, &ecc_ECDSA_secp256r1_hash_0, &ecc_ECDSA_secp256r1_d_0, &r, &s, &ec_secp256r1);
+	//print_values(5, &rand1, &hash1, &key_d, &r, &s, &ec_secp256r1);
 	info("result:%d", i);
 
-//	for (i = 0; i < ecc_point_mul_secp256r1_tab_len; ++i) {
-	/*assert_true(
-	 test_ecc_mul(ecc_point_mul_secp256r1_test_tab[i][0], ecc_point_mul_secp256r1_test_tab[i][1], ecc_point_mul_secp256r1_test_tab[i][2],
-	 ecc_point_mul_secp256r1_test_tab[i][3], ecc_point_mul_secp256r1_test_tab[i][4], &ec_secp256r1) == 0);
-	 *///}
+	//ecc_ec_mult(&base_point_x, &base_point_y, &secret, &pubx, &puby, &ec_secp256r1);
+	//i = ecc_ECDSA_signature_val(&r, &s, &hash1,&pubx,&puby, &ec_secp256r1);
+	info("result VALIDATE:%d", i);
+
+	/*
+	 BN_CREATE_VARIABLE(a, hash.length);
+
+	 BN_CREATE_VARIABLE(b, hash.length);
+
+	 BN_CREATE_VARIABLE(c, hash.length);
+
+	 bn_barret_modulus(&a,ec_secp256r1.barret_mi_n,ec_secp256r1.n,&c);
+	 bn_barret_modulus(&b,ec_secp256r1.barret_mi_n,ec_secp256r1.n,&a);
+
+	 bn_field_add(&a,&b,ec_secp256r1.n,&c);
+	 BN_CREATE_VARIABLE(o1, hash.length);
+	 BN_CREATE_VARIABLE(o2, hash.length);
+	 BN_CREATE_VARIABLE(o3, hash.length);
+	 BN_CREATE_VARIABLE(o4, hash.length);
+	 BN_CREATE_VARIABLE(o5, hash.length);
+	 BN_CREATE_VARIABLE(o6, hash.length);
+	 ecc_ec_mult(ec_secp256r1.Gx,ec_secp256r1.Gy,&a,&o1,&o2,&ec_secp256r1);
+	 ecc_ec_mult(ec_secp256r1.Gx,ec_secp256r1.Gy,&b,&o3,&o4,&ec_secp256r1);
+	 ecc_ec_mult(ec_secp256r1.Gx,ec_secp256r1.Gy,&c,&o5,&o6,&ec_secp256r1);
+
+	 ecc_ec_add(&o1,&o2,&o3,&o4,&r,&s,&ec_secp256r1);
+
+	 print_values(8,&o1,&o2,&o3,&o4,&o5,&o6,&r,&s);*/
+	/*bn_uint_t *P_224_SHA_512_tab[10][7]={
+	 {&P_224_SHA_512_Msg16,&P_224_SHA_512_d16,&P_224_SHA_512_Qx16,&P_224_SHA_512_Qy16,&P_224_SHA_512_k16,&P_224_SHA_512_R16,&P_224_SHA_512_S16},*/
+	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+		start_count_time();
+		res = ecc_ECDSA_signature_gen(P_256_SHA_1_tab[i][4], P_256_SHA_1_tab[i][0], P_256_SHA_1_tab[i][1], &r, &s, &ec_secp256r1);
+		stop_count_time();
+		info("ECDSA signature generation time:%f ms", get_us()/1000.0);
+		assert_true(res == 0);
+		assert_true(bn_compare(&r, P_256_SHA_1_tab[i][5]) == 0);
+		assert_true(bn_compare(&s, P_256_SHA_1_tab[i][6]) == 0);
+		//print_values(2, &r, &s);
+	}
+	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+		start_count_time();
+		res = ecc_ECDSA_signature_val(P_256_SHA_1_tab[i][5], P_256_SHA_1_tab[i][6], P_256_SHA_1_tab[i][0], P_256_SHA_1_tab[i][2],
+				P_256_SHA_1_tab[i][3], &ec_secp256r1);
+		stop_count_time();
+		info("ECDSA signature validation time:%f ms", get_us()/1000.0);
+
+		assert_true(res == 0);
+		//print_values(2, &r, &s);
+	}
 }
 
 void ecc_ops_tests(void)

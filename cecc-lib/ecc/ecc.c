@@ -255,15 +255,6 @@ void ecc_default_hash(bn_uint_t *input, bn_uint_t *output)
 	bn_copy(input, output, output->length);
 }
 
-/**
- * Trashes from memory as pseudo random generator
- * @param output
- */
-void ecc_default_prgn(bn_uint_t *output)
-{
-	BN_CREATE_VARIABLE(tmp, output->length);
-	bn_copy(&tmp, output, output->length);
-}
 
 /**
  * @param prgn pseudo random generator function. For use default function use ecc_default_prgn
@@ -276,9 +267,11 @@ void ecc_default_prgn(bn_uint_t *output)
 uint32_t ecc_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, ecc_curve_t *curve)
 {
 	BN_CREATE_VARIABLE(random_value, d->length);
-	prgn(&random_value);
-	bn_barret_modulus(&random_value, curve->barret_mi_n, curve->n, &random_value);
+	(*prgn)(d);
+	bn_copy(d, &random_value, d->length);
+	bn_barret_modulus(d, curve->barret_mi_n, curve->n, &random_value);
 	ecc_ec_mult(curve->Gx, curve->Gy, &random_value, pub_k_x, pub_k_y, curve);
+	bn_zero(d);
 	bn_copy(&random_value, d, d->length);
 }
 

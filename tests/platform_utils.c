@@ -9,6 +9,7 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include "../cecc-lib/bignum/bignum.h"
 
 
 #ifdef CHIBIOS_PRINTF
@@ -62,6 +63,22 @@ int fm_putchar(int c)
 {
 	return chIOPut((BaseChannel *)&SD2, c);
 }
+
+/*Very but and not pseudo random generator but function returns different numbers*/
+/*static uint32_t j;
+
+void default_prgn(bn_uint_t *output)
+{
+	BN_CREATE_VARIABLE(tmp, output->length);
+	uint32_t i;
+
+	for(i=0;i<tmp.length;++i)
+	{
+		tmp.number[i]=i*42*j*j*j*j*j*j;
+		++j;
+	}
+	bn_copy(&tmp, output, output->length);
+}*/
 #else
 
 #include <sys/time.h>
@@ -90,5 +107,17 @@ int fm_putchar(int c)
 {
 	return putchar(c);
 }
+
+/*void default_prgn(bn_uint_t *output)
+{
+	BN_CREATE_VARIABLE(tmp, output->length);
+	uint32_t i;
+	srand(random());
+	for(i=0;i<tmp.length;++i)
+	{
+		tmp.number[i]=random();
+	}
+	bn_copy(&tmp, output, output->length);
+}*/
 
 #endif

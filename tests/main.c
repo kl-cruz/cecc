@@ -174,7 +174,7 @@ void tests_ecc_mul(void)
 
 void tests_ecc_ECDSA_gen_signature(void)
 {
-	uint32_t i = 0, res;
+	uint32_t i = 0;
 
 	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
 		assert_true(
@@ -187,7 +187,7 @@ void tests_ecc_ECDSA_gen_signature(void)
 
 void tests_ecc_ECDSA_val_signature(void)
 {
-	uint32_t i = 0, res;
+	uint32_t i = 0;
 
 	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
 
@@ -200,7 +200,7 @@ void tests_ecc_ECDSA_val_signature(void)
 
 void tests_ecc_gen_keys(void)
 {
-	uint32_t i = 0, res;
+	uint32_t i = 0;
 
 	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
 
@@ -209,7 +209,7 @@ void tests_ecc_gen_keys(void)
 	}
 }
 
-static uint32_t j;
+/*static uint32_t j;
 
 void default_prgn(bn_uint_t *output)
 {
@@ -222,11 +222,11 @@ void default_prgn(bn_uint_t *output)
 		++j;
 	}
 	bn_copy(&tmp, output, output->length);
-}
+}*/
 //test_ecdh
 void tests_ecc_ECDH(void)
 {
-	uint32_t i = 0, res;
+	uint32_t i = 0;
 
 	BN_CREATE_VARIABLE(bob_d, ec_secp256r1.n->length); //256bits
 	BN_CREATE_VARIABLE(bob_pubx, ec_secp256r1.n->length); //256bits

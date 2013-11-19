@@ -2,6 +2,7 @@
 #define PLATFORM_UTILS_H_
 
 #include <stdint.h>
+#include "../cecc-lib/bignum/bignum.h"
 
 //Platform dependent code
 
@@ -9,10 +10,6 @@
 #include "ch.h"
 #include "hal.h"
 
-int ch_putchar(int c);
-
-//fm_set_out_f(ch_putchar);
-#define fm_putchar(c) chIOPut((BaseChannel *)&SD2, c)
 
 //STM32 not support assert for now
 #define assert(c) (void)(c)
@@ -21,7 +18,6 @@ int ch_putchar(int c);
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
-#define fm_putchar putchar
 #endif
 
 
@@ -54,7 +50,9 @@ void init(void);
 void start_count_time(void);
 void stop_count_time(void);
 uint32_t get_us(void);
+void default_prgn(bn_uint_t *output);
 
+int fm_putchar(int c);
 
 
 

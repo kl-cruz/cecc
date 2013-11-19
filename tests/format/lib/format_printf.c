@@ -37,7 +37,7 @@
 #include <stddef.h>
 
 /** The system must provide an implementation of the putchar function **/
-extern int fm_putchar( int );
+extern int fm_putchar(int);
 
 /*****************************************************************************/
 /* Project Includes                                                          */
@@ -53,23 +53,24 @@ extern int fm_putchar( int );
 
 /*****************************************************************************/
 /**
-    General output consumer function.
-    
-    This function calls the generic putchar() function, which it is assumed is
-    available in the target environment.
-    
-    @param op      Opaque pointer (UNUSED).
-    @param buf     Pointer to input buffer.
-    @param n       Number of characters from buffer to send to output.
-    
-    @return non-NULL.
-**/
-static void * outfunc( void * op, const char * buf, size_t n )
-{
-    while ( n-- )
-        fm_putchar( *buf++ );
+ General output consumer function.
 
-    return (void *)( !NULL );
+ This function calls the generic putchar() function, which it is assumed is
+ available in the target environment.
+
+ @param op      Opaque pointer (UNUSED).
+ @param buf     Pointer to input buffer.
+ @param n       Number of characters from buffer to send to output.
+
+ @return non-NULL.
+ **/
+static void * outfunc(void * op, const char * buf, size_t n)
+{
+	(void) (op);
+	while (n--)
+		fm_putchar(*buf++);
+
+	return (void *) (!NULL );
 }
 
 /*****************************************************************************/
@@ -78,36 +79,36 @@ static void * outfunc( void * op, const char * buf, size_t n )
 
 /*****************************************************************************/
 /**
-    Produce output according to a format string, with optional argument list.
-    
-    @param fmt      Format specifier.
-    @param ap       Argument list.
-    
-    @return Number of characters printed to the output, or -1.
-**/
-int fm_vprintf ( const char *fmt, va_list ap )
+ Produce output according to a format string, with optional argument list.
+
+ @param fmt      Format specifier.
+ @param ap       Argument list.
+
+ @return Number of characters printed to the output, or -1.
+ **/
+int fm_vprintf(const char *fmt, va_list ap)
 {
-    return format( outfunc, NULL, fmt, ap );
+	return format(outfunc, NULL, fmt, ap);
 }
 
 /*****************************************************************************/
 /**
-    Produce output according to a format string, with optional arguments.
-    
-    @param fmt      Format specifier.
-    
-    @return Number of characters printed to the output, or -1.
-**/
-int fm_printf ( const char *fmt, ... )
-{
-    va_list arg;
-    int done;
-    
-    va_start ( arg, fmt );
-    done = fm_vprintf( fmt, arg );
-    va_end ( arg );
+ Produce output according to a format string, with optional arguments.
 
-    return done;
+ @param fmt      Format specifier.
+
+ @return Number of characters printed to the output, or -1.
+ **/
+int fm_printf(const char *fmt, ...)
+{
+	va_list arg;
+	int done;
+
+	va_start(arg, fmt);
+	done = fm_vprintf(fmt, arg);
+	va_end(arg);
+
+	return done;
 }
 
 /*****************************************************************************/

@@ -121,6 +121,7 @@ uint32_t ecc_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *outx
 			bn_copy(&tmpy, outy, outy->length);
 		}
 	}
+	return 0;
 }
 
 /*
@@ -255,7 +256,6 @@ void ecc_default_hash(bn_uint_t *input, bn_uint_t *output)
 	bn_copy(input, output, output->length);
 }
 
-
 /**
  * @param prgn pseudo random generator function. For use default function use ecc_default_prgn
  * @param d out -> private key
@@ -273,6 +273,7 @@ uint32_t ecc_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x, bn_ui
 	ecc_ec_mult(curve->Gx, curve->Gy, &random_value, pub_k_x, pub_k_y, curve);
 	bn_zero(d);
 	bn_copy(&random_value, d, d->length);
+	return 0;
 }
 
 /*
@@ -285,10 +286,11 @@ uint32_t ecc_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x, bn_ui
  * [2]Dept. of Combinatorics and Optimization, University of Waterloo, Canada
  * {ajmeneze,savansto}@uwaterloo.ca
  */
-uint32_t ecc_ECDH_secret_gen(ecc_hash hash_func,bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, bn_uint_t *secret, ecc_curve_t *curve)
+uint32_t ecc_ECDH_secret_gen(ecc_hash hash_func, bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, bn_uint_t *secret, ecc_curve_t *curve)
 {
 	BN_CREATE_VARIABLE(y, pub_k_y->length);
 	ecc_ec_mult(pub_k_x, pub_k_y, d, secret, &y, curve);
-	hash_func(secret,&y);
-	bn_copy(&y,secret,secret->length);
+	hash_func(secret, &y);
+	bn_copy(&y, secret, secret->length);
+	return 0;
 }

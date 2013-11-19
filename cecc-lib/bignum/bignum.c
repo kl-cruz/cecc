@@ -549,15 +549,15 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 
 uint32_t bn_compare(bn_uint_t *a, bn_uint_t *b)
 {
-	int32_t i;
+	uint32_t i;
 
 	//the same length
 	if (a->length == b->length) {
-		for (i = a->length - 1; i >= 0; --i) {
-			if (a->number[i] > b->number[i]) {
+		for (i = a->length; i >= 1; --i) {
+			if (a->number[i - 1] > b->number[i - 1]) {
 				return 1;
 			}
-			if (a->number[i] < b->number[i]) {
+			if (a->number[i - 1] < b->number[i - 1]) {
 				return 2;
 			}
 		}
@@ -565,12 +565,12 @@ uint32_t bn_compare(bn_uint_t *a, bn_uint_t *b)
 		uint32_t an, bn; //
 		uint32_t max = (a->length > b->length) ? a->length : b->length;
 		an = bn = 0;
-		for (i = max - 1; i >= 0; --i) {
-			if (i < a->length) {
-				an = a->number[i];
+		for (i = max; i >= 1; --i) {
+			if (i - 1 < a->length) {
+				an = a->number[i - 1];
 			}
-			if (i < b->length) {
-				bn = b->number[i];
+			if (i - 1 < b->length) {
+				bn = b->number[i - 1];
 			}
 			if (an > bn) {
 				return 1;

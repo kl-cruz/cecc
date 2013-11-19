@@ -93,7 +93,6 @@ uint32_t test_gen_key(bn_uint_t *d, bn_uint_t *exp_pub_k_x, bn_uint_t *exp_pub_k
 	BN_CREATE_VARIABLE(pubx, exp_pub_k_x->length);
 	BN_CREATE_VARIABLE(puby, exp_pub_k_y->length);
 
-	uint32_t res;
 	start_count_time();
 	ecc_generate_key(&prgn, &dtmp, &pubx, &puby, curve);
 	stop_count_time();

@@ -101,7 +101,7 @@ public class Fixecc {
             snumber = number.toString(16);
         }
 
-        String to_write = "const uint32_t " + var_name + "_tab [" + len + "] = {";
+        String to_write = "uint32_t " + var_name + "_tab [" + len + "] = {";
         String temp = "0x";
         int i;
         for (i = snumber.length(); i >= 0; i -= 8) {
@@ -116,7 +116,7 @@ public class Fixecc {
         to_write += "};";
         add_to_header_file("//variable '" + var_name + "' value: 0x" + number.toString(16));
         add_to_header_file(to_write);
-        add_to_header_file("const bn_uint_t " + var_name + " = {.number = " + var_name + "_tab, .length = " + len + "};");
+        add_to_header_file("bn_uint_t " + var_name + " = {.number = " + var_name + "_tab, .length = " + len + "};");
     }
 
     private static void generate_points_add_fixture(String curve_name, int samples) throws NoSuchAlgorithmException, NoSuchProviderException {

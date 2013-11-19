@@ -12,20 +12,20 @@
 #include "bignum.h"
 
 typedef struct {
-	const bn_uint_t *p;
-	const bn_uint_t *a;
-	const bn_uint_t *b;
-	const bn_uint_t *S;
-	const bn_uint_t *Gx;
-	const bn_uint_t *Gy;
-	const bn_uint_t *n;
-	const bn_uint_t *h;
-	const bn_uint_t *barret_mi;
-	const bn_uint_t *barret_mi_n;
+	bn_uint_t *p;
+	bn_uint_t *a;
+	bn_uint_t *b;
+	bn_uint_t *S;
+	bn_uint_t *Gx;
+	bn_uint_t *Gy;
+	bn_uint_t *n;
+	bn_uint_t *h;
+	bn_uint_t *barret_mi;
+	bn_uint_t *barret_mi_n;
 } ecc_curve_t;
 
 typedef void (*ecc_prgn)(bn_uint_t *);
-typedef void (*ecc_hash)(bn_uint_t *,bn_uint_t *);
+typedef void (*ecc_hash)(bn_uint_t *, bn_uint_t *);
 
 uint32_t ecc_ec_add(bn_uint_t * in1x, bn_uint_t * in1y, bn_uint_t * in2x, bn_uint_t * in2y, bn_uint_t * outx, bn_uint_t * outy, ecc_curve_t *curve);
 uint32_t ecc_ec_double(bn_uint_t * inx, bn_uint_t * iny, bn_uint_t * outx, bn_uint_t * outy, ecc_curve_t *curve);
@@ -35,9 +35,6 @@ uint32_t ecc_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
 
 void ecc_default_hash(bn_uint_t *input, bn_uint_t *output);
 uint32_t ecc_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, ecc_curve_t *curve);
-uint32_t ecc_ECDH_secret_gen(ecc_hash hash_func,bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, bn_uint_t *secret, ecc_curve_t *curve);
-
-
-
+uint32_t ecc_ECDH_secret_gen(ecc_hash hash_func, bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, bn_uint_t *secret, ecc_curve_t *curve);
 
 #endif /* ECC_H_ */

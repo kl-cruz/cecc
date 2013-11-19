@@ -19,7 +19,6 @@ static int sea_tests_run = 0;
 static int sea_tests_passed = 0;
 static int sea_tests_failed = 0;
 static int seatest_display_only = 0;
-static int seatest_verbose = 0;
 static int seatest_machine_readable = 0; //UNITTEST_RUNNER;
 static char* seatest_current_fixture;
 static char* seatest_current_fixture_path;

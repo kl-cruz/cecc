@@ -43,18 +43,6 @@ public class curves_code_generator {
             out.println("#include \"bignum.h\"");
             out.println("#include \"ecc.h\"");
             out.println("");
-            /*out.println("typedef struct {");
-            out.println("    const bn_uint_t *p;");
-            out.println("    const bn_uint_t *a;");
-            out.println("    const bn_uint_t *b;");
-            out.println("    const bn_uint_t *S;");
-            out.println("    const bn_uint_t *G;");
-            out.println("    const bn_uint_t *n;");
-            out.println("    const bn_uint_t *h;");
-            out.println("    const bn_uint_t *barret_mi;");
-            out.println("} ecc_curve_t;");
-            out.println("");
-            out.println("");*/
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -86,7 +74,7 @@ public class curves_code_generator {
             snumber = number.toString(16);
         }
 
-        String to_write = "const uint32_t " + var_name + "_tab [" + len + "] = {";
+        String to_write = "uint32_t " + var_name + "_tab [" + len + "] = {";
         String temp = "0x";
         int i;
         for (i = snumber.length(); i >= 0; i -= 8) {
@@ -101,7 +89,7 @@ public class curves_code_generator {
         to_write += "};";
         add_to_header_file("//variable '" + var_name + "' value: 0x" + number.toString(16));
         add_to_header_file(to_write);
-        add_to_header_file("const bn_uint_t " + var_name + " = {.number = " + var_name + "_tab, .length = " + len + "};");
+        add_to_header_file("bn_uint_t " + var_name + " = {.number = " + var_name + "_tab, .length = " + len + "};");
     }
 
     public static void create_curve_code(String p, String a, String b, String S, String Gx, String Gy, String n, String h, String curve_name, int bit_len) {
@@ -143,7 +131,7 @@ public class curves_code_generator {
         translate_bigint_and_write(bti.divide(ni), var_namemi_n);
 
 
-        add_to_header_file("const ecc_curve_t " + var_name + " = {&" + var_namep + ", &" + var_namea + ", &" + var_nameb + ", &" + var_nameS + ", &" + var_nameGx + ", &" + var_nameGy + ", &" + var_namen + ", &" + var_nameh + ", &" + var_namemi +", &" + var_namemi_n + "};");
+        add_to_header_file("ecc_curve_t " + var_name + " = {&" + var_namep + ", &" + var_namea + ", &" + var_nameb + ", &" + var_nameS + ", &" + var_nameGx + ", &" + var_nameGy + ", &" + var_namen + ", &" + var_nameh + ", &" + var_namemi +", &" + var_namemi_n + "};");
     }
 
     /**

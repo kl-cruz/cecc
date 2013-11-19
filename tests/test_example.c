@@ -14,10 +14,9 @@
 
 uint8_t test_example()
 {
-	uint8_t i,j[100];
+	uint16_t i;
 	while(i<0xff)
 	{
-		j[i]=0;
 		i++;
 	}
 	return 0;

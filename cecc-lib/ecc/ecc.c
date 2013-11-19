@@ -11,14 +11,14 @@
 #include "platform_utils.h"
 
 /**
- * Points addition
- * @param px
- * @param py
- * @param qx
- * @param qy
- * @param sx
- * @param sy
- * @param curve
+ * @brief Points addition
+ * @param px input point p -> x
+ * @param py input point p -> y
+ * @param qx input point q -> x
+ * @param qy input point q -> y
+ * @param sx output point x
+ * @param sy output point y
+ * @param curve curve
  * @return
  */
 uint32_t ecc_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *qx, bn_uint_t *qy, bn_uint_t *sx, bn_uint_t *sy, ecc_curve_t *curve)
@@ -58,13 +58,13 @@ uint32_t ecc_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *qx, bn_uint_t *qy, 
 }
 
 /**
- * Point double
- * @param inx
- * @param iny
- * @param outx
- * @param outy
- * @param curve
- * @return
+ * @brief Point double
+ * @param inx input point x
+ * @param iny input point y
+ * @param outx output point x
+ * @param outy output point y
+ * @param curve curve
+ * @return 0
  */
 uint32_t ecc_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *outx, bn_uint_t *outy, ecc_curve_t *curve)
 {
@@ -93,14 +93,14 @@ uint32_t ecc_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *outx, bn_uint_
 }
 
 /**
- * Point multiplication
+ * @brief Point multiplication
  * @param px Point x
  * @param py Point y
  * @param k factor
  * @param outx output point x
  * @param outy output point y
- * @param curve
- * @return
+ * @param curve curve
+ * @return 0
  */
 
 //TODO This binary algorithm is soooo slooooow...
@@ -146,7 +146,7 @@ uint32_t ecc_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *outx
  */
 
 /**
- * Generate ECDSA signature for hash
+ * @brief Generate ECDSA signature for hash
  * @param k random number
  * @param hash hash
  * @param d private ecc key
@@ -193,13 +193,13 @@ uint32_t ecc_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash, bn_uint_t *d, bn
 }
 
 /**
- * Validate ECDSA signature
- * @param r
- * @param s
- * @param hash
+ * @brief Validate ECDSA signature
+ * @param r value to validate
+ * @param s value to validate
+ * @param hash message hash
  * @param pub_k_x public key x
  * @param pub_k_y public key y
- * @param curve
+ * @param curve curve
  * @return 0 message is consistent
  * @return 1 message is not consistent
  * @return 2 r is greater than field size
@@ -246,22 +246,39 @@ uint32_t ecc_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
 }
 
 /**
- * Mock for hash function
+ * @brief Mock for hash function. Copy input to output
  * @param input
  * @param output
  */
 
-void ecc_default_hash(bn_uint_t *input, bn_uint_t *output)
+void ecc_default_hash_no_hash(bn_uint_t *input, bn_uint_t *output)
 {
 	bn_copy(input, output, output->length);
 }
 
 /**
+ * @brief Mock for pseudo random generator
+ * @param output
+ */
+void ecc_default_prgn(bn_uint_t *output)
+{
+	BN_CREATE_VARIABLE(tmp, output->length);
+	uint32_t i;
+
+	for(i=0;i<tmp.length;++i)
+	{
+		tmp.number[i]=output->number[i]+i*42*i*i*i*i*i+0x39465bfe;
+	}
+	bn_copy(&tmp, output, output->length);
+}
+
+/**
+ * @brief
  * @param prgn pseudo random generator function. For use default function use ecc_default_prgn
  * @param d out -> private key
  * @param pub_k_x out -> public key x
  * @param pub_k_y out -> public key y
- * @param curve
+ * @param curve curve
  * @return
  */
 uint32_t ecc_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, ecc_curve_t *curve)
@@ -285,6 +302,17 @@ uint32_t ecc_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x, bn_ui
  * {aantipa,dbrown,rstruik}@certicom.com
  * [2]Dept. of Combinatorics and Optimization, University of Waterloo, Canada
  * {ajmeneze,savansto}@uwaterloo.ca
+ */
+
+/**
+ * @brief Generate secret
+ * @param hash_func hash function used in ECDH.
+ * @param d my private key
+ * @param pub_k_x second side public key -> X
+ * @param pub_k_y second side public key -> Y
+ * @param secret generated secret
+ * @param curve curve
+ * @return
  */
 uint32_t ecc_ECDH_secret_gen(ecc_hash hash_func, bn_uint_t *d, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, bn_uint_t *secret, ecc_curve_t *curve)
 {

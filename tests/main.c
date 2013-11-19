@@ -10,11 +10,11 @@
 #include "platform_utils.h"
 
 //tests
-#include  "test_bignum.h"
-#include  "test_bignum_fixtures.h"
-#include  "test_ecc_fixtures.h"
-#include "nist_curves.h"
+#include "test_bignum.h"
+#include "test_bignum_fixtures.h"
 #include "test_ecc.h"
+#include "test_ecc_fixtures.h"
+#include "nist_curves.h"
 #include "seatest.h"
 
 void tests_shr(void)
@@ -209,31 +209,16 @@ void tests_ecc_gen_keys(void)
 	}
 }
 
-/*static uint32_t j;
-
-void default_prgn(bn_uint_t *output)
-{
-	BN_CREATE_VARIABLE(tmp, output->length);
-	uint32_t i;
-
-	for(i=0;i<tmp.length;++i)
-	{
-		tmp.number[i]=i*42*j*j*j*j*j*j;
-		++j;
-	}
-	bn_copy(&tmp, output, output->length);
-}*/
-//test_ecdh
 void tests_ecc_ECDH(void)
 {
 	uint32_t i = 0;
 
-	BN_CREATE_VARIABLE(bob_d, ec_secp256r1.n->length); //256bits
-	BN_CREATE_VARIABLE(bob_pubx, ec_secp256r1.n->length); //256bits
-	BN_CREATE_VARIABLE(bob_puby, ec_secp256r1.n->length); //256bits
-	BN_CREATE_VARIABLE(alice_d, ec_secp256r1.n->length); //256bits
-	BN_CREATE_VARIABLE(alice_pubx, ec_secp256r1.n->length); //256bits
-	BN_CREATE_VARIABLE(alice_puby, ec_secp256r1.n->length); //256bits
+	BN_CREATE_VARIABLE(bob_d, ec_secp256r1.n->length);
+	BN_CREATE_VARIABLE(bob_pubx, ec_secp256r1.n->length);
+	BN_CREATE_VARIABLE(bob_puby, ec_secp256r1.n->length);
+	BN_CREATE_VARIABLE(alice_d, ec_secp256r1.n->length);
+	BN_CREATE_VARIABLE(alice_pubx, ec_secp256r1.n->length);
+	BN_CREATE_VARIABLE(alice_puby, ec_secp256r1.n->length);
 	for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
 		ecc_generate_key(&default_prgn, &bob_d, &bob_pubx, &bob_puby, &ec_secp256r1);
 		ecc_generate_key(&default_prgn, &alice_d, &alice_pubx, &alice_puby, &ec_secp256r1);

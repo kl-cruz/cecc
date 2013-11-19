@@ -6,7 +6,7 @@
  *  Created on: 05-11-2013
  *      Author: Karol Lasończyk
  */
-#include "ecc.h"
+#include "test_ecc.h"
 #include "platform_utils.h"
 
 //TODO ustawić stos na 0x0400 i sprawdzić czemu nie działa dla takiego małego stosu a działa dla 0x0800
@@ -106,18 +106,16 @@ uint32_t test_gen_key(bn_uint_t *d, bn_uint_t *exp_pub_k_x, bn_uint_t *exp_pub_k
 uint32_t test_ecdh(bn_uint_t *d_alice, bn_uint_t *pubx_alice, bn_uint_t *puby_alice, bn_uint_t *d_bob, bn_uint_t *pubx_bob, bn_uint_t *puby_bob,
 		ecc_curve_t *curve)
 {
-	//print_values(6,d_alice,pubx_alice,puby_alice,d_bob,pubx_bob,puby_bob);
 	start_count_time();
 
 	BN_CREATE_VARIABLE(secret_alice, d_alice->length);
 	BN_CREATE_VARIABLE(secret_bob, d_bob->length);
 
 	//now magic starts! alice and bob exchange their Qx and Qx
-	ecc_ECDH_secret_gen(&ecc_default_hash, d_alice, pubx_bob, puby_bob, &secret_alice, curve);
+	ecc_ECDH_secret_gen(&ecc_default_hash_no_hash, d_alice, pubx_bob, puby_bob, &secret_alice, curve);
 	//bob also count secret
-	ecc_ECDH_secret_gen(&ecc_default_hash, d_bob, pubx_alice, puby_alice, &secret_bob, curve);
+	ecc_ECDH_secret_gen(&ecc_default_hash_no_hash, d_bob, pubx_alice, puby_alice, &secret_bob, curve);
 	stop_count_time();
-	//print_values(2,&secret_alice,&secret_bob);
 	info("ECDH exchange time:%f ms", get_us() / 1000.0);
 	if (bn_is_equal(&secret_alice, &secret_bob) == 0)
 		return 0;

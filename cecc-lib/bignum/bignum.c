@@ -11,16 +11,8 @@
 #include "bignum.h"
 #include "platform_utils.h"
 
-#define assert_values() assert(b != a); \
-						assert(a != result); \
-						assert(b != result);
-
-#define copy_assert_values() 	assert(from != to); \
-								assert(from->length >= length); \
-								assert(to->length >= length)
-
 /**
- * @brief
+ * @brief Addition function -> a+b=result
  * @param a addend
  * @param b addend
  * @param result a+b, table with length = a.length+1 to store whole result
@@ -29,7 +21,6 @@
 uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
 
-	//count number
 	uint32_t i;
 	uint64_t temp = 0;
 	for (i = 0; i < result->length; i++) {
@@ -47,7 +38,7 @@ uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 }
 
 /**
- * @brief
+ * @brief Subtraction function a-b=result
  * @param a minuend
  * @param b subtrahend
  * @param result a-b
@@ -55,8 +46,6 @@ uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
  */
 uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 {
-	/*assert_values()
-	 ;*/
 
 	uint32_t i, borrow;
 	uint64_t temp = 0;
@@ -83,14 +72,13 @@ uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 
 			borrow = ((uint32_t) (temp >> 32)) & 0x1;
 		}
-		//TODO Check this, because it looks ugly.
-		result->number[result->length - 1] = temp >> 32; //God Why this line working?!
+		result->number[result->length - 1] = temp >> 32;
 	}
 	return borrow;
 }
 
 /**
- * @brief
+ * @brief Multiplication function a*b=result
  * @param a first argument
  * @param b second argument
  * @param result a*b
@@ -131,7 +119,7 @@ uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result)
 }
 
 /**
- * @brief
+ * @brief Field addition function -> result = a+b mod p
  * @param a addend
  * @param b addend
  * @param p field size
@@ -156,15 +144,13 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 		} while (result->number[result->length - 1] < number);
 
 	}
-	while (bn_compare(result, p) == 1) {
-		bn_sub(result, p, result);
-	}
+	bn_mod(result, 1, p);
 
 	return 0;
 }
 
 /**
- * @brief Operation a-b mod p
+ * @brief Field substract function -> result = a-b mod p
  * @param a minuend
  * @param b subtrahend
  * @param p field size
@@ -192,7 +178,9 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	 * Other libraries forget about this little glitch. I don't know why...
 	 *
 	 */
-
+	assert(b != a);
+	assert(a != result);
+	assert(b != result);
 	uint32_t borrow;
 	BN_CREATE_VARIABLE(res, a->length + 1);
 	bn_zero(&res);
@@ -210,10 +198,10 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 
 /**
  * @brief Function to inverse number and count modulo p -> 1/a mod p. Function uses extended euclidean algorithm. Be careful! p must be odd number and a<p!
- * @param a
- * @param p
+ * @param a number to inverse
+ * @param p modulus
  * @param result
- * @return
+ * @return 0
  */
 
 uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
@@ -239,7 +227,6 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 	bn_copy(a, &v, a->length);
 	s.number[0] = 1;
 	uint32_t borrow;
-	//print_values(4, a, p, &v, result);
 	while (bn_compare(&v, result)) {
 		if ((u.number[0] & 0x1) == 0) {
 			bn_shr(&u);
@@ -289,10 +276,10 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 }
 
 /**
- * Fill variable a with 0xFFFFFFFF number. Working from a[0] to a[word_length]
- * @param a
- * @param word_length
- * @return
+ * @brief Fill variable a with 0xFFFFFFFF number. Working from a[0] to a[word_length-1]
+ * @param a number
+ * @param word_length information how many 32bit fill with 0xFFFFFFFF
+ * @return 0
  */
 uint32_t bn_ffff(bn_uint_t *a, uint32_t word_length)
 {
@@ -306,11 +293,11 @@ uint32_t bn_ffff(bn_uint_t *a, uint32_t word_length)
 }
 
 /**
- * Binary AND function for bn_uint_t
- * @param a
- * @param and
- * @param result
- * @return
+ * @brief Binary AND function for bn_uint_t
+ * @param a number to operate with
+ * @param and number to and with a
+ * @param result and result
+ * @return 0
  */
 uint32_t bn_and(bn_uint_t *a, bn_uint_t *and, bn_uint_t *result)
 {
@@ -325,106 +312,77 @@ uint32_t bn_and(bn_uint_t *a, bn_uint_t *and, bn_uint_t *result)
 }
 
 /**
- * Barret modular reduction function -> a mod p
+ * @brief Binary AND function operates on 32bits in bn_uint_t
+ * @param a number to operate with
+ * @param len length how many 32bit proceed
+ * @param result and result
+ * @return 0
+ */
+uint32_t bn_and_32(bn_uint_t *a, uint32_t len, bn_uint_t *result)
+{
+	assert(a->length >= len);
+	assert(a->length == result->length);
+	uint32_t i;
+	for (i = 0; i < a->length; ++i) {
+		result->number[i] = a->number[i] & 0xffffffff;
+	}
+	return 0;
+
+}
+
+/**
+ * @brief Barret modular reduction function -> a mod p
  * @param a number to reduce
  * @param mi number calculate in eg. java (BigInteger). (calculate as FFFF...F/p, where F count is p.length*8	)
  * @param p modulus
  * @param result
- * @return
+ * @return 0
  */
 uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result)
 {
-	//print_values(2, p, a);
+
 	if (bn_compare(p, a) == 1) {
 		bn_copy(a, result, result->length);
 		return 0;
 	}
-	//TODO ogarnij to trochę...
-	/*	BN_CREATE_VARIABLE(q, p->length + 1);
-	 BN_CREATE_VARIABLE(z, a->length + 2);
-	 BN_CREATE_VARIABLE(r, p->length + 2);
-	 uint32_t i;
-	 info("r = a mod b^k+1 !");
-	 //r = a mod b^k+1
-	 bn_zero(&r);
-	 for (i = 0; i < p->length + 1; ++i) {
-	 r.number[i] = a->number[i];
-	 }
-	 info("q");
-	 //compute q
 
-	 bn_shr_word(a, &q, p->length - 1);
-	 bn_mul(mi, &q, &z);
-	 bn_shr_word(&z, &q, p->length + 1);
-
-	 //ok we've got q
-	 info("z");
-	 //compute z = q*p mod b^k+1
-	 bn_mul(&q, p, &z);
-	 for (i = p->length + 1; i < z.length; ++i) {
-	 z.number[i] = 0x00;
-	 }
-
-	 //	bn_zero(&z);
-	 //print_values(3,&z,&r,&q);
-	 //compare z>r ?
-	 info("compare");
-	 if (bn_compare(&r, &z) == 1) {
-	 //make q=> b^k+1
-	 for (i = 0; i < p->length + 1; ++i) {
-	 q.number[i] = 0xffffffff;
-	 }
-	 bn_add(&r, &q, &r);
-
-	 };
-	 print_values(3, &z, &r, &q);
-	 bn_sub(&r, &z, &q);
-	 print_values(3, &z, &r, &q);
-	 info("before while");
-	 while (bn_compare(&q, p) == 1) {
-	 bn_sub(&q, p, &q);
-	 }
-	 bn_copy(&q, result, result->length);*/
 	BN_CREATE_VARIABLE(q, p->length + 1);
-	BN_CREATE_VARIABLE(z, a->length + 1);
+	BN_CREATE_VARIABLE(z, a->length);
 	BN_CREATE_VARIABLE(r1, a->length);
 	BN_CREATE_VARIABLE(r2, a->length + p->length);
-	BN_CREATE_VARIABLE(tmp, a->length + mi->length);
-	BN_CREATE_VARIABLE(tmpmod, a->length);
-	BN_CREATE_VARIABLE(tmpmod2, a->length + p->length);
+	BN_CREATE_VARIABLE(tmp, a->length + p->length);
 
 	bn_shr_word(a, &q, p->length - 1);
 	bn_mul(mi, &q, &tmp);
 	bn_shr_word(&tmp, &q, p->length + 1);
 
-	bn_ffff(&tmpmod, p->length + 1);
-	bn_ffff(&tmpmod2, p->length + 1);
-	bn_and(a, &tmpmod, &r1);
+	bn_and_32(a, p->length + 1, &r1);
 	bn_mul(&q, p, &r2);
-	bn_and(&r2, &tmpmod2, &r2);
-
-	bn_zero(&z);
-	//info("compare");
+	bn_and_32(&r2, p->length + 1, &r2);
 	if (bn_compare(&r1, &r2) == 2) {
-		bn_copy(&tmpmod, &z, tmpmod.length);
+		bn_ffff(&z, p->length + 1);
 		bn_sub(&z, &r2, &z);
 		bn_add(&z, &r1, &z);
 	} else {
 		bn_sub(&r1, &r2, &z);
 	}
-	//print_values(1,&z);
-	//print_values(3, &z, &r1, &r2);
-	//info("before while");
+
 	while (bn_compare(&z, p) == 1) {
 		bn_sub(&z, p, &z);
-		//print_values(2, &z, &p);
 	}
 	bn_copy(&z, result, result->length);
-	//print_values(1, result);
-
 	return 0;
 }
 
+/**
+ * @brief Field multiplication with barret modular reduction -> result = a*b mod p
+ * @param a first argument
+ * @param b second argument
+ * @param mi µ constant value. Counted from p
+ * @param p modulus
+ * @param result
+ * @return 0
+ */
 uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result)
 {
 	BN_CREATE_VARIABLE(res, result->length * 2);
@@ -444,8 +402,9 @@ uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_
  */
 uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length)
 {
-	copy_assert_values()
-	;
+	assert(from != to);
+	assert(from->length >= length);
+	assert(to->length >= length);
 	uint32_t i;
 	for (i = 0; i < length; ++i) {
 		to->number[i] = from->number[i];
@@ -454,22 +413,8 @@ uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length)
 }
 
 /**
- * @brief Invert bits in number
- * @param to
- * @return
- */
-uint32_t bn_inv_bits(bn_uint_t *num)
-{
-	uint32_t i;
-	for (i = 0; i < num->length; ++i) {
-		num->number[i] = ~num->number[i];
-	}
-	return 0;
-}
-
-/**
  * @brief Zeroed number
- * @param num
+ * @param num number
  * @return 0
  */
 uint32_t bn_zero(bn_uint_t *num)
@@ -584,11 +529,11 @@ uint32_t bn_compare(bn_uint_t *a, bn_uint_t *b)
 }
 
 /**
- * @brief Slow but properly working modulus algorithm
- * @param num
- * @param p
- * @param result
- * @return
+ * @brief Slow but properly working modulus algorithm.
+ * @param num number
+ * @param is_number_positive information if number is positive. If negative -> 0
+ * @param p modulus
+ * @return 0
  */
 uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 {
@@ -619,6 +564,10 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 	return 0;
 }
 
+/**
+ * @brief Function to print bn_uint_t
+ * @param a number to print
+ */
 void bn_print_number(bn_uint_t *a)
 {
 	uint32_t i = 0;
@@ -628,7 +577,12 @@ void bn_print_number(bn_uint_t *a)
 	fm_printf("\n");
 }
 
-int bn_print_values(int num_args, ...)
+/**
+ * @brief Print numbers located in arguments
+ * @param num_args number of bn_uint_t's to print
+ * @return 0
+ */
+uint32_t bn_print_values(int num_args, ...)
 {
 	bn_uint_t *val;
 	va_list ap;

@@ -46,6 +46,6 @@ uint32_t bn_shr(bn_uint_t *num);
 uint32_t bn_shr_word(bn_uint_t *num, bn_uint_t *result, uint32_t shift);
 uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p);
 uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result);
-int bn_print_values(int num_args, ...);
+uint32_t bn_print_values(int num_args, ...);
 
 #endif /* BIGNUM_H_ */

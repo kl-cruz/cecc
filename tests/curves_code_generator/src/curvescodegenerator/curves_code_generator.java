@@ -92,7 +92,7 @@ public class curves_code_generator {
         add_to_header_file("bn_uint_t " + var_name + " = {.number = " + var_name + "_tab, .length = " + len + "};");
     }
 
-    public static void create_curve_code(String p, String a, String b, String S, String Gx, String Gy, String n, String h, String curve_name, int bit_len) {
+    public static void create_curve_code(String p, String a, String b, String Gx, String Gy, String n, String h, String curve_name, int bit_len) {
         String var_name = "ec_" + curve_name;
         String var_namea = var_name + "_a";
         String var_nameb = var_name + "_b";
@@ -101,7 +101,6 @@ public class curves_code_generator {
         String var_nameGy = var_name + "_Gy";
         String var_namen = var_name + "_n";
         String var_nameh = var_name + "_h";
-        String var_nameS = var_name + "_S";
         String var_namemi = var_name + "_mi";
         String var_namemi_n = var_name + "_mi_n";
         String bt = "";
@@ -116,7 +115,6 @@ public class curves_code_generator {
         BigInteger Gxi = new BigInteger(Gx, 16);
         BigInteger Gyi = new BigInteger(Gy, 16);
         BigInteger ni = new BigInteger(n, 16);
-        BigInteger Si = new BigInteger(S, 16);
         BigInteger hi = new BigInteger(h, 16);
 
         translate_bigint_and_write(pi, var_namep);
@@ -126,12 +124,11 @@ public class curves_code_generator {
         translate_bigint_and_write(Gyi, var_nameGy);
         translate_bigint_and_write(ni, var_namen);
         translate_bigint_and_write(hi, var_nameh);
-        translate_bigint_and_write(Si, var_nameS);
         translate_bigint_and_write(bti.divide(pi), var_namemi);
         translate_bigint_and_write(bti.divide(ni), var_namemi_n);
 
 
-        add_to_header_file("ecc_curve_t " + var_name + " = {&" + var_namep + ", &" + var_namea + ", &" + var_nameb + ", &" + var_nameS + ", &" + var_nameGx + ", &" + var_nameGy + ", &" + var_namen + ", &" + var_nameh + ", &" + var_namemi +", &" + var_namemi_n + "};");
+        add_to_header_file("ecc_curve_t " + var_name + " = {&" + var_namep + ", &" + var_namea + ", &" + var_nameb + ", &" + var_nameGx + ", &" + var_nameGy + ", &" + var_namen + ", &" + var_nameh + ", &" + var_namemi +", &" + var_namemi_n + "};");
     }
 
     /**
@@ -147,7 +144,6 @@ public class curves_code_generator {
                 /*p*/"FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF",
                 /*a*/ "FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC",
                 /*b*/ "5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B",
-                /*S*/ "C49D360886E704936A6678E1139D26B7819F7E90",
                 /*Gx*/ ecSpec.getG().getX().toBigInteger().toString(16),
                 /*Gy*/ ecSpec.getG().getY().toBigInteger().toString(16),
                 /*n*/ "FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551",

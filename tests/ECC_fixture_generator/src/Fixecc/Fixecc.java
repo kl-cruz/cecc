@@ -328,7 +328,7 @@ public class Fixecc {
                 try {
                     String name = scannerl.next();
                     String value = scannerl.next();
-                    System.out.println(name);
+                    //System.out.println(name);
                     if (name.equals("Msg ")) {
                         MessageDigest hashmsg = MessageDigest.getInstance(hash_f);
                         byte[] hm = Hex.decode(value);

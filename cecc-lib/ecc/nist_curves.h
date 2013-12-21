@@ -27,15 +27,12 @@ bn_uint_t ec_secp256r1_n = {.number = ec_secp256r1_n_tab, .length = 8};
 //variable 'ec_secp256r1_h' value: 0x1
 uint32_t ec_secp256r1_h_tab [1] = {0x1};
 bn_uint_t ec_secp256r1_h = {.number = ec_secp256r1_h_tab, .length = 1};
-//variable 'ec_secp256r1_S' value: 0xc49d360886e704936a6678e1139d26b7819f7e90
-uint32_t ec_secp256r1_S_tab [5] = {0x819f7e90, 0x139d26b7, 0x6a6678e1, 0x86e70493, 0xc49d3608};
-bn_uint_t ec_secp256r1_S = {.number = ec_secp256r1_S_tab, .length = 5};
 //variable 'ec_secp256r1_mi' value: 0x100000000fffffffffffffffefffffffefffffffeffffffff0000000000000003
 uint32_t ec_secp256r1_mi_tab [9] = {0x00000003, 0x00000000, 0xffffffff, 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xffffffff, 0x00000000, 0x1};
 bn_uint_t ec_secp256r1_mi = {.number = ec_secp256r1_mi_tab, .length = 9};
 //variable 'ec_secp256r1_mi_n' value: 0x100000000fffffffffffffffeffffffff43190552df1a6c21012ffd85eedf9bfe
 uint32_t ec_secp256r1_mi_n_tab [9] = {0xeedf9bfe, 0x012ffd85, 0xdf1a6c21, 0x43190552, 0xffffffff, 0xfffffffe, 0xffffffff, 0x00000000, 0x1};
 bn_uint_t ec_secp256r1_mi_n = {.number = ec_secp256r1_mi_n_tab, .length = 9};
-ecc_curve_t ec_secp256r1 = {&ec_secp256r1_p, &ec_secp256r1_a, &ec_secp256r1_b, &ec_secp256r1_S, &ec_secp256r1_Gx, &ec_secp256r1_Gy, &ec_secp256r1_n, &ec_secp256r1_h, &ec_secp256r1_mi, &ec_secp256r1_mi_n};
+ecc_curve_t ec_secp256r1 = {&ec_secp256r1_p, &ec_secp256r1_a, &ec_secp256r1_b, &ec_secp256r1_Gx, &ec_secp256r1_Gy, &ec_secp256r1_n, &ec_secp256r1_h, &ec_secp256r1_mi, &ec_secp256r1_mi_n};
 
 #endif /* CURVES_H_ */

@@ -463,29 +463,6 @@ public class Fixture_generator {
         
         
         close_header_file();
-        //test code
-        /*
-         77846b4f d1149d68 e008e134 43ef0c25 d7def416 3fae05d5  4104df4 ac0600a1 
-ffffffff        1        0        0        0 ffffffff ffffffff ffffffff */
-
-       /* p = new BigInteger("ffffffff00000001000000000000000000000000ffffffffffffffffffffffff", 16);
-        a = new BigInteger("77846b4fd1149d68e008e13443ef0c25d7def4163fae05d504104df4ac0600a1", 16);
-        result = a.modInverse(p);
-        //System.out.println(a.toString(16) + " " + b.toString(16) + " " + result.toString(16));
-        System.out.println(a.toString(16));
-        System.out.println(p.toString(16));
-        System.out.println(result.toString(16));*/
-
-       /* a = new BigInteger("ace6faada7179e84f3b9cac2fc632551", 16);
-        b = new BigInteger("1ce6faada7179e84f3b9cac2fc632551", 16);
-        result = a.multiply(b);
-        System.out.println("a:" + a.toString(16));
-        System.out.println("b:" + b.toString(16));
-        System.out.println("res:" + result.toString(16));
-        result = result.mod(p);
-        System.out.println("mod:" + result.toString(16));*/
-
-
 
     }
 }

@@ -15,7 +15,6 @@ typedef struct {
 	bn_uint_t *p;
 	bn_uint_t *a;
 	bn_uint_t *b;
-	bn_uint_t *S;
 	bn_uint_t *Gx;
 	bn_uint_t *Gy;
 	bn_uint_t *n;

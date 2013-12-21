@@ -456,28 +456,6 @@ uint32_t bn_shr_word(bn_uint_t *num, bn_uint_t *result, uint32_t shift)
 }
 
 /**
- * @brief Check if element a equals b
- * @param a first number to check
- * @param b second number to check
- * @return 0 numbers are equal
- * @return 1 elements a and b have other length
- * @return 2 numbers are not equal
- */
-uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
-{
-	if (b->length != a->length) {
-		return 1;
-	}
-	if (b == a) {
-		return 0;
-	}
-	if (bn_compare(a, b) == 0) {
-		return 0;
-	}
-	return 2;
-}
-
-/**
  * @brief Check if element a is greater than b
  * @param a first number to check
  * @param b second number to check

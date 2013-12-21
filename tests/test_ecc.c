@@ -20,7 +20,7 @@ uint32_t test_ecc_add(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *bx, bn_uint_t *by
 	//info("working time: %d us", get_us());
 	//print_values(4, &outx, expx, &outy, expy);
 
-	if ((bn_is_equal(&outx, expx) == 0) && (bn_is_equal(&outy, expy) == 0))
+	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
 	return 1;
 }
@@ -35,7 +35,7 @@ uint32_t test_ecc_double(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *expx, bn_uint_
 	//info("working time: %d us", get_us());
 	//print_values(2, &outx, &outy);
 
-	if ((bn_is_equal(&outx, expx) == 0) && (bn_is_equal(&outy, expy) == 0))
+	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
 	return 1;
 }
@@ -50,7 +50,7 @@ uint32_t test_ecc_mul(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *exp
 	//info("working time: %d us", get_us());
 	//print_values(2, &outx, &outy);
 
-	if ((bn_is_equal(&outx, expx) == 0) && (bn_is_equal(&outy, expy) == 0))
+	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
 	return 1;
 }
@@ -65,7 +65,7 @@ uint32_t test_ecdsa_gen_sig(bn_uint_t *k, bn_uint_t *hash, bn_uint_t *d, bn_uint
 	stop_count_time();
 	info("ECDSA signature generation time:%f ms", get_us() / 1000.0);
 
-	if ((bn_is_equal(&r, expr) == 0) && (bn_is_equal(&s, exps) == 0) && (res == 0))
+	if ((bn_compare(&r, expr) == 0) && (bn_compare(&s, exps) == 0) && (res == 0))
 		return 0;
 	return 1;
 }
@@ -98,7 +98,7 @@ uint32_t test_gen_key(bn_uint_t *d, bn_uint_t *exp_pub_k_x, bn_uint_t *exp_pub_k
 	stop_count_time();
 	info("EC key generation time:%f ms", get_us() / 1000.0);
 
-	if ((bn_is_equal(&pubx, exp_pub_k_x) == 0) && (bn_is_equal(&puby, exp_pub_k_y) == 0))
+	if ((bn_compare(&pubx, exp_pub_k_x) == 0) && (bn_compare(&puby, exp_pub_k_y) == 0))
 		return 0;
 	return 1;
 }
@@ -117,7 +117,7 @@ uint32_t test_ecdh(bn_uint_t *d_alice, bn_uint_t *pubx_alice, bn_uint_t *puby_al
 	ecc_ECDH_secret_gen(&ecc_default_hash_no_hash, d_bob, pubx_alice, puby_alice, &secret_bob, curve);
 	stop_count_time();
 	info("ECDH exchange time:%f ms", get_us() / 1000.0);
-	if (bn_is_equal(&secret_alice, &secret_bob) == 0)
+	if (bn_compare(&secret_alice, &secret_bob) == 0)
 		return 0;
 	return 1;
 }

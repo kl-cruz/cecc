@@ -43,7 +43,7 @@ uint32_t test_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_zero(&res);
 	bn_add(a, b, &res);
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 
 }
 
@@ -52,28 +52,28 @@ uint32_t test_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_zero(&res);
 	bn_sub(a, b, &res);
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_mul(a, b, &res);
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_field_add(a, b, p, &res);
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_field_sub(a, b, p, &res);
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
@@ -84,14 +84,14 @@ uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
 	{
 		error("bad numbers!");
 	}
-	return bn_is_equal(expected_result, &res);
+	return bn_compare(expected_result, &res);
 }
 
 uint32_t test_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_field_mul_barret(a, b, mi, p, &res);
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
@@ -99,7 +99,7 @@ uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
 	BN_CREATE_VARIABLE(res, a->length);
 	bn_copy(a, &res, res.length);
 	bn_shr(&res);
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result)
@@ -110,6 +110,6 @@ uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *e
 	stop_count_time();
 	info("barret moduar reduction time:%f ms", get_us() / 1000.0);
 
-	return bn_is_equal(&res, expected_result);
+	return bn_compare(&res, expected_result);
 }
 

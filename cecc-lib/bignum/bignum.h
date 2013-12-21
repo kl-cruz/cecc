@@ -20,6 +20,8 @@ typedef struct bn_uint {
 #define BN_CREATE_VARIABLE(_name, _len) uint32_t TAB_BN_CREATE_VARIABLE##_name[_len]; \
 				bn_uint_t _name = {.number = TAB_BN_CREATE_VARIABLE##_name, .length = _len}
 
+#define assert(c) (void)(c)
+
 //operators
 uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
@@ -35,17 +37,11 @@ uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_
 //functions
 uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b);
 uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length);
-uint32_t bn_inv_bits(bn_uint_t *to);
 uint32_t bn_zero(bn_uint_t *num);
 uint32_t bn_compare(bn_uint_t *a, bn_uint_t *b);
-uint32_t bn_is_greater_len(bn_uint_t *a, bn_uint_t *b, uint32_t from);
-uint32_t bn_is_one(bn_uint_t *num);
-uint32_t bn_is_odd(bn_uint_t *num);
-uint32_t bn_is_even(bn_uint_t *num);
 uint32_t bn_shr(bn_uint_t *num);
 uint32_t bn_shr_word(bn_uint_t *num, bn_uint_t *result, uint32_t shift);
 uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p);
 uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result);
-uint32_t bn_print_values(int num_args, ...);
 
 #endif /* BIGNUM_H_ */

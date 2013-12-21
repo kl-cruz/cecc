@@ -9,7 +9,6 @@
 //Uncomment line below to disable asserts
 //#define NDEBUG
 #include "bignum.h"
-#include "platform_utils.h"
 
 /**
  * @brief Addition function -> a+b=result
@@ -207,12 +206,10 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 {
 	if (bn_compare(a, p) == 1) {
-		error("bad numbers!");
-		return 0;
+		return 1;
 	}
 	if ((p->number[0] & 0x1) == 0) {
-		error("bad numbers!");
-		return 0;
+		return 1;
 	}
 	BN_CREATE_VARIABLE(u, a->length);
 	BN_CREATE_VARIABLE(v, p->length);
@@ -477,8 +474,6 @@ uint32_t bn_is_equal(bn_uint_t *a, bn_uint_t *b)
 	if (bn_compare(a, b) == 0) {
 		return 0;
 	}
-	info("Values not equal! a and b:");
-	bn_print_values(2, a, b);
 	return 2;
 }
 
@@ -561,40 +556,6 @@ uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p)
 
 		} while (last_number < num->number[num->length - 1]);
 	}
-	return 0;
-}
-
-/**
- * @brief Function to print bn_uint_t
- * @param a number to print
- */
-void bn_print_number(bn_uint_t *a)
-{
-	uint32_t i = 0;
-	for (i = a->length; i > 0; --i) {
-		fm_printf("%8x ", a->number[i - 1]);
-	}
-	fm_printf("\n");
-}
-
-/**
- * @brief Print numbers located in arguments
- * @param num_args number of bn_uint_t's to print
- * @return 0
- */
-uint32_t bn_print_values(int num_args, ...)
-{
-	bn_uint_t *val;
-	va_list ap;
-	int i;
-	fm_printf("\n");
-	va_start(ap, num_args);
-	for (i = 0; i < num_args; i++) {
-		val = va_arg(ap, bn_uint_t*);
-		bn_print_number(val);
-	}
-	va_end(ap);
-
 	return 0;
 }
 

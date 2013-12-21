@@ -79,7 +79,11 @@ uint32_t test_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *exp
 uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
-	bn_field_inverse(a, p, &res);
+	uint32_t r = bn_field_inverse(a, p, &res);
+	if(r==1)
+	{
+		error("bad numbers!");
+	}
 	return bn_is_equal(expected_result, &res);
 }
 

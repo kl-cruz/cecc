@@ -8,7 +8,6 @@
  */
 
 #include "ecc.h"
-#include "platform_utils.h"
 
 /**
  * @brief Points addition
@@ -143,6 +142,8 @@ uint32_t ecc_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *outx
  *
  * see draft below:
  * http://tools.ietf.org/html/draft-os-ietf-sshfp-ecdsa-sha2-07
+ *
+ * Tested with: http://csrc.nist.gov/groups/STM/cavp/
  */
 
 /**

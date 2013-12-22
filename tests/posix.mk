@@ -44,7 +44,7 @@ OBJDIR = $(BUILDDIR)/obj
 LSTDIR = $(BUILDDIR)/lst
 
 # Define optimisation level here
-OPT = -ggdb -fomit-frame-pointer -std=gnu99
+OPT = -O2 -ggdb -fomit-frame-pointer -std=gnu99
 
 LLIBDIR  = $(patsubst %,-L%,$(DLIBDIR) $(ULIBDIR))
 IINCDIR  = $(patsubst %,-I%,$(INCDIR) $(DINCDIR) $(UINCDIR))

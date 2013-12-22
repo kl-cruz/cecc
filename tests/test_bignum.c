@@ -42,7 +42,10 @@ uint32_t test_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_zero(&res);
+	start_count_time();
 	bn_add(a, b, &res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 
 }
@@ -51,14 +54,20 @@ uint32_t test_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_zero(&res);
+	start_count_time();
 	bn_sub(a, b, &res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
+	start_count_time();
 	bn_mul(a, b, &res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 }
 
@@ -66,20 +75,28 @@ uint32_t test_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *exp
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
 	bn_field_add(a, b, p, &res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
+	start_count_time();
 	bn_field_sub(a, b, p, &res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 }
 
 uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
+	start_count_time();
 	uint32_t r = bn_field_inverse(a, p, &res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	if(r==1)
 	{
 		error("bad numbers!");
@@ -90,7 +107,10 @@ uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
 uint32_t test_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
+	start_count_time();
 	bn_field_mul_barret(a, b, mi, p, &res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 }
 
@@ -98,7 +118,10 @@ uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, a->length);
 	bn_copy(a, &res, res.length);
+	start_count_time();
 	bn_shr(&res);
+	stop_count_time();
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 }
 

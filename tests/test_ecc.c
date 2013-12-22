@@ -14,11 +14,10 @@ uint32_t test_ecc_add(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *bx, bn_uint_t *by
 {
 	BN_CREATE_VARIABLE(outx, expx->length);
 	BN_CREATE_VARIABLE(outy, expy->length);
-	//start_count_time();
+	start_count_time();
 	ecc_ec_add(ax, ay, bx, by, &outx, &outy, curve);
-	//stop_count_time();
-	//info("working time: %d us", get_us());
-	//print_values(4, &outx, expx, &outy, expy);
+	stop_count_time();
+	info("working time: %d us", get_us());
 
 	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
@@ -29,11 +28,10 @@ uint32_t test_ecc_double(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *expx, bn_uint_
 {
 	BN_CREATE_VARIABLE(outx, expx->length);
 	BN_CREATE_VARIABLE(outy, expy->length);
-	//start_count_time();
+	start_count_time();
 	ecc_ec_double(ax, ay, &outx, &outy, curve);
-	//stop_count_time();
-	//info("working time: %d us", get_us());
-	//print_values(2, &outx, &outy);
+	stop_count_time();
+	info("working time: %d us", get_us());
 
 	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
@@ -44,11 +42,10 @@ uint32_t test_ecc_mul(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *exp
 {
 	BN_CREATE_VARIABLE(outx, expx->length);
 	BN_CREATE_VARIABLE(outy, expy->length);
-	//start_count_time();
+	start_count_time();
 	ecc_ec_mult(px, py, k, &outx, &outy, curve);
-	//stop_count_time();
-	//info("working time: %d us", get_us());
-	//print_values(2, &outx, &outy);
+	stop_count_time();
+	info("working time: %d us", get_us());
 
 	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;

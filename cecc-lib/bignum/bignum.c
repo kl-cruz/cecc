@@ -206,7 +206,7 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 {
 	if (bn_compare(a, p) == 1) {
-		return 1;
+		return 2;
 	}
 	if ((p->number[0] & 0x1) == 0) {
 		return 1;

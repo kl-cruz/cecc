@@ -431,35 +431,35 @@ public class Fixture_generator {
     public static void main(String[] args) {
 
         create_header_file(args[0]);
+        Integer how_many = Integer.parseInt(args[1]);
+        add_list(how_many.intValue(), 128);
+        add_list(how_many.intValue(), 256);
         
-        add_list(1, 128);
-        add_list(1, 256);
+        sub_list(how_many.intValue(), 128);
+        sub_list(how_many.intValue(), 256);
         
-        sub_list(1, 128);
-        sub_list(1, 256);
+        add_mod_list(how_many.intValue(), 128);
+        add_mod_list(how_many.intValue(), 256);
         
-        add_mod_list(1, 128);
-        add_mod_list(1, 256);
+        sub_mod_list(how_many.intValue(), 128);
+        sub_mod_list(how_many.intValue(), 256);
         
-        sub_mod_list(1, 128);
-        sub_mod_list(1, 256);
+        shr_list(how_many.intValue(), 128);
+        shr_list(how_many.intValue(), 256);
         
-        shr_list(1, 128);
-        shr_list(1, 256);
+        inv_mod_list(how_many.intValue(), 128);
+        inv_mod_list(how_many.intValue(), 256);
         
-        inv_mod_list(1, 128);
-        inv_mod_list(1, 256);
-        
-        mul_list(1, 128);
-        mul_list(1, 256);
+        mul_list(how_many.intValue(), 128);
+        mul_list(how_many.intValue(), 256);
         
         //secp128r1
-        mod_barret_list(10, 128, "fffffffdffffffffffffffffffffffff");
-        mul_mod_barret_list(10, 128, "fffffffdffffffffffffffffffffffff");
+        mod_barret_list(how_many.intValue(), 128, "fffffffdffffffffffffffffffffffff");
+        mul_mod_barret_list(how_many.intValue(), 128, "fffffffdffffffffffffffffffffffff");
         
         //secp256r1
-        mod_barret_list(10, 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
-        mul_mod_barret_list(10, 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
+        mod_barret_list(how_many.intValue(), 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
+        mul_mod_barret_list(how_many.intValue(), 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
         
         
         close_header_file();

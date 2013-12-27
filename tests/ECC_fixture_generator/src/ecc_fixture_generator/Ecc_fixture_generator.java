@@ -1,4 +1,4 @@
-package Fixecc;
+package ecc_fixture_generator;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +22,7 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
+import java.security.Security;
 import java.security.Signature;
 import java.security.interfaces.ECPrivateKey;
 import java.util.Scanner;
@@ -43,6 +44,7 @@ import org.bouncycastle.crypto.signers.ECDSASigner;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.math.ec.ECFieldElement;
 import org.bouncycastle.math.ec.ECPoint;
@@ -52,7 +54,7 @@ import org.bouncycastle.util.encoders.Hex;
 /*
  * This project require BouncyCastle crypto lib to proper works 
  */
-public class Fixecc {
+public class Ecc_fixture_generator {
 
     private SecureRandom secRand = new SecureRandom();
     public static PrintWriter out = null;
@@ -317,9 +319,11 @@ public class Fixecc {
                 hash_f = hash_funct = matcher.group(2);
                 curve_n = curve_n.replace('-', '_');
                 hash_funct = hash_funct.replace('-', '_');
+                
                 var_name = curve_n + "_" + hash_funct;
                 i = 0;
             }
+            
 
             Scanner scannerl = new Scanner(line);
             scannerl.useDelimiter("=");
@@ -340,6 +344,8 @@ public class Fixecc {
                     translate_bigint_and_write(new BigInteger(value.trim(), 16), curve_n + "_" + hash_funct + "_" + name.trim() + i);
 
                 } catch (Exception e) {
+                    if (e.getMessage() != null)
+                        System.out.println(e.getMessage());
                 }
             } else {
                 ++i;
@@ -357,12 +363,12 @@ public class Fixecc {
         try {
             g = KeyPairGenerator.getInstance("ECDH", "BC");
         } catch (NoSuchProviderException ex) {
-            Logger.getLogger(Fixecc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Ecc_fixture_generator.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             g.initialize(ecSpec, new SecureRandom());
         } catch (InvalidAlgorithmParameterException ex) {
-            Logger.getLogger(Fixecc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Ecc_fixture_generator.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         KeyPair pair = g.generateKeyPair();
@@ -374,9 +380,11 @@ public class Fixecc {
 
     public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException, InvalidKeyException, SignatureException, UnsupportedEncodingException, IOException, InvalidKeySpecException {
         create_header_file(args[0]);
-        generate_points_add_fixture("secp256r1", 10);
-        generate_point_double_fixture("secp256r1", 10);
-        generate_point_multiplication_fixture("secp256r1", 10);
+        Integer how_many = Integer.parseInt(args[2]);
+        Security.addProvider(new BouncyCastleProvider());
+        generate_points_add_fixture("secp256r1", how_many.intValue());
+        generate_point_double_fixture("secp256r1", how_many.intValue());
+        generate_point_multiplication_fixture("secp256r1", how_many.intValue());
         generate_ECDSA_fixture(args[1]);
         close_header_file();
     }

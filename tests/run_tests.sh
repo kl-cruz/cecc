@@ -4,7 +4,8 @@ echo "##########################################################################
 echo "#######################################################-> Generating new fixtures <-#######################################################"
 echo "###########################################################################################################################################"
 echo ""
-java -jar `pwd`/fixture_generator_java/dist/fixture_generator.jar `pwd`/test_bignum_fixtures.h
+java -jar `pwd`/fixture_generator_java/dist/fixture_generator.jar `pwd`/test_bignum_fixtures.h 30
+java -jar `pwd`/ECC_fixture_generator/dist/ECC_fixture_generator.jar `pwd`/test_ecc_fixtures.h `pwd`/../../from_net/186-3ecdsatestvectors/SigGen.txt 25
 echo ""
 echo "###########################################################################################################################################"
 echo "###################################################-> Compile tests with new fixtures <-###################################################"

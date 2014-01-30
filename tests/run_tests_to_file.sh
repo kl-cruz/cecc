@@ -21,7 +21,7 @@ if [ $NEWFIX = "Y" ]; then
 	
 	echo "Generating $FIXNUM new tests for each function"
 	java -jar `pwd`/fixture_generator_java/dist/fixture_generator.jar `pwd`/test_bignum_fixtures.h $FIXNUM
-	java -jar `pwd`/ECC_fixture_generator/dist/ECC_fixture_generator.jar `pwd`/test_ecc_fixtures.h `pwd`/../../from_net/186-3ecdsatestvectors/SigGen.txt $FIXNUM
+	java -jar `pwd`/ECC_fixture_generator/dist/ECC_fixture_generator.jar `pwd`/test_ecc_fixtures.h `pwd`/../186-3ecdsatestvectors/SigGen.txt $FIXNUM
 fi
 echo ""
 echo "###########################################################################################################################################"

@@ -51,6 +51,8 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.encoders.Hex;
 
+
+
 /*
  * This project require BouncyCastle crypto lib to proper works 
  */
@@ -58,6 +60,7 @@ public class Ecc_fixture_generator {
 
     private SecureRandom secRand = new SecureRandom();
     public static PrintWriter out = null;
+    public static final int time_msr=0;
 
     public static void create_header_file(String filename) {
         try {
@@ -147,8 +150,10 @@ public class Ecc_fixture_generator {
         String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
 
         for (int i = 0; i < samples; ++i) {
+            
+            
             k = new BigInteger(ecSpec.getN().bitLength(), random);
-
+            long start_time = System.nanoTime();
             qMultiply = ga.multiply(k);
             ax = ga.getX().toBigInteger();
             ay = ga.getY().toBigInteger();
@@ -157,7 +162,11 @@ public class Ecc_fixture_generator {
             qMultiply = ga.add(qMultiply);
             sx = qMultiply.getX().toBigInteger();
             sy = qMultiply.getY().toBigInteger();
-
+            long end_time = System.nanoTime();
+            if(time_msr==1){
+                double difference = (end_time - start_time)/1e6;
+                System.out.println("ecc_points_add time: "+difference+" ms");
+            }
 
 
             translate_bigint_and_write(ax, var_nameax + i);
@@ -201,15 +210,21 @@ public class Ecc_fixture_generator {
         String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
 
         for (int i = 0; i < samples; ++i) {
+            
+            
             k = new BigInteger(ecSpec.getN().bitLength(), random);
-
+            long start_time = System.nanoTime();
             qMultiply = ga.multiply(k);
             ax = ga.getX().toBigInteger();
             ay = ga.getY().toBigInteger();
             qMultiply = ga.twice();
             sx = qMultiply.getX().toBigInteger();
             sy = qMultiply.getY().toBigInteger();
-
+            long end_time = System.nanoTime();
+            if(time_msr==1){
+                double difference = (end_time - start_time)/1e6;
+                System.out.println("ecc_point_double time: "+difference+" ms");
+            }
 
 
             translate_bigint_and_write(ax, var_nameax + i);
@@ -252,7 +267,9 @@ public class Ecc_fixture_generator {
         String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
 
         for (int i = 0; i < samples; ++i) {
+            
             k = new BigInteger(ecSpec.getN().bitLength(), random);
+            long start_time = System.nanoTime();
             qMultiply = ga.multiply(k);
             px = ga.getX().toBigInteger();
             py = ga.getY().toBigInteger();
@@ -260,6 +277,11 @@ public class Ecc_fixture_generator {
             qMultiply = ga.multiply(k);
             sx = qMultiply.getX().toBigInteger();
             sy = qMultiply.getY().toBigInteger();
+            long end_time = System.nanoTime();
+            if(time_msr==1){
+                double difference = (end_time - start_time)/1e6;
+                System.out.println("ecc_point_mul time: "+difference+" ms");
+            }
 
 
 
@@ -359,6 +381,7 @@ public class Ecc_fixture_generator {
         System.out.println(ecSpec.getCurve().getB().toBigInteger().toString(16));
         //
 
+        long start_time = System.nanoTime();
         KeyPairGenerator g = null;
         try {
             g = KeyPairGenerator.getInstance("ECDH", "BC");
@@ -372,6 +395,11 @@ public class Ecc_fixture_generator {
         }
 
         KeyPair pair = g.generateKeyPair();
+        long end_time = System.nanoTime();
+        if(time_msr==1){
+            double difference = (end_time - start_time)/1e6;
+            System.out.println("ecc_key_gen time: "+difference+" ms");
+        }
         System.out.println(pair.getPrivate().toString());
         System.out.println(pair.getPublic().toString());
         //ecSpec.getCurve().createPoint(pair.getPublic()., true)

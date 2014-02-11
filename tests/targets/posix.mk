@@ -73,7 +73,7 @@ ifeq ($(HOST_OSX),yes)
   LIBS += $(OSX_ARCH)
 else
   # Linux, or other
-  CPFLAGS += -Wa,-alms=$(<:.c=.lst) -Wno-missing-field-initializers
+  CPFLAGS += -Wno-missing-field-initializers
   LDFLAGS += -m32 -Wl,-Map=$(BUILDDIR)/$(PROJECT).map,--cref,--no-warn-mismatch $(LLIBDIR)
 endif
 

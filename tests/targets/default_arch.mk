@@ -57,7 +57,7 @@ LIBS    = $(DLIBS) $(ULIBS)
 OUT     = $(BUILDDIR)/$(PROJECT)
 
 # Paths
-ASFLAGS = -m32 -Wa,-amhls=$(<:.s=.lst) $(ADEFS)
+ASFLAGS = -Wa,-amhls=$(<:.s=.lst) $(ADEFS)
 CPFLAGS = $(OPT) -Wall -Wextra -Wstrict-prototypes -fverbose-asm $(DEFS)
 
 ifeq ($(HOST_OSX),yes)
@@ -73,7 +73,7 @@ ifeq ($(HOST_OSX),yes)
   LIBS += $(OSX_ARCH)
 else
   # Linux, or other
-  CPFLAGS += -Wa,-alms=$(<:.c=.lst) -Wno-missing-field-initializers
+  CPFLAGS += -Wno-missing-field-initializers
   LDFLAGS += -Wl,-Map=$(PROJECT).map,--cref,--no-warn-mismatch $(LLIBDIR)
 endif
 

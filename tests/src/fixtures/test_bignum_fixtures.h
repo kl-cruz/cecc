@@ -5,96 +5,96 @@ File generate using external software
 #define TEST_BIGNUM_VALUES_H_
 #include "bignum.h"
 
-//variable 'add_128_a_0' value: 0x4b449a86064c101df4a503fce42804c4
-uint32_t add_128_a_0_tab [4] = {0xe42804c4, 0xf4a503fc, 0x064c101d, 0x4b449a86};
+//variable 'add_128_a_0' value: 0x23a89eb99560701d4f424666f9570ba7
+uint32_t add_128_a_0_tab [4] = {0xf9570ba7, 0x4f424666, 0x9560701d, 0x23a89eb9};
 bn_uint_t add_128_a_0= {.number = add_128_a_0_tab, .length = 4};
-//variable 'add_128_b_0' value: 0x45eb4f05c3f8410ea5a995c8f4ea43ae
-uint32_t add_128_b_0_tab [4] = {0xf4ea43ae, 0xa5a995c8, 0xc3f8410e, 0x45eb4f05};
+//variable 'add_128_b_0' value: 0x12ec8e38e8bd90179c45bab90eea9535
+uint32_t add_128_b_0_tab [4] = {0x0eea9535, 0x9c45bab9, 0xe8bd9017, 0x12ec8e38};
 bn_uint_t add_128_b_0= {.number = add_128_b_0_tab, .length = 4};
-//variable 'add_128_res_0' value: 0x912fe98bca44512c9a4e99c5d9124872
-uint32_t add_128_res_0_tab [4] = {0xd9124872, 0x9a4e99c5, 0xca44512c, 0x912fe98b};
+//variable 'add_128_res_0' value: 0x36952cf27e1e0034eb8801200841a0dc
+uint32_t add_128_res_0_tab [4] = {0x0841a0dc, 0xeb880120, 0x7e1e0034, 0x36952cf2};
 bn_uint_t add_128_res_0= {.number = add_128_res_0_tab, .length = 4};
-//variable 'add_128_a_1' value: 0xc95f0b5a3654deda8ae9886129bb0d82
-uint32_t add_128_a_1_tab [4] = {0x29bb0d82, 0x8ae98861, 0x3654deda, 0xc95f0b5a};
+//variable 'add_128_a_1' value: 0x7b9075bbc067646b953139c432cd96ae
+uint32_t add_128_a_1_tab [4] = {0x32cd96ae, 0x953139c4, 0xc067646b, 0x7b9075bb};
 bn_uint_t add_128_a_1= {.number = add_128_a_1_tab, .length = 4};
-//variable 'add_128_b_1' value: 0xea99dcc8077d661dee15aeaabad5a183
-uint32_t add_128_b_1_tab [4] = {0xbad5a183, 0xee15aeaa, 0x077d661d, 0xea99dcc8};
+//variable 'add_128_b_1' value: 0x7be9c6475dcd0a33d1baac67303a2e9c
+uint32_t add_128_b_1_tab [4] = {0x303a2e9c, 0xd1baac67, 0x5dcd0a33, 0x7be9c647};
 bn_uint_t add_128_b_1= {.number = add_128_b_1_tab, .length = 4};
-//variable 'add_128_res_1' value: 0x1b3f8e8223dd244f878ff370be490af05
-uint32_t add_128_res_1_tab [5] = {0xe490af05, 0x78ff370b, 0x3dd244f8, 0xb3f8e822, 0x1};
-bn_uint_t add_128_res_1= {.number = add_128_res_1_tab, .length = 5};
-//variable 'add_128_a_2' value: 0xd2efbed6347eefdcd42d932acb3c05ba
-uint32_t add_128_a_2_tab [4] = {0xcb3c05ba, 0xd42d932a, 0x347eefdc, 0xd2efbed6};
+//variable 'add_128_res_1' value: 0xf77a3c031e346e9f66ebe62b6307c54a
+uint32_t add_128_res_1_tab [4] = {0x6307c54a, 0x66ebe62b, 0x1e346e9f, 0xf77a3c03};
+bn_uint_t add_128_res_1= {.number = add_128_res_1_tab, .length = 4};
+//variable 'add_128_a_2' value: 0xf18b9970ba27e8c3c39596babd6b99cb
+uint32_t add_128_a_2_tab [4] = {0xbd6b99cb, 0xc39596ba, 0xba27e8c3, 0xf18b9970};
 bn_uint_t add_128_a_2= {.number = add_128_a_2_tab, .length = 4};
-//variable 'add_128_b_2' value: 0xfd088576c47cdcf7b957e7926aa457a3
-uint32_t add_128_b_2_tab [4] = {0x6aa457a3, 0xb957e792, 0xc47cdcf7, 0xfd088576};
+//variable 'add_128_b_2' value: 0xeb47d1d4a45509916dede94138b0f6f0
+uint32_t add_128_b_2_tab [4] = {0x38b0f6f0, 0x6dede941, 0xa4550991, 0xeb47d1d4};
 bn_uint_t add_128_b_2= {.number = add_128_b_2_tab, .length = 4};
-//variable 'add_128_res_2' value: 0x1cff8444cf8fbccd48d857abd35e05d5d
-uint32_t add_128_res_2_tab [5] = {0x35e05d5d, 0x8d857abd, 0xf8fbccd4, 0xcff8444c, 0x1};
+//variable 'add_128_res_2' value: 0x1dcd36b455e7cf25531837ffbf61c90bb
+uint32_t add_128_res_2_tab [5] = {0xf61c90bb, 0x31837ffb, 0x5e7cf255, 0xdcd36b45, 0x1};
 bn_uint_t add_128_res_2= {.number = add_128_res_2_tab, .length = 5};
-//variable 'add_128_a_3' value: 0xf8998b18a879b4da730d3d877500e4ef
-uint32_t add_128_a_3_tab [4] = {0x7500e4ef, 0x730d3d87, 0xa879b4da, 0xf8998b18};
+//variable 'add_128_a_3' value: 0x7b45721fd018b09e081b216c437301bd
+uint32_t add_128_a_3_tab [4] = {0x437301bd, 0x081b216c, 0xd018b09e, 0x7b45721f};
 bn_uint_t add_128_a_3= {.number = add_128_a_3_tab, .length = 4};
-//variable 'add_128_b_3' value: 0x96b17b8dd9aab34f83cf344e8f8464bf
-uint32_t add_128_b_3_tab [4] = {0x8f8464bf, 0x83cf344e, 0xd9aab34f, 0x96b17b8d};
+//variable 'add_128_b_3' value: 0x82bb8a334698f72121c18200b401883a
+uint32_t add_128_b_3_tab [4] = {0xb401883a, 0x21c18200, 0x4698f721, 0x82bb8a33};
 bn_uint_t add_128_b_3= {.number = add_128_b_3_tab, .length = 4};
-//variable 'add_128_res_3' value: 0x18f4b06a682246829f6dc71d6048549ae
-uint32_t add_128_res_3_tab [5] = {0x048549ae, 0xf6dc71d6, 0x82246829, 0x8f4b06a6, 0x1};
-bn_uint_t add_128_res_3= {.number = add_128_res_3_tab, .length = 5};
-//variable 'add_128_a_4' value: 0xe98e1e638f2d912ed987a90fba6b12d2
-uint32_t add_128_a_4_tab [4] = {0xba6b12d2, 0xd987a90f, 0x8f2d912e, 0xe98e1e63};
+//variable 'add_128_res_3' value: 0xfe00fc5316b1a7bf29dca36cf77489f7
+uint32_t add_128_res_3_tab [4] = {0xf77489f7, 0x29dca36c, 0x16b1a7bf, 0xfe00fc53};
+bn_uint_t add_128_res_3= {.number = add_128_res_3_tab, .length = 4};
+//variable 'add_128_a_4' value: 0x9cf6d7ef6906b0e1ba655f05c9170a81
+uint32_t add_128_a_4_tab [4] = {0xc9170a81, 0xba655f05, 0x6906b0e1, 0x9cf6d7ef};
 bn_uint_t add_128_a_4= {.number = add_128_a_4_tab, .length = 4};
-//variable 'add_128_b_4' value: 0xbb09b9dd673de7db1aa6d3b797e22d09
-uint32_t add_128_b_4_tab [4] = {0x97e22d09, 0x1aa6d3b7, 0x673de7db, 0xbb09b9dd};
+//variable 'add_128_b_4' value: 0xe7153271b93d188d63b9bc905398115e
+uint32_t add_128_b_4_tab [4] = {0x5398115e, 0x63b9bc90, 0xb93d188d, 0xe7153271};
 bn_uint_t add_128_b_4= {.number = add_128_b_4_tab, .length = 4};
-//variable 'add_128_res_4' value: 0x1a497d840f66b7909f42e7cc7524d3fdb
-uint32_t add_128_res_4_tab [5] = {0x524d3fdb, 0xf42e7cc7, 0xf66b7909, 0xa497d840, 0x1};
+//variable 'add_128_res_4' value: 0x1840c0a612243c96f1e1f1b961caf1bdf
+uint32_t add_128_res_4_tab [5] = {0x1caf1bdf, 0x1e1f1b96, 0x2243c96f, 0x840c0a61, 0x1};
 bn_uint_t add_128_res_4= {.number = add_128_res_4_tab, .length = 5};
-//variable 'add_128_a_5' value: 0xa798670ed97ec60b4d8dcd72ca4cb3d
-uint32_t add_128_a_5_tab [4] = {0x2ca4cb3d, 0xb4d8dcd7, 0xed97ec60, 0xa798670};
+//variable 'add_128_a_5' value: 0x202848d6518bc631d088074e201e2375
+uint32_t add_128_a_5_tab [4] = {0x201e2375, 0xd088074e, 0x518bc631, 0x202848d6};
 bn_uint_t add_128_a_5= {.number = add_128_a_5_tab, .length = 4};
-//variable 'add_128_b_5' value: 0x773861acd2fe5d6a69e6ce9aa7f59bb6
-uint32_t add_128_b_5_tab [4] = {0xa7f59bb6, 0x69e6ce9a, 0xd2fe5d6a, 0x773861ac};
+//variable 'add_128_b_5' value: 0x74b61c26e73ac5db60f862f40bcbac7b
+uint32_t add_128_b_5_tab [4] = {0x0bcbac7b, 0x60f862f4, 0xe73ac5db, 0x74b61c26};
 bn_uint_t add_128_b_5= {.number = add_128_b_5_tab, .length = 4};
-//variable 'add_128_res_5' value: 0x81b1e81dc09649cb1ebfab71d49a66f3
-uint32_t add_128_res_5_tab [4] = {0xd49a66f3, 0x1ebfab71, 0xc09649cb, 0x81b1e81d};
+//variable 'add_128_res_5' value: 0x94de64fd38c68c0d31806a422be9cff0
+uint32_t add_128_res_5_tab [4] = {0x2be9cff0, 0x31806a42, 0x38c68c0d, 0x94de64fd};
 bn_uint_t add_128_res_5= {.number = add_128_res_5_tab, .length = 4};
-//variable 'add_128_a_6' value: 0x66d13090a41af025a673a3a7745e6d2d
-uint32_t add_128_a_6_tab [4] = {0x745e6d2d, 0xa673a3a7, 0xa41af025, 0x66d13090};
+//variable 'add_128_a_6' value: 0xd868998ce56d3ef16c18d5e3c2040211
+uint32_t add_128_a_6_tab [4] = {0xc2040211, 0x6c18d5e3, 0xe56d3ef1, 0xd868998c};
 bn_uint_t add_128_a_6= {.number = add_128_a_6_tab, .length = 4};
-//variable 'add_128_b_6' value: 0x9d14a2515d26bfbf624243e5086f24bb
-uint32_t add_128_b_6_tab [4] = {0x086f24bb, 0x624243e5, 0x5d26bfbf, 0x9d14a251};
+//variable 'add_128_b_6' value: 0xb10412fc5d45eebb3bedca64f32a9038
+uint32_t add_128_b_6_tab [4] = {0xf32a9038, 0x3bedca64, 0x5d45eebb, 0xb10412fc};
 bn_uint_t add_128_b_6= {.number = add_128_b_6_tab, .length = 4};
-//variable 'add_128_res_6' value: 0x103e5d2e20141afe508b5e78c7ccd91e8
-uint32_t add_128_res_6_tab [5] = {0x7ccd91e8, 0x08b5e78c, 0x0141afe5, 0x03e5d2e2, 0x1};
+//variable 'add_128_res_6' value: 0x1896cac8942b32daca806a048b52e9249
+uint32_t add_128_res_6_tab [5] = {0xb52e9249, 0xa806a048, 0x42b32dac, 0x896cac89, 0x1};
 bn_uint_t add_128_res_6= {.number = add_128_res_6_tab, .length = 5};
-//variable 'add_128_a_7' value: 0x10963c3677891484645f09c4a99314b9
-uint32_t add_128_a_7_tab [4] = {0xa99314b9, 0x645f09c4, 0x77891484, 0x10963c36};
+//variable 'add_128_a_7' value: 0x38745435453e6a470e81d0471ef5d4bd
+uint32_t add_128_a_7_tab [4] = {0x1ef5d4bd, 0x0e81d047, 0x453e6a47, 0x38745435};
 bn_uint_t add_128_a_7= {.number = add_128_a_7_tab, .length = 4};
-//variable 'add_128_b_7' value: 0x87b338637a146c94de0beaf9e522140a
-uint32_t add_128_b_7_tab [4] = {0xe522140a, 0xde0beaf9, 0x7a146c94, 0x87b33863};
+//variable 'add_128_b_7' value: 0x320c491ab7510278a4ce7c4667020e4a
+uint32_t add_128_b_7_tab [4] = {0x67020e4a, 0xa4ce7c46, 0xb7510278, 0x320c491a};
 bn_uint_t add_128_b_7= {.number = add_128_b_7_tab, .length = 4};
-//variable 'add_128_res_7' value: 0x98497499f19d8119426af4be8eb528c3
-uint32_t add_128_res_7_tab [4] = {0x8eb528c3, 0x426af4be, 0xf19d8119, 0x98497499};
+//variable 'add_128_res_7' value: 0x6a809d4ffc8f6cbfb3504c8d85f7e307
+uint32_t add_128_res_7_tab [4] = {0x85f7e307, 0xb3504c8d, 0xfc8f6cbf, 0x6a809d4f};
 bn_uint_t add_128_res_7= {.number = add_128_res_7_tab, .length = 4};
-//variable 'add_128_a_8' value: 0x111b5326a4d1f09b85922c80289a841b
-uint32_t add_128_a_8_tab [4] = {0x289a841b, 0x85922c80, 0xa4d1f09b, 0x111b5326};
+//variable 'add_128_a_8' value: 0xb8e8816378048c5f7b21f342684b5909
+uint32_t add_128_a_8_tab [4] = {0x684b5909, 0x7b21f342, 0x78048c5f, 0xb8e88163};
 bn_uint_t add_128_a_8= {.number = add_128_a_8_tab, .length = 4};
-//variable 'add_128_b_8' value: 0x56ce96dacf587e2954f5c2caca41fd22
-uint32_t add_128_b_8_tab [4] = {0xca41fd22, 0x54f5c2ca, 0xcf587e29, 0x56ce96da};
+//variable 'add_128_b_8' value: 0xbe3a1a68dd06f83c30d1e9cada06c522
+uint32_t add_128_b_8_tab [4] = {0xda06c522, 0x30d1e9ca, 0xdd06f83c, 0xbe3a1a68};
 bn_uint_t add_128_b_8= {.number = add_128_b_8_tab, .length = 4};
-//variable 'add_128_res_8' value: 0x67e9ea01742a6ec4da87ef4af2dc813d
-uint32_t add_128_res_8_tab [4] = {0xf2dc813d, 0xda87ef4a, 0x742a6ec4, 0x67e9ea01};
-bn_uint_t add_128_res_8= {.number = add_128_res_8_tab, .length = 4};
-//variable 'add_128_a_9' value: 0x14bebb7b5487f436001d4a37cdef2d08
-uint32_t add_128_a_9_tab [4] = {0xcdef2d08, 0x001d4a37, 0x5487f436, 0x14bebb7b};
+//variable 'add_128_res_8' value: 0x177229bcc550b849babf3dd0d42521e2b
+uint32_t add_128_res_8_tab [5] = {0x42521e2b, 0xabf3dd0d, 0x550b849b, 0x77229bcc, 0x1};
+bn_uint_t add_128_res_8= {.number = add_128_res_8_tab, .length = 5};
+//variable 'add_128_a_9' value: 0xd692c11dfb3256e55b1f403255c566cb
+uint32_t add_128_a_9_tab [4] = {0x55c566cb, 0x5b1f4032, 0xfb3256e5, 0xd692c11d};
 bn_uint_t add_128_a_9= {.number = add_128_a_9_tab, .length = 4};
-//variable 'add_128_b_9' value: 0x9291e87578f3ca606c4dd6c7528371d8
-uint32_t add_128_b_9_tab [4] = {0x528371d8, 0x6c4dd6c7, 0x78f3ca60, 0x9291e875};
+//variable 'add_128_b_9' value: 0xd037112eda44aec8d6cf82e25cfdc13f
+uint32_t add_128_b_9_tab [4] = {0x5cfdc13f, 0xd6cf82e2, 0xda44aec8, 0xd037112e};
 bn_uint_t add_128_b_9= {.number = add_128_b_9_tab, .length = 4};
-//variable 'add_128_res_9' value: 0xa750a3f0cd7bbe966c6b20ff20729ee0
-uint32_t add_128_res_9_tab [4] = {0x20729ee0, 0x6c6b20ff, 0xcd7bbe96, 0xa750a3f0};
-bn_uint_t add_128_res_9= {.number = add_128_res_9_tab, .length = 4};
+//variable 'add_128_res_9' value: 0x1a6c9d24cd57705ae31eec314b2c3280a
+uint32_t add_128_res_9_tab [5] = {0xb2c3280a, 0x31eec314, 0xd57705ae, 0xa6c9d24c, 0x1};
+bn_uint_t add_128_res_9= {.number = add_128_res_9_tab, .length = 5};
 uint32_t add_128_tab_len=10;
 bn_uint_t *add_128_test_tab[10][3]={
 {&add_128_a_0,&add_128_b_0,&add_128_res_0},
@@ -108,96 +108,96 @@ bn_uint_t *add_128_test_tab[10][3]={
 {&add_128_a_8,&add_128_b_8,&add_128_res_8},
 {&add_128_a_9,&add_128_b_9,&add_128_res_9},
 };
-//variable 'add_256_a_0' value: 0x15dcb77047acea9a64d5a26bf46fbe546c5c147942d8c907ced2fc3cdcc7f919
-uint32_t add_256_a_0_tab [8] = {0xdcc7f919, 0xced2fc3c, 0x42d8c907, 0x6c5c1479, 0xf46fbe54, 0x64d5a26b, 0x47acea9a, 0x15dcb770};
+//variable 'add_256_a_0' value: 0x958bf77a7a287d2063ef8a3205f7d09d2e1a366bf99086cb0761ed30d55256b3
+uint32_t add_256_a_0_tab [8] = {0xd55256b3, 0x0761ed30, 0xf99086cb, 0x2e1a366b, 0x05f7d09d, 0x63ef8a32, 0x7a287d20, 0x958bf77a};
 bn_uint_t add_256_a_0= {.number = add_256_a_0_tab, .length = 8};
-//variable 'add_256_b_0' value: 0x31184c4681919cab53580e4b8abe8f0ec05f85b8fecd539b8e7277438367085e
-uint32_t add_256_b_0_tab [8] = {0x8367085e, 0x8e727743, 0xfecd539b, 0xc05f85b8, 0x8abe8f0e, 0x53580e4b, 0x81919cab, 0x31184c46};
+//variable 'add_256_b_0' value: 0xb1c701851ce405bf3a7600765f4ff40d29c12d3dcc2e0cbec59fe9ec9ec841df
+uint32_t add_256_b_0_tab [8] = {0x9ec841df, 0xc59fe9ec, 0xcc2e0cbe, 0x29c12d3d, 0x5f4ff40d, 0x3a760076, 0x1ce405bf, 0xb1c70185};
 bn_uint_t add_256_b_0= {.number = add_256_b_0_tab, .length = 8};
-//variable 'add_256_res_0' value: 0x46f503b6c93e8745b82db0b77f2e4d632cbb9a3241a61ca35d457380602f0177
-uint32_t add_256_res_0_tab [8] = {0x602f0177, 0x5d457380, 0x41a61ca3, 0x2cbb9a32, 0x7f2e4d63, 0xb82db0b7, 0xc93e8745, 0x46f503b6};
-bn_uint_t add_256_res_0= {.number = add_256_res_0_tab, .length = 8};
-//variable 'add_256_a_1' value: 0x8d3770052e215674293aca990731582dacf0583cdab907bbda51d868f8315957
-uint32_t add_256_a_1_tab [8] = {0xf8315957, 0xda51d868, 0xdab907bb, 0xacf0583c, 0x0731582d, 0x293aca99, 0x2e215674, 0x8d377005};
+//variable 'add_256_res_0' value: 0x14752f8ff970c82df9e658aa86547c4aa57db63a9c5be9389cd01d71d741a9892
+uint32_t add_256_res_0_tab [9] = {0x741a9892, 0xcd01d71d, 0xc5be9389, 0x57db63a9, 0x6547c4aa, 0x9e658aa8, 0x970c82df, 0x4752f8ff, 0x1};
+bn_uint_t add_256_res_0= {.number = add_256_res_0_tab, .length = 9};
+//variable 'add_256_a_1' value: 0xb7ae16cbaf6931533e823214e9ab54dc301252272ad80125ba1e352b812ef1d0
+uint32_t add_256_a_1_tab [8] = {0x812ef1d0, 0xba1e352b, 0x2ad80125, 0x30125227, 0xe9ab54dc, 0x3e823214, 0xaf693153, 0xb7ae16cb};
 bn_uint_t add_256_a_1= {.number = add_256_a_1_tab, .length = 8};
-//variable 'add_256_b_1' value: 0x47082641bb10a5203a4816fee28f9734d12de9b84d645eca2f467e1aa787cb4
-uint32_t add_256_b_1_tab [8] = {0xaa787cb4, 0xa2f467e1, 0x84d645ec, 0x4d12de9b, 0xee28f973, 0x03a4816f, 0x1bb10a52, 0x4708264};
+//variable 'add_256_b_1' value: 0x95042deb199a15b4411d31bc18967a5f66cf48d5e51c944619fddbbde74f1c55
+uint32_t add_256_b_1_tab [8] = {0xe74f1c55, 0x19fddbbd, 0xe51c9446, 0x66cf48d5, 0x18967a5f, 0x411d31bc, 0x199a15b4, 0x95042deb};
 bn_uint_t add_256_b_1= {.number = add_256_b_1_tab, .length = 8};
-//variable 'add_256_res_1' value: 0x91a7f26949d260c62cdf4c08f55a51a0fa0336d85f8f4da87d46404aa2a9d60b
-uint32_t add_256_res_1_tab [8] = {0xa2a9d60b, 0x7d46404a, 0x5f8f4da8, 0xfa0336d8, 0xf55a51a0, 0x2cdf4c08, 0x49d260c6, 0x91a7f269};
-bn_uint_t add_256_res_1= {.number = add_256_res_1_tab, .length = 8};
-//variable 'add_256_a_2' value: 0x6a19378aa0106605e46b2fb2a8bb213d9bd3051f5070823d3e79909587198a03
-uint32_t add_256_a_2_tab [8] = {0x87198a03, 0x3e799095, 0x5070823d, 0x9bd3051f, 0xa8bb213d, 0xe46b2fb2, 0xa0106605, 0x6a19378a};
+//variable 'add_256_res_1' value: 0x14cb244b6c90347077f9f63d10241cf3b96e19afd0ff4956bd41c10e9687e0e25
+uint32_t add_256_res_1_tab [9] = {0x687e0e25, 0xd41c10e9, 0x0ff4956b, 0x96e19afd, 0x0241cf3b, 0x7f9f63d1, 0xc9034707, 0x4cb244b6, 0x1};
+bn_uint_t add_256_res_1= {.number = add_256_res_1_tab, .length = 9};
+//variable 'add_256_a_2' value: 0x300af9dc5b077adbd9b68f293a137032b7cefc8ef76cb647f14523b9679077cb
+uint32_t add_256_a_2_tab [8] = {0x679077cb, 0xf14523b9, 0xf76cb647, 0xb7cefc8e, 0x3a137032, 0xd9b68f29, 0x5b077adb, 0x300af9dc};
 bn_uint_t add_256_a_2= {.number = add_256_a_2_tab, .length = 8};
-//variable 'add_256_b_2' value: 0xd7081d6402e4c396142413231a1a4666871df855032e884e5f32138138ed6e7a
-uint32_t add_256_b_2_tab [8] = {0x38ed6e7a, 0x5f321381, 0x032e884e, 0x871df855, 0x1a1a4666, 0x14241323, 0x02e4c396, 0xd7081d64};
+//variable 'add_256_b_2' value: 0xe66e268c0a96287e8cf99d4ce0fea0b04c5eaf167192aff71f4153da3ef011ca
+uint32_t add_256_b_2_tab [8] = {0x3ef011ca, 0x1f4153da, 0x7192aff7, 0x4c5eaf16, 0xe0fea0b0, 0x8cf99d4c, 0x0a96287e, 0xe66e268c};
 bn_uint_t add_256_b_2= {.number = add_256_b_2_tab, .length = 8};
-//variable 'add_256_res_2' value: 0x1412154eea2f5299bf88f42d5c2d567a422f0fd74539f0a8b9daba416c006f87d
-uint32_t add_256_res_2_tab [9] = {0xc006f87d, 0x9daba416, 0x539f0a8b, 0x22f0fd74, 0xc2d567a4, 0xf88f42d5, 0xa2f5299b, 0x412154ee, 0x1};
+//variable 'add_256_res_2' value: 0x116792068659da35a66b02c761b1210e3042daba568ff663f10867793a6808995
+uint32_t add_256_res_2_tab [9] = {0xa6808995, 0x10867793, 0x68ff663f, 0x042daba5, 0x1b1210e3, 0x66b02c76, 0x659da35a, 0x16792068, 0x1};
 bn_uint_t add_256_res_2= {.number = add_256_res_2_tab, .length = 9};
-//variable 'add_256_a_3' value: 0xe25c809fe0fce898ab8047328762958c348eb29bbf0bff1ea3b78a7c192b1b98
-uint32_t add_256_a_3_tab [8] = {0x192b1b98, 0xa3b78a7c, 0xbf0bff1e, 0x348eb29b, 0x8762958c, 0xab804732, 0xe0fce898, 0xe25c809f};
+//variable 'add_256_a_3' value: 0x74c9e5b04f02f3f76219345bfaa4de56ba063a9d71439911a9a167cd4fded8fb
+uint32_t add_256_a_3_tab [8] = {0x4fded8fb, 0xa9a167cd, 0x71439911, 0xba063a9d, 0xfaa4de56, 0x6219345b, 0x4f02f3f7, 0x74c9e5b0};
 bn_uint_t add_256_a_3= {.number = add_256_a_3_tab, .length = 8};
-//variable 'add_256_b_3' value: 0xbb9fdd68b10f0a3919e6a866d9c599da7bdb3ca14473bcbd55252f0c65f8a905
-uint32_t add_256_b_3_tab [8] = {0x65f8a905, 0x55252f0c, 0x4473bcbd, 0x7bdb3ca1, 0xd9c599da, 0x19e6a866, 0xb10f0a39, 0xbb9fdd68};
+//variable 'add_256_b_3' value: 0xd13b3d14fdecaa625f0f0e8b833cfcadffb3b9b9bd693320c97b0a71fa095fef
+uint32_t add_256_b_3_tab [8] = {0xfa095fef, 0xc97b0a71, 0xbd693320, 0xffb3b9b9, 0x833cfcad, 0x5f0f0e8b, 0xfdecaa62, 0xd13b3d14};
 bn_uint_t add_256_b_3= {.number = add_256_b_3_tab, .length = 8};
-//variable 'add_256_res_3' value: 0x19dfc5e08920bf2d1c566ef9961282f66b069ef3d037fbbdbf8dcb9887f23c49d
-uint32_t add_256_res_3_tab [9] = {0x7f23c49d, 0xf8dcb988, 0x037fbbdb, 0xb069ef3d, 0x61282f66, 0xc566ef99, 0x920bf2d1, 0x9dfc5e08, 0x1};
+//variable 'add_256_res_3' value: 0x1460522c54cef9e59c12842e77de1db04b9b9f4572eaccc32731c723f49e838ea
+uint32_t add_256_res_3_tab [9] = {0x49e838ea, 0x731c723f, 0x2eaccc32, 0xb9b9f457, 0x7de1db04, 0xc12842e7, 0x4cef9e59, 0x460522c5, 0x1};
 bn_uint_t add_256_res_3= {.number = add_256_res_3_tab, .length = 9};
-//variable 'add_256_a_4' value: 0x595f624b8cabbd5527337ffec29dc9442cd43344edecbc12c5178bc487995e91
-uint32_t add_256_a_4_tab [8] = {0x87995e91, 0xc5178bc4, 0xedecbc12, 0x2cd43344, 0xc29dc944, 0x27337ffe, 0x8cabbd55, 0x595f624b};
+//variable 'add_256_a_4' value: 0x260ac34bd881eafe1b7ffa150561b93bdb00f6e044f45f53db0e1cb8d814d12f
+uint32_t add_256_a_4_tab [8] = {0xd814d12f, 0xdb0e1cb8, 0x44f45f53, 0xdb00f6e0, 0x0561b93b, 0x1b7ffa15, 0xd881eafe, 0x260ac34b};
 bn_uint_t add_256_a_4= {.number = add_256_a_4_tab, .length = 8};
-//variable 'add_256_b_4' value: 0x4d1cc3ae5bb996fd0e52ae6c28dc47759b96f53ef79c53d23bf7c2e3ad9bf3bb
-uint32_t add_256_b_4_tab [8] = {0xad9bf3bb, 0x3bf7c2e3, 0xf79c53d2, 0x9b96f53e, 0x28dc4775, 0x0e52ae6c, 0x5bb996fd, 0x4d1cc3ae};
+//variable 'add_256_b_4' value: 0x1db2abe9ddf90a0296629701133f5d86e710af5ae2c16197f4688bd16f420dcb
+uint32_t add_256_b_4_tab [8] = {0x6f420dcb, 0xf4688bd1, 0xe2c16197, 0xe710af5a, 0x133f5d86, 0x96629701, 0xddf90a02, 0x1db2abe9};
 bn_uint_t add_256_b_4= {.number = add_256_b_4_tab, .length = 8};
-//variable 'add_256_res_4' value: 0xa67c25f9e865545235862e6aeb7a10b9c86b2883e5890fe5010f4ea83535524c
-uint32_t add_256_res_4_tab [8] = {0x3535524c, 0x010f4ea8, 0xe5890fe5, 0xc86b2883, 0xeb7a10b9, 0x35862e6a, 0xe8655452, 0xa67c25f9};
+//variable 'add_256_res_4' value: 0x43bd6f35b67af500b1e2911618a116c2c211a63b27b5c0ebcf76a88a4756defa
+uint32_t add_256_res_4_tab [8] = {0x4756defa, 0xcf76a88a, 0x27b5c0eb, 0xc211a63b, 0x18a116c2, 0xb1e29116, 0xb67af500, 0x43bd6f35};
 bn_uint_t add_256_res_4= {.number = add_256_res_4_tab, .length = 8};
-//variable 'add_256_a_5' value: 0x85cbf331e2176c631b6ee69eb91c025f101364c493da1a1c9f4b6d40d8e287e5
-uint32_t add_256_a_5_tab [8] = {0xd8e287e5, 0x9f4b6d40, 0x93da1a1c, 0x101364c4, 0xb91c025f, 0x1b6ee69e, 0xe2176c63, 0x85cbf331};
+//variable 'add_256_a_5' value: 0x83a26a7d136a574210db8449c5d5e07c83a5fe7eb79b9a59c26c8da44305e763
+uint32_t add_256_a_5_tab [8] = {0x4305e763, 0xc26c8da4, 0xb79b9a59, 0x83a5fe7e, 0xc5d5e07c, 0x10db8449, 0x136a5742, 0x83a26a7d};
 bn_uint_t add_256_a_5= {.number = add_256_a_5_tab, .length = 8};
-//variable 'add_256_b_5' value: 0xc2b7ae0b35eaca3893e0c1a6fb39f6169eb45a7e6c01451e65b0b67192973df1
-uint32_t add_256_b_5_tab [8] = {0x92973df1, 0x65b0b671, 0x6c01451e, 0x9eb45a7e, 0xfb39f616, 0x93e0c1a6, 0x35eaca38, 0xc2b7ae0b};
+//variable 'add_256_b_5' value: 0x9d6c6a9b0d6f2abc8e48ce3f116f7b1e563dc1368212eb1ee0a20beab6e0fc62
+uint32_t add_256_b_5_tab [8] = {0xb6e0fc62, 0xe0a20bea, 0x8212eb1e, 0x563dc136, 0x116f7b1e, 0x8e48ce3f, 0x0d6f2abc, 0x9d6c6a9b};
 bn_uint_t add_256_b_5= {.number = add_256_b_5_tab, .length = 8};
-//variable 'add_256_res_5' value: 0x14883a13d1802369baf4fa845b455f875aec7bf42ffdb5f3b04fc23b26b79c5d6
-uint32_t add_256_res_5_tab [9] = {0x6b79c5d6, 0x04fc23b2, 0xffdb5f3b, 0xaec7bf42, 0xb455f875, 0xaf4fa845, 0x1802369b, 0x4883a13d, 0x1};
+//variable 'add_256_res_5' value: 0x1210ed51820d981fe9f245288d7455b9ad9e3bfb539ae8578a30e998ef9e6e3c5
+uint32_t add_256_res_5_tab [9] = {0xf9e6e3c5, 0xa30e998e, 0x39ae8578, 0xd9e3bfb5, 0xd7455b9a, 0x9f245288, 0x20d981fe, 0x210ed518, 0x1};
 bn_uint_t add_256_res_5= {.number = add_256_res_5_tab, .length = 9};
-//variable 'add_256_a_6' value: 0xd53698bf8eed147d622803c521f8469f98dc08a9fb149039cd6c951c5cde5ffa
-uint32_t add_256_a_6_tab [8] = {0x5cde5ffa, 0xcd6c951c, 0xfb149039, 0x98dc08a9, 0x21f8469f, 0x622803c5, 0x8eed147d, 0xd53698bf};
+//variable 'add_256_a_6' value: 0xbf458fbf52d6730c6b69161876fc50ad575e1c33b895b7410f2d400996fcb6d2
+uint32_t add_256_a_6_tab [8] = {0x96fcb6d2, 0x0f2d4009, 0xb895b741, 0x575e1c33, 0x76fc50ad, 0x6b691618, 0x52d6730c, 0xbf458fbf};
 bn_uint_t add_256_a_6= {.number = add_256_a_6_tab, .length = 8};
-//variable 'add_256_b_6' value: 0xb602f2bff8ca23dc0fb94cb989d52cc70757f69080ae784cd14e227c385c14ee
-uint32_t add_256_b_6_tab [8] = {0x385c14ee, 0xd14e227c, 0x80ae784c, 0x0757f690, 0x89d52cc7, 0x0fb94cb9, 0xf8ca23dc, 0xb602f2bf};
+//variable 'add_256_b_6' value: 0xc1901fb27648180bd03639bdf95aad3e51da80b57f189fc0232f5df1d9477355
+uint32_t add_256_b_6_tab [8] = {0xd9477355, 0x232f5df1, 0x7f189fc0, 0x51da80b5, 0xf95aad3e, 0xd03639bd, 0x7648180b, 0xc1901fb2};
 bn_uint_t add_256_b_6= {.number = add_256_b_6_tab, .length = 8};
-//variable 'add_256_res_6' value: 0x18b398b7f87b7385971e1507eabcd7366a033ff3a7bc308869ebab798953a74e8
-uint32_t add_256_res_6_tab [9] = {0x953a74e8, 0x9ebab798, 0x7bc30886, 0xa033ff3a, 0xabcd7366, 0x71e1507e, 0x87b73859, 0x8b398b7f, 0x1};
+//variable 'add_256_res_6' value: 0x180d5af71c91e8b183b9f4fd67056fdeba9389ce937ae5701325c9dfb70442a27
+uint32_t add_256_res_6_tab [9] = {0x70442a27, 0x325c9dfb, 0x37ae5701, 0xa9389ce9, 0x7056fdeb, 0x3b9f4fd6, 0xc91e8b18, 0x80d5af71, 0x1};
 bn_uint_t add_256_res_6= {.number = add_256_res_6_tab, .length = 9};
-//variable 'add_256_a_7' value: 0xcf23f3942834998ed49ad6dd303a7efe2534d11c9a0129012cf0d6eb97abe9f9
-uint32_t add_256_a_7_tab [8] = {0x97abe9f9, 0x2cf0d6eb, 0x9a012901, 0x2534d11c, 0x303a7efe, 0xd49ad6dd, 0x2834998e, 0xcf23f394};
+//variable 'add_256_a_7' value: 0xa4a2d5fbc077ec22250fa472cec0101e33e7a4c29752079240ff99174eb229c7
+uint32_t add_256_a_7_tab [8] = {0x4eb229c7, 0x40ff9917, 0x97520792, 0x33e7a4c2, 0xcec0101e, 0x250fa472, 0xc077ec22, 0xa4a2d5fb};
 bn_uint_t add_256_a_7= {.number = add_256_a_7_tab, .length = 8};
-//variable 'add_256_b_7' value: 0x4454909d223f6e0f1f4955387f4e0f3f276fae8511f4322f5966784d64c9a2f3
-uint32_t add_256_b_7_tab [8] = {0x64c9a2f3, 0x5966784d, 0x11f4322f, 0x276fae85, 0x7f4e0f3f, 0x1f495538, 0x223f6e0f, 0x4454909d};
+//variable 'add_256_b_7' value: 0x3f615f50dc299660e9914df8e06d465321a878a1ad6161d4e6dd169aa5b0d866
+uint32_t add_256_b_7_tab [8] = {0xa5b0d866, 0xe6dd169a, 0xad6161d4, 0x21a878a1, 0xe06d4653, 0xe9914df8, 0xdc299660, 0x3f615f50};
 bn_uint_t add_256_b_7= {.number = add_256_b_7_tab, .length = 8};
-//variable 'add_256_res_7' value: 0x1137884314a74079df3e42c15af888e3d4ca47fa1abf55b3086574f38fc758cec
-uint32_t add_256_res_7_tab [9] = {0xfc758cec, 0x86574f38, 0xabf55b30, 0x4ca47fa1, 0xaf888e3d, 0xf3e42c15, 0x4a74079d, 0x13788431, 0x1};
-bn_uint_t add_256_res_7= {.number = add_256_res_7_tab, .length = 9};
-//variable 'add_256_a_8' value: 0x3864693e40b211cd96250f8a917ca19a072d1aaf4b06833846e9195a4f8e4ae5
-uint32_t add_256_a_8_tab [8] = {0x4f8e4ae5, 0x46e9195a, 0x4b068338, 0x072d1aaf, 0x917ca19a, 0x96250f8a, 0x40b211cd, 0x3864693e};
+//variable 'add_256_res_7' value: 0xe404354c9ca182830ea0f26baf2d567155901d6444b3696727dcafb1f463022d
+uint32_t add_256_res_7_tab [8] = {0xf463022d, 0x27dcafb1, 0x44b36967, 0x55901d64, 0xaf2d5671, 0x0ea0f26b, 0x9ca18283, 0xe404354c};
+bn_uint_t add_256_res_7= {.number = add_256_res_7_tab, .length = 8};
+//variable 'add_256_a_8' value: 0x91f109f48864528b2c194c5b61b8eddaecb36be472e49b940ab41963a96bfabb
+uint32_t add_256_a_8_tab [8] = {0xa96bfabb, 0x0ab41963, 0x72e49b94, 0xecb36be4, 0x61b8edda, 0x2c194c5b, 0x8864528b, 0x91f109f4};
 bn_uint_t add_256_a_8= {.number = add_256_a_8_tab, .length = 8};
-//variable 'add_256_b_8' value: 0xf8456bb1881700177613100978ff648eb35e42fd7b121c7a5cba5e1940be00d3
-uint32_t add_256_b_8_tab [8] = {0x40be00d3, 0x5cba5e19, 0x7b121c7a, 0xb35e42fd, 0x78ff648e, 0x76131009, 0x88170017, 0xf8456bb1};
+//variable 'add_256_b_8' value: 0x8ba255afc18718a4a53d8806cece18b229a77afedcdba10b085ac4fa906635b9
+uint32_t add_256_b_8_tab [8] = {0x906635b9, 0x085ac4fa, 0xdcdba10b, 0x29a77afe, 0xcece18b2, 0xa53d8806, 0xc18718a4, 0x8ba255af};
 bn_uint_t add_256_b_8= {.number = add_256_b_8_tab, .length = 8};
-//variable 'add_256_res_8' value: 0x130a9d4efc8c911e50c381f940a7c0628ba8b5dacc6189fb2a3a37773904c4bb8
-uint32_t add_256_res_8_tab [9] = {0x904c4bb8, 0xa3a37773, 0xc6189fb2, 0xba8b5dac, 0x0a7c0628, 0x0c381f94, 0xc8c911e5, 0x30a9d4ef, 0x1};
+//variable 'add_256_res_8' value: 0x11d935fa449eb6b2fd156d4623087068d165ae6e34fc03c9f130ede5e39d23074
+uint32_t add_256_res_8_tab [9] = {0x39d23074, 0x130ede5e, 0x4fc03c9f, 0x165ae6e3, 0x3087068d, 0xd156d462, 0x49eb6b2f, 0x1d935fa4, 0x1};
 bn_uint_t add_256_res_8= {.number = add_256_res_8_tab, .length = 9};
-//variable 'add_256_a_9' value: 0xb0ebe9a522e47358ac1b64ac6972c9f188c78343368fca98f847bd38fac7afa1
-uint32_t add_256_a_9_tab [8] = {0xfac7afa1, 0xf847bd38, 0x368fca98, 0x88c78343, 0x6972c9f1, 0xac1b64ac, 0x22e47358, 0xb0ebe9a5};
+//variable 'add_256_a_9' value: 0x7ea994faf28eacdb6007da3d73aa974c2d03cef1debf94885c69fa76f0c0c0b2
+uint32_t add_256_a_9_tab [8] = {0xf0c0c0b2, 0x5c69fa76, 0xdebf9488, 0x2d03cef1, 0x73aa974c, 0x6007da3d, 0xf28eacdb, 0x7ea994fa};
 bn_uint_t add_256_a_9= {.number = add_256_a_9_tab, .length = 8};
-//variable 'add_256_b_9' value: 0x5422fd5c18f6de569841f44fda061f75fafac0fbb1b660f0320b7c68139c7f3b
-uint32_t add_256_b_9_tab [8] = {0x139c7f3b, 0x320b7c68, 0xb1b660f0, 0xfafac0fb, 0xda061f75, 0x9841f44f, 0x18f6de56, 0x5422fd5c};
+//variable 'add_256_b_9' value: 0x6b35c5d8359d19270e4dbc1773c611f3a72aeb0bdb5688b44d5d4fb910a72cd
+uint32_t add_256_b_9_tab [8] = {0x910a72cd, 0x44d5d4fb, 0xbdb5688b, 0x3a72aeb0, 0x773c611f, 0x70e4dbc1, 0x8359d192, 0x6b35c5d};
 bn_uint_t add_256_b_9= {.number = add_256_b_9_tab, .length = 8};
-//variable 'add_256_res_9' value: 0x1050ee7013bdb51af445d58fc4378e96783c2443ee8462b892a5339a10e642edc
-uint32_t add_256_res_9_tab [9] = {0x0e642edc, 0x2a5339a1, 0xe8462b89, 0x83c2443e, 0x4378e967, 0x445d58fc, 0x3bdb51af, 0x050ee701, 0x1};
-bn_uint_t add_256_res_9= {.number = add_256_res_9_tab, .length = 9};
+//variable 'add_256_res_9' value: 0x855cf15875e87e6dd0ecb5feeae6f86b67767da29c74fd13a13fcf7281cb337f
+uint32_t add_256_res_9_tab [8] = {0x81cb337f, 0xa13fcf72, 0x9c74fd13, 0x67767da2, 0xeae6f86b, 0xd0ecb5fe, 0x75e87e6d, 0x855cf158};
+bn_uint_t add_256_res_9= {.number = add_256_res_9_tab, .length = 8};
 uint32_t add_256_tab_len=10;
 bn_uint_t *add_256_test_tab[10][3]={
 {&add_256_a_0,&add_256_b_0,&add_256_res_0},
@@ -211,95 +211,95 @@ bn_uint_t *add_256_test_tab[10][3]={
 {&add_256_a_8,&add_256_b_8,&add_256_res_8},
 {&add_256_a_9,&add_256_b_9,&add_256_res_9},
 };
-//variable 'sub_128_a_0' value: 0x5c9ff725e514e003d8ba5e806d5b1df0
-uint32_t sub_128_a_0_tab [4] = {0x6d5b1df0, 0xd8ba5e80, 0xe514e003, 0x5c9ff725};
+//variable 'sub_128_a_0' value: 0x3ab8d17fcbfad4690b396ca9e2d0fe9f
+uint32_t sub_128_a_0_tab [4] = {0xe2d0fe9f, 0x0b396ca9, 0xcbfad469, 0x3ab8d17f};
 bn_uint_t sub_128_a_0= {.number = sub_128_a_0_tab, .length = 4};
-//variable 'sub_128_b_0' value: 0x534f3e18dba13d6d7937e5d046cce350
-uint32_t sub_128_b_0_tab [4] = {0x46cce350, 0x7937e5d0, 0xdba13d6d, 0x534f3e18};
+//variable 'sub_128_b_0' value: 0xf833f71ab33905ea91215d119f616efa
+uint32_t sub_128_b_0_tab [4] = {0x9f616efa, 0x91215d11, 0xb33905ea, 0xf833f71a};
 bn_uint_t sub_128_b_0= {.number = sub_128_b_0_tab, .length = 4};
-//variable 'sub_128_res_0' value: 0x950b90d0973a2965f8278b0268e3aa0
-uint32_t sub_128_res_0_tab [4] = {0x268e3aa0, 0x5f8278b0, 0x0973a296, 0x950b90d};
-bn_uint_t sub_128_res_0= {.number = sub_128_res_0_tab, .length = 4};
-//variable 'sub_128_a_1' value: 0x27f82de76fc163067f6d8f14670a38c4
-uint32_t sub_128_a_1_tab [4] = {0x670a38c4, 0x7f6d8f14, 0x6fc16306, 0x27f82de7};
+//variable 'sub_128_res_0' value: 0x-bd7b259ae73e318185e7f067bc90705b
+uint32_t sub_128_res_0_tab [5] = {0x436f8fa5, 0x7a180f98, 0x18c1ce7e, 0x4284da65, 0xffffffff};
+bn_uint_t sub_128_res_0= {.number = sub_128_res_0_tab, .length = 5};
+//variable 'sub_128_a_1' value: 0x4e56e389c68a63fa9ee3371214b1d24c
+uint32_t sub_128_a_1_tab [4] = {0x14b1d24c, 0x9ee33712, 0xc68a63fa, 0x4e56e389};
 bn_uint_t sub_128_a_1= {.number = sub_128_a_1_tab, .length = 4};
-//variable 'sub_128_b_1' value: 0x39b904ade91b10eb978f0ea07c1fc0c6
-uint32_t sub_128_b_1_tab [4] = {0x7c1fc0c6, 0x978f0ea0, 0xe91b10eb, 0x39b904ad};
+//variable 'sub_128_b_1' value: 0xadad35cea3e44e5646e51cf48e7c17f9
+uint32_t sub_128_b_1_tab [4] = {0x8e7c17f9, 0x46e51cf4, 0xa3e44e56, 0xadad35ce};
 bn_uint_t sub_128_b_1= {.number = sub_128_b_1_tab, .length = 4};
-//variable 'sub_128_res_1' value: 0x-11c0d6c67959ade518217f8c15158802
-uint32_t sub_128_res_1_tab [5] = {0xeaea77fe, 0xe7de8073, 0x86a6521a, 0xee3f2939, 0xffffffff};
+//variable 'sub_128_res_1' value: 0x-5f565244dd59ea5ba801e5e279ca45ad
+uint32_t sub_128_res_1_tab [5] = {0x8635ba53, 0x57fe1a1d, 0x22a615a4, 0xa0a9adbb, 0xffffffff};
 bn_uint_t sub_128_res_1= {.number = sub_128_res_1_tab, .length = 5};
-//variable 'sub_128_a_2' value: 0x94ad3669c7388250fb35d9057473811b
-uint32_t sub_128_a_2_tab [4] = {0x7473811b, 0xfb35d905, 0xc7388250, 0x94ad3669};
+//variable 'sub_128_a_2' value: 0xfd02e60e9b5de0fd6fa581ca3ba4e859
+uint32_t sub_128_a_2_tab [4] = {0x3ba4e859, 0x6fa581ca, 0x9b5de0fd, 0xfd02e60e};
 bn_uint_t sub_128_a_2= {.number = sub_128_a_2_tab, .length = 4};
-//variable 'sub_128_b_2' value: 0x8a5370df9a2101766160b390b8f0c841
-uint32_t sub_128_b_2_tab [4] = {0xb8f0c841, 0x6160b390, 0x9a210176, 0x8a5370df};
+//variable 'sub_128_b_2' value: 0x77c9673c8b574806db0a70ef584d8a54
+uint32_t sub_128_b_2_tab [4] = {0x584d8a54, 0xdb0a70ef, 0x8b574806, 0x77c9673c};
 bn_uint_t sub_128_b_2= {.number = sub_128_b_2_tab, .length = 4};
-//variable 'sub_128_res_2' value: 0xa59c58a2d1780da99d52574bb82b8da
-uint32_t sub_128_res_2_tab [4] = {0xbb82b8da, 0x99d52574, 0x2d1780da, 0xa59c58a};
+//variable 'sub_128_res_2' value: 0x85397ed2100698f6949b10dae3575e05
+uint32_t sub_128_res_2_tab [4] = {0xe3575e05, 0x949b10da, 0x100698f6, 0x85397ed2};
 bn_uint_t sub_128_res_2= {.number = sub_128_res_2_tab, .length = 4};
-//variable 'sub_128_a_3' value: 0x77d1564095ceaf985d3037263ac0ab7d
-uint32_t sub_128_a_3_tab [4] = {0x3ac0ab7d, 0x5d303726, 0x95ceaf98, 0x77d15640};
+//variable 'sub_128_a_3' value: 0xb8b7413238be2a4386588166a5814c52
+uint32_t sub_128_a_3_tab [4] = {0xa5814c52, 0x86588166, 0x38be2a43, 0xb8b74132};
 bn_uint_t sub_128_a_3= {.number = sub_128_a_3_tab, .length = 4};
-//variable 'sub_128_b_3' value: 0xa714e219c56cfb5184df80edbd620118
-uint32_t sub_128_b_3_tab [4] = {0xbd620118, 0x84df80ed, 0xc56cfb51, 0xa714e219};
+//variable 'sub_128_b_3' value: 0xab9950aa4edf658bd5c369f72221a5aa
+uint32_t sub_128_b_3_tab [4] = {0x2221a5aa, 0xd5c369f7, 0x4edf658b, 0xab9950aa};
 bn_uint_t sub_128_b_3= {.number = sub_128_b_3_tab, .length = 4};
-//variable 'sub_128_res_3' value: 0x-2f438bd92f9e4bb927af49c782a1559b
-uint32_t sub_128_res_3_tab [5] = {0x7d5eaa65, 0xd850b638, 0xd061b446, 0xd0bc7426, 0xffffffff};
-bn_uint_t sub_128_res_3= {.number = sub_128_res_3_tab, .length = 5};
-//variable 'sub_128_a_4' value: 0xe1e7bc992460a4330505df2d24313ae
-uint32_t sub_128_a_4_tab [4] = {0xd24313ae, 0x30505df2, 0x92460a43, 0xe1e7bc9};
+//variable 'sub_128_res_3' value: 0xd1df087e9dec4b7b095176f835fa6a8
+uint32_t sub_128_res_3_tab [4] = {0x835fa6a8, 0xb095176f, 0xe9dec4b7, 0xd1df087};
+bn_uint_t sub_128_res_3= {.number = sub_128_res_3_tab, .length = 4};
+//variable 'sub_128_a_4' value: 0x76e3eced187b095bb68a8477bd4be64f
+uint32_t sub_128_a_4_tab [4] = {0xbd4be64f, 0xb68a8477, 0x187b095b, 0x76e3eced};
 bn_uint_t sub_128_a_4= {.number = sub_128_a_4_tab, .length = 4};
-//variable 'sub_128_b_4' value: 0xf219e20b96eae82fb007e354e360e041
-uint32_t sub_128_b_4_tab [4] = {0xe360e041, 0xb007e354, 0x96eae82f, 0xf219e20b};
+//variable 'sub_128_b_4' value: 0xb6383987e99500e3d389efb5699b976a
+uint32_t sub_128_b_4_tab [4] = {0x699b976a, 0xd389efb5, 0xe99500e3, 0xb6383987};
 bn_uint_t sub_128_b_4= {.number = sub_128_b_4_tab, .length = 4};
-//variable 'sub_128_res_4' value: 0x-e3fb664204a4ddec7fb78562111dcc93
-uint32_t sub_128_res_4_tab [5] = {0xeee2336d, 0x80487a9d, 0xfb5b2213, 0x1c0499bd, 0xffffffff};
+//variable 'sub_128_res_4' value: 0x-3f544c9ad119f7881cff6b3dac4fb11b
+uint32_t sub_128_res_4_tab [5] = {0x53b04ee5, 0xe30094c2, 0x2ee60877, 0xc0abb365, 0xffffffff};
 bn_uint_t sub_128_res_4= {.number = sub_128_res_4_tab, .length = 5};
-//variable 'sub_128_a_5' value: 0x6fe2c0c80bdc4d1a5c6a63e84e6ea37c
-uint32_t sub_128_a_5_tab [4] = {0x4e6ea37c, 0x5c6a63e8, 0x0bdc4d1a, 0x6fe2c0c8};
+//variable 'sub_128_a_5' value: 0x9ad5fbdc2de66705845c5a60ea6e8f67
+uint32_t sub_128_a_5_tab [4] = {0xea6e8f67, 0x845c5a60, 0x2de66705, 0x9ad5fbdc};
 bn_uint_t sub_128_a_5= {.number = sub_128_a_5_tab, .length = 4};
-//variable 'sub_128_b_5' value: 0xa616a0eac9a5916ae59cb4233aab487f
-uint32_t sub_128_b_5_tab [4] = {0x3aab487f, 0xe59cb423, 0xc9a5916a, 0xa616a0ea};
+//variable 'sub_128_b_5' value: 0x185be75f943ba85322c584359dc68bd7
+uint32_t sub_128_b_5_tab [4] = {0x9dc68bd7, 0x22c58435, 0x943ba853, 0x185be75f};
 bn_uint_t sub_128_b_5= {.number = sub_128_b_5_tab, .length = 4};
-//variable 'sub_128_res_5' value: 0x-3633e022bdc944508932503aec3ca503
-uint32_t sub_128_res_5_tab [5] = {0x13c35afd, 0x76cdafc5, 0x4236bbaf, 0xc9cc1fdd, 0xffffffff};
-bn_uint_t sub_128_res_5= {.number = sub_128_res_5_tab, .length = 5};
-//variable 'sub_128_a_6' value: 0xe126847e50e2e2e15cb6835ccd2eb9d0
-uint32_t sub_128_a_6_tab [4] = {0xcd2eb9d0, 0x5cb6835c, 0x50e2e2e1, 0xe126847e};
+//variable 'sub_128_res_5' value: 0x827a147c99aabeb26196d62b4ca80390
+uint32_t sub_128_res_5_tab [4] = {0x4ca80390, 0x6196d62b, 0x99aabeb2, 0x827a147c};
+bn_uint_t sub_128_res_5= {.number = sub_128_res_5_tab, .length = 4};
+//variable 'sub_128_a_6' value: 0xe19acd85d5dedded7c0b7e08a32ced96
+uint32_t sub_128_a_6_tab [4] = {0xa32ced96, 0x7c0b7e08, 0xd5dedded, 0xe19acd85};
 bn_uint_t sub_128_a_6= {.number = sub_128_a_6_tab, .length = 4};
-//variable 'sub_128_b_6' value: 0x8ea998422c0c1f7c65c1c1ae6582926b
-uint32_t sub_128_b_6_tab [4] = {0x6582926b, 0x65c1c1ae, 0x2c0c1f7c, 0x8ea99842};
+//variable 'sub_128_b_6' value: 0x1184becaf4c51eaf519010cc04fa3a55
+uint32_t sub_128_b_6_tab [4] = {0x04fa3a55, 0x519010cc, 0xf4c51eaf, 0x1184beca};
 bn_uint_t sub_128_b_6= {.number = sub_128_b_6_tab, .length = 4};
-//variable 'sub_128_res_6' value: 0x527cec3c24d6c364f6f4c1ae67ac2765
-uint32_t sub_128_res_6_tab [4] = {0x67ac2765, 0xf6f4c1ae, 0x24d6c364, 0x527cec3c};
+//variable 'sub_128_res_6' value: 0xd0160ebae119bf3e2a7b6d3c9e32b341
+uint32_t sub_128_res_6_tab [4] = {0x9e32b341, 0x2a7b6d3c, 0xe119bf3e, 0xd0160eba};
 bn_uint_t sub_128_res_6= {.number = sub_128_res_6_tab, .length = 4};
-//variable 'sub_128_a_7' value: 0x7e60dc1348231eaaf0895e00c6e09fa2
-uint32_t sub_128_a_7_tab [4] = {0xc6e09fa2, 0xf0895e00, 0x48231eaa, 0x7e60dc13};
+//variable 'sub_128_a_7' value: 0x2c4dac53cdf348de658c55dd9e360f04
+uint32_t sub_128_a_7_tab [4] = {0x9e360f04, 0x658c55dd, 0xcdf348de, 0x2c4dac53};
 bn_uint_t sub_128_a_7= {.number = sub_128_a_7_tab, .length = 4};
-//variable 'sub_128_b_7' value: 0xaf651c6e6258df1fa331d0f2fe722e44
-uint32_t sub_128_b_7_tab [4] = {0xfe722e44, 0xa331d0f2, 0x6258df1f, 0xaf651c6e};
+//variable 'sub_128_b_7' value: 0xa77404a2d2a35081d42fc4ccf5ed7940
+uint32_t sub_128_b_7_tab [4] = {0xf5ed7940, 0xd42fc4cc, 0xd2a35081, 0xa77404a2};
 bn_uint_t sub_128_b_7= {.number = sub_128_b_7_tab, .length = 4};
-//variable 'sub_128_res_7' value: 0x-3104405b1a35c074b2a872f237918ea2
-uint32_t sub_128_res_7_tab [5] = {0xc86e715e, 0x4d578d0d, 0xe5ca3f8b, 0xcefbbfa4, 0xffffffff};
+//variable 'sub_128_res_7' value: 0x-7b26584f04b007a36ea36eef57b76a3c
+uint32_t sub_128_res_7_tab [5] = {0xa84895c4, 0x915c9110, 0xfb4ff85c, 0x84d9a7b0, 0xffffffff};
 bn_uint_t sub_128_res_7= {.number = sub_128_res_7_tab, .length = 5};
-//variable 'sub_128_a_8' value: 0x6d9d2ea0c9b3cbf63d0d871653a6d553
-uint32_t sub_128_a_8_tab [4] = {0x53a6d553, 0x3d0d8716, 0xc9b3cbf6, 0x6d9d2ea0};
+//variable 'sub_128_a_8' value: 0x4406b546987b8182869deed3e2079d05
+uint32_t sub_128_a_8_tab [4] = {0xe2079d05, 0x869deed3, 0x987b8182, 0x4406b546};
 bn_uint_t sub_128_a_8= {.number = sub_128_a_8_tab, .length = 4};
-//variable 'sub_128_b_8' value: 0xa56ec1f655c8bd46721c35251b75c962
-uint32_t sub_128_b_8_tab [4] = {0x1b75c962, 0x721c3525, 0x55c8bd46, 0xa56ec1f6};
+//variable 'sub_128_b_8' value: 0x9a2189da72ab5a6054c0970f6e48722b
+uint32_t sub_128_b_8_tab [4] = {0x6e48722b, 0x54c0970f, 0x72ab5a60, 0x9a2189da};
 bn_uint_t sub_128_b_8= {.number = sub_128_b_8_tab, .length = 4};
-//variable 'sub_128_res_8' value: 0x-37d193558c14f150350eae0ec7cef40f
-uint32_t sub_128_res_8_tab [5] = {0x38310bf1, 0xcaf151f1, 0x73eb0eaf, 0xc82e6caa, 0xffffffff};
+//variable 'sub_128_res_8' value: 0x-561ad493da2fd8ddce22a83b8c40d526
+uint32_t sub_128_res_8_tab [5] = {0x73bf2ada, 0x31dd57c4, 0x25d02722, 0xa9e52b6c, 0xffffffff};
 bn_uint_t sub_128_res_8= {.number = sub_128_res_8_tab, .length = 5};
-//variable 'sub_128_a_9' value: 0x5b5bdc71717511376354491431db1070
-uint32_t sub_128_a_9_tab [4] = {0x31db1070, 0x63544914, 0x71751137, 0x5b5bdc71};
+//variable 'sub_128_a_9' value: 0x286f021676bde9151acb82851034633d
+uint32_t sub_128_a_9_tab [4] = {0x1034633d, 0x1acb8285, 0x76bde915, 0x286f0216};
 bn_uint_t sub_128_a_9= {.number = sub_128_a_9_tab, .length = 4};
-//variable 'sub_128_b_9' value: 0x46c5f0b4224f12899e8695402fe22e2
-uint32_t sub_128_b_9_tab [4] = {0x02fe22e2, 0x99e86954, 0x4224f128, 0x46c5f0b};
+//variable 'sub_128_b_9' value: 0x18af27a788287db4746fa776704ccfbb
+uint32_t sub_128_b_9_tab [4] = {0x704ccfbb, 0x746fa776, 0x88287db4, 0x18af27a7};
 bn_uint_t sub_128_b_9= {.number = sub_128_b_9_tab, .length = 4};
-//variable 'sub_128_res_9' value: 0x56ef7d662f50200ec96bdfc02edced8e
-uint32_t sub_128_res_9_tab [4] = {0x2edced8e, 0xc96bdfc0, 0x2f50200e, 0x56ef7d66};
+//variable 'sub_128_res_9' value: 0xfbfda6eee956b60a65bdb0e9fe79382
+uint32_t sub_128_res_9_tab [4] = {0x9fe79382, 0xa65bdb0e, 0xee956b60, 0xfbfda6e};
 bn_uint_t sub_128_res_9= {.number = sub_128_res_9_tab, .length = 4};
 uint32_t sub_128_tab_len=10;
 bn_uint_t *sub_128_test_tab[10][3]={
@@ -314,96 +314,96 @@ bn_uint_t *sub_128_test_tab[10][3]={
 {&sub_128_a_8,&sub_128_b_8,&sub_128_res_8},
 {&sub_128_a_9,&sub_128_b_9,&sub_128_res_9},
 };
-//variable 'sub_256_a_0' value: 0x295c745131b1ab5d1b1d381ebeff87c7c56eb400929515f6529a2e05ddd5f151
-uint32_t sub_256_a_0_tab [8] = {0xddd5f151, 0x529a2e05, 0x929515f6, 0xc56eb400, 0xbeff87c7, 0x1b1d381e, 0x31b1ab5d, 0x295c7451};
+//variable 'sub_256_a_0' value: 0xcefc5b5af2ba69100383e9cd4bb41af898c089d6eb59207f324607a73170c5d9
+uint32_t sub_256_a_0_tab [8] = {0x3170c5d9, 0x324607a7, 0xeb59207f, 0x98c089d6, 0x4bb41af8, 0x0383e9cd, 0xf2ba6910, 0xcefc5b5a};
 bn_uint_t sub_256_a_0= {.number = sub_256_a_0_tab, .length = 8};
-//variable 'sub_256_b_0' value: 0x9b49a4040f6f0e52970f2b6bfe08743838cf8f5fb8fbd4af537538889aaaaa46
-uint32_t sub_256_b_0_tab [8] = {0x9aaaaa46, 0x53753888, 0xb8fbd4af, 0x38cf8f5f, 0xfe087438, 0x970f2b6b, 0x0f6f0e52, 0x9b49a404};
+//variable 'sub_256_b_0' value: 0x272660c01bb2aed308d2863a81a4464814d0901609ad33fdf948416da9d608f0
+uint32_t sub_256_b_0_tab [8] = {0xa9d608f0, 0xf948416d, 0x09ad33fd, 0x14d09016, 0x81a44648, 0x08d2863a, 0x1bb2aed3, 0x272660c0};
 bn_uint_t sub_256_b_0= {.number = sub_256_b_0_tab, .length = 8};
-//variable 'sub_256_res_0' value: 0x-71ed2fb2ddbd62f57bf1f34d3f08ec707360db5f2666beb900db0a82bcd4b8f5
-uint32_t sub_256_res_0_tab [9] = {0x432b470b, 0xff24f57d, 0xd9994146, 0x8c9f24a0, 0xc0f7138f, 0x840e0cb2, 0x22429d0a, 0x8e12d04d, 0xffffffff};
-bn_uint_t sub_256_res_0= {.number = sub_256_res_0_tab, .length = 9};
-//variable 'sub_256_a_1' value: 0xd210a51b9fb3fb7cc15b70aa5a3cfe7ae765142c049823b6652d49b4b2fb4c70
-uint32_t sub_256_a_1_tab [8] = {0xb2fb4c70, 0x652d49b4, 0x049823b6, 0xe765142c, 0x5a3cfe7a, 0xc15b70aa, 0x9fb3fb7c, 0xd210a51b};
+//variable 'sub_256_res_0' value: 0xa7d5fa9ad707ba3cfab16392ca0fd4b083eff9c0e1abec8138fdc639879abce9
+uint32_t sub_256_res_0_tab [8] = {0x879abce9, 0x38fdc639, 0xe1abec81, 0x83eff9c0, 0xca0fd4b0, 0xfab16392, 0xd707ba3c, 0xa7d5fa9a};
+bn_uint_t sub_256_res_0= {.number = sub_256_res_0_tab, .length = 8};
+//variable 'sub_256_a_1' value: 0x1c12eb95fae47bd89fdfbc6148e88b0b5141958a2e71c51f476e68a44b494ca3
+uint32_t sub_256_a_1_tab [8] = {0x4b494ca3, 0x476e68a4, 0x2e71c51f, 0x5141958a, 0x48e88b0b, 0x9fdfbc61, 0xfae47bd8, 0x1c12eb95};
 bn_uint_t sub_256_a_1= {.number = sub_256_a_1_tab, .length = 8};
-//variable 'sub_256_b_1' value: 0xdaa14ef3eeb9faf36d2a1bb0d22dee0c401fe9db766c4e98a3df97bbf74d0f56
-uint32_t sub_256_b_1_tab [8] = {0xf74d0f56, 0xa3df97bb, 0x766c4e98, 0x401fe9db, 0xd22dee0c, 0x6d2a1bb0, 0xeeb9faf3, 0xdaa14ef3};
+//variable 'sub_256_b_1' value: 0xb8b9621c6410f06b714e2a6c12c50fb63123dde8c73c3672c9e4c344dd55e05
+uint32_t sub_256_b_1_tab [8] = {0x4dd55e05, 0x2c9e4c34, 0x8c73c367, 0x63123dde, 0xc12c50fb, 0xb714e2a6, 0xc6410f06, 0xb8b9621};
 bn_uint_t sub_256_b_1= {.number = sub_256_b_1_tab, .length = 8};
-//variable 'sub_256_res_1' value: 0x-890a9d84f05ff76abceab0677f0ef9158bad5af71d42ae23eb24e074451c2e6
-uint32_t sub_256_res_1_tab [8] = {0xbbae3d1a, 0xc14db1f8, 0x8e2bd51d, 0xa7452a50, 0x880f106e, 0x543154f9, 0xb0fa0089, 0xf76f5627};
+//variable 'sub_256_res_1' value: 0x1087557434a36cd1e8cad9ba87bc3a0fee2f57aba1fe01b81ad01c6ffd73ee9e
+uint32_t sub_256_res_1_tab [8] = {0xfd73ee9e, 0x1ad01c6f, 0xa1fe01b8, 0xee2f57ab, 0x87bc3a0f, 0xe8cad9ba, 0x34a36cd1, 0x10875574};
 bn_uint_t sub_256_res_1= {.number = sub_256_res_1_tab, .length = 8};
-//variable 'sub_256_a_2' value: 0x671ce56a6cd4a8c0740cf2fe30608ef42aa1b5495d292c2195ff8e06ae7f71de
-uint32_t sub_256_a_2_tab [8] = {0xae7f71de, 0x95ff8e06, 0x5d292c21, 0x2aa1b549, 0x30608ef4, 0x740cf2fe, 0x6cd4a8c0, 0x671ce56a};
+//variable 'sub_256_a_2' value: 0xc3953b246c80b5291a877ee48f36cb007631370079583616ceb10406402c0981
+uint32_t sub_256_a_2_tab [8] = {0x402c0981, 0xceb10406, 0x79583616, 0x76313700, 0x8f36cb00, 0x1a877ee4, 0x6c80b529, 0xc3953b24};
 bn_uint_t sub_256_a_2= {.number = sub_256_a_2_tab, .length = 8};
-//variable 'sub_256_b_2' value: 0x96f62aec01d9fbd028e1c6f3d229a1c650fe61d3c4f91e39592236142a45939f
-uint32_t sub_256_b_2_tab [8] = {0x2a45939f, 0x59223614, 0xc4f91e39, 0x50fe61d3, 0xd229a1c6, 0x28e1c6f3, 0x01d9fbd0, 0x96f62aec};
+//variable 'sub_256_b_2' value: 0xf65a9321573d25068c8314df1bafeee3319d3950568cee80beb7c4abe492bc75
+uint32_t sub_256_b_2_tab [8] = {0xe492bc75, 0xbeb7c4ab, 0x568cee80, 0x319d3950, 0x1bafeee3, 0x8c8314df, 0x573d2506, 0xf65a9321};
 bn_uint_t sub_256_b_2= {.number = sub_256_b_2_tab, .length = 8};
-//variable 'sub_256_res_2' value: 0x-2fd945819505530fb4d4d3f5a1c912d2265cac8a67cff217c322a80d7bc621c1
-uint32_t sub_256_res_2_tab [9] = {0x8439de3f, 0x3cdd57f2, 0x98300de8, 0xd9a35375, 0x5e36ed2d, 0x4b2b2c0a, 0x6afaacf0, 0xd026ba7e, 0xffffffff};
+//variable 'sub_256_res_2' value: 0x-32c557fceabc6fdd71fb95fa8c7923e2bb6c024fdd34b869f006c0a5a466b2f4
+uint32_t sub_256_res_2_tab [9] = {0x5b994d0c, 0x0ff93f5a, 0x22cb4796, 0x4493fdb0, 0x7386dc1d, 0x8e046a05, 0x15439022, 0xcd3aa803, 0xffffffff};
 bn_uint_t sub_256_res_2= {.number = sub_256_res_2_tab, .length = 9};
-//variable 'sub_256_a_3' value: 0xa0c0c3c5f395e4fa803ea604fdbe551287d7c1bb4a792a924e8234cc63705d98
-uint32_t sub_256_a_3_tab [8] = {0x63705d98, 0x4e8234cc, 0x4a792a92, 0x87d7c1bb, 0xfdbe5512, 0x803ea604, 0xf395e4fa, 0xa0c0c3c5};
+//variable 'sub_256_a_3' value: 0xa6993fb913a4e27c1cc123b62bdef9f16c189bef18aa07c77adabdb2f859c100
+uint32_t sub_256_a_3_tab [8] = {0xf859c100, 0x7adabdb2, 0x18aa07c7, 0x6c189bef, 0x2bdef9f1, 0x1cc123b6, 0x13a4e27c, 0xa6993fb9};
 bn_uint_t sub_256_a_3= {.number = sub_256_a_3_tab, .length = 8};
-//variable 'sub_256_b_3' value: 0x9273b49111bca84a037bda6a12fb01c557c3adebf316888d43a2c2760d570b1b
-uint32_t sub_256_b_3_tab [8] = {0x0d570b1b, 0x43a2c276, 0xf316888d, 0x57c3adeb, 0x12fb01c5, 0x037bda6a, 0x11bca84a, 0x9273b491};
+//variable 'sub_256_b_3' value: 0xc0855134698e7218ebb39d37176f9d378392a05e96bdb3b59215270936cd6765
+uint32_t sub_256_b_3_tab [8] = {0x36cd6765, 0x92152709, 0x96bdb3b5, 0x8392a05e, 0x176f9d37, 0xebb39d37, 0x698e7218, 0xc0855134};
 bn_uint_t sub_256_b_3= {.number = sub_256_b_3_tab, .length = 8};
-//variable 'sub_256_res_3' value: 0xe4d0f34e1d93cb07cc2cb9aeac3534d301413cf5762a2050adf72565619527d
-uint32_t sub_256_res_3_tab [8] = {0x5619527d, 0x0adf7256, 0x5762a205, 0x301413cf, 0xeac3534d, 0x7cc2cb9a, 0xe1d93cb0, 0xe4d0f34};
-bn_uint_t sub_256_res_3= {.number = sub_256_res_3_tab, .length = 8};
-//variable 'sub_256_a_4' value: 0x9843e3643d77b8a5f131208787e796cc84e34a4fffbbfe562a7d4bb0b2f66a25
-uint32_t sub_256_a_4_tab [8] = {0xb2f66a25, 0x2a7d4bb0, 0xffbbfe56, 0x84e34a4f, 0x87e796cc, 0xf1312087, 0x3d77b8a5, 0x9843e364};
+//variable 'sub_256_res_3' value: 0x-19ec117b55e98f9ccef27980eb90a346177a046f7e13abee173a69563e73a665
+uint32_t sub_256_res_3_tab [9] = {0xc18c599b, 0xe8c596a9, 0x81ec5411, 0xe885fb90, 0x146f5cb9, 0x310d867f, 0xaa167063, 0xe613ee84, 0xffffffff};
+bn_uint_t sub_256_res_3= {.number = sub_256_res_3_tab, .length = 9};
+//variable 'sub_256_a_4' value: 0xa7aac6dd30c04432b7ab7957728af7e124bdc375ca7b3d96b384c40a30ba8d5e
+uint32_t sub_256_a_4_tab [8] = {0x30ba8d5e, 0xb384c40a, 0xca7b3d96, 0x24bdc375, 0x728af7e1, 0xb7ab7957, 0x30c04432, 0xa7aac6dd};
 bn_uint_t sub_256_a_4= {.number = sub_256_a_4_tab, .length = 8};
-//variable 'sub_256_b_4' value: 0x6d450fca36cd2f7b70b71e841e8ff4bc396a3488ff850f3a1ab456ac3f2fb16d
-uint32_t sub_256_b_4_tab [8] = {0x3f2fb16d, 0x1ab456ac, 0xff850f3a, 0x396a3488, 0x1e8ff4bc, 0x70b71e84, 0x36cd2f7b, 0x6d450fca};
+//variable 'sub_256_b_4' value: 0xd33dea36c3dfb3e343d004532a79bc73e254883eaff3203b60ee7827000f046
+uint32_t sub_256_b_4_tab [8] = {0x7000f046, 0xb60ee782, 0xeaff3203, 0x3e254883, 0x32a79bc7, 0x343d0045, 0x6c3dfb3e, 0xd33dea3};
 bn_uint_t sub_256_b_4= {.number = sub_256_b_4_tab, .length = 8};
-//variable 'sub_256_res_4' value: 0x2afed39a06aa892a807a02036957a2104b7915c70036ef1c0fc8f50473c6b8b8
-uint32_t sub_256_res_4_tab [8] = {0x73c6b8b8, 0x0fc8f504, 0x0036ef1c, 0x4b7915c7, 0x6957a210, 0x807a0203, 0x06aa892a, 0x2afed39a};
+//variable 'sub_256_res_4' value: 0x9a76e839c48248f4836e79123fe35c19e6987af1df7c0b92fd75dc87c0b99d18
+uint32_t sub_256_res_4_tab [8] = {0xc0b99d18, 0xfd75dc87, 0xdf7c0b92, 0xe6987af1, 0x3fe35c19, 0x836e7912, 0xc48248f4, 0x9a76e839};
 bn_uint_t sub_256_res_4= {.number = sub_256_res_4_tab, .length = 8};
-//variable 'sub_256_a_5' value: 0xaa86e4cbd09cef19b7075d816067d90fe7a766a79418ff28f179598d6f274238
-uint32_t sub_256_a_5_tab [8] = {0x6f274238, 0xf179598d, 0x9418ff28, 0xe7a766a7, 0x6067d90f, 0xb7075d81, 0xd09cef19, 0xaa86e4cb};
+//variable 'sub_256_a_5' value: 0xe20d2c3ff3a4e475f8b0049e0928b044d81e8c376d8928f432f22787de5c1766
+uint32_t sub_256_a_5_tab [8] = {0xde5c1766, 0x32f22787, 0x6d8928f4, 0xd81e8c37, 0x0928b044, 0xf8b0049e, 0xf3a4e475, 0xe20d2c3f};
 bn_uint_t sub_256_a_5= {.number = sub_256_a_5_tab, .length = 8};
-//variable 'sub_256_b_5' value: 0x9152d5e131b23cd84728de863c535104ab13d98b5066e66ee98150fea0b2b504
-uint32_t sub_256_b_5_tab [8] = {0xa0b2b504, 0xe98150fe, 0x5066e66e, 0xab13d98b, 0x3c535104, 0x4728de86, 0x31b23cd8, 0x9152d5e1};
+//variable 'sub_256_b_5' value: 0x2b1b13bb03992103c2d0be32436d6e65a83dcfcfd0394bd75ef52af111cb5891
+uint32_t sub_256_b_5_tab [8] = {0x11cb5891, 0x5ef52af1, 0xd0394bd7, 0xa83dcfcf, 0x436d6e65, 0xc2d0be32, 0x03992103, 0x2b1b13bb};
 bn_uint_t sub_256_b_5= {.number = sub_256_b_5_tab, .length = 8};
-//variable 'sub_256_res_5' value: 0x19340eea9eeab2416fde7efb2414880b3c938d1c43b218ba07f8088ece748d34
-uint32_t sub_256_res_5_tab [8] = {0xce748d34, 0x07f8088e, 0x43b218ba, 0x3c938d1c, 0x2414880b, 0x6fde7efb, 0x9eeab241, 0x19340eea};
+//variable 'sub_256_res_5' value: 0xb6f21884f00bc37235df466bc5bb41df2fe0bc679d4fdd1cd3fcfc96cc90bed5
+uint32_t sub_256_res_5_tab [8] = {0xcc90bed5, 0xd3fcfc96, 0x9d4fdd1c, 0x2fe0bc67, 0xc5bb41df, 0x35df466b, 0xf00bc372, 0xb6f21884};
 bn_uint_t sub_256_res_5= {.number = sub_256_res_5_tab, .length = 8};
-//variable 'sub_256_a_6' value: 0x2bd625c40fc949f6663e4c99386fcf880004c31ed1355020fb4a5ce8c7bcc052
-uint32_t sub_256_a_6_tab [8] = {0xc7bcc052, 0xfb4a5ce8, 0xd1355020, 0x0004c31e, 0x386fcf88, 0x663e4c99, 0x0fc949f6, 0x2bd625c4};
+//variable 'sub_256_a_6' value: 0x7af23d5b2419c7600cdb31d77c2f9d1d4241b7e03acb7b8024f455689ebcab9d
+uint32_t sub_256_a_6_tab [8] = {0x9ebcab9d, 0x24f45568, 0x3acb7b80, 0x4241b7e0, 0x7c2f9d1d, 0x0cdb31d7, 0x2419c760, 0x7af23d5b};
 bn_uint_t sub_256_a_6= {.number = sub_256_a_6_tab, .length = 8};
-//variable 'sub_256_b_6' value: 0xe264939c5587bf637f216c7189ed49f9020c2ecae03fae5a830cf004cd9a6cf5
-uint32_t sub_256_b_6_tab [8] = {0xcd9a6cf5, 0x830cf004, 0xe03fae5a, 0x020c2eca, 0x89ed49f9, 0x7f216c71, 0x5587bf63, 0xe264939c};
+//variable 'sub_256_b_6' value: 0x2d1af7347815f9b42cb6ccf2f8f268d410f893d4ba6f9767424a6c13822580c1
+uint32_t sub_256_b_6_tab [8] = {0x822580c1, 0x424a6c13, 0xba6f9767, 0x10f893d4, 0xf8f268d4, 0x2cb6ccf2, 0x7815f9b4, 0x2d1af734};
 bn_uint_t sub_256_b_6= {.number = sub_256_b_6_tab, .length = 8};
-//variable 'sub_256_res_6' value: 0x-b68e6dd845be756d18e31fd8517d7a7102076bac0f0a5e3987c2931c05ddaca3
-uint32_t sub_256_res_6_tab [9] = {0xfa22535d, 0x783d6ce3, 0xf0f5a1c6, 0xfdf89453, 0xae82858e, 0xe71ce027, 0xba418a92, 0x49719227, 0xffffffff};
-bn_uint_t sub_256_res_6= {.number = sub_256_res_6_tab, .length = 9};
-//variable 'sub_256_a_7' value: 0x63057557eca5fd41b38ed47fb8dfbe61f61c7f1a1d8e9be662a39a25e4820ab7
-uint32_t sub_256_a_7_tab [8] = {0xe4820ab7, 0x62a39a25, 0x1d8e9be6, 0xf61c7f1a, 0xb8dfbe61, 0xb38ed47f, 0xeca5fd41, 0x63057557};
+//variable 'sub_256_res_6' value: 0x4dd74626ac03cdabe02464e4833d34493149240b805be418e2a9e9551c972adc
+uint32_t sub_256_res_6_tab [8] = {0x1c972adc, 0xe2a9e955, 0x805be418, 0x3149240b, 0x833d3449, 0xe02464e4, 0xac03cdab, 0x4dd74626};
+bn_uint_t sub_256_res_6= {.number = sub_256_res_6_tab, .length = 8};
+//variable 'sub_256_a_7' value: 0xd230ae0c6b2661a9c145f2fdf1a5559a2da0631e498dcca9eba036e0cd157563
+uint32_t sub_256_a_7_tab [8] = {0xcd157563, 0xeba036e0, 0x498dcca9, 0x2da0631e, 0xf1a5559a, 0xc145f2fd, 0x6b2661a9, 0xd230ae0c};
 bn_uint_t sub_256_a_7= {.number = sub_256_a_7_tab, .length = 8};
-//variable 'sub_256_b_7' value: 0xb853edfbb636da1a73227e00320e7935af9150682025586b3e0b74aa21e44c33
-uint32_t sub_256_b_7_tab [8] = {0x21e44c33, 0x3e0b74aa, 0x2025586b, 0xaf915068, 0x320e7935, 0x73227e00, 0xb636da1a, 0xb853edfb};
+//variable 'sub_256_b_7' value: 0xe9c2afa5abe83aa298ab40850c6871e6e71094fcfb2c3c9bbbe14602c688018b
+uint32_t sub_256_b_7_tab [8] = {0xc688018b, 0xbbe14602, 0xfb2c3c9b, 0xe71094fc, 0x0c6871e6, 0x98ab4085, 0xabe83aa2, 0xe9c2afa5};
 bn_uint_t sub_256_b_7= {.number = sub_256_b_7_tab, .length = 8};
-//variable 'sub_256_res_7' value: 0x-554e78a3c990dcd8bf93a980792ebad3b974d14e0296bc84db67da843d62417c
-uint32_t sub_256_res_7_tab [9] = {0xc29dbe84, 0x2498257b, 0xfd69437b, 0x468b2eb1, 0x86d1452c, 0x406c567f, 0x366f2327, 0xaab1875c, 0xffffffff};
+//variable 'sub_256_res_7' value: 0x-1792019940c1d8f8d7654d871ac31c4cb97031deb19e6ff1d0410f21f9728c28
+uint32_t sub_256_res_7_tab [9] = {0x068d73d8, 0x2fbef0de, 0x4e61900e, 0x468fce21, 0xe53ce3b3, 0x289ab278, 0xbf3e2707, 0xe86dfe66, 0xffffffff};
 bn_uint_t sub_256_res_7= {.number = sub_256_res_7_tab, .length = 9};
-//variable 'sub_256_a_8' value: 0xd8030983f251f4cd6bfd4a6fd0212478ab38af28ae3c17af89b46ec3d7f38e0b
-uint32_t sub_256_a_8_tab [8] = {0xd7f38e0b, 0x89b46ec3, 0xae3c17af, 0xab38af28, 0xd0212478, 0x6bfd4a6f, 0xf251f4cd, 0xd8030983};
+//variable 'sub_256_a_8' value: 0xe7ba5a112b2896092163d2f830d3c04181b8fa34331110735017fb5d8a9593a8
+uint32_t sub_256_a_8_tab [8] = {0x8a9593a8, 0x5017fb5d, 0x33111073, 0x81b8fa34, 0x30d3c041, 0x2163d2f8, 0x2b289609, 0xe7ba5a11};
 bn_uint_t sub_256_a_8= {.number = sub_256_a_8_tab, .length = 8};
-//variable 'sub_256_b_8' value: 0xa269c091cbc86855ace08843a67757a0aa2ddb3e28819cf1971bac93d0dad1b7
-uint32_t sub_256_b_8_tab [8] = {0xd0dad1b7, 0x971bac93, 0x28819cf1, 0xaa2ddb3e, 0xa67757a0, 0xace08843, 0xcbc86855, 0xa269c091};
+//variable 'sub_256_b_8' value: 0x6aa4cdb41bf63e8503fed36cb2e3e6845e7fb79bea789c65623366e089f161ab
+uint32_t sub_256_b_8_tab [8] = {0x89f161ab, 0x623366e0, 0xea789c65, 0x5e7fb79b, 0xb2e3e684, 0x03fed36c, 0x1bf63e85, 0x6aa4cdb4};
 bn_uint_t sub_256_b_8= {.number = sub_256_b_8_tab, .length = 8};
-//variable 'sub_256_res_8' value: 0x359948f226898c77bf1cc22c29a9ccd8010ad3ea85ba7abdf298c2300718bc54
-uint32_t sub_256_res_8_tab [8] = {0x0718bc54, 0xf298c230, 0x85ba7abd, 0x010ad3ea, 0x29a9ccd8, 0xbf1cc22c, 0x26898c77, 0x359948f2};
+//variable 'sub_256_res_8' value: 0x7d158c5d0f3257841d64ff8b7defd9bd233942984898740dede4947d00a431fd
+uint32_t sub_256_res_8_tab [8] = {0x00a431fd, 0xede4947d, 0x4898740d, 0x23394298, 0x7defd9bd, 0x1d64ff8b, 0x0f325784, 0x7d158c5d};
 bn_uint_t sub_256_res_8= {.number = sub_256_res_8_tab, .length = 8};
-//variable 'sub_256_a_9' value: 0xb16c8febec7177e805b8e7196bae8c466b87586f718e7929df51347526ad123
-uint32_t sub_256_a_9_tab [8] = {0x526ad123, 0x9df51347, 0xf718e792, 0x66b87586, 0x96bae8c4, 0x805b8e71, 0xbec7177e, 0xb16c8fe};
+//variable 'sub_256_a_9' value: 0x7bdd7aed5ef70c552e3a07101dfafb198118b00d4f50307f63cf8abe23d19574
+uint32_t sub_256_a_9_tab [8] = {0x23d19574, 0x63cf8abe, 0x4f50307f, 0x8118b00d, 0x1dfafb19, 0x2e3a0710, 0x5ef70c55, 0x7bdd7aed};
 bn_uint_t sub_256_a_9= {.number = sub_256_a_9_tab, .length = 8};
-//variable 'sub_256_b_9' value: 0x2770df7d8826e2164108d88710302bcb9a5794110a70dcca1fe116b737c8aeb2
-uint32_t sub_256_b_9_tab [8] = {0x37c8aeb2, 0x1fe116b7, 0x0a70dcca, 0x9a579411, 0x10302bcb, 0x4108d887, 0x8826e216, 0x2770df7d};
+//variable 'sub_256_b_9' value: 0x15c162c222426036f4b6b420592b3bf7035d1934b5963d239d4de179d10649c7
+uint32_t sub_256_b_9_tab [8] = {0xd10649c7, 0x9d4de179, 0xb5963d23, 0x035d1934, 0x592b3bf7, 0xf4b6b420, 0x22426036, 0x15c162c2};
 bn_uint_t sub_256_b_9= {.number = sub_256_b_9_tab, .length = 8};
-//variable 'sub_256_res_9' value: 0x-1c5a167ec95fca97c0ad4a1579754307339f1e8a1357f53781ec036fe55ddd8f
-uint32_t sub_256_res_9_tab [9] = {0x1aa22271, 0x7e13fc90, 0xeca80ac8, 0xcc60e175, 0x868abcf8, 0x3f52b5ea, 0x36a03568, 0xe3a5e981, 0xffffffff};
-bn_uint_t sub_256_res_9= {.number = sub_256_res_9_tab, .length = 9};
+//variable 'sub_256_res_9' value: 0x661c182b3cb4ac1e398352efc4cfbf227dbb96d899b9f35bc681a94452cb4bad
+uint32_t sub_256_res_9_tab [8] = {0x52cb4bad, 0xc681a944, 0x99b9f35b, 0x7dbb96d8, 0xc4cfbf22, 0x398352ef, 0x3cb4ac1e, 0x661c182b};
+bn_uint_t sub_256_res_9= {.number = sub_256_res_9_tab, .length = 8};
 uint32_t sub_256_tab_len=10;
 bn_uint_t *sub_256_test_tab[10][3]={
 {&sub_256_a_0,&sub_256_b_0,&sub_256_res_0},
@@ -417,125 +417,125 @@ bn_uint_t *sub_256_test_tab[10][3]={
 {&sub_256_a_8,&sub_256_b_8,&sub_256_res_8},
 {&sub_256_a_9,&sub_256_b_9,&sub_256_res_9},
 };
-//variable 'add_mod_128_a_0' value: 0x8f14f641f0f8548d73f71ba9250f6e80
-uint32_t add_mod_128_a_0_tab [4] = {0x250f6e80, 0x73f71ba9, 0xf0f8548d, 0x8f14f641};
+//variable 'add_mod_128_a_0' value: 0x2a3b09845fa177a0b81cb03b0adf82ae
+uint32_t add_mod_128_a_0_tab [4] = {0x0adf82ae, 0xb81cb03b, 0x5fa177a0, 0x2a3b0984};
 bn_uint_t add_mod_128_a_0= {.number = add_mod_128_a_0_tab, .length = 4};
-//variable 'add_mod_128_b_0' value: 0xe81f9d299477891f28ced0512d24339e
-uint32_t add_mod_128_b_0_tab [4] = {0x2d24339e, 0x28ced051, 0x9477891f, 0xe81f9d29};
+//variable 'add_mod_128_b_0' value: 0x730df02d8a7d73a8f93384455c162de5
+uint32_t add_mod_128_b_0_tab [4] = {0x5c162de5, 0xf9338445, 0x8a7d73a8, 0x730df02d};
 bn_uint_t add_mod_128_b_0= {.number = add_mod_128_b_0_tab, .length = 4};
-//variable 'add_mod_128_p_0' value: 0x5e46a655de8216e3c152ed932c754a20
-uint32_t add_mod_128_p_0_tab [4] = {0x2c754a20, 0xc152ed93, 0xde8216e3, 0x5e46a655};
+//variable 'add_mod_128_p_0' value: 0xce776bb8fcc2d33b6472e1672f7d6bfd
+uint32_t add_mod_128_p_0_tab [4] = {0x2f7d6bfd, 0x6472e167, 0xfcc2d33b, 0xce776bb8};
 bn_uint_t add_mod_128_p_0= {.number = add_mod_128_p_0_tab, .length = 4};
-//variable 'add_mod_128_res_0' value: 0x5c60a069e9e9990158cd2340ccd3c3be
-uint32_t add_mod_128_res_0_tab [4] = {0xccd3c3be, 0x58cd2340, 0xe9e99901, 0x5c60a069};
+//variable 'add_mod_128_res_0' value: 0x9d48f9b1ea1eeb49b150348066f5b093
+uint32_t add_mod_128_res_0_tab [4] = {0x66f5b093, 0xb1503480, 0xea1eeb49, 0x9d48f9b1};
 bn_uint_t add_mod_128_res_0= {.number = add_mod_128_res_0_tab, .length = 4};
-//variable 'add_mod_128_a_1' value: 0x3172c9ec9f3be2ba7c643fc9e9889f63
-uint32_t add_mod_128_a_1_tab [4] = {0xe9889f63, 0x7c643fc9, 0x9f3be2ba, 0x3172c9ec};
+//variable 'add_mod_128_a_1' value: 0xbba9a441aac013ca51cd3ce8a605ab56
+uint32_t add_mod_128_a_1_tab [4] = {0xa605ab56, 0x51cd3ce8, 0xaac013ca, 0xbba9a441};
 bn_uint_t add_mod_128_a_1= {.number = add_mod_128_a_1_tab, .length = 4};
-//variable 'add_mod_128_b_1' value: 0x32c5f0725a78c877728fbaa994bc804c
-uint32_t add_mod_128_b_1_tab [4] = {0x94bc804c, 0x728fbaa9, 0x5a78c877, 0x32c5f072};
+//variable 'add_mod_128_b_1' value: 0x20af77d0c8aa9489c61df6a936742fa3
+uint32_t add_mod_128_b_1_tab [4] = {0x36742fa3, 0xc61df6a9, 0xc8aa9489, 0x20af77d0};
 bn_uint_t add_mod_128_b_1= {.number = add_mod_128_b_1_tab, .length = 4};
-//variable 'add_mod_128_p_1' value: 0xe7a493820eef050ead74dbc9f4132b93
-uint32_t add_mod_128_p_1_tab [4] = {0xf4132b93, 0xad74dbc9, 0x0eef050e, 0xe7a49382};
+//variable 'add_mod_128_p_1' value: 0xfbc72f3a133a5e3737369b5be581901
+uint32_t add_mod_128_p_1_tab [4] = {0xbe581901, 0x737369b5, 0xa133a5e3, 0xfbc72f3};
 bn_uint_t add_mod_128_p_1= {.number = add_mod_128_p_1_tab, .length = 4};
-//variable 'add_mod_128_res_1' value: 0x6438ba5ef9b4ab31eef3fa737e451faf
-uint32_t add_mod_128_res_1_tab [4] = {0x7e451faf, 0xeef3fa73, 0xf9b4ab31, 0x6438ba5e};
+//variable 'add_mod_128_res_1' value: 0xad2bfa29795e3c79b6ba173a87ceb
+uint32_t add_mod_128_res_1_tab [4] = {0x73a87ceb, 0xc79b6ba1, 0xa29795e3, 0xad2bf};
 bn_uint_t add_mod_128_res_1= {.number = add_mod_128_res_1_tab, .length = 4};
-//variable 'add_mod_128_a_2' value: 0xc6cdd022d4e5285c78011aab2535f09b
-uint32_t add_mod_128_a_2_tab [4] = {0x2535f09b, 0x78011aab, 0xd4e5285c, 0xc6cdd022};
+//variable 'add_mod_128_a_2' value: 0x67028863a1b80e951bca6dae6279a554
+uint32_t add_mod_128_a_2_tab [4] = {0x6279a554, 0x1bca6dae, 0xa1b80e95, 0x67028863};
 bn_uint_t add_mod_128_a_2= {.number = add_mod_128_a_2_tab, .length = 4};
-//variable 'add_mod_128_b_2' value: 0xc7d651001f17364279ef8a46c04a83dc
-uint32_t add_mod_128_b_2_tab [4] = {0xc04a83dc, 0x79ef8a46, 0x1f173642, 0xc7d65100};
+//variable 'add_mod_128_b_2' value: 0xc149d2e5678477dd6a3c211ac0b14bce
+uint32_t add_mod_128_b_2_tab [4] = {0xc0b14bce, 0x6a3c211a, 0x678477dd, 0xc149d2e5};
 bn_uint_t add_mod_128_b_2= {.number = add_mod_128_b_2_tab, .length = 4};
-//variable 'add_mod_128_p_2' value: 0x809d4141b26ba6d0249a907349fb110f
-uint32_t add_mod_128_p_2_tab [4] = {0x49fb110f, 0x249a9073, 0xb26ba6d0, 0x809d4141};
+//variable 'add_mod_128_p_2' value: 0x906cb30206f6c2c99e9cd4f96fd7a04e
+uint32_t add_mod_128_p_2_tab [4] = {0x6fd7a04e, 0x9e9cd4f9, 0x06f6c2c9, 0x906cb302};
 bn_uint_t add_mod_128_p_2= {.number = add_mod_128_p_2_tab, .length = 4};
-//variable 'add_mod_128_res_2' value: 0xccc5d5ddcb96a2e8420f398078f414a
-uint32_t add_mod_128_res_2_tab [4] = {0x078f414a, 0x8420f398, 0xdcb96a2e, 0xccc5d5d};
+//variable 'add_mod_128_res_2' value: 0x772f544fb4f00df48cce4d6437bb086
+uint32_t add_mod_128_res_2_tab [4] = {0x437bb086, 0x48cce4d6, 0xfb4f00df, 0x772f544};
 bn_uint_t add_mod_128_res_2= {.number = add_mod_128_res_2_tab, .length = 4};
-//variable 'add_mod_128_a_3' value: 0x1b7157ef83307065f05fef7266e15407
-uint32_t add_mod_128_a_3_tab [4] = {0x66e15407, 0xf05fef72, 0x83307065, 0x1b7157ef};
+//variable 'add_mod_128_a_3' value: 0x3580b51c20e4dc3df57900b6f2bf9845
+uint32_t add_mod_128_a_3_tab [4] = {0xf2bf9845, 0xf57900b6, 0x20e4dc3d, 0x3580b51c};
 bn_uint_t add_mod_128_a_3= {.number = add_mod_128_a_3_tab, .length = 4};
-//variable 'add_mod_128_b_3' value: 0x6fb756515e79d15f4b865adc4ba99f3c
-uint32_t add_mod_128_b_3_tab [4] = {0x4ba99f3c, 0x4b865adc, 0x5e79d15f, 0x6fb75651};
+//variable 'add_mod_128_b_3' value: 0x2d9d8a259680b8b820efc19901f85895
+uint32_t add_mod_128_b_3_tab [4] = {0x01f85895, 0x20efc199, 0x9680b8b8, 0x2d9d8a25};
 bn_uint_t add_mod_128_b_3= {.number = add_mod_128_b_3_tab, .length = 4};
-//variable 'add_mod_128_p_3' value: 0xdf41ba519451de47808e19933fbc0f49
-uint32_t add_mod_128_p_3_tab [4] = {0x3fbc0f49, 0x808e1993, 0x9451de47, 0xdf41ba51};
+//variable 'add_mod_128_p_3' value: 0x2a5e8a824846978fab0c4b56114ba388
+uint32_t add_mod_128_p_3_tab [4] = {0x114ba388, 0xab0c4b56, 0x4846978f, 0x2a5e8a82};
 bn_uint_t add_mod_128_p_3= {.number = add_mod_128_p_3_tab, .length = 4};
-//variable 'add_mod_128_res_3' value: 0x8b28ae40e1aa41c53be64a4eb28af343
-uint32_t add_mod_128_res_3_tab [4] = {0xb28af343, 0x3be64a4e, 0xe1aa41c5, 0x8b28ae40};
+//variable 'add_mod_128_res_3' value: 0xe612a3d26d865d6c0502ba3d220a9ca
+uint32_t add_mod_128_res_3_tab [4] = {0xd220a9ca, 0xc0502ba3, 0x26d865d6, 0xe612a3d};
 bn_uint_t add_mod_128_res_3= {.number = add_mod_128_res_3_tab, .length = 4};
-//variable 'add_mod_128_a_4' value: 0x6be6b8e2f9daefaad08a2d10822590f1
-uint32_t add_mod_128_a_4_tab [4] = {0x822590f1, 0xd08a2d10, 0xf9daefaa, 0x6be6b8e2};
+//variable 'add_mod_128_a_4' value: 0x34c1e51a5c8421a56e1935d72e56828
+uint32_t add_mod_128_a_4_tab [4] = {0x72e56828, 0x56e1935d, 0xa5c8421a, 0x34c1e51};
 bn_uint_t add_mod_128_a_4= {.number = add_mod_128_a_4_tab, .length = 4};
-//variable 'add_mod_128_b_4' value: 0x843bacdfd3ac5226661fe67aee4c5a0a
-uint32_t add_mod_128_b_4_tab [4] = {0xee4c5a0a, 0x661fe67a, 0xd3ac5226, 0x843bacdf};
+//variable 'add_mod_128_b_4' value: 0xe018b0fe9347c507a4d8302f191796e5
+uint32_t add_mod_128_b_4_tab [4] = {0x191796e5, 0xa4d8302f, 0x9347c507, 0xe018b0fe};
 bn_uint_t add_mod_128_b_4= {.number = add_mod_128_b_4_tab, .length = 4};
-//variable 'add_mod_128_p_4' value: 0x95d255677a8eed3165034dcf14a9762d
-uint32_t add_mod_128_p_4_tab [4] = {0x14a9762d, 0x65034dcf, 0x7a8eed31, 0x95d25567};
+//variable 'add_mod_128_p_4' value: 0x502dddf56a5db08ffc5fbf478e64628a
+uint32_t add_mod_128_p_4_tab [4] = {0x8e64628a, 0xfc5fbf47, 0x6a5db08f, 0x502dddf5};
 bn_uint_t add_mod_128_p_4= {.number = add_mod_128_p_4_tab, .length = 4};
-//variable 'add_mod_128_res_4' value: 0x5a50105b52f8549fd1a6c5bc5bc874ce
-uint32_t add_mod_128_res_4_tab [4] = {0x5bc874ce, 0xd1a6c5bc, 0x52f8549f, 0x5a50105b};
+//variable 'add_mod_128_res_4' value: 0x430913656454a60202fa44fd6f3439f9
+uint32_t add_mod_128_res_4_tab [4] = {0x6f3439f9, 0x02fa44fd, 0x6454a602, 0x43091365};
 bn_uint_t add_mod_128_res_4= {.number = add_mod_128_res_4_tab, .length = 4};
-//variable 'add_mod_128_a_5' value: 0xcd87a5cd883b94294917248e0c1c9a08
-uint32_t add_mod_128_a_5_tab [4] = {0x0c1c9a08, 0x4917248e, 0x883b9429, 0xcd87a5cd};
+//variable 'add_mod_128_a_5' value: 0xa1933d78b795fff3043dcb06866ba286
+uint32_t add_mod_128_a_5_tab [4] = {0x866ba286, 0x043dcb06, 0xb795fff3, 0xa1933d78};
 bn_uint_t add_mod_128_a_5= {.number = add_mod_128_a_5_tab, .length = 4};
-//variable 'add_mod_128_b_5' value: 0x26ac1574c6aeb07a4f35c033da9b6707
-uint32_t add_mod_128_b_5_tab [4] = {0xda9b6707, 0x4f35c033, 0xc6aeb07a, 0x26ac1574};
+//variable 'add_mod_128_b_5' value: 0x6e613ccaeb74834c6487d1dcc950551e
+uint32_t add_mod_128_b_5_tab [4] = {0xc950551e, 0x6487d1dc, 0xeb74834c, 0x6e613cca};
 bn_uint_t add_mod_128_b_5= {.number = add_mod_128_b_5_tab, .length = 4};
-//variable 'add_mod_128_p_5' value: 0x2a1d03d026b9af0d40ac6f60da4b6400
-uint32_t add_mod_128_p_5_tab [4] = {0xda4b6400, 0x40ac6f60, 0x26b9af0d, 0x2a1d03d0};
+//variable 'add_mod_128_p_5' value: 0x9f815b16edbe978c04de2160808c3566
+uint32_t add_mod_128_p_5_tab [4] = {0x808c3566, 0x04de2160, 0xedbe978c, 0x9f815b16};
 bn_uint_t add_mod_128_p_5= {.number = add_mod_128_p_5_tab, .length = 4};
-//variable 'add_mod_128_res_5' value: 0x21a2a8318d49d96154eeb7dda33f0d0f
-uint32_t add_mod_128_res_5_tab [4] = {0xa33f0d0f, 0x54eeb7dd, 0x8d49d961, 0x21a2a831};
+//variable 'add_mod_128_res_5' value: 0x70731f2cb54bebb363e77b82cf2fc23e
+uint32_t add_mod_128_res_5_tab [4] = {0xcf2fc23e, 0x63e77b82, 0xb54bebb3, 0x70731f2c};
 bn_uint_t add_mod_128_res_5= {.number = add_mod_128_res_5_tab, .length = 4};
-//variable 'add_mod_128_a_6' value: 0x9d72a31c7d02c7a6e53167c4c34e2e13
-uint32_t add_mod_128_a_6_tab [4] = {0xc34e2e13, 0xe53167c4, 0x7d02c7a6, 0x9d72a31c};
+//variable 'add_mod_128_a_6' value: 0x4f316978311604cd14744330aec1f20
+uint32_t add_mod_128_a_6_tab [4] = {0x0aec1f20, 0xd1474433, 0x8311604c, 0x4f31697};
 bn_uint_t add_mod_128_a_6= {.number = add_mod_128_a_6_tab, .length = 4};
-//variable 'add_mod_128_b_6' value: 0x60078fcdfe5a0b4e3410cd8e814cbca
-uint32_t add_mod_128_b_6_tab [4] = {0xe814cbca, 0xe3410cd8, 0xdfe5a0b4, 0x60078fc};
+//variable 'add_mod_128_b_6' value: 0xb7fa79798dfb08c13bc2c7d3534aa06a
+uint32_t add_mod_128_b_6_tab [4] = {0x534aa06a, 0x3bc2c7d3, 0x8dfb08c1, 0xb7fa7979};
 bn_uint_t add_mod_128_b_6= {.number = add_mod_128_b_6_tab, .length = 4};
-//variable 'add_mod_128_p_6' value: 0x1b6022e9cec675ee85250bcd61aa6e76
-uint32_t add_mod_128_p_6_tab [4] = {0x61aa6e76, 0x85250bcd, 0xcec675ee, 0x1b6022e9};
+//variable 'add_mod_128_p_6' value: 0x2da3fb3733625cb53d7bb656e3cef1d
+uint32_t add_mod_128_p_6_tab [4] = {0x6e3cef1d, 0x53d7bb65, 0x733625cb, 0x2da3fb3};
 bn_uint_t add_mod_128_p_6= {.number = add_mod_128_p_6_tab, .length = 4};
-//variable 'add_mod_128_res_6' value: 0x1a926d8853081ab32eb9399ac30ed18f
-uint32_t add_mod_128_res_6_tab [4] = {0xc30ed18f, 0x2eb9399a, 0x53081ab3, 0x1a926d88};
+//variable 'add_mod_128_res_6' value: 0xa923cd5d16aaa26f6bbbdff2811a10
+uint32_t add_mod_128_res_6_tab [4] = {0xf2811a10, 0x6f6bbbdf, 0x5d16aaa2, 0xa923cd};
 bn_uint_t add_mod_128_res_6= {.number = add_mod_128_res_6_tab, .length = 4};
-//variable 'add_mod_128_a_7' value: 0x27f01585fdf191ae1e27ec1e68a6973d
-uint32_t add_mod_128_a_7_tab [4] = {0x68a6973d, 0x1e27ec1e, 0xfdf191ae, 0x27f01585};
+//variable 'add_mod_128_a_7' value: 0xf619b749c3a7a432065fa03247480f3d
+uint32_t add_mod_128_a_7_tab [4] = {0x47480f3d, 0x065fa032, 0xc3a7a432, 0xf619b749};
 bn_uint_t add_mod_128_a_7= {.number = add_mod_128_a_7_tab, .length = 4};
-//variable 'add_mod_128_b_7' value: 0x7a1f56926189d4a0b92fcac8692cf117
-uint32_t add_mod_128_b_7_tab [4] = {0x692cf117, 0xb92fcac8, 0x6189d4a0, 0x7a1f5692};
+//variable 'add_mod_128_b_7' value: 0xcd98b52f7fe31c830878127118b0f817
+uint32_t add_mod_128_b_7_tab [4] = {0x18b0f817, 0x08781271, 0x7fe31c83, 0xcd98b52f};
 bn_uint_t add_mod_128_b_7= {.number = add_mod_128_b_7_tab, .length = 4};
-//variable 'add_mod_128_p_7' value: 0x3db04d29af7ad8611628f2b8a970e04a
-uint32_t add_mod_128_p_7_tab [4] = {0xa970e04a, 0x1628f2b8, 0xaf7ad861, 0x3db04d29};
+//variable 'add_mod_128_p_7' value: 0x11bcc6a9451f6179d8de2ff01142844d
+uint32_t add_mod_128_p_7_tab [4] = {0x1142844d, 0xd8de2ff0, 0x451f6179, 0x11bcc6a9};
 bn_uint_t add_mod_128_p_7= {.number = add_mod_128_p_7_tab, .length = 4};
-//variable 'add_mod_128_res_7' value: 0x26aed1c50085b58cab05d1757ef1c7c0
-uint32_t add_mod_128_res_7_tab [4] = {0x7ef1c7c0, 0xab05d175, 0x0085b58c, 0x26aed1c5};
+//variable 'add_mod_128_res_7' value: 0x84305f1837a3bcee1250431b07a1bcf
+uint32_t add_mod_128_res_7_tab [4] = {0xb07a1bcf, 0xe1250431, 0x837a3bce, 0x84305f1};
 bn_uint_t add_mod_128_res_7= {.number = add_mod_128_res_7_tab, .length = 4};
-//variable 'add_mod_128_a_8' value: 0x844f5b7a03ced28c97273c5cb54425a
-uint32_t add_mod_128_a_8_tab [4] = {0xcb54425a, 0xc97273c5, 0xa03ced28, 0x844f5b7};
+//variable 'add_mod_128_a_8' value: 0x885f917b2ff06fe1fc2f50a634c6b18f
+uint32_t add_mod_128_a_8_tab [4] = {0x34c6b18f, 0xfc2f50a6, 0x2ff06fe1, 0x885f917b};
 bn_uint_t add_mod_128_a_8= {.number = add_mod_128_a_8_tab, .length = 4};
-//variable 'add_mod_128_b_8' value: 0x3c3d03db83ad8dbc8b2fbb7cb79d993c
-uint32_t add_mod_128_b_8_tab [4] = {0xb79d993c, 0x8b2fbb7c, 0x83ad8dbc, 0x3c3d03db};
+//variable 'add_mod_128_b_8' value: 0xb9364f497db986053a3b577ca06b0d0e
+uint32_t add_mod_128_b_8_tab [4] = {0xa06b0d0e, 0x3a3b577c, 0x7db98605, 0xb9364f49};
 bn_uint_t add_mod_128_b_8= {.number = add_mod_128_b_8_tab, .length = 4};
-//variable 'add_mod_128_p_8' value: 0x585c63b99c5ac5923c23460d9c7281f0
-uint32_t add_mod_128_p_8_tab [4] = {0x9c7281f0, 0x3c23460d, 0x9c5ac592, 0x585c63b9};
+//variable 'add_mod_128_p_8' value: 0x9c0f7129d374e5e68216391d925a017
+uint32_t add_mod_128_p_8_tab [4] = {0xd925a017, 0x68216391, 0x9d374e5e, 0x9c0f712};
 bn_uint_t add_mod_128_p_8= {.number = add_mod_128_p_8_tab, .length = 4};
-//variable 'add_mod_128_res_8' value: 0x4481f99323ea7ae554a22f4282f1db96
-uint32_t add_mod_128_res_8_tab [4] = {0x82f1db96, 0x54a22f42, 0x23ea7ae5, 0x4481f993};
+//variable 'add_mod_128_res_8' value: 0x976fe7106c02a1a323e35e7b07dbbbd
+uint32_t add_mod_128_res_8_tab [4] = {0xb07dbbbd, 0x323e35e7, 0x06c02a1a, 0x976fe71};
 bn_uint_t add_mod_128_res_8= {.number = add_mod_128_res_8_tab, .length = 4};
-//variable 'add_mod_128_a_9' value: 0xe8d1ad0d13205fc09fb4188d75228212
-uint32_t add_mod_128_a_9_tab [4] = {0x75228212, 0x9fb4188d, 0x13205fc0, 0xe8d1ad0d};
+//variable 'add_mod_128_a_9' value: 0x5cb084bc662685c26a66dd3ef6ecd61a
+uint32_t add_mod_128_a_9_tab [4] = {0xf6ecd61a, 0x6a66dd3e, 0x662685c2, 0x5cb084bc};
 bn_uint_t add_mod_128_a_9= {.number = add_mod_128_a_9_tab, .length = 4};
-//variable 'add_mod_128_b_9' value: 0x95ca95ddfa1edec2bbd04e6cbdb03b12
-uint32_t add_mod_128_b_9_tab [4] = {0xbdb03b12, 0xbbd04e6c, 0xfa1edec2, 0x95ca95dd};
+//variable 'add_mod_128_b_9' value: 0x36d72635b5a739c446dbd6e020d4f01a
+uint32_t add_mod_128_b_9_tab [4] = {0x20d4f01a, 0x46dbd6e0, 0xb5a739c4, 0x36d72635};
 bn_uint_t add_mod_128_b_9= {.number = add_mod_128_b_9_tab, .length = 4};
-//variable 'add_mod_128_p_9' value: 0xd5f182b59cf97843790211214d7ef15c
-uint32_t add_mod_128_p_9_tab [4] = {0x4d7ef15c, 0x79021121, 0x9cf97843, 0xd5f182b5};
+//variable 'add_mod_128_p_9' value: 0xe327aecdc5c24dc9252a7141517345c3
+uint32_t add_mod_128_p_9_tab [4] = {0x517345c3, 0x252a7141, 0xc5c24dc9, 0xe327aecd};
 bn_uint_t add_mod_128_p_9= {.number = add_mod_128_p_9_tab, .length = 4};
-//variable 'add_mod_128_res_9' value: 0xa8aac0357045c63fe28255d8e553cbc8
-uint32_t add_mod_128_res_9_tab [4] = {0xe553cbc8, 0xe28255d8, 0x7045c63f, 0xa8aac035};
+//variable 'add_mod_128_res_9' value: 0x9387aaf21bcdbf86b142b41f17c1c634
+uint32_t add_mod_128_res_9_tab [4] = {0x17c1c634, 0xb142b41f, 0x1bcdbf86, 0x9387aaf2};
 bn_uint_t add_mod_128_res_9= {.number = add_mod_128_res_9_tab, .length = 4};
 uint32_t add_mod_128_tab_len=10;
 bn_uint_t *add_mod_128_test_tab[10][4]={
@@ -550,125 +550,125 @@ bn_uint_t *add_mod_128_test_tab[10][4]={
 {&add_mod_128_a_8,&add_mod_128_b_8,&add_mod_128_p_8,&add_mod_128_res_8},
 {&add_mod_128_a_9,&add_mod_128_b_9,&add_mod_128_p_9,&add_mod_128_res_9},
 };
-//variable 'add_mod_256_a_0' value: 0x5d50ea16f73caba084c45852e35348a9c5b9e307a50d050d93c03f07d74bd61a
-uint32_t add_mod_256_a_0_tab [8] = {0xd74bd61a, 0x93c03f07, 0xa50d050d, 0xc5b9e307, 0xe35348a9, 0x84c45852, 0xf73caba0, 0x5d50ea16};
+//variable 'add_mod_256_a_0' value: 0xb54d7f2f00eaea034b8da861aace44a6f1b31e9a3ddf89194cd78cf70093391a
+uint32_t add_mod_256_a_0_tab [8] = {0x0093391a, 0x4cd78cf7, 0x3ddf8919, 0xf1b31e9a, 0xaace44a6, 0x4b8da861, 0x00eaea03, 0xb54d7f2f};
 bn_uint_t add_mod_256_a_0= {.number = add_mod_256_a_0_tab, .length = 8};
-//variable 'add_mod_256_b_0' value: 0x58808d020ec8fe0a2a37cae8ef21e2ef8e338dfb19798edde0357cd06fb37bd7
-uint32_t add_mod_256_b_0_tab [8] = {0x6fb37bd7, 0xe0357cd0, 0x19798edd, 0x8e338dfb, 0xef21e2ef, 0x2a37cae8, 0x0ec8fe0a, 0x58808d02};
+//variable 'add_mod_256_b_0' value: 0xf3e92cd8b3684005fd8922672b70476ce41c17b572520f98984884e2b540d42d
+uint32_t add_mod_256_b_0_tab [8] = {0xb540d42d, 0x984884e2, 0x72520f98, 0xe41c17b5, 0x2b70476c, 0xfd892267, 0xb3684005, 0xf3e92cd8};
 bn_uint_t add_mod_256_b_0= {.number = add_mod_256_b_0_tab, .length = 8};
-//variable 'add_mod_256_p_0' value: 0x64c3317c7f17ea29098baf5d1edcc3b25f9c55987909a9195b6be9f519556597
-uint32_t add_mod_256_p_0_tab [8] = {0x19556597, 0x5b6be9f5, 0x7909a919, 0x5f9c5598, 0x1edcc3b2, 0x098baf5d, 0x7f17ea29, 0x64c3317c};
+//variable 'add_mod_256_p_0' value: 0xaf12064c5412bcc81cea2dcdc854a994d36c3e773db4470f3f2a944c1402750d
+uint32_t add_mod_256_p_0_tab [8] = {0x1402750d, 0x3f2a944c, 0x3db4470f, 0xd36c3e77, 0xc854a994, 0x1cea2dcd, 0x5412bcc8, 0xaf12064c};
 bn_uint_t add_mod_256_p_0= {.number = add_mod_256_p_0_tab, .length = 8};
-//variable 'add_mod_256_res_0' value: 0x510e459c86edbf81a57073deb39867e6f4511b6a457cead21889d1e32da9ec5a
-uint32_t add_mod_256_res_0_tab [8] = {0x2da9ec5a, 0x1889d1e3, 0x457cead2, 0xf4511b6a, 0xb39867e6, 0xa57073de, 0x86edbf81, 0x510e459c};
+//variable 'add_mod_256_res_0' value: 0x4b129f6f0c2db0790f426f2d459538ea2ef6b96134c90a9366cae9418dcf232d
+uint32_t add_mod_256_res_0_tab [8] = {0x8dcf232d, 0x66cae941, 0x34c90a93, 0x2ef6b961, 0x459538ea, 0x0f426f2d, 0x0c2db079, 0x4b129f6f};
 bn_uint_t add_mod_256_res_0= {.number = add_mod_256_res_0_tab, .length = 8};
-//variable 'add_mod_256_a_1' value: 0x932d2d2d38eb6e1573692bafe88feb3ca8c62c6cd1ecd44fc8af31bea3138efb
-uint32_t add_mod_256_a_1_tab [8] = {0xa3138efb, 0xc8af31be, 0xd1ecd44f, 0xa8c62c6c, 0xe88feb3c, 0x73692baf, 0x38eb6e15, 0x932d2d2d};
+//variable 'add_mod_256_a_1' value: 0xdd57c6542005916ed7b3d00b35389e655e4ecda251c1a892ff42ca34206116a5
+uint32_t add_mod_256_a_1_tab [8] = {0x206116a5, 0xff42ca34, 0x51c1a892, 0x5e4ecda2, 0x35389e65, 0xd7b3d00b, 0x2005916e, 0xdd57c654};
 bn_uint_t add_mod_256_a_1= {.number = add_mod_256_a_1_tab, .length = 8};
-//variable 'add_mod_256_b_1' value: 0xdb1e4aaf01e66bcb1fd99fa7d17ca0eec6b5fa482dbe1d1580cb2044b4338c3e
-uint32_t add_mod_256_b_1_tab [8] = {0xb4338c3e, 0x80cb2044, 0x2dbe1d15, 0xc6b5fa48, 0xd17ca0ee, 0x1fd99fa7, 0x01e66bcb, 0xdb1e4aaf};
+//variable 'add_mod_256_b_1' value: 0x770e3bccc1db72fd046b0b5aa14305087ece82bda25694209147eca8313590c0
+uint32_t add_mod_256_b_1_tab [8] = {0x313590c0, 0x9147eca8, 0xa2569420, 0x7ece82bd, 0xa1430508, 0x046b0b5a, 0xc1db72fd, 0x770e3bcc};
 bn_uint_t add_mod_256_b_1= {.number = add_mod_256_b_1_tab, .length = 8};
-//variable 'add_mod_256_p_1' value: 0x13c7cc654e3cf4c74f1d3562a0ff00151e55ef8dc0e6c4f488dae984ef1cb2d8
-uint32_t add_mod_256_p_1_tab [8] = {0xef1cb2d8, 0x88dae984, 0xc0e6c4f4, 0x1e55ef8d, 0xa0ff0015, 0x4f1d3562, 0x4e3cf4c7, 0x13c7cc65};
+//variable 'add_mod_256_p_1' value: 0x842c602a3967b15474e57cd715491f1ceee4236ee62a90ee4bed9daa04b72b3b
+uint32_t add_mod_256_p_1_tab [8] = {0x04b72b3b, 0x4bed9daa, 0xe62a90ee, 0xeee4236e, 0x15491f1c, 0x74e57cd7, 0x3967b154, 0x842c602a};
 bn_uint_t add_mod_256_p_1= {.number = add_mod_256_p_1_tab, .length = 8};
-//variable 'add_mod_256_res_1' value: 0xa3f18bcba88a3dd03350a68681e8aaf4d714ebd6f711833aa15e6aa87428809
-uint32_t add_mod_256_res_1_tab [8] = {0x87428809, 0xaa15e6aa, 0x6f711833, 0x4d714ebd, 0x681e8aaf, 0x03350a68, 0xba88a3dd, 0xa3f18bc};
+//variable 'add_mod_256_res_1' value: 0x4c0d41cc6f11a1c2f253e1b7abe96533ff55098227c31ad6f8af7b88482850ef
+uint32_t add_mod_256_res_1_tab [8] = {0x482850ef, 0xf8af7b88, 0x27c31ad6, 0xff550982, 0xabe96533, 0xf253e1b7, 0x6f11a1c2, 0x4c0d41cc};
 bn_uint_t add_mod_256_res_1= {.number = add_mod_256_res_1_tab, .length = 8};
-//variable 'add_mod_256_a_2' value: 0xf849eec8719bb3a5a80e225d13f75e35d3b1a7152ced81f4b4f56b24e5549158
-uint32_t add_mod_256_a_2_tab [8] = {0xe5549158, 0xb4f56b24, 0x2ced81f4, 0xd3b1a715, 0x13f75e35, 0xa80e225d, 0x719bb3a5, 0xf849eec8};
+//variable 'add_mod_256_a_2' value: 0x14e18844008943b475e71e11ba78d3641585c864f22502ef499c24fbe635e030
+uint32_t add_mod_256_a_2_tab [8] = {0xe635e030, 0x499c24fb, 0xf22502ef, 0x1585c864, 0xba78d364, 0x75e71e11, 0x008943b4, 0x14e18844};
 bn_uint_t add_mod_256_a_2= {.number = add_mod_256_a_2_tab, .length = 8};
-//variable 'add_mod_256_b_2' value: 0x6d7f0e70f200350cde83da8230d14a3b6132d2755e2935b722a1b49117d96841
-uint32_t add_mod_256_b_2_tab [8] = {0x17d96841, 0x22a1b491, 0x5e2935b7, 0x6132d275, 0x30d14a3b, 0xde83da82, 0xf200350c, 0x6d7f0e70};
+//variable 'add_mod_256_b_2' value: 0xb643356d74074fc7f59911813deb275c98217607a45faf2aa7834e50c5d73c3b
+uint32_t add_mod_256_b_2_tab [8] = {0xc5d73c3b, 0xa7834e50, 0xa45faf2a, 0x98217607, 0x3deb275c, 0xf5991181, 0x74074fc7, 0xb643356d};
 bn_uint_t add_mod_256_b_2= {.number = add_mod_256_b_2_tab, .length = 8};
-//variable 'add_mod_256_p_2' value: 0x2c58b3fe7301cd2c61b3427bfe9e84c2ff0032e9e1a2d77f54d16c1e71040667
-uint32_t add_mod_256_p_2_tab [8] = {0x71040667, 0x54d16c1e, 0xe1a2d77f, 0xff0032e9, 0xfe9e84c2, 0x61b3427b, 0x7301cd2c, 0x2c58b3fe};
+//variable 'add_mod_256_p_2' value: 0x1167eb6d95bfbc8da2f5fda0caacf9f9783bcf403f4b36111cdcecefee641787
+uint32_t add_mod_256_p_2_tab [8] = {0xee641787, 0x1cdcecef, 0x3f4b3611, 0x783bcf40, 0xcaacf9f9, 0xa2f5fda0, 0x95bfbc8d, 0x1167eb6d};
 bn_uint_t add_mod_256_p_2= {.number = add_mod_256_p_2_tab, .length = 8};
-//variable 'add_mod_256_res_2' value: 0x3035d45cb8d7f4f78f7e8ff4fd482593ce2e23b7dfffbb1310bbec2750dc661
-uint32_t add_mod_256_res_2_tab [8] = {0x750dc661, 0x310bbec2, 0x7dfffbb1, 0x3ce2e23b, 0x4fd48259, 0x78f7e8ff, 0xcb8d7f4f, 0x3035d45};
+//variable 'add_mod_256_res_2' value: 0xbad9ffc055379666aee49aa42f53d08831556a9de495f5db3a144fd6dc0199e
+uint32_t add_mod_256_res_2_tab [8] = {0x6dc0199e, 0xb3a144fd, 0xde495f5d, 0x831556a9, 0x42f53d08, 0x6aee49aa, 0x05537966, 0xbad9ffc};
 bn_uint_t add_mod_256_res_2= {.number = add_mod_256_res_2_tab, .length = 8};
-//variable 'add_mod_256_a_3' value: 0x9055daac807097e6e663abafcd8102318924c0458feaca4974d33b79807d81f5
-uint32_t add_mod_256_a_3_tab [8] = {0x807d81f5, 0x74d33b79, 0x8feaca49, 0x8924c045, 0xcd810231, 0xe663abaf, 0x807097e6, 0x9055daac};
+//variable 'add_mod_256_a_3' value: 0x900b43e35bc9ea1422349bdf76e26bcee2886124bb52d5f77ef62f3f81c51f84
+uint32_t add_mod_256_a_3_tab [8] = {0x81c51f84, 0x7ef62f3f, 0xbb52d5f7, 0xe2886124, 0x76e26bce, 0x22349bdf, 0x5bc9ea14, 0x900b43e3};
 bn_uint_t add_mod_256_a_3= {.number = add_mod_256_a_3_tab, .length = 8};
-//variable 'add_mod_256_b_3' value: 0x168ac1f622d8bdc6a73c8c0c2e211624befff6c9f456087de650c5cae664f740
-uint32_t add_mod_256_b_3_tab [8] = {0xe664f740, 0xe650c5ca, 0xf456087d, 0xbefff6c9, 0x2e211624, 0xa73c8c0c, 0x22d8bdc6, 0x168ac1f6};
+//variable 'add_mod_256_b_3' value: 0xd60c767969d05b941dc07a68cc8a51e144e02b12f2f17b27fe574ca4b8250b40
+uint32_t add_mod_256_b_3_tab [8] = {0xb8250b40, 0xfe574ca4, 0xf2f17b27, 0x44e02b12, 0xcc8a51e1, 0x1dc07a68, 0x69d05b94, 0xd60c7679};
 bn_uint_t add_mod_256_b_3= {.number = add_mod_256_b_3_tab, .length = 8};
-//variable 'add_mod_256_p_3' value: 0x44ce2a9aa02f6c1693fc8d962f1938ddf83f731464bb233c8053c17170cc9cc2
-uint32_t add_mod_256_p_3_tab [8] = {0x70cc9cc2, 0x8053c171, 0x64bb233c, 0xf83f7314, 0x2f1938dd, 0x93fc8d96, 0xa02f6c16, 0x44ce2a9a};
+//variable 'add_mod_256_p_3' value: 0xdf192e8495d58914609963d315fcb454ce9650134ad766ee743071e8c4f6268b
+uint32_t add_mod_256_p_3_tab [8] = {0xc4f6268b, 0x743071e8, 0x4ad766ee, 0xce965013, 0x15fcb454, 0x609963d3, 0x95d58914, 0xdf192e84};
 bn_uint_t add_mod_256_p_3= {.number = add_mod_256_p_3_tab, .length = 8};
-//variable 'add_mod_256_res_3' value: 0x1d44476d62ea7d8065a71c8f9d6fa69a57a5d0e6baca8c4e5a7c7e6185493fb1
-uint32_t add_mod_256_res_3_tab [8] = {0x85493fb1, 0x5a7c7e61, 0xbaca8c4e, 0x57a5d0e6, 0x9d6fa69a, 0x65a71c8f, 0x62ea7d80, 0x1d44476d};
+//variable 'add_mod_256_res_3' value: 0x86fe8bd82fc4bc93df5bb2752d70095b58d23c24636cea31091d09fb74f40439
+uint32_t add_mod_256_res_3_tab [8] = {0x74f40439, 0x091d09fb, 0x636cea31, 0x58d23c24, 0x2d70095b, 0xdf5bb275, 0x2fc4bc93, 0x86fe8bd8};
 bn_uint_t add_mod_256_res_3= {.number = add_mod_256_res_3_tab, .length = 8};
-//variable 'add_mod_256_a_4' value: 0x85a6845932d76971d6f5497d9349d2218057980628528da448a0d3a1dde9578c
-uint32_t add_mod_256_a_4_tab [8] = {0xdde9578c, 0x48a0d3a1, 0x28528da4, 0x80579806, 0x9349d221, 0xd6f5497d, 0x32d76971, 0x85a68459};
+//variable 'add_mod_256_a_4' value: 0x6dec2a41af2b9d7239b68140745c0523c0118c755d1f700c587c7a03e96e6dd1
+uint32_t add_mod_256_a_4_tab [8] = {0xe96e6dd1, 0x587c7a03, 0x5d1f700c, 0xc0118c75, 0x745c0523, 0x39b68140, 0xaf2b9d72, 0x6dec2a41};
 bn_uint_t add_mod_256_a_4= {.number = add_mod_256_a_4_tab, .length = 8};
-//variable 'add_mod_256_b_4' value: 0x5134f759a61202d75d757793c558cc168e81c289fa80da7014019e7de7e5f651
-uint32_t add_mod_256_b_4_tab [8] = {0xe7e5f651, 0x14019e7d, 0xfa80da70, 0x8e81c289, 0xc558cc16, 0x5d757793, 0xa61202d7, 0x5134f759};
+//variable 'add_mod_256_b_4' value: 0x16f3e0de415c770215b98b03f67bb3c6899b2f07a0ddc3089c7dea02c3c3c4b1
+uint32_t add_mod_256_b_4_tab [8] = {0xc3c3c4b1, 0x9c7dea02, 0xa0ddc308, 0x899b2f07, 0xf67bb3c6, 0x15b98b03, 0x415c7702, 0x16f3e0de};
 bn_uint_t add_mod_256_b_4= {.number = add_mod_256_b_4_tab, .length = 8};
-//variable 'add_mod_256_p_4' value: 0x622b257c36c42509ea4009cc42d4b42e6d8400e647e12d5b5cd7a36473e12ab9
-uint32_t add_mod_256_p_4_tab [8] = {0x73e12ab9, 0x5cd7a364, 0x47e12d5b, 0x6d8400e6, 0x42d4b42e, 0xea4009cc, 0x36c42509, 0x622b257c};
+//variable 'add_mod_256_p_4' value: 0x5f59df4ba81388e3591888dc0ea1b0ba7cfde891d81f958f86a3d6a92d36e2f7
+uint32_t add_mod_256_p_4_tab [8] = {0x2d36e2f7, 0x86a3d6a9, 0xd81f958f, 0x7cfde891, 0x0ea1b0ba, 0x591888dc, 0xa81388e3, 0x5f59df4b};
 bn_uint_t add_mod_256_p_4= {.number = add_mod_256_p_4_tab, .length = 8};
-//variable 'add_mod_256_res_4' value: 0x128530ba6b6122355feaad78d2f935db33d158c393110d5da2f32b56de0cf86b
-uint32_t add_mod_256_res_4_tab [8] = {0xde0cf86b, 0xa2f32b56, 0x93110d5d, 0x33d158c3, 0xd2f935db, 0x5feaad78, 0x6b612235, 0x128530ba};
+//variable 'add_mod_256_res_4' value: 0x25862bd448748b90f65783685c36082fccaed2eb25dd9d856e568d5d7ffb4f8b
+uint32_t add_mod_256_res_4_tab [8] = {0x7ffb4f8b, 0x6e568d5d, 0x25dd9d85, 0xccaed2eb, 0x5c36082f, 0xf6578368, 0x48748b90, 0x25862bd4};
 bn_uint_t add_mod_256_res_4= {.number = add_mod_256_res_4_tab, .length = 8};
-//variable 'add_mod_256_a_5' value: 0x5df091fb398b7588d2a09d86685750503be9688a1083cf8a1efb224de6e76203
-uint32_t add_mod_256_a_5_tab [8] = {0xe6e76203, 0x1efb224d, 0x1083cf8a, 0x3be9688a, 0x68575050, 0xd2a09d86, 0x398b7588, 0x5df091fb};
+//variable 'add_mod_256_a_5' value: 0x288e281f0357298b7cfc5d641388ff3d901fe0fd3b5f50cc91e89ba5176d43b4
+uint32_t add_mod_256_a_5_tab [8] = {0x176d43b4, 0x91e89ba5, 0x3b5f50cc, 0x901fe0fd, 0x1388ff3d, 0x7cfc5d64, 0x0357298b, 0x288e281f};
 bn_uint_t add_mod_256_a_5= {.number = add_mod_256_a_5_tab, .length = 8};
-//variable 'add_mod_256_b_5' value: 0x9a136b5e8fd49a592ba790eedf635adb59fea66906d701d8a1659b234b3bcf2c
-uint32_t add_mod_256_b_5_tab [8] = {0x4b3bcf2c, 0xa1659b23, 0x06d701d8, 0x59fea669, 0xdf635adb, 0x2ba790ee, 0x8fd49a59, 0x9a136b5e};
+//variable 'add_mod_256_b_5' value: 0x5a3337681c819ce63c5ec695dc496f1f907be1521b6c4a031747d1da3c266744
+uint32_t add_mod_256_b_5_tab [8] = {0x3c266744, 0x1747d1da, 0x1b6c4a03, 0x907be152, 0xdc496f1f, 0x3c5ec695, 0x1c819ce6, 0x5a333768};
 bn_uint_t add_mod_256_b_5= {.number = add_mod_256_b_5_tab, .length = 8};
-//variable 'add_mod_256_p_5' value: 0x19d0f98f40b8d7b192eb997f9ab192fd56f6f1f40c00d9ecaa79d5f4d7f6c73e
-uint32_t add_mod_256_p_5_tab [8] = {0xd7f6c73e, 0xaa79d5f4, 0x0c00d9ec, 0x56f6f1f4, 0x9ab192fd, 0x92eb997f, 0x40b8d7b1, 0x19d0f98f};
+//variable 'add_mod_256_p_5' value: 0x686c01e39757912effe0eb84a6eff776b66b51c93d6fbe7f9fbcbf691fd6d214
+uint32_t add_mod_256_p_5_tab [8] = {0x1fd6d214, 0x9fbcbf69, 0x3d6fbe7f, 0xb66b51c9, 0xa6eff776, 0xffe0eb84, 0x9757912e, 0x686c01e3};
 bn_uint_t add_mod_256_p_5= {.number = add_mod_256_p_5_tab, .length = 8};
-//variable 'add_mod_256_res_5' value: 0xfab375082e07aa3d3ffc8f8d77c804387398d5eab532810c21837d59a763001
-uint32_t add_mod_256_res_5_tab [8] = {0x9a763001, 0xc21837d5, 0xab532810, 0x87398d5e, 0xd77c8043, 0xd3ffc8f8, 0x82e07aa3, 0xfab3750};
+//variable 'add_mod_256_res_5' value: 0x1a555da388813542b97a387548e276e66a307086195bdc500973ae1633bcd8e4
+uint32_t add_mod_256_res_5_tab [8] = {0x33bcd8e4, 0x0973ae16, 0x195bdc50, 0x6a307086, 0x48e276e6, 0xb97a3875, 0x88813542, 0x1a555da3};
 bn_uint_t add_mod_256_res_5= {.number = add_mod_256_res_5_tab, .length = 8};
-//variable 'add_mod_256_a_6' value: 0x8b7582c857a988bc36cf3a22ef8970ad9c12f1bfde9308f5996a1f123dd8618c
-uint32_t add_mod_256_a_6_tab [8] = {0x3dd8618c, 0x996a1f12, 0xde9308f5, 0x9c12f1bf, 0xef8970ad, 0x36cf3a22, 0x57a988bc, 0x8b7582c8};
+//variable 'add_mod_256_a_6' value: 0x3c7d0df0b7b0b231c9422054666c1deeead26ccc0a38a08f590f63aa512fefff
+uint32_t add_mod_256_a_6_tab [8] = {0x512fefff, 0x590f63aa, 0x0a38a08f, 0xead26ccc, 0x666c1dee, 0xc9422054, 0xb7b0b231, 0x3c7d0df0};
 bn_uint_t add_mod_256_a_6= {.number = add_mod_256_a_6_tab, .length = 8};
-//variable 'add_mod_256_b_6' value: 0x256ecfb71922a457c4a70c041e511484fa88e42dbd96460224b4ff2e01d408d2
-uint32_t add_mod_256_b_6_tab [8] = {0x01d408d2, 0x24b4ff2e, 0xbd964602, 0xfa88e42d, 0x1e511484, 0xc4a70c04, 0x1922a457, 0x256ecfb7};
+//variable 'add_mod_256_b_6' value: 0xb3d3e22ee7c5e6679db84de6eac5927b19c08b91d76ae986a83d2d9f79ba627d
+uint32_t add_mod_256_b_6_tab [8] = {0x79ba627d, 0xa83d2d9f, 0xd76ae986, 0x19c08b91, 0xeac5927b, 0x9db84de6, 0xe7c5e667, 0xb3d3e22e};
 bn_uint_t add_mod_256_b_6= {.number = add_mod_256_b_6_tab, .length = 8};
-//variable 'add_mod_256_p_6' value: 0x64d1df77a173f90b841769cc1c9b97ee0060e02dd93e5e3b8f958537a3d8141e
-uint32_t add_mod_256_p_6_tab [8] = {0xa3d8141e, 0x8f958537, 0xd93e5e3b, 0x0060e02d, 0x1c9b97ee, 0x841769cc, 0xa173f90b, 0x64d1df77};
+//variable 'add_mod_256_p_6' value: 0x29714047962c31f394a936816e53974401edd62d4eda0a3aa3255171baa4cced
+uint32_t add_mod_256_p_6_tab [8] = {0xbaa4cced, 0xa3255171, 0x4eda0a3a, 0x01edd62d, 0x6e539744, 0x94a93681, 0x962c31f3, 0x29714047};
 bn_uint_t add_mod_256_p_6= {.number = add_mod_256_p_6_tab, .length = 8};
-//variable 'add_mod_256_res_6' value: 0x4c127307cf583408775edc5af13eed44963af5bfc2eaf0bc2e8999089bd45640
-uint32_t add_mod_256_res_6_tab [8] = {0x9bd45640, 0x2e899908, 0xc2eaf0bc, 0x963af5bf, 0xf13eed44, 0x775edc5a, 0xcf583408, 0x4c127307};
+//variable 'add_mod_256_res_6' value: 0x211aaeb9b0999ed77fac5db4298fbc15faedc97b576156f0d191fa1125b251db
+uint32_t add_mod_256_res_6_tab [8] = {0x25b251db, 0xd191fa11, 0x576156f0, 0xfaedc97b, 0x298fbc15, 0x7fac5db4, 0xb0999ed7, 0x211aaeb9};
 bn_uint_t add_mod_256_res_6= {.number = add_mod_256_res_6_tab, .length = 8};
-//variable 'add_mod_256_a_7' value: 0x140503505423d01d0656a112913b84698612e71bcf49119ce9ca357fbcf3810b
-uint32_t add_mod_256_a_7_tab [8] = {0xbcf3810b, 0xe9ca357f, 0xcf49119c, 0x8612e71b, 0x913b8469, 0x0656a112, 0x5423d01d, 0x14050350};
+//variable 'add_mod_256_a_7' value: 0x304d966209dd36fa5c3bd5a5e1725157fe0231377f2fc208a696eadb70b9810a
+uint32_t add_mod_256_a_7_tab [8] = {0x70b9810a, 0xa696eadb, 0x7f2fc208, 0xfe023137, 0xe1725157, 0x5c3bd5a5, 0x09dd36fa, 0x304d9662};
 bn_uint_t add_mod_256_a_7= {.number = add_mod_256_a_7_tab, .length = 8};
-//variable 'add_mod_256_b_7' value: 0xdeffc37fa71129d5e9abf31f763044f1d4b94b02cc48a2dea7c0e5ceea5af809
-uint32_t add_mod_256_b_7_tab [8] = {0xea5af809, 0xa7c0e5ce, 0xcc48a2de, 0xd4b94b02, 0x763044f1, 0xe9abf31f, 0xa71129d5, 0xdeffc37f};
+//variable 'add_mod_256_b_7' value: 0x933c1a55ce44216722f85966a23491ddfcf574141de8224513cd209e2451e6ef
+uint32_t add_mod_256_b_7_tab [8] = {0x2451e6ef, 0x13cd209e, 0x1de82245, 0xfcf57414, 0xa23491dd, 0x22f85966, 0xce442167, 0x933c1a55};
 bn_uint_t add_mod_256_b_7= {.number = add_mod_256_b_7_tab, .length = 8};
-//variable 'add_mod_256_p_7' value: 0x1cf2a381193e58a5ba76dc059dc391a9ec0ad77d81a0d3a8d6a271f1bf361946
-uint32_t add_mod_256_p_7_tab [8] = {0xbf361946, 0xd6a271f1, 0x81a0d3a8, 0xec0ad77d, 0x9dc391a9, 0xba76dc05, 0x193e58a5, 0x1cf2a381};
+//variable 'add_mod_256_p_7' value: 0xb309ef15c1f3e9c536ed19db795ad1db11e427299af1d1655abd9fd2fa2b16e5
+uint32_t add_mod_256_p_7_tab [8] = {0xfa2b16e5, 0x5abd9fd2, 0x9af1d165, 0x11e42729, 0x795ad1db, 0x36ed19db, 0xc1f3e9c5, 0xb309ef15};
 bn_uint_t add_mod_256_p_7= {.number = add_mod_256_p_7_tab, .length = 8};
-//variable 'add_mod_256_res_7' value: 0xb6faac7314234c51c4bb405194f3c0bfa7576328e8b1734dc778bc0ad9daee4
-uint32_t add_mod_256_res_7_tab [8] = {0xad9daee4, 0xdc778bc0, 0x8e8b1734, 0xfa757632, 0x194f3c0b, 0x1c4bb405, 0x314234c5, 0xb6faac7};
+//variable 'add_mod_256_res_7' value: 0x107fc1a2162d6e9c484715310a4c115ae9137e22022612e85fa66ba69ae05114
+uint32_t add_mod_256_res_7_tab [8] = {0x9ae05114, 0x5fa66ba6, 0x022612e8, 0xe9137e22, 0x0a4c115a, 0x48471531, 0x162d6e9c, 0x107fc1a2};
 bn_uint_t add_mod_256_res_7= {.number = add_mod_256_res_7_tab, .length = 8};
-//variable 'add_mod_256_a_8' value: 0x4b5d2a61c12e434986341f82110d953919772a566e65544892df8e175c68ae5b
-uint32_t add_mod_256_a_8_tab [8] = {0x5c68ae5b, 0x92df8e17, 0x6e655448, 0x19772a56, 0x110d9539, 0x86341f82, 0xc12e4349, 0x4b5d2a61};
+//variable 'add_mod_256_a_8' value: 0xdb785647c56fbd03476806f3bc65beff1cbbe65325b79d9b8d2c432825553ef7
+uint32_t add_mod_256_a_8_tab [8] = {0x25553ef7, 0x8d2c4328, 0x25b79d9b, 0x1cbbe653, 0xbc65beff, 0x476806f3, 0xc56fbd03, 0xdb785647};
 bn_uint_t add_mod_256_a_8= {.number = add_mod_256_a_8_tab, .length = 8};
-//variable 'add_mod_256_b_8' value: 0xff2f8f4373130e6854b4737c73c45bc362d0709265656b229fcc2ec268b7e1ec
-uint32_t add_mod_256_b_8_tab [8] = {0x68b7e1ec, 0x9fcc2ec2, 0x65656b22, 0x62d07092, 0x73c45bc3, 0x54b4737c, 0x73130e68, 0xff2f8f43};
+//variable 'add_mod_256_b_8' value: 0xa8ad68bdf91f3e44716379c88c5d937998c57828505480efeb9283c3c14ea6f0
+uint32_t add_mod_256_b_8_tab [8] = {0xc14ea6f0, 0xeb9283c3, 0x505480ef, 0x98c57828, 0x8c5d9379, 0x716379c8, 0xf91f3e44, 0xa8ad68bd};
 bn_uint_t add_mod_256_b_8= {.number = add_mod_256_b_8_tab, .length = 8};
-//variable 'add_mod_256_p_8' value: 0x52bac8921d1e88a5d78e6de9cc2359d2224f9124bc4ee87aa39fb6a651dac926
-uint32_t add_mod_256_p_8_tab [8] = {0x51dac926, 0xa39fb6a6, 0xbc4ee87a, 0x224f9124, 0xcc2359d2, 0xd78e6de9, 0x1d1e88a5, 0x52bac892};
+//variable 'add_mod_256_p_8' value: 0xaa2b3b043a267122694f218eff777b68308b4f11aee5f6d7e3a58c2d72ca8edd
+uint32_t add_mod_256_p_8_tab [8] = {0x72ca8edd, 0xe3a58c2d, 0xaee5f6d7, 0x308b4f11, 0xff777b68, 0x694f218e, 0x3a267122, 0xaa2b3b04};
 bn_uint_t add_mod_256_p_8= {.number = add_mod_256_p_8_tab, .length = 8};
-//variable 'add_mod_256_res_8' value: 0x525c5feedce5b7c0543d49412067e3861558e77a9ede05fb47cc98e6cf9034d5
-uint32_t add_mod_256_res_8_tab [8] = {0xcf9034d5, 0x47cc98e6, 0x9ede05fb, 0x1558e77a, 0x2067e386, 0x543d4941, 0xdce5b7c0, 0x525c5fee};
+//variable 'add_mod_256_res_8' value: 0x2fcf48fd4a421902e62d3d9e49d45ba8546ac058184030dbb173ae91010ec82d
+uint32_t add_mod_256_res_8_tab [8] = {0x010ec82d, 0xb173ae91, 0x184030db, 0x546ac058, 0x49d45ba8, 0xe62d3d9e, 0x4a421902, 0x2fcf48fd};
 bn_uint_t add_mod_256_res_8= {.number = add_mod_256_res_8_tab, .length = 8};
-//variable 'add_mod_256_a_9' value: 0x1652a9d37ff8c213a4ec5423d65883f0e340af2df63c4d8f5fb3b2f57f8b702d
-uint32_t add_mod_256_a_9_tab [8] = {0x7f8b702d, 0x5fb3b2f5, 0xf63c4d8f, 0xe340af2d, 0xd65883f0, 0xa4ec5423, 0x7ff8c213, 0x1652a9d3};
+//variable 'add_mod_256_a_9' value: 0x35b86d90b5aac37c4a49b77bd5824528a7485679987b317ac0ff2b986e41a284
+uint32_t add_mod_256_a_9_tab [8] = {0x6e41a284, 0xc0ff2b98, 0x987b317a, 0xa7485679, 0xd5824528, 0x4a49b77b, 0xb5aac37c, 0x35b86d90};
 bn_uint_t add_mod_256_a_9= {.number = add_mod_256_a_9_tab, .length = 8};
-//variable 'add_mod_256_b_9' value: 0xb85e6e356ce05a7ca05fca323a2cee9291f2fe366fa18b9a0c7df4d34868024b
-uint32_t add_mod_256_b_9_tab [8] = {0x4868024b, 0x0c7df4d3, 0x6fa18b9a, 0x91f2fe36, 0x3a2cee92, 0xa05fca32, 0x6ce05a7c, 0xb85e6e35};
+//variable 'add_mod_256_b_9' value: 0xf8c8580a8ef281588ac73be187796346fc661054dd8cce216c35ee0360b96337
+uint32_t add_mod_256_b_9_tab [8] = {0x60b96337, 0x6c35ee03, 0xdd8cce21, 0xfc661054, 0x87796346, 0x8ac73be1, 0x8ef28158, 0xf8c8580a};
 bn_uint_t add_mod_256_b_9= {.number = add_mod_256_b_9_tab, .length = 8};
-//variable 'add_mod_256_p_9' value: 0xab32c0a48e0988794f2652c7ebbcb42c2652029d2d94daf5640595d45d2c230c
-uint32_t add_mod_256_p_9_tab [8] = {0x5d2c230c, 0x640595d4, 0x2d94daf5, 0x2652029d, 0xebbcb42c, 0x4f2652c7, 0x8e098879, 0xab32c0a4};
+//variable 'add_mod_256_p_9' value: 0x34518cd80db96784bae9ddcfbb2e0b18630c5715ee3e476b0a7212457a78cc6f
+uint32_t add_mod_256_p_9_tab [8] = {0x7a78cc6f, 0x0a721245, 0xee3e476b, 0x630c5715, 0xbb2e0b18, 0xbae9ddcf, 0x0db96784, 0x34518cd8};
 bn_uint_t add_mod_256_p_9= {.number = add_mod_256_p_9_tab, .length = 8};
-//variable 'add_mod_256_res_9' value: 0x237e57645ecf9416f625cb8e24c8be574ee1aac73848fe34082c11f46ac74f6c
-uint32_t add_mod_256_res_9_tab [8] = {0x6ac74f6c, 0x082c11f4, 0x3848fe34, 0x4ee1aac7, 0x24c8be57, 0xf625cb8e, 0x5ecf9416, 0x237e5764};
+//variable 'add_mod_256_res_9' value: 0x28e90562fffe3f3d2e7f9e4eb51570f5b470b360ced09a84f8fabe406a9f0790
+uint32_t add_mod_256_res_9_tab [8] = {0x6a9f0790, 0xf8fabe40, 0xced09a84, 0xb470b360, 0xb51570f5, 0x2e7f9e4e, 0xfffe3f3d, 0x28e90562};
 bn_uint_t add_mod_256_res_9= {.number = add_mod_256_res_9_tab, .length = 8};
 uint32_t add_mod_256_tab_len=10;
 bn_uint_t *add_mod_256_test_tab[10][4]={
@@ -683,125 +683,125 @@ bn_uint_t *add_mod_256_test_tab[10][4]={
 {&add_mod_256_a_8,&add_mod_256_b_8,&add_mod_256_p_8,&add_mod_256_res_8},
 {&add_mod_256_a_9,&add_mod_256_b_9,&add_mod_256_p_9,&add_mod_256_res_9},
 };
-//variable 'sub_mod_128_a_0' value: 0x5ed9c812d8b0dcd9d7c70d05869c3d36
-uint32_t sub_mod_128_a_0_tab [4] = {0x869c3d36, 0xd7c70d05, 0xd8b0dcd9, 0x5ed9c812};
+//variable 'sub_mod_128_a_0' value: 0x86f51b09012daca8ea940aa41e21c850
+uint32_t sub_mod_128_a_0_tab [4] = {0x1e21c850, 0xea940aa4, 0x012daca8, 0x86f51b09};
 bn_uint_t sub_mod_128_a_0= {.number = sub_mod_128_a_0_tab, .length = 4};
-//variable 'sub_mod_128_b_0' value: 0xcba79a356c32a06a04c7b8cc2fd713f8
-uint32_t sub_mod_128_b_0_tab [4] = {0x2fd713f8, 0x04c7b8cc, 0x6c32a06a, 0xcba79a35};
+//variable 'sub_mod_128_b_0' value: 0x473a42f98fa8bd223274bd0c9f5605cf
+uint32_t sub_mod_128_b_0_tab [4] = {0x9f5605cf, 0x3274bd0c, 0x8fa8bd22, 0x473a42f9};
 bn_uint_t sub_mod_128_b_0= {.number = sub_mod_128_b_0_tab, .length = 4};
-//variable 'sub_mod_128_p_0' value: 0x9319556a7aa47564c40e3e1023d0d107
-uint32_t sub_mod_128_p_0_tab [4] = {0x23d0d107, 0xc40e3e10, 0x7aa47564, 0x9319556a};
+//variable 'sub_mod_128_p_0' value: 0x6bfe17bee7250591674d624043213380
+uint32_t sub_mod_128_p_0_tab [4] = {0x43213380, 0x674d6240, 0xe7250591, 0x6bfe17be};
 bn_uint_t sub_mod_128_p_0= {.number = sub_mod_128_p_0_tab, .length = 4};
-//variable 'sub_mod_128_res_0' value: 0x264b8347e722b1d4970d92497a95fa45
-uint32_t sub_mod_128_res_0_tab [4] = {0x7a95fa45, 0x970d9249, 0xe722b1d4, 0x264b8347};
+//variable 'sub_mod_128_res_0' value: 0x3fbad80f7184ef86b81f4d977ecbc281
+uint32_t sub_mod_128_res_0_tab [4] = {0x7ecbc281, 0xb81f4d97, 0x7184ef86, 0x3fbad80f};
 bn_uint_t sub_mod_128_res_0= {.number = sub_mod_128_res_0_tab, .length = 4};
-//variable 'sub_mod_128_a_1' value: 0x7d8d7452b22bb335853c5de0e1bb661b
-uint32_t sub_mod_128_a_1_tab [4] = {0xe1bb661b, 0x853c5de0, 0xb22bb335, 0x7d8d7452};
+//variable 'sub_mod_128_a_1' value: 0x7244fc96883e3cccc3dd494a2150eb4c
+uint32_t sub_mod_128_a_1_tab [4] = {0x2150eb4c, 0xc3dd494a, 0x883e3ccc, 0x7244fc96};
 bn_uint_t sub_mod_128_a_1= {.number = sub_mod_128_a_1_tab, .length = 4};
-//variable 'sub_mod_128_b_1' value: 0x8e969216a18006bc56ac8244ea532b4b
-uint32_t sub_mod_128_b_1_tab [4] = {0xea532b4b, 0x56ac8244, 0xa18006bc, 0x8e969216};
+//variable 'sub_mod_128_b_1' value: 0xf110fd69a9371e0344e0eb1007b12deb
+uint32_t sub_mod_128_b_1_tab [4] = {0x07b12deb, 0x44e0eb10, 0xa9371e03, 0xf110fd69};
 bn_uint_t sub_mod_128_b_1= {.number = sub_mod_128_b_1_tab, .length = 4};
-//variable 'sub_mod_128_p_1' value: 0xf4c2a2bbff8f98eaf88c6948c87e2674
-uint32_t sub_mod_128_p_1_tab [4] = {0xc87e2674, 0xf88c6948, 0xff8f98ea, 0xf4c2a2bb};
+//variable 'sub_mod_128_p_1' value: 0x963cdabe1d57f87ac126d867fb6958d1
+uint32_t sub_mod_128_p_1_tab [4] = {0xfb6958d1, 0xc126d867, 0x1d57f87a, 0x963cdabe};
 bn_uint_t sub_mod_128_p_1= {.number = sub_mod_128_p_1_tab, .length = 4};
-//variable 'sub_mod_128_res_1' value: 0xe3b984f8103b4564271c44e4bfe66144
-uint32_t sub_mod_128_res_1_tab [4] = {0xbfe66144, 0x271c44e4, 0x103b4564, 0xe3b984f8};
+//variable 'sub_mod_128_res_1' value: 0x1770d9eafc5f1744402336a215091632
+uint32_t sub_mod_128_res_1_tab [4] = {0x15091632, 0x402336a2, 0xfc5f1744, 0x1770d9ea};
 bn_uint_t sub_mod_128_res_1= {.number = sub_mod_128_res_1_tab, .length = 4};
-//variable 'sub_mod_128_a_2' value: 0x9f57dfdf8ea8fd52e21e34045e8f864e
-uint32_t sub_mod_128_a_2_tab [4] = {0x5e8f864e, 0xe21e3404, 0x8ea8fd52, 0x9f57dfdf};
+//variable 'sub_mod_128_a_2' value: 0x7ade25538c5fe93588e03ed9bc264e8
+uint32_t sub_mod_128_a_2_tab [4] = {0x9bc264e8, 0x588e03ed, 0x38c5fe93, 0x7ade255};
 bn_uint_t sub_mod_128_a_2= {.number = sub_mod_128_a_2_tab, .length = 4};
-//variable 'sub_mod_128_b_2' value: 0x50604a4b285c92f5efe6d910e883f88f
-uint32_t sub_mod_128_b_2_tab [4] = {0xe883f88f, 0xefe6d910, 0x285c92f5, 0x50604a4b};
+//variable 'sub_mod_128_b_2' value: 0xbab34a13fcfd885b32106d85fea23e72
+uint32_t sub_mod_128_b_2_tab [4] = {0xfea23e72, 0x32106d85, 0xfcfd885b, 0xbab34a13};
 bn_uint_t sub_mod_128_b_2= {.number = sub_mod_128_b_2_tab, .length = 4};
-//variable 'sub_mod_128_p_2' value: 0xe01abfa98302df1c4e6a37f991d261cd
-uint32_t sub_mod_128_p_2_tab [4] = {0x91d261cd, 0x4e6a37f9, 0x8302df1c, 0xe01abfa9};
+//variable 'sub_mod_128_p_2' value: 0xb4c3326f4f1eb870472077682edfafa
+uint32_t sub_mod_128_p_2_tab [4] = {0x82edfafa, 0x04720776, 0xf4f1eb87, 0xb4c3326};
 bn_uint_t sub_mod_128_p_2= {.number = sub_mod_128_p_2_tab, .length = 4};
-//variable 'sub_mod_128_res_2' value: 0x4ef79594664c6a5cf2375af3760b8dbf
-uint32_t sub_mod_128_res_2_tab [4] = {0x760b8dbf, 0xf2375af3, 0x664c6a5c, 0x4ef79594};
+//variable 'sub_mod_128_res_2' value: 0x1bdcab08ae72ea86d9e0dcfcbffd616
+uint32_t sub_mod_128_res_2_tab [4] = {0xcbffd616, 0x6d9e0dcf, 0x8ae72ea8, 0x1bdcab0};
 bn_uint_t sub_mod_128_res_2= {.number = sub_mod_128_res_2_tab, .length = 4};
-//variable 'sub_mod_128_a_3' value: 0xfc6cbb3ae00672abd6f2e27c7c662a49
-uint32_t sub_mod_128_a_3_tab [4] = {0x7c662a49, 0xd6f2e27c, 0xe00672ab, 0xfc6cbb3a};
+//variable 'sub_mod_128_a_3' value: 0xa756dc291a3d070347ef967b0905a610
+uint32_t sub_mod_128_a_3_tab [4] = {0x0905a610, 0x47ef967b, 0x1a3d0703, 0xa756dc29};
 bn_uint_t sub_mod_128_a_3= {.number = sub_mod_128_a_3_tab, .length = 4};
-//variable 'sub_mod_128_b_3' value: 0xa9295fbb5923cd03df1c2dd2e8e13921
-uint32_t sub_mod_128_b_3_tab [4] = {0xe8e13921, 0xdf1c2dd2, 0x5923cd03, 0xa9295fbb};
+//variable 'sub_mod_128_b_3' value: 0x63d0c0ca6977114bc8254cf95db544d7
+uint32_t sub_mod_128_b_3_tab [4] = {0x5db544d7, 0xc8254cf9, 0x6977114b, 0x63d0c0ca};
 bn_uint_t sub_mod_128_b_3= {.number = sub_mod_128_b_3_tab, .length = 4};
-//variable 'sub_mod_128_p_3' value: 0x75a7cc260fb4241530cf79a4009de4d8
-uint32_t sub_mod_128_p_3_tab [4] = {0x009de4d8, 0x30cf79a4, 0x0fb42415, 0x75a7cc26};
+//variable 'sub_mod_128_p_3' value: 0x791c218efe394681e9e93dfd1a5a6586
+uint32_t sub_mod_128_p_3_tab [4] = {0x1a5a6586, 0xe9e93dfd, 0xfe394681, 0x791c218e};
 bn_uint_t sub_mod_128_p_3= {.number = sub_mod_128_p_3_tab, .length = 4};
-//variable 'sub_mod_128_res_3' value: 0x53435b7f86e2a5a7f7d6b4a99384f128
-uint32_t sub_mod_128_res_3_tab [4] = {0x9384f128, 0xf7d6b4a9, 0x86e2a5a7, 0x53435b7f};
+//variable 'sub_mod_128_res_3' value: 0x43861b5eb0c5f5b77fca4981ab506139
+uint32_t sub_mod_128_res_3_tab [4] = {0xab506139, 0x7fca4981, 0xb0c5f5b7, 0x43861b5e};
 bn_uint_t sub_mod_128_res_3= {.number = sub_mod_128_res_3_tab, .length = 4};
-//variable 'sub_mod_128_a_4' value: 0x19ed851c9b4ff178e9bfb17d7335876e
-uint32_t sub_mod_128_a_4_tab [4] = {0x7335876e, 0xe9bfb17d, 0x9b4ff178, 0x19ed851c};
+//variable 'sub_mod_128_a_4' value: 0x9446cc74486759db9d90b7ef835c9da9
+uint32_t sub_mod_128_a_4_tab [4] = {0x835c9da9, 0x9d90b7ef, 0x486759db, 0x9446cc74};
 bn_uint_t sub_mod_128_a_4= {.number = sub_mod_128_a_4_tab, .length = 4};
-//variable 'sub_mod_128_b_4' value: 0x4da1eb90eb19c67d97ff39fd87c9cb2a
-uint32_t sub_mod_128_b_4_tab [4] = {0x87c9cb2a, 0x97ff39fd, 0xeb19c67d, 0x4da1eb90};
+//variable 'sub_mod_128_b_4' value: 0x2fb644eecb8228c2fc78cd9659a9c04b
+uint32_t sub_mod_128_b_4_tab [4] = {0x59a9c04b, 0xfc78cd96, 0xcb8228c2, 0x2fb644ee};
 bn_uint_t sub_mod_128_b_4= {.number = sub_mod_128_b_4_tab, .length = 4};
-//variable 'sub_mod_128_p_4' value: 0xcce8d124da305336fc7e3cb8d1922b38
-uint32_t sub_mod_128_p_4_tab [4] = {0xd1922b38, 0xfc7e3cb8, 0xda305336, 0xcce8d124};
+//variable 'sub_mod_128_p_4' value: 0x286a402c3684ddca253eeba78d2533dc
+uint32_t sub_mod_128_p_4_tab [4] = {0x8d2533dc, 0x253eeba7, 0x3684ddca, 0x286a402c};
 bn_uint_t sub_mod_128_p_4= {.number = sub_mod_128_p_4_tab, .length = 4};
-//variable 'sub_mod_128_res_4' value: 0x99346ab08a667e324e3eb438bcfde77c
-uint32_t sub_mod_128_res_4_tab [4] = {0xbcfde77c, 0x4e3eb438, 0x8a667e32, 0x99346ab0};
+//variable 'sub_mod_128_res_4' value: 0x13bc072d0fdb7584569a130a0f6875a6
+uint32_t sub_mod_128_res_4_tab [4] = {0x0f6875a6, 0x569a130a, 0x0fdb7584, 0x13bc072d};
 bn_uint_t sub_mod_128_res_4= {.number = sub_mod_128_res_4_tab, .length = 4};
-//variable 'sub_mod_128_a_5' value: 0xe1ad940611fff11e43f9c09fb58717e5
-uint32_t sub_mod_128_a_5_tab [4] = {0xb58717e5, 0x43f9c09f, 0x11fff11e, 0xe1ad9406};
+//variable 'sub_mod_128_a_5' value: 0xa1935f9b19e29017d7987ea8b637394e
+uint32_t sub_mod_128_a_5_tab [4] = {0xb637394e, 0xd7987ea8, 0x19e29017, 0xa1935f9b};
 bn_uint_t sub_mod_128_a_5= {.number = sub_mod_128_a_5_tab, .length = 4};
-//variable 'sub_mod_128_b_5' value: 0xef21cf60e6f4852169d26478e0180001
-uint32_t sub_mod_128_b_5_tab [4] = {0xe0180001, 0x69d26478, 0xe6f48521, 0xef21cf60};
+//variable 'sub_mod_128_b_5' value: 0xd47661d75fb7b7c45f4bae99b89260ab
+uint32_t sub_mod_128_b_5_tab [4] = {0xb89260ab, 0x5f4bae99, 0x5fb7b7c4, 0xd47661d7};
 bn_uint_t sub_mod_128_b_5= {.number = sub_mod_128_b_5_tab, .length = 4};
-//variable 'sub_mod_128_p_5' value: 0xf34e548f960ed777d9d89f0c464c6c4f
-uint32_t sub_mod_128_p_5_tab [4] = {0x464c6c4f, 0xd9d89f0c, 0x960ed777, 0xf34e548f};
+//variable 'sub_mod_128_p_5' value: 0x511960715fb0c8afd3eca7d8a3917473
+uint32_t sub_mod_128_p_5_tab [4] = {0xa3917473, 0xd3eca7d8, 0x5fb0c8af, 0x51196071};
 bn_uint_t sub_mod_128_p_5= {.number = sub_mod_128_p_5_tab, .length = 4};
-//variable 'sub_mod_128_res_5' value: 0xe5da1934c11a4374b3fffb331bbb8433
-uint32_t sub_mod_128_res_5_tab [4] = {0x1bbb8433, 0xb3fffb33, 0xc11a4374, 0xe5da1934};
+//variable 'sub_mod_128_res_5' value: 0x1e365e3519dba1034c3977e7a1364d16
+uint32_t sub_mod_128_res_5_tab [4] = {0xa1364d16, 0x4c3977e7, 0x19dba103, 0x1e365e35};
 bn_uint_t sub_mod_128_res_5= {.number = sub_mod_128_res_5_tab, .length = 4};
-//variable 'sub_mod_128_a_6' value: 0x80c933491ab4f178e8a0bef46726ba00
-uint32_t sub_mod_128_a_6_tab [4] = {0x6726ba00, 0xe8a0bef4, 0x1ab4f178, 0x80c93349};
+//variable 'sub_mod_128_a_6' value: 0x84aee5b84a0cd2cc970efecfddbae6bc
+uint32_t sub_mod_128_a_6_tab [4] = {0xddbae6bc, 0x970efecf, 0x4a0cd2cc, 0x84aee5b8};
 bn_uint_t sub_mod_128_a_6= {.number = sub_mod_128_a_6_tab, .length = 4};
-//variable 'sub_mod_128_b_6' value: 0x83d92eb38570640b5542b42dc5927721
-uint32_t sub_mod_128_b_6_tab [4] = {0xc5927721, 0x5542b42d, 0x8570640b, 0x83d92eb3};
+//variable 'sub_mod_128_b_6' value: 0x52692009040bb6e01ef762e204a89276
+uint32_t sub_mod_128_b_6_tab [4] = {0x04a89276, 0x1ef762e2, 0x040bb6e0, 0x52692009};
 bn_uint_t sub_mod_128_b_6= {.number = sub_mod_128_b_6_tab, .length = 4};
-//variable 'sub_mod_128_p_6' value: 0xc8914c77bee6af78baeb12a70764118f
-uint32_t sub_mod_128_p_6_tab [4] = {0x0764118f, 0xbaeb12a7, 0xbee6af78, 0xc8914c77};
+//variable 'sub_mod_128_p_6' value: 0x1246eb23fc4f290a5f8f2f829a4ab49a
+uint32_t sub_mod_128_p_6_tab [4] = {0x9a4ab49a, 0x5f8f2f82, 0xfc4f290a, 0x1246eb23};
 bn_uint_t sub_mod_128_p_6= {.number = sub_mod_128_p_6_tab, .length = 4};
-//variable 'sub_mod_128_res_6' value: 0xc581510d542b3ce64e491d6da8f8546e
-uint32_t sub_mod_128_res_6_tab [4] = {0xa8f8546e, 0x4e491d6d, 0x542b3ce6, 0xc581510d};
+//variable 'sub_mod_128_res_6' value: 0xdb7ef674d62c9d7b8f93ce8a47ceb12
+uint32_t sub_mod_128_res_6_tab [4] = {0xa47ceb12, 0xb8f93ce8, 0x4d62c9d7, 0xdb7ef67};
 bn_uint_t sub_mod_128_res_6= {.number = sub_mod_128_res_6_tab, .length = 4};
-//variable 'sub_mod_128_a_7' value: 0x5c2c14eaddab588981a9f306c8d52560
-uint32_t sub_mod_128_a_7_tab [4] = {0xc8d52560, 0x81a9f306, 0xddab5889, 0x5c2c14ea};
+//variable 'sub_mod_128_a_7' value: 0x67bb77bdc405097db4894f6a7dffd857
+uint32_t sub_mod_128_a_7_tab [4] = {0x7dffd857, 0xb4894f6a, 0xc405097d, 0x67bb77bd};
 bn_uint_t sub_mod_128_a_7= {.number = sub_mod_128_a_7_tab, .length = 4};
-//variable 'sub_mod_128_b_7' value: 0xf744e20e5c4c4e182464d9561c266265
-uint32_t sub_mod_128_b_7_tab [4] = {0x1c266265, 0x2464d956, 0x5c4c4e18, 0xf744e20e};
+//variable 'sub_mod_128_b_7' value: 0x3a695a31529214e34a357ac13254e219
+uint32_t sub_mod_128_b_7_tab [4] = {0x3254e219, 0x4a357ac1, 0x529214e3, 0x3a695a31};
 bn_uint_t sub_mod_128_b_7= {.number = sub_mod_128_b_7_tab, .length = 4};
-//variable 'sub_mod_128_p_7' value: 0x7155ce0dc0a36a4f4a7e6aeabafc3a43
-uint32_t sub_mod_128_p_7_tab [4] = {0xbafc3a43, 0x4a7e6aea, 0xc0a36a4f, 0x7155ce0d};
+//variable 'sub_mod_128_p_7' value: 0xe2383f324c81517dddcb752ab98ce9dc
+uint32_t sub_mod_128_p_7_tab [4] = {0xb98ce9dc, 0xddcb752a, 0x4c81517d, 0xe2383f32};
 bn_uint_t sub_mod_128_p_7= {.number = sub_mod_128_p_7_tab, .length = 4};
-//variable 'sub_mod_128_res_7' value: 0x4792cef802a5df0ff241ef8622a73781
-uint32_t sub_mod_128_res_7_tab [4] = {0x22a73781, 0xf241ef86, 0x02a5df0f, 0x4792cef8};
+//variable 'sub_mod_128_res_7' value: 0x2d521d8c7172f49a6a53d4a94baaf63e
+uint32_t sub_mod_128_res_7_tab [4] = {0x4baaf63e, 0x6a53d4a9, 0x7172f49a, 0x2d521d8c};
 bn_uint_t sub_mod_128_res_7= {.number = sub_mod_128_res_7_tab, .length = 4};
-//variable 'sub_mod_128_a_8' value: 0x4394c70de650bcf4c6615f8b1925af3f
-uint32_t sub_mod_128_a_8_tab [4] = {0x1925af3f, 0xc6615f8b, 0xe650bcf4, 0x4394c70d};
+//variable 'sub_mod_128_a_8' value: 0x8c50fe093e15c535b484e12b356d1442
+uint32_t sub_mod_128_a_8_tab [4] = {0x356d1442, 0xb484e12b, 0x3e15c535, 0x8c50fe09};
 bn_uint_t sub_mod_128_a_8= {.number = sub_mod_128_a_8_tab, .length = 4};
-//variable 'sub_mod_128_b_8' value: 0xd303a7e564daac7909a6b9157f302e09
-uint32_t sub_mod_128_b_8_tab [4] = {0x7f302e09, 0x09a6b915, 0x64daac79, 0xd303a7e5};
+//variable 'sub_mod_128_b_8' value: 0xb028fdd0a5558df604c8f5e071c7017d
+uint32_t sub_mod_128_b_8_tab [4] = {0x71c7017d, 0x04c8f5e0, 0xa5558df6, 0xb028fdd0};
 bn_uint_t sub_mod_128_b_8= {.number = sub_mod_128_b_8_tab, .length = 4};
-//variable 'sub_mod_128_p_8' value: 0x74c92d3090be7f68e5bedbd3a42aa366
-uint32_t sub_mod_128_p_8_tab [4] = {0xa42aa366, 0xe5bedbd3, 0x90be7f68, 0x74c92d30};
+//variable 'sub_mod_128_p_8' value: 0x90ff81489a19cc9f3990d22bbaff3fba
+uint32_t sub_mod_128_p_8_tab [4] = {0xbaff3fba, 0x3990d22b, 0x9a19cc9f, 0x90ff8148};
 bn_uint_t sub_mod_128_p_8= {.number = sub_mod_128_p_8_tab, .length = 4};
-//variable 'sub_mod_128_res_8' value: 0x5a237989a2f30f4d88385e1ce24ac802
-uint32_t sub_mod_128_res_8_tab [4] = {0xe24ac802, 0x88385e1c, 0xa2f30f4d, 0x5a237989};
+//variable 'sub_mod_128_res_8' value: 0x6d27818132da03dee94cbd767ea5527f
+uint32_t sub_mod_128_res_8_tab [4] = {0x7ea5527f, 0xe94cbd76, 0x32da03de, 0x6d278181};
 bn_uint_t sub_mod_128_res_8= {.number = sub_mod_128_res_8_tab, .length = 4};
-//variable 'sub_mod_128_a_9' value: 0xc8f23623611edcb21aaf277ecfe0ee9a
-uint32_t sub_mod_128_a_9_tab [4] = {0xcfe0ee9a, 0x1aaf277e, 0x611edcb2, 0xc8f23623};
+//variable 'sub_mod_128_a_9' value: 0x59de73bcb0ef579a6b958c4b3d025d0f
+uint32_t sub_mod_128_a_9_tab [4] = {0x3d025d0f, 0x6b958c4b, 0xb0ef579a, 0x59de73bc};
 bn_uint_t sub_mod_128_a_9= {.number = sub_mod_128_a_9_tab, .length = 4};
-//variable 'sub_mod_128_b_9' value: 0x43ce6a0f7ab3327da02f94ec35bc40a7
-uint32_t sub_mod_128_b_9_tab [4] = {0x35bc40a7, 0xa02f94ec, 0x7ab3327d, 0x43ce6a0f};
+//variable 'sub_mod_128_b_9' value: 0xe991c2f0f1870837d499bfeeab6844b5
+uint32_t sub_mod_128_b_9_tab [4] = {0xab6844b5, 0xd499bfee, 0xf1870837, 0xe991c2f0};
 bn_uint_t sub_mod_128_b_9= {.number = sub_mod_128_b_9_tab, .length = 4};
-//variable 'sub_mod_128_p_9' value: 0xb5bac768aeb8d51510c8edfbc2b5dfe8
-uint32_t sub_mod_128_p_9_tab [4] = {0xc2b5dfe8, 0x10c8edfb, 0xaeb8d515, 0xb5bac768};
+//variable 'sub_mod_128_p_9' value: 0x62dc78ee76a9f386b1419fbae670dd58
+uint32_t sub_mod_128_p_9_tab [4] = {0xe670dd58, 0xb1419fba, 0x76a9f386, 0x62dc78ee};
 bn_uint_t sub_mod_128_p_9= {.number = sub_mod_128_p_9_tab, .length = 4};
-//variable 'sub_mod_128_res_9' value: 0x8523cc13e66baa347a7f92929a24adf3
-uint32_t sub_mod_128_res_9_tab [4] = {0x9a24adf3, 0x7a7f9292, 0xe66baa34, 0x8523cc13};
+//variable 'sub_mod_128_res_9' value: 0x3605a2a8acbc366ff97f0bd25e7bd30a
+uint32_t sub_mod_128_res_9_tab [4] = {0x5e7bd30a, 0xf97f0bd2, 0xacbc366f, 0x3605a2a8};
 bn_uint_t sub_mod_128_res_9= {.number = sub_mod_128_res_9_tab, .length = 4};
 uint32_t sub_mod_128_tab_len=10;
 bn_uint_t *sub_mod_128_test_tab[10][4]={
@@ -816,125 +816,125 @@ bn_uint_t *sub_mod_128_test_tab[10][4]={
 {&sub_mod_128_a_8,&sub_mod_128_b_8,&sub_mod_128_p_8,&sub_mod_128_res_8},
 {&sub_mod_128_a_9,&sub_mod_128_b_9,&sub_mod_128_p_9,&sub_mod_128_res_9},
 };
-//variable 'sub_mod_256_a_0' value: 0x9ef57f3fbe2e6790726a005b210b43fa7a6604e1c2d6de1ee783993f27e39482
-uint32_t sub_mod_256_a_0_tab [8] = {0x27e39482, 0xe783993f, 0xc2d6de1e, 0x7a6604e1, 0x210b43fa, 0x726a005b, 0xbe2e6790, 0x9ef57f3f};
+//variable 'sub_mod_256_a_0' value: 0xaf06364ee45fcb62a3347ab40abf27fda6e9decc181cb83939c5421b9fdb074c
+uint32_t sub_mod_256_a_0_tab [8] = {0x9fdb074c, 0x39c5421b, 0x181cb839, 0xa6e9decc, 0x0abf27fd, 0xa3347ab4, 0xe45fcb62, 0xaf06364e};
 bn_uint_t sub_mod_256_a_0= {.number = sub_mod_256_a_0_tab, .length = 8};
-//variable 'sub_mod_256_b_0' value: 0x45e09f04786f267377ceac841d315bf2de57ab2248fe1b782f121cc05494825
-uint32_t sub_mod_256_b_0_tab [8] = {0x05494825, 0x82f121cc, 0x248fe1b7, 0x2de57ab2, 0x41d315bf, 0x377ceac8, 0x4786f267, 0x45e09f0};
+//variable 'sub_mod_256_b_0' value: 0xf5a92303359a77ba276e364ee396a3b84e6ac0a864bc19fce3d27fe577cecb88
+uint32_t sub_mod_256_b_0_tab [8] = {0x77cecb88, 0xe3d27fe5, 0x64bc19fc, 0x4e6ac0a8, 0xe396a3b8, 0x276e364e, 0x359a77ba, 0xf5a92303};
 bn_uint_t sub_mod_256_b_0= {.number = sub_mod_256_b_0_tab, .length = 8};
-//variable 'sub_mod_256_p_0' value: 0xa387e6aafb41568ec866a046b7387d4d2e9dd91dd105ab7df645029601919620
-uint32_t sub_mod_256_p_0_tab [8] = {0x01919620, 0xf6450296, 0xd105ab7d, 0x2e9dd91d, 0xb7387d4d, 0xc866a046, 0xfb41568e, 0xa387e6aa};
+//variable 'sub_mod_256_p_0' value: 0xc4d763ecc35f5be351a2bb35cfc7ea4989c3e4e2595e9ac4067358da555e98c
+uint32_t sub_mod_256_p_0_tab [8] = {0xa555e98c, 0x4067358d, 0x2595e9ac, 0x989c3e4e, 0x5cfc7ea4, 0x351a2bb3, 0xcc35f5be, 0xc4d763e};
 bn_uint_t sub_mod_256_p_0= {.number = sub_mod_256_p_0_tab, .length = 8};
-//variable 'sub_mod_256_res_0' value: 0x9a97754f76a775293aed1592df382e3b4c808a2f9e46fc6764927773229a4c5d
-uint32_t sub_mod_256_res_0_tab [8] = {0x229a4c5d, 0x64927773, 0x9e46fc67, 0x4c808a2f, 0xdf382e3b, 0x3aed1592, 0x76a77529, 0x9a97754f};
+//variable 'sub_mod_256_res_0' value: 0x32dd8c47809161dba634a9955137c20ec2893f894e41845d85e0388080fb50c
+uint32_t sub_mod_256_res_0_tab [8] = {0x080fb50c, 0xd85e0388, 0x94e41845, 0xec2893f8, 0x55137c20, 0xba634a99, 0x7809161d, 0x32dd8c4};
 bn_uint_t sub_mod_256_res_0= {.number = sub_mod_256_res_0_tab, .length = 8};
-//variable 'sub_mod_256_a_1' value: 0x7c083f810d88915c8d6bb1f169cbf675f422deca36f85d54e0a851c2eed4f48d
-uint32_t sub_mod_256_a_1_tab [8] = {0xeed4f48d, 0xe0a851c2, 0x36f85d54, 0xf422deca, 0x69cbf675, 0x8d6bb1f1, 0x0d88915c, 0x7c083f81};
+//variable 'sub_mod_256_a_1' value: 0x78502d5fd5a9df8a1f39bb93aecba6d84952daae20464bc2b0bb5277cfe48b35
+uint32_t sub_mod_256_a_1_tab [8] = {0xcfe48b35, 0xb0bb5277, 0x20464bc2, 0x4952daae, 0xaecba6d8, 0x1f39bb93, 0xd5a9df8a, 0x78502d5f};
 bn_uint_t sub_mod_256_a_1= {.number = sub_mod_256_a_1_tab, .length = 8};
-//variable 'sub_mod_256_b_1' value: 0x1f2726aa2001f5476b7d522b066fccda49dabedd8a24733c0e45fc49acb37db6
-uint32_t sub_mod_256_b_1_tab [8] = {0xacb37db6, 0x0e45fc49, 0x8a24733c, 0x49dabedd, 0x066fccda, 0x6b7d522b, 0x2001f547, 0x1f2726aa};
+//variable 'sub_mod_256_b_1' value: 0xfb282705773a5e1f48b83567b505b690455b0dc7884309b7cc076d485ce6e016
+uint32_t sub_mod_256_b_1_tab [8] = {0x5ce6e016, 0xcc076d48, 0x884309b7, 0x455b0dc7, 0xb505b690, 0x48b83567, 0x773a5e1f, 0xfb282705};
 bn_uint_t sub_mod_256_b_1= {.number = sub_mod_256_b_1_tab, .length = 8};
-//variable 'sub_mod_256_p_1' value: 0xbd2e1ceb5e602061dcc8cf17547a109078cc92725a1bf06cea58c9872ecfca51
-uint32_t sub_mod_256_p_1_tab [8] = {0x2ecfca51, 0xea58c987, 0x5a1bf06c, 0x78cc9272, 0x547a1090, 0xdcc8cf17, 0x5e602061, 0xbd2e1ceb};
+//variable 'sub_mod_256_p_1' value: 0x127390649b39e691e8f294441c8db09aa952a245e6a81e63c685571c1e11b9ca
+uint32_t sub_mod_256_p_1_tab [8] = {0x1e11b9ca, 0xc685571c, 0xe6a81e63, 0xa952a245, 0x1c8db09a, 0xe8f29444, 0x9b39e691, 0x12739064};
 bn_uint_t sub_mod_256_p_1= {.number = sub_mod_256_p_1_tab, .length = 8};
-//variable 'sub_mod_256_res_1' value: 0x5ce118d6ed869c1521ee5fc6635c299baa481fecacd3ea18d2625579422176d7
-uint32_t sub_mod_256_res_1_tab [8] = {0x422176d7, 0xd2625579, 0xacd3ea18, 0xaa481fec, 0x635c299b, 0x21ee5fc6, 0xed869c15, 0x5ce118d6};
+//variable 'sub_mod_256_res_1' value: 0x10c4897f383eb5fa1e16284cde33751d4e8cdf15cd44352918de9e10638b796f
+uint32_t sub_mod_256_res_1_tab [8] = {0x638b796f, 0x18de9e10, 0xcd443529, 0x4e8cdf15, 0xde33751d, 0x1e16284c, 0x383eb5fa, 0x10c4897f};
 bn_uint_t sub_mod_256_res_1= {.number = sub_mod_256_res_1_tab, .length = 8};
-//variable 'sub_mod_256_a_2' value: 0x926ea4525162f17a8a43e92b621209a4c048880fa93391a191da206b0debe4d9
-uint32_t sub_mod_256_a_2_tab [8] = {0x0debe4d9, 0x91da206b, 0xa93391a1, 0xc048880f, 0x621209a4, 0x8a43e92b, 0x5162f17a, 0x926ea452};
+//variable 'sub_mod_256_a_2' value: 0xce9fc8fc7da3910f968ece4d74006b21916ba183f313fed88ac3703a03a33624
+uint32_t sub_mod_256_a_2_tab [8] = {0x03a33624, 0x8ac3703a, 0xf313fed8, 0x916ba183, 0x74006b21, 0x968ece4d, 0x7da3910f, 0xce9fc8fc};
 bn_uint_t sub_mod_256_a_2= {.number = sub_mod_256_a_2_tab, .length = 8};
-//variable 'sub_mod_256_b_2' value: 0xfcc1a56e1bc97ddc7df80204568d81aa50f42d6cb653848885311bc2433a5069
-uint32_t sub_mod_256_b_2_tab [8] = {0x433a5069, 0x85311bc2, 0xb6538488, 0x50f42d6c, 0x568d81aa, 0x7df80204, 0x1bc97ddc, 0xfcc1a56e};
+//variable 'sub_mod_256_b_2' value: 0xcda149feee9266cde4ae704d0bf7a4c610c2073085c720e68eb48100f4c9ddbd
+uint32_t sub_mod_256_b_2_tab [8] = {0xf4c9ddbd, 0x8eb48100, 0x85c720e6, 0x10c20730, 0x0bf7a4c6, 0xe4ae704d, 0xee9266cd, 0xcda149fe};
 bn_uint_t sub_mod_256_b_2= {.number = sub_mod_256_b_2_tab, .length = 8};
-//variable 'sub_mod_256_p_2' value: 0xb853faf3eb42fcef81553d4305763de6ce1551c1282483b8bf00a1de352afcf3
-uint32_t sub_mod_256_p_2_tab [8] = {0x352afcf3, 0xbf00a1de, 0x282483b8, 0xce1551c1, 0x05763de6, 0x81553d43, 0xeb42fcef, 0xb853faf3};
+//variable 'sub_mod_256_p_2' value: 0xaf63a000b395d10541b7540155016261e943dd8cb47bd2994c4d0add622ac4e2
+uint32_t sub_mod_256_p_2_tab [8] = {0x622ac4e2, 0x4c4d0add, 0xb47bd299, 0xe943dd8c, 0x55016261, 0x41b75401, 0xb395d105, 0xaf63a000};
 bn_uint_t sub_mod_256_p_2= {.number = sub_mod_256_p_2_tab, .length = 8};
-//variable 'sub_mod_256_res_2' value: 0x4e00f9d820dc708d8da1246a10fac5e13d69ac641b0490d1cba9a686ffdc9163
-uint32_t sub_mod_256_res_2_tab [8] = {0xffdc9163, 0xcba9a686, 0x1b0490d1, 0x3d69ac64, 0x10fac5e1, 0x8da1246a, 0x20dc708d, 0x4e00f9d8};
+//variable 'sub_mod_256_res_2' value: 0xfe7efd8f112a41b1e05e006808c65b80a99a536d4cddf1fc0eef390ed95867
+uint32_t sub_mod_256_res_2_tab [8] = {0x0ed95867, 0xfc0eef39, 0x6d4cddf1, 0x80a99a53, 0x6808c65b, 0xb1e05e00, 0x8f112a41, 0xfe7efd};
 bn_uint_t sub_mod_256_res_2= {.number = sub_mod_256_res_2_tab, .length = 8};
-//variable 'sub_mod_256_a_3' value: 0xc24e46e606926b4c6f723673cf5c3718e92184acf77170c807c9a021207141df
-uint32_t sub_mod_256_a_3_tab [8] = {0x207141df, 0x07c9a021, 0xf77170c8, 0xe92184ac, 0xcf5c3718, 0x6f723673, 0x06926b4c, 0xc24e46e6};
+//variable 'sub_mod_256_a_3' value: 0x12ac64499945008cbd72bf2229c392298a04372fecb1aa674e05b8f91c350b72
+uint32_t sub_mod_256_a_3_tab [8] = {0x1c350b72, 0x4e05b8f9, 0xecb1aa67, 0x8a04372f, 0x29c39229, 0xbd72bf22, 0x9945008c, 0x12ac6449};
 bn_uint_t sub_mod_256_a_3= {.number = sub_mod_256_a_3_tab, .length = 8};
-//variable 'sub_mod_256_b_3' value: 0x938697ee52c7d4220bc720d678bcbda48a6df401e3aa216a3392b1e425f8366d
-uint32_t sub_mod_256_b_3_tab [8] = {0x25f8366d, 0x3392b1e4, 0xe3aa216a, 0x8a6df401, 0x78bcbda4, 0x0bc720d6, 0x52c7d422, 0x938697ee};
+//variable 'sub_mod_256_b_3' value: 0xbe087bde5c1fbe0b1f07cec584eb98c9ab7d60e95fa26afa4a913c37e9829482
+uint32_t sub_mod_256_b_3_tab [8] = {0xe9829482, 0x4a913c37, 0x5fa26afa, 0xab7d60e9, 0x84eb98c9, 0x1f07cec5, 0x5c1fbe0b, 0xbe087bde};
 bn_uint_t sub_mod_256_b_3= {.number = sub_mod_256_b_3_tab, .length = 8};
-//variable 'sub_mod_256_p_3' value: 0xd3ef5721c7ab5de09916ba92a56744f00f700ba5f9ded1bfbfa0639f580479e7
-uint32_t sub_mod_256_p_3_tab [8] = {0x580479e7, 0xbfa0639f, 0xf9ded1bf, 0x0f700ba5, 0xa56744f0, 0x9916ba92, 0xc7ab5de0, 0xd3ef5721};
+//variable 'sub_mod_256_p_3' value: 0x784e2df5c851e58c951f6a1d20f6338cfc5a2505f0cc55f58c6c8d6f98b1b467
+uint32_t sub_mod_256_p_3_tab [8] = {0x98b1b467, 0x8c6c8d6f, 0xf0cc55f5, 0xfc5a2505, 0x20f6338c, 0x951f6a1d, 0xc851e58c, 0x784e2df5};
 bn_uint_t sub_mod_256_p_3= {.number = sub_mod_256_p_3_tab, .length = 8};
-//variable 'sub_mod_256_res_3' value: 0x2ec7aef7b3ca972a63ab159d569f79745eb390ab13c74f5dd436ee3cfa790b72
-uint32_t sub_mod_256_res_3_tab [8] = {0xfa790b72, 0xd436ee3c, 0x13c74f5d, 0x5eb390ab, 0x569f7974, 0x63ab159d, 0xb3ca972a, 0x2ec7aef7};
+//variable 'sub_mod_256_res_3' value: 0x45404456cdc90d9ac8a9c496e6c46079d73b20526ea7eb581c4d97a06415dfbe
+uint32_t sub_mod_256_res_3_tab [8] = {0x6415dfbe, 0x1c4d97a0, 0x6ea7eb58, 0xd73b2052, 0xe6c46079, 0xc8a9c496, 0xcdc90d9a, 0x45404456};
 bn_uint_t sub_mod_256_res_3= {.number = sub_mod_256_res_3_tab, .length = 8};
-//variable 'sub_mod_256_a_4' value: 0xdc242a1449d4b703a30feeee3a7ce1e7f35b06bc74c2636a5d5c513635c010a
-uint32_t sub_mod_256_a_4_tab [8] = {0x635c010a, 0xa5d5c513, 0xc74c2636, 0x7f35b06b, 0xe3a7ce1e, 0x3a30feee, 0x449d4b70, 0xdc242a1};
+//variable 'sub_mod_256_a_4' value: 0x3a658b291559a95b4a7ad39c79ceb98871205ada24940c86a7fc5bd522b84ed3
+uint32_t sub_mod_256_a_4_tab [8] = {0x22b84ed3, 0xa7fc5bd5, 0x24940c86, 0x71205ada, 0x79ceb988, 0x4a7ad39c, 0x1559a95b, 0x3a658b29};
 bn_uint_t sub_mod_256_a_4= {.number = sub_mod_256_a_4_tab, .length = 8};
-//variable 'sub_mod_256_b_4' value: 0xf57241fd9d1dff15bd95e394f835cbd4dd388c4cd1e54d17645a5ce0a6ec5ab5
-uint32_t sub_mod_256_b_4_tab [8] = {0xa6ec5ab5, 0x645a5ce0, 0xd1e54d17, 0xdd388c4c, 0xf835cbd4, 0xbd95e394, 0x9d1dff15, 0xf57241fd};
+//variable 'sub_mod_256_b_4' value: 0xbc1cfa430578955877685ce1dd2e967f84870923adc5bee5d20a9bf08261dc88
+uint32_t sub_mod_256_b_4_tab [8] = {0x8261dc88, 0xd20a9bf0, 0xadc5bee5, 0x84870923, 0xdd2e967f, 0x77685ce1, 0x05789558, 0xbc1cfa43};
 bn_uint_t sub_mod_256_b_4= {.number = sub_mod_256_b_4_tab, .length = 8};
-//variable 'sub_mod_256_p_4' value: 0xc5c7bcb3aadcc30e35af1d97426a6c6b21fc921f1eabe5bdecfa4e2f01129ef6
-uint32_t sub_mod_256_p_4_tab [8] = {0x01129ef6, 0xecfa4e2f, 0x1eabe5bd, 0x21fc921f, 0x426a6c6b, 0x35af1d97, 0xaadcc30e, 0xc5c7bcb3};
+//variable 'sub_mod_256_p_4' value: 0x8f79ccc390a2e116ed34959b03baa9984dcbf83e677832458a9ae478d14cb860
+uint32_t sub_mod_256_p_4_tab [8] = {0xd14cb860, 0x8a9ae478, 0x67783245, 0x4dcbf83e, 0x03baa998, 0xed34959b, 0x90a2e116, 0x8f79ccc3};
 bn_uint_t sub_mod_256_p_4= {.number = sub_mod_256_p_4_tab, .length = 8};
-//variable 'sub_mod_256_res_4' value: 0xa3df7a0afd38d276e7f956887046db1fe5f6485d32bea49b1b700490be94e441
-uint32_t sub_mod_256_res_4_tab [8] = {0xbe94e441, 0x1b700490, 0x32bea49b, 0xe5f6485d, 0x7046db1f, 0xe7f95688, 0xfd38d276, 0xa3df7a0a};
+//variable 'sub_mod_256_res_4' value: 0xdc25da9a083f519c0470c55a05acca13a6549f4de467fe6608ca45d71a32aab
+uint32_t sub_mod_256_res_4_tab [8] = {0x71a32aab, 0x608ca45d, 0xde467fe6, 0x3a6549f4, 0xa05acca1, 0xc0470c55, 0xa083f519, 0xdc25da9};
 bn_uint_t sub_mod_256_res_4= {.number = sub_mod_256_res_4_tab, .length = 8};
-//variable 'sub_mod_256_a_5' value: 0xa9f0e0e82ef7d5cfe2cd3a0e94f45ecf89727005721137e01c0f0ee04354a846
-uint32_t sub_mod_256_a_5_tab [8] = {0x4354a846, 0x1c0f0ee0, 0x721137e0, 0x89727005, 0x94f45ecf, 0xe2cd3a0e, 0x2ef7d5cf, 0xa9f0e0e8};
+//variable 'sub_mod_256_a_5' value: 0xf8dd58efbfb021f4d4059960f188e4240302a53293f863070df42e336b8e4ad0
+uint32_t sub_mod_256_a_5_tab [8] = {0x6b8e4ad0, 0x0df42e33, 0x93f86307, 0x0302a532, 0xf188e424, 0xd4059960, 0xbfb021f4, 0xf8dd58ef};
 bn_uint_t sub_mod_256_a_5= {.number = sub_mod_256_a_5_tab, .length = 8};
-//variable 'sub_mod_256_b_5' value: 0x329a3e046197d25128d16cf77cdd2daa6842bfbf849847b1c317ab0fe6ca859e
-uint32_t sub_mod_256_b_5_tab [8] = {0xe6ca859e, 0xc317ab0f, 0x849847b1, 0x6842bfbf, 0x7cdd2daa, 0x28d16cf7, 0x6197d251, 0x329a3e04};
+//variable 'sub_mod_256_b_5' value: 0x216515ca4e4f033cf4519fa534ae7d30cff9cfed623fcbbd1400792edea539d0
+uint32_t sub_mod_256_b_5_tab [8] = {0xdea539d0, 0x1400792e, 0x623fcbbd, 0xcff9cfed, 0x34ae7d30, 0xf4519fa5, 0x4e4f033c, 0x216515ca};
 bn_uint_t sub_mod_256_b_5= {.number = sub_mod_256_b_5_tab, .length = 8};
-//variable 'sub_mod_256_p_5' value: 0xb4ce3ca7513138d399752a1260f35fce0fb09ed0d3c3f92e1d827575476d838c
-uint32_t sub_mod_256_p_5_tab [8] = {0x476d838c, 0x1d827575, 0xd3c3f92e, 0x0fb09ed0, 0x60f35fce, 0x99752a12, 0x513138d3, 0xb4ce3ca7};
+//variable 'sub_mod_256_p_5' value: 0x5c2f5ebcebf872c9bfeb6d96c3d9cd89b24d5efb3675b15605b3b490037049b
+uint32_t sub_mod_256_p_5_tab [8] = {0x0037049b, 0x605b3b49, 0xb3675b15, 0x9b24d5ef, 0x6c3d9cd8, 0x9bfeb6d9, 0xcebf872c, 0x5c2f5eb};
 bn_uint_t sub_mod_256_p_5= {.number = sub_mod_256_p_5_tab, .length = 8};
-//variable 'sub_mod_256_res_5' value: 0x7756a2e3cd60037eb9fbcd1718173125212fb045ed78f02e58f763d05c8a22a8
-uint32_t sub_mod_256_res_5_tab [8] = {0x5c8a22a8, 0x58f763d0, 0xed78f02e, 0x212fb045, 0x18173125, 0xb9fbcd17, 0xcd60037e, 0x7756a2e3};
+//variable 'sub_mod_256_res_5' value: 0x24ab8108fb2954553e38c4f17f2bba4c6b5e9a043c86d330cc4237784f56699
+uint32_t sub_mod_256_res_5_tab [8] = {0x84f56699, 0x0cc42377, 0x43c86d33, 0xc6b5e9a0, 0x17f2bba4, 0x53e38c4f, 0x8fb29545, 0x24ab810};
 bn_uint_t sub_mod_256_res_5= {.number = sub_mod_256_res_5_tab, .length = 8};
-//variable 'sub_mod_256_a_6' value: 0xc4a73c70c53482749a0d52ad0564b393e442d02da728f89bcc97fbe33b1929ca
-uint32_t sub_mod_256_a_6_tab [8] = {0x3b1929ca, 0xcc97fbe3, 0xa728f89b, 0xe442d02d, 0x0564b393, 0x9a0d52ad, 0xc5348274, 0xc4a73c70};
+//variable 'sub_mod_256_a_6' value: 0x24e8a3f589f06888c08230a9c5f88a46380c113a50c2ce935a079b515179a5ee
+uint32_t sub_mod_256_a_6_tab [8] = {0x5179a5ee, 0x5a079b51, 0x50c2ce93, 0x380c113a, 0xc5f88a46, 0xc08230a9, 0x89f06888, 0x24e8a3f5};
 bn_uint_t sub_mod_256_a_6= {.number = sub_mod_256_a_6_tab, .length = 8};
-//variable 'sub_mod_256_b_6' value: 0xe00cf58472423f03565063f7f0f1b0a14462a3f3bc1bb91db21b824f154cc208
-uint32_t sub_mod_256_b_6_tab [8] = {0x154cc208, 0xb21b824f, 0xbc1bb91d, 0x4462a3f3, 0xf0f1b0a1, 0x565063f7, 0x72423f03, 0xe00cf584};
+//variable 'sub_mod_256_b_6' value: 0x2750dbbfdd1bee9012e3b107c6b9e35a52f86a9d4b5f4f10cf6de88bae868886
+uint32_t sub_mod_256_b_6_tab [8] = {0xae868886, 0xcf6de88b, 0x4b5f4f10, 0x52f86a9d, 0xc6b9e35a, 0x12e3b107, 0xdd1bee90, 0x2750dbbf};
 bn_uint_t sub_mod_256_b_6= {.number = sub_mod_256_b_6_tab, .length = 8};
-//variable 'sub_mod_256_p_6' value: 0xa93a57a3ae20c22fb105b2fbad8f66885b2307fed59f39e8c37645bfc3f4258d
-uint32_t sub_mod_256_p_6_tab [8] = {0xc3f4258d, 0xc37645bf, 0xd59f39e8, 0x5b2307fe, 0xad8f6688, 0xb105b2fb, 0xae20c22f, 0xa93a57a3};
+//variable 'sub_mod_256_p_6' value: 0x7991edacc252cfcd086728bcea44b40872cfa47520ab39499b555e6dfa36b202
+uint32_t sub_mod_256_p_6_tab [8] = {0xfa36b202, 0x9b555e6d, 0x20ab3949, 0x72cfa475, 0xea44b408, 0x086728bc, 0xc252cfcd, 0x7991edac};
 bn_uint_t sub_mod_256_p_6= {.number = sub_mod_256_p_6_tab, .length = 8};
-//variable 'sub_mod_256_res_6' value: 0x8dd49e90011305a0f4c2a1b0c202697afb033438c0ac7966ddf2bf53e9c08d4f
-uint32_t sub_mod_256_res_6_tab [8] = {0xe9c08d4f, 0xddf2bf53, 0xc0ac7966, 0xfb033438, 0xc202697a, 0xf4c2a1b0, 0x011305a0, 0x8dd49e90};
+//variable 'sub_mod_256_res_6' value: 0x7729b5e26f2749c5b605a85ee9835af457e34b12260eb8cc25ef11339d29cf6a
+uint32_t sub_mod_256_res_6_tab [8] = {0x9d29cf6a, 0x25ef1133, 0x260eb8cc, 0x57e34b12, 0xe9835af4, 0xb605a85e, 0x6f2749c5, 0x7729b5e2};
 bn_uint_t sub_mod_256_res_6= {.number = sub_mod_256_res_6_tab, .length = 8};
-//variable 'sub_mod_256_a_7' value: 0x40c12650b8e600b22bda9a56e0fa8e5a93f33acdf52838084306518071249c10
-uint32_t sub_mod_256_a_7_tab [8] = {0x71249c10, 0x43065180, 0xf5283808, 0x93f33acd, 0xe0fa8e5a, 0x2bda9a56, 0xb8e600b2, 0x40c12650};
+//variable 'sub_mod_256_a_7' value: 0xffdb3ed2d77eed4f4f9373347a4558bd89349135ca9092804bead64cc005ec2b
+uint32_t sub_mod_256_a_7_tab [8] = {0xc005ec2b, 0x4bead64c, 0xca909280, 0x89349135, 0x7a4558bd, 0x4f937334, 0xd77eed4f, 0xffdb3ed2};
 bn_uint_t sub_mod_256_a_7= {.number = sub_mod_256_a_7_tab, .length = 8};
-//variable 'sub_mod_256_b_7' value: 0xd478e54786ff12096d4b1b09e35b8eaa08906fb76714ea44984d908f02c28e5e
-uint32_t sub_mod_256_b_7_tab [8] = {0x02c28e5e, 0x984d908f, 0x6714ea44, 0x08906fb7, 0xe35b8eaa, 0x6d4b1b09, 0x86ff1209, 0xd478e547};
+//variable 'sub_mod_256_b_7' value: 0x701e314810f3d04172fb6234af10ea56e55266b8b55af97ddf1eee20c09db82a
+uint32_t sub_mod_256_b_7_tab [8] = {0xc09db82a, 0xdf1eee20, 0xb55af97d, 0xe55266b8, 0xaf10ea56, 0x72fb6234, 0x10f3d041, 0x701e3148};
 bn_uint_t sub_mod_256_b_7= {.number = sub_mod_256_b_7_tab, .length = 8};
-//variable 'sub_mod_256_p_7' value: 0xc956dbc65c3b172c31b1a3edfd4ddaa928f8eca701412f1ca53ebf08a1840eb7
-uint32_t sub_mod_256_p_7_tab [8] = {0xa1840eb7, 0xa53ebf08, 0x01412f1c, 0x28f8eca7, 0xfd4ddaa9, 0x31b1a3ed, 0x5c3b172c, 0xc956dbc6};
+//variable 'sub_mod_256_p_7' value: 0x497d071e3ddbb83961efdd1c425669f902a580e4e86d58636bfa6a033a789080
+uint32_t sub_mod_256_p_7_tab [8] = {0x3a789080, 0x6bfa6a03, 0xe86d5863, 0x02a580e4, 0x425669f9, 0x61efdd1c, 0x3ddbb839, 0x497d071e};
 bn_uint_t sub_mod_256_p_7= {.number = sub_mod_256_p_7_tab, .length = 8};
-//variable 'sub_mod_256_res_7' value: 0x359f1ccf8e2205d4f041233afaecda59b45bb7bd8f547ce04ff77ffa0fe61c69
-uint32_t sub_mod_256_res_7_tab [8] = {0x0fe61c69, 0x4ff77ffa, 0x8f547ce0, 0xb45bb7bd, 0xfaecda59, 0xf041233a, 0x8e2205d4, 0x359f1ccf};
+//variable 'sub_mod_256_res_7' value: 0x4640066c88af64d47aa833e388de046da13ca9982cc8409f00d17e28c4efa381
+uint32_t sub_mod_256_res_7_tab [8] = {0xc4efa381, 0x00d17e28, 0x2cc8409f, 0xa13ca998, 0x88de046d, 0x7aa833e3, 0x88af64d4, 0x4640066c};
 bn_uint_t sub_mod_256_res_7= {.number = sub_mod_256_res_7_tab, .length = 8};
-//variable 'sub_mod_256_a_8' value: 0x84351f71da11ee77889f6377671bc960426021952ab83b287c8603ce62b7ead9
-uint32_t sub_mod_256_a_8_tab [8] = {0x62b7ead9, 0x7c8603ce, 0x2ab83b28, 0x42602195, 0x671bc960, 0x889f6377, 0xda11ee77, 0x84351f71};
+//variable 'sub_mod_256_a_8' value: 0x512b2840aac404334bb0fe441bbc03de748f4372755103da3a2619d736bd2ff5
+uint32_t sub_mod_256_a_8_tab [8] = {0x36bd2ff5, 0x3a2619d7, 0x755103da, 0x748f4372, 0x1bbc03de, 0x4bb0fe44, 0xaac40433, 0x512b2840};
 bn_uint_t sub_mod_256_a_8= {.number = sub_mod_256_a_8_tab, .length = 8};
-//variable 'sub_mod_256_b_8' value: 0x7f33e037a707618639ae0c81e4517b3c3972c45fe092541ba58110d2a4216c9f
-uint32_t sub_mod_256_b_8_tab [8] = {0xa4216c9f, 0xa58110d2, 0xe092541b, 0x3972c45f, 0xe4517b3c, 0x39ae0c81, 0xa7076186, 0x7f33e037};
+//variable 'sub_mod_256_b_8' value: 0xab826fb0fcb58d2986e8ef8f5c88e2fe4f0b851c2526e0d9c38f9b8752f3bbb0
+uint32_t sub_mod_256_b_8_tab [8] = {0x52f3bbb0, 0xc38f9b87, 0x2526e0d9, 0x4f0b851c, 0x5c88e2fe, 0x86e8ef8f, 0xfcb58d29, 0xab826fb0};
 bn_uint_t sub_mod_256_b_8= {.number = sub_mod_256_b_8_tab, .length = 8};
-//variable 'sub_mod_256_p_8' value: 0x606cc7a1787bfa23ecbba30557c28ca9cf1259bb0629f8ca901f048b31200674
-uint32_t sub_mod_256_p_8_tab [8] = {0x31200674, 0x901f048b, 0x0629f8ca, 0xcf1259bb, 0x57c28ca9, 0xecbba305, 0x787bfa23, 0x606cc7a1};
+//variable 'sub_mod_256_p_8' value: 0x6bf121f03f74d6eb1d1d513de3bffb5ca2ff38e3108ad478e57f95f0130d16c5
+uint32_t sub_mod_256_p_8_tab [8] = {0x130d16c5, 0xe57f95f0, 0x108ad478, 0xa2ff38e3, 0xe3bffb5c, 0x1d1d513d, 0x3f74d6eb, 0x6bf121f0};
 bn_uint_t sub_mod_256_p_8= {.number = sub_mod_256_p_8_tab, .length = 8};
-//variable 'sub_mod_256_res_8' value: 0x5013f3a330a8cf14ef156f582ca4e2408ed5d354a25e70cd704f2fbbe967e3a
-uint32_t sub_mod_256_res_8_tab [8] = {0xbe967e3a, 0xd704f2fb, 0x4a25e70c, 0x08ed5d35, 0x82ca4e24, 0x4ef156f5, 0x330a8cf1, 0x5013f3a};
+//variable 'sub_mod_256_res_8' value: 0x1199da7fed834df4e1e55ff2a2f31c3cc882f73960b4f7795c16143ff6d68b0a
+uint32_t sub_mod_256_res_8_tab [8] = {0xf6d68b0a, 0x5c16143f, 0x60b4f779, 0xc882f739, 0xa2f31c3c, 0xe1e55ff2, 0xed834df4, 0x1199da7f};
 bn_uint_t sub_mod_256_res_8= {.number = sub_mod_256_res_8_tab, .length = 8};
-//variable 'sub_mod_256_a_9' value: 0x6e3fe78d1b3dd7f8fcd037c6e3061acae36445b3a45613ad4f66e6d48905e310
-uint32_t sub_mod_256_a_9_tab [8] = {0x8905e310, 0x4f66e6d4, 0xa45613ad, 0xe36445b3, 0xe3061aca, 0xfcd037c6, 0x1b3dd7f8, 0x6e3fe78d};
+//variable 'sub_mod_256_a_9' value: 0x9fecd8102b0dcce7d19ad954a63ddf9de2f6a0a9c45be6c266e9b4ce2fc2c6ae
+uint32_t sub_mod_256_a_9_tab [8] = {0x2fc2c6ae, 0x66e9b4ce, 0xc45be6c2, 0xe2f6a0a9, 0xa63ddf9d, 0xd19ad954, 0x2b0dcce7, 0x9fecd810};
 bn_uint_t sub_mod_256_a_9= {.number = sub_mod_256_a_9_tab, .length = 8};
-//variable 'sub_mod_256_b_9' value: 0x7a6fc4b9491d96b67f669763af59c32d11bee01f90e3f74528e4fb2f2e88a995
-uint32_t sub_mod_256_b_9_tab [8] = {0x2e88a995, 0x28e4fb2f, 0x90e3f745, 0x11bee01f, 0xaf59c32d, 0x7f669763, 0x491d96b6, 0x7a6fc4b9};
+//variable 'sub_mod_256_b_9' value: 0x994e7ddcb43589ce0b06c36d76e91b10a304b619b0126cb7d0004b82475c6541
+uint32_t sub_mod_256_b_9_tab [8] = {0x475c6541, 0xd0004b82, 0xb0126cb7, 0xa304b619, 0x76e91b10, 0x0b06c36d, 0xb43589ce, 0x994e7ddc};
 bn_uint_t sub_mod_256_b_9= {.number = sub_mod_256_b_9_tab, .length = 8};
-//variable 'sub_mod_256_p_9' value: 0x1e994ac34f3ba558dab347b18a4f4353f44bbfc3a5cfb19efb70b9e7fa947cd2
-uint32_t sub_mod_256_p_9_tab [8] = {0xfa947cd2, 0xfb70b9e7, 0xa5cfb19e, 0xf44bbfc3, 0x8a4f4353, 0xdab347b1, 0x4f3ba558, 0x1e994ac3};
+//variable 'sub_mod_256_p_9' value: 0xdec96c7875aa5791c7968e2d5159d584fd658ebb0b052846fa36f87609094565
+uint32_t sub_mod_256_p_9_tab [8] = {0x09094565, 0xfa36f876, 0x0b052846, 0xfd658ebb, 0x5159d584, 0xc7968e2d, 0x75aa5791, 0xdec96c78};
 bn_uint_t sub_mod_256_p_9= {.number = sub_mod_256_p_9_tab, .length = 8};
-//variable 'sub_mod_256_res_9' value: 0x12696d97215be69b581ce814bdfb9af1c5f12557b941ce0721f2a58d5511b64d
-uint32_t sub_mod_256_res_9_tab [8] = {0x5511b64d, 0x21f2a58d, 0xb941ce07, 0xc5f12557, 0xbdfb9af1, 0x581ce814, 0x215be69b, 0x12696d97};
+//variable 'sub_mod_256_res_9' value: 0x69e5a3376d84319c69415e72f54c48d3ff1ea9014497a0a96e9694be866616d
+uint32_t sub_mod_256_res_9_tab [8] = {0xe866616d, 0x96e9694b, 0x14497a0a, 0x3ff1ea90, 0x2f54c48d, 0xc69415e7, 0x76d84319, 0x69e5a33};
 bn_uint_t sub_mod_256_res_9= {.number = sub_mod_256_res_9_tab, .length = 8};
 uint32_t sub_mod_256_tab_len=10;
 bn_uint_t *sub_mod_256_test_tab[10][4]={
@@ -949,65 +949,65 @@ bn_uint_t *sub_mod_256_test_tab[10][4]={
 {&sub_mod_256_a_8,&sub_mod_256_b_8,&sub_mod_256_p_8,&sub_mod_256_res_8},
 {&sub_mod_256_a_9,&sub_mod_256_b_9,&sub_mod_256_p_9,&sub_mod_256_res_9},
 };
-//variable 'shr_128_a_0' value: 0x310003e03b0a232b39b9afd7ad1bcfbf
-uint32_t shr_128_a_0_tab [4] = {0xad1bcfbf, 0x39b9afd7, 0x3b0a232b, 0x310003e0};
+//variable 'shr_128_a_0' value: 0x63642e6982d873099026c794892045ee
+uint32_t shr_128_a_0_tab [4] = {0x892045ee, 0x9026c794, 0x82d87309, 0x63642e69};
 bn_uint_t shr_128_a_0= {.number = shr_128_a_0_tab, .length = 4};
-//variable 'shr_128_res_0' value: 0x188001f01d8511959cdcd7ebd68de7df
-uint32_t shr_128_res_0_tab [4] = {0xd68de7df, 0x9cdcd7eb, 0x1d851195, 0x188001f0};
+//variable 'shr_128_res_0' value: 0x31b21734c16c3984c81363ca449022f7
+uint32_t shr_128_res_0_tab [4] = {0x449022f7, 0xc81363ca, 0xc16c3984, 0x31b21734};
 bn_uint_t shr_128_res_0= {.number = shr_128_res_0_tab, .length = 4};
-//variable 'shr_128_a_1' value: 0xe6874bbd6aa2bdd8b8e8d562322c2e8f
-uint32_t shr_128_a_1_tab [4] = {0x322c2e8f, 0xb8e8d562, 0x6aa2bdd8, 0xe6874bbd};
+//variable 'shr_128_a_1' value: 0x6c08cdb91629e6828fdaa5d91eccd501
+uint32_t shr_128_a_1_tab [4] = {0x1eccd501, 0x8fdaa5d9, 0x1629e682, 0x6c08cdb9};
 bn_uint_t shr_128_a_1= {.number = shr_128_a_1_tab, .length = 4};
-//variable 'shr_128_res_1' value: 0x7343a5deb5515eec5c746ab119161747
-uint32_t shr_128_res_1_tab [4] = {0x19161747, 0x5c746ab1, 0xb5515eec, 0x7343a5de};
+//variable 'shr_128_res_1' value: 0x360466dc8b14f34147ed52ec8f666a80
+uint32_t shr_128_res_1_tab [4] = {0x8f666a80, 0x47ed52ec, 0x8b14f341, 0x360466dc};
 bn_uint_t shr_128_res_1= {.number = shr_128_res_1_tab, .length = 4};
-//variable 'shr_128_a_2' value: 0xc3746797f3549945e382ee478ca47648
-uint32_t shr_128_a_2_tab [4] = {0x8ca47648, 0xe382ee47, 0xf3549945, 0xc3746797};
+//variable 'shr_128_a_2' value: 0xba3c31e0896e29dc7c7461c72e842f90
+uint32_t shr_128_a_2_tab [4] = {0x2e842f90, 0x7c7461c7, 0x896e29dc, 0xba3c31e0};
 bn_uint_t shr_128_a_2= {.number = shr_128_a_2_tab, .length = 4};
-//variable 'shr_128_res_2' value: 0x61ba33cbf9aa4ca2f1c17723c6523b24
-uint32_t shr_128_res_2_tab [4] = {0xc6523b24, 0xf1c17723, 0xf9aa4ca2, 0x61ba33cb};
+//variable 'shr_128_res_2' value: 0x5d1e18f044b714ee3e3a30e3974217c8
+uint32_t shr_128_res_2_tab [4] = {0x974217c8, 0x3e3a30e3, 0x44b714ee, 0x5d1e18f0};
 bn_uint_t shr_128_res_2= {.number = shr_128_res_2_tab, .length = 4};
-//variable 'shr_128_a_3' value: 0x2342bc8d908d6cc6a52c7d38bc6943c9
-uint32_t shr_128_a_3_tab [4] = {0xbc6943c9, 0xa52c7d38, 0x908d6cc6, 0x2342bc8d};
+//variable 'shr_128_a_3' value: 0xf476d5c2ea1029248f0015dea2681fd
+uint32_t shr_128_a_3_tab [4] = {0xea2681fd, 0x48f0015d, 0x2ea10292, 0xf476d5c};
 bn_uint_t shr_128_a_3= {.number = shr_128_a_3_tab, .length = 4};
-//variable 'shr_128_res_3' value: 0x11a15e46c846b66352963e9c5e34a1e4
-uint32_t shr_128_res_3_tab [4] = {0x5e34a1e4, 0x52963e9c, 0xc846b663, 0x11a15e46};
+//variable 'shr_128_res_3' value: 0x7a3b6ae17508149247800aef51340fe
+uint32_t shr_128_res_3_tab [4] = {0xf51340fe, 0x247800ae, 0x17508149, 0x7a3b6ae};
 bn_uint_t shr_128_res_3= {.number = shr_128_res_3_tab, .length = 4};
-//variable 'shr_128_a_4' value: 0x5efaf398b8cd1b84c61a927b1f25a538
-uint32_t shr_128_a_4_tab [4] = {0x1f25a538, 0xc61a927b, 0xb8cd1b84, 0x5efaf398};
+//variable 'shr_128_a_4' value: 0x3b8c0d3b681bac7f187be07e0cecf900
+uint32_t shr_128_a_4_tab [4] = {0x0cecf900, 0x187be07e, 0x681bac7f, 0x3b8c0d3b};
 bn_uint_t shr_128_a_4= {.number = shr_128_a_4_tab, .length = 4};
-//variable 'shr_128_res_4' value: 0x2f7d79cc5c668dc2630d493d8f92d29c
-uint32_t shr_128_res_4_tab [4] = {0x8f92d29c, 0x630d493d, 0x5c668dc2, 0x2f7d79cc};
+//variable 'shr_128_res_4' value: 0x1dc6069db40dd63f8c3df03f06767c80
+uint32_t shr_128_res_4_tab [4] = {0x06767c80, 0x8c3df03f, 0xb40dd63f, 0x1dc6069d};
 bn_uint_t shr_128_res_4= {.number = shr_128_res_4_tab, .length = 4};
-//variable 'shr_128_a_5' value: 0xd6a965f694808b059c30882aed7940ac
-uint32_t shr_128_a_5_tab [4] = {0xed7940ac, 0x9c30882a, 0x94808b05, 0xd6a965f6};
+//variable 'shr_128_a_5' value: 0x8725eb3ae768fbd78aa92bb49b14af2d
+uint32_t shr_128_a_5_tab [4] = {0x9b14af2d, 0x8aa92bb4, 0xe768fbd7, 0x8725eb3a};
 bn_uint_t shr_128_a_5= {.number = shr_128_a_5_tab, .length = 4};
-//variable 'shr_128_res_5' value: 0x6b54b2fb4a404582ce18441576bca056
-uint32_t shr_128_res_5_tab [4] = {0x76bca056, 0xce184415, 0x4a404582, 0x6b54b2fb};
+//variable 'shr_128_res_5' value: 0x4392f59d73b47debc55495da4d8a5796
+uint32_t shr_128_res_5_tab [4] = {0x4d8a5796, 0xc55495da, 0x73b47deb, 0x4392f59d};
 bn_uint_t shr_128_res_5= {.number = shr_128_res_5_tab, .length = 4};
-//variable 'shr_128_a_6' value: 0xad613e5c8be4053106272e254b4383cf
-uint32_t shr_128_a_6_tab [4] = {0x4b4383cf, 0x06272e25, 0x8be40531, 0xad613e5c};
+//variable 'shr_128_a_6' value: 0xd36d76a1e3b8c1803b589099ae5656dd
+uint32_t shr_128_a_6_tab [4] = {0xae5656dd, 0x3b589099, 0xe3b8c180, 0xd36d76a1};
 bn_uint_t shr_128_a_6= {.number = shr_128_a_6_tab, .length = 4};
-//variable 'shr_128_res_6' value: 0x56b09f2e45f2029883139712a5a1c1e7
-uint32_t shr_128_res_6_tab [4] = {0xa5a1c1e7, 0x83139712, 0x45f20298, 0x56b09f2e};
+//variable 'shr_128_res_6' value: 0x69b6bb50f1dc60c01dac484cd72b2b6e
+uint32_t shr_128_res_6_tab [4] = {0xd72b2b6e, 0x1dac484c, 0xf1dc60c0, 0x69b6bb50};
 bn_uint_t shr_128_res_6= {.number = shr_128_res_6_tab, .length = 4};
-//variable 'shr_128_a_7' value: 0xb221ea8fa0697c5b3a0d43e004eb6ff0
-uint32_t shr_128_a_7_tab [4] = {0x04eb6ff0, 0x3a0d43e0, 0xa0697c5b, 0xb221ea8f};
+//variable 'shr_128_a_7' value: 0x1d13a97fbb37aa80c24cfb2269430521
+uint32_t shr_128_a_7_tab [4] = {0x69430521, 0xc24cfb22, 0xbb37aa80, 0x1d13a97f};
 bn_uint_t shr_128_a_7= {.number = shr_128_a_7_tab, .length = 4};
-//variable 'shr_128_res_7' value: 0x5910f547d034be2d9d06a1f00275b7f8
-uint32_t shr_128_res_7_tab [4] = {0x0275b7f8, 0x9d06a1f0, 0xd034be2d, 0x5910f547};
+//variable 'shr_128_res_7' value: 0xe89d4bfdd9bd54061267d9134a18290
+uint32_t shr_128_res_7_tab [4] = {0x34a18290, 0x61267d91, 0xdd9bd540, 0xe89d4bf};
 bn_uint_t shr_128_res_7= {.number = shr_128_res_7_tab, .length = 4};
-//variable 'shr_128_a_8' value: 0x529986b22a1996591c97367c64d8ef0
-uint32_t shr_128_a_8_tab [4] = {0xc64d8ef0, 0x91c97367, 0x22a19965, 0x529986b};
+//variable 'shr_128_a_8' value: 0x9b9abbe1cdca0cc0f58ee5bb24c8ee84
+uint32_t shr_128_a_8_tab [4] = {0x24c8ee84, 0xf58ee5bb, 0xcdca0cc0, 0x9b9abbe1};
 bn_uint_t shr_128_a_8= {.number = shr_128_a_8_tab, .length = 4};
-//variable 'shr_128_res_8' value: 0x294cc359150ccb2c8e4b9b3e326c778
-uint32_t shr_128_res_8_tab [4] = {0xe326c778, 0xc8e4b9b3, 0x9150ccb2, 0x294cc35};
+//variable 'shr_128_res_8' value: 0x4dcd5df0e6e506607ac772dd92647742
+uint32_t shr_128_res_8_tab [4] = {0x92647742, 0x7ac772dd, 0xe6e50660, 0x4dcd5df0};
 bn_uint_t shr_128_res_8= {.number = shr_128_res_8_tab, .length = 4};
-//variable 'shr_128_a_9' value: 0xcdfd59225ac0b49b97b81b9143ed6685
-uint32_t shr_128_a_9_tab [4] = {0x43ed6685, 0x97b81b91, 0x5ac0b49b, 0xcdfd5922};
+//variable 'shr_128_a_9' value: 0x88ae6ddf0e673409774b38d25d3994db
+uint32_t shr_128_a_9_tab [4] = {0x5d3994db, 0x774b38d2, 0x0e673409, 0x88ae6ddf};
 bn_uint_t shr_128_a_9= {.number = shr_128_a_9_tab, .length = 4};
-//variable 'shr_128_res_9' value: 0x66feac912d605a4dcbdc0dc8a1f6b342
-uint32_t shr_128_res_9_tab [4] = {0xa1f6b342, 0xcbdc0dc8, 0x2d605a4d, 0x66feac91};
+//variable 'shr_128_res_9' value: 0x445736ef87339a04bba59c692e9cca6d
+uint32_t shr_128_res_9_tab [4] = {0x2e9cca6d, 0xbba59c69, 0x87339a04, 0x445736ef};
 bn_uint_t shr_128_res_9= {.number = shr_128_res_9_tab, .length = 4};
 uint32_t shr_128_tab_len=10;
 bn_uint_t *shr_128_test_tab[10][2]={
@@ -1022,65 +1022,65 @@ bn_uint_t *shr_128_test_tab[10][2]={
 {&shr_128_a_8,&shr_128_res_8},
 {&shr_128_a_9,&shr_128_res_9},
 };
-//variable 'shr_256_a_0' value: 0xabd2e1730764f9fe5cfd6b864a08e0fd779d7f3996e05725c26c430c424dc4d9
-uint32_t shr_256_a_0_tab [8] = {0x424dc4d9, 0xc26c430c, 0x96e05725, 0x779d7f39, 0x4a08e0fd, 0x5cfd6b86, 0x0764f9fe, 0xabd2e173};
+//variable 'shr_256_a_0' value: 0x95a23ad2b2bec58493fc64db36068265324dc7b9708dc97ff3a774b2be3353b6
+uint32_t shr_256_a_0_tab [8] = {0xbe3353b6, 0xf3a774b2, 0x708dc97f, 0x324dc7b9, 0x36068265, 0x93fc64db, 0xb2bec584, 0x95a23ad2};
 bn_uint_t shr_256_a_0= {.number = shr_256_a_0_tab, .length = 8};
-//variable 'shr_256_res_0' value: 0x55e970b983b27cff2e7eb5c32504707ebbcebf9ccb702b92e13621862126e26c
-uint32_t shr_256_res_0_tab [8] = {0x2126e26c, 0xe1362186, 0xcb702b92, 0xbbcebf9c, 0x2504707e, 0x2e7eb5c3, 0x83b27cff, 0x55e970b9};
+//variable 'shr_256_res_0' value: 0x4ad11d69595f62c249fe326d9b0341329926e3dcb846e4bff9d3ba595f19a9db
+uint32_t shr_256_res_0_tab [8] = {0x5f19a9db, 0xf9d3ba59, 0xb846e4bf, 0x9926e3dc, 0x9b034132, 0x49fe326d, 0x595f62c2, 0x4ad11d69};
 bn_uint_t shr_256_res_0= {.number = shr_256_res_0_tab, .length = 8};
-//variable 'shr_256_a_1' value: 0xa817a1c60a37f70b91cac95a38d935eb9f7d83a665ddb28ef6603583297fa47a
-uint32_t shr_256_a_1_tab [8] = {0x297fa47a, 0xf6603583, 0x65ddb28e, 0x9f7d83a6, 0x38d935eb, 0x91cac95a, 0x0a37f70b, 0xa817a1c6};
+//variable 'shr_256_a_1' value: 0xcf01bbd2f955c275f8c0fcdffe7fe929e8177b6554884937dd634ba106363a9f
+uint32_t shr_256_a_1_tab [8] = {0x06363a9f, 0xdd634ba1, 0x54884937, 0xe8177b65, 0xfe7fe929, 0xf8c0fcdf, 0xf955c275, 0xcf01bbd2};
 bn_uint_t shr_256_a_1= {.number = shr_256_a_1_tab, .length = 8};
-//variable 'shr_256_res_1' value: 0x540bd0e3051bfb85c8e564ad1c6c9af5cfbec1d332eed9477b301ac194bfd23d
-uint32_t shr_256_res_1_tab [8] = {0x94bfd23d, 0x7b301ac1, 0x32eed947, 0xcfbec1d3, 0x1c6c9af5, 0xc8e564ad, 0x051bfb85, 0x540bd0e3};
+//variable 'shr_256_res_1' value: 0x6780dde97caae13afc607e6fff3ff494f40bbdb2aa44249beeb1a5d0831b1d4f
+uint32_t shr_256_res_1_tab [8] = {0x831b1d4f, 0xeeb1a5d0, 0xaa44249b, 0xf40bbdb2, 0xff3ff494, 0xfc607e6f, 0x7caae13a, 0x6780dde9};
 bn_uint_t shr_256_res_1= {.number = shr_256_res_1_tab, .length = 8};
-//variable 'shr_256_a_2' value: 0xf783dcffb887fc33a16e55dd324a1210bbde8d86e1b7b2557ba18cb303cc8b27
-uint32_t shr_256_a_2_tab [8] = {0x03cc8b27, 0x7ba18cb3, 0xe1b7b255, 0xbbde8d86, 0x324a1210, 0xa16e55dd, 0xb887fc33, 0xf783dcff};
+//variable 'shr_256_a_2' value: 0x36e3de5c6e679000a71963b39557694ea4f5c8191f1f55771d5bd60f4da9339f
+uint32_t shr_256_a_2_tab [8] = {0x4da9339f, 0x1d5bd60f, 0x1f1f5577, 0xa4f5c819, 0x9557694e, 0xa71963b3, 0x6e679000, 0x36e3de5c};
 bn_uint_t shr_256_a_2= {.number = shr_256_a_2_tab, .length = 8};
-//variable 'shr_256_res_2' value: 0x7bc1ee7fdc43fe19d0b72aee992509085def46c370dbd92abdd0c65981e64593
-uint32_t shr_256_res_2_tab [8] = {0x81e64593, 0xbdd0c659, 0x70dbd92a, 0x5def46c3, 0x99250908, 0xd0b72aee, 0xdc43fe19, 0x7bc1ee7f};
+//variable 'shr_256_res_2' value: 0x1b71ef2e3733c800538cb1d9caabb4a7527ae40c8f8faabb8eadeb07a6d499cf
+uint32_t shr_256_res_2_tab [8] = {0xa6d499cf, 0x8eadeb07, 0x8f8faabb, 0x527ae40c, 0xcaabb4a7, 0x538cb1d9, 0x3733c800, 0x1b71ef2e};
 bn_uint_t shr_256_res_2= {.number = shr_256_res_2_tab, .length = 8};
-//variable 'shr_256_a_3' value: 0xfe22b46dc3e88b7e9198a5a8de511ef59db501330ea2f9785ea41d8e26660361
-uint32_t shr_256_a_3_tab [8] = {0x26660361, 0x5ea41d8e, 0x0ea2f978, 0x9db50133, 0xde511ef5, 0x9198a5a8, 0xc3e88b7e, 0xfe22b46d};
+//variable 'shr_256_a_3' value: 0xac55c59933a1b87f35157e90fb33e08a7f661b8ca251df2b001e64c63713ff79
+uint32_t shr_256_a_3_tab [8] = {0x3713ff79, 0x001e64c6, 0xa251df2b, 0x7f661b8c, 0xfb33e08a, 0x35157e90, 0x33a1b87f, 0xac55c599};
 bn_uint_t shr_256_a_3= {.number = shr_256_a_3_tab, .length = 8};
-//variable 'shr_256_res_3' value: 0x7f115a36e1f445bf48cc52d46f288f7aceda809987517cbc2f520ec7133301b0
-uint32_t shr_256_res_3_tab [8] = {0x133301b0, 0x2f520ec7, 0x87517cbc, 0xceda8099, 0x6f288f7a, 0x48cc52d4, 0xe1f445bf, 0x7f115a36};
+//variable 'shr_256_res_3' value: 0x562ae2cc99d0dc3f9a8abf487d99f0453fb30dc65128ef95800f32631b89ffbc
+uint32_t shr_256_res_3_tab [8] = {0x1b89ffbc, 0x800f3263, 0x5128ef95, 0x3fb30dc6, 0x7d99f045, 0x9a8abf48, 0x99d0dc3f, 0x562ae2cc};
 bn_uint_t shr_256_res_3= {.number = shr_256_res_3_tab, .length = 8};
-//variable 'shr_256_a_4' value: 0x696747586655f28f7cc165b5ee4d2152621086b4abd239a2fc2ea3d87c79b13b
-uint32_t shr_256_a_4_tab [8] = {0x7c79b13b, 0xfc2ea3d8, 0xabd239a2, 0x621086b4, 0xee4d2152, 0x7cc165b5, 0x6655f28f, 0x69674758};
+//variable 'shr_256_a_4' value: 0xdd73f69e7e62151fc173dd6e4a0ca8be9a0185625df8245e6124c865f0bb4335
+uint32_t shr_256_a_4_tab [8] = {0xf0bb4335, 0x6124c865, 0x5df8245e, 0x9a018562, 0x4a0ca8be, 0xc173dd6e, 0x7e62151f, 0xdd73f69e};
 bn_uint_t shr_256_a_4= {.number = shr_256_a_4_tab, .length = 8};
-//variable 'shr_256_res_4' value: 0x34b3a3ac332af947be60b2daf72690a93108435a55e91cd17e1751ec3e3cd89d
-uint32_t shr_256_res_4_tab [8] = {0x3e3cd89d, 0x7e1751ec, 0x55e91cd1, 0x3108435a, 0xf72690a9, 0xbe60b2da, 0x332af947, 0x34b3a3ac};
+//variable 'shr_256_res_4' value: 0x6eb9fb4f3f310a8fe0b9eeb72506545f4d00c2b12efc122f30926432f85da19a
+uint32_t shr_256_res_4_tab [8] = {0xf85da19a, 0x30926432, 0x2efc122f, 0x4d00c2b1, 0x2506545f, 0xe0b9eeb7, 0x3f310a8f, 0x6eb9fb4f};
 bn_uint_t shr_256_res_4= {.number = shr_256_res_4_tab, .length = 8};
-//variable 'shr_256_a_5' value: 0x2e4cdf9c8c280c75e21d529073bd8de482e493c2c06c9b079931df296a970433
-uint32_t shr_256_a_5_tab [8] = {0x6a970433, 0x9931df29, 0xc06c9b07, 0x82e493c2, 0x73bd8de4, 0xe21d5290, 0x8c280c75, 0x2e4cdf9c};
+//variable 'shr_256_a_5' value: 0xac3bd23ba945fa2b007ac27093814faac442a84b1e34182dab679ec1b0061da0
+uint32_t shr_256_a_5_tab [8] = {0xb0061da0, 0xab679ec1, 0x1e34182d, 0xc442a84b, 0x93814faa, 0x007ac270, 0xa945fa2b, 0xac3bd23b};
 bn_uint_t shr_256_a_5= {.number = shr_256_a_5_tab, .length = 8};
-//variable 'shr_256_res_5' value: 0x17266fce4614063af10ea94839dec6f2417249e160364d83cc98ef94b54b8219
-uint32_t shr_256_res_5_tab [8] = {0xb54b8219, 0xcc98ef94, 0x60364d83, 0x417249e1, 0x39dec6f2, 0xf10ea948, 0x4614063a, 0x17266fce};
+//variable 'shr_256_res_5' value: 0x561de91dd4a2fd15803d613849c0a7d5622154258f1a0c16d5b3cf60d8030ed0
+uint32_t shr_256_res_5_tab [8] = {0xd8030ed0, 0xd5b3cf60, 0x8f1a0c16, 0x62215425, 0x49c0a7d5, 0x803d6138, 0xd4a2fd15, 0x561de91d};
 bn_uint_t shr_256_res_5= {.number = shr_256_res_5_tab, .length = 8};
-//variable 'shr_256_a_6' value: 0xb7ba1220bfe4a984485a2fe74b69813c80efab96909c24977ae3fe24b77260fe
-uint32_t shr_256_a_6_tab [8] = {0xb77260fe, 0x7ae3fe24, 0x909c2497, 0x80efab96, 0x4b69813c, 0x485a2fe7, 0xbfe4a984, 0xb7ba1220};
+//variable 'shr_256_a_6' value: 0x457afb7c7e67d5ec4ae1e0907a06f82e883f66f633b1bb0f7e467e076680d211
+uint32_t shr_256_a_6_tab [8] = {0x6680d211, 0x7e467e07, 0x33b1bb0f, 0x883f66f6, 0x7a06f82e, 0x4ae1e090, 0x7e67d5ec, 0x457afb7c};
 bn_uint_t shr_256_a_6= {.number = shr_256_a_6_tab, .length = 8};
-//variable 'shr_256_res_6' value: 0x5bdd09105ff254c2242d17f3a5b4c09e4077d5cb484e124bbd71ff125bb9307f
-uint32_t shr_256_res_6_tab [8] = {0x5bb9307f, 0xbd71ff12, 0x484e124b, 0x4077d5cb, 0xa5b4c09e, 0x242d17f3, 0x5ff254c2, 0x5bdd0910};
+//variable 'shr_256_res_6' value: 0x22bd7dbe3f33eaf62570f0483d037c17441fb37b19d8dd87bf233f03b3406908
+uint32_t shr_256_res_6_tab [8] = {0xb3406908, 0xbf233f03, 0x19d8dd87, 0x441fb37b, 0x3d037c17, 0x2570f048, 0x3f33eaf6, 0x22bd7dbe};
 bn_uint_t shr_256_res_6= {.number = shr_256_res_6_tab, .length = 8};
-//variable 'shr_256_a_7' value: 0x41b82ae33594d50d3f42f234ee504b7ab0e3e2280cd41995f6ff366723b7f399
-uint32_t shr_256_a_7_tab [8] = {0x23b7f399, 0xf6ff3667, 0x0cd41995, 0xb0e3e228, 0xee504b7a, 0x3f42f234, 0x3594d50d, 0x41b82ae3};
+//variable 'shr_256_a_7' value: 0xac069fa73f15bfc29823280502ca452d6251c344bc9c8871aac5f0edffd970de
+uint32_t shr_256_a_7_tab [8] = {0xffd970de, 0xaac5f0ed, 0xbc9c8871, 0x6251c344, 0x02ca452d, 0x98232805, 0x3f15bfc2, 0xac069fa7};
 bn_uint_t shr_256_a_7= {.number = shr_256_a_7_tab, .length = 8};
-//variable 'shr_256_res_7' value: 0x20dc15719aca6a869fa1791a772825bd5871f114066a0ccafb7f9b3391dbf9cc
-uint32_t shr_256_res_7_tab [8] = {0x91dbf9cc, 0xfb7f9b33, 0x066a0cca, 0x5871f114, 0x772825bd, 0x9fa1791a, 0x9aca6a86, 0x20dc1571};
+//variable 'shr_256_res_7' value: 0x56034fd39f8adfe14c11940281652296b128e1a25e4e4438d562f876ffecb86f
+uint32_t shr_256_res_7_tab [8] = {0xffecb86f, 0xd562f876, 0x5e4e4438, 0xb128e1a2, 0x81652296, 0x4c119402, 0x9f8adfe1, 0x56034fd3};
 bn_uint_t shr_256_res_7= {.number = shr_256_res_7_tab, .length = 8};
-//variable 'shr_256_a_8' value: 0x1d211f78b553d0e17bd4d2c6c7a6c65dda4042a27c674d20c591378b6bceeeb1
-uint32_t shr_256_a_8_tab [8] = {0x6bceeeb1, 0xc591378b, 0x7c674d20, 0xda4042a2, 0xc7a6c65d, 0x7bd4d2c6, 0xb553d0e1, 0x1d211f78};
+//variable 'shr_256_a_8' value: 0xc0d1cab8cc73a820d85600dbefdc26d0252254c318d67229f101c5439d1e2ef6
+uint32_t shr_256_a_8_tab [8] = {0x9d1e2ef6, 0xf101c543, 0x18d67229, 0x252254c3, 0xefdc26d0, 0xd85600db, 0xcc73a820, 0xc0d1cab8};
 bn_uint_t shr_256_a_8= {.number = shr_256_a_8_tab, .length = 8};
-//variable 'shr_256_res_8' value: 0xe908fbc5aa9e870bdea696363d3632eed2021513e33a69062c89bc5b5e77758
-uint32_t shr_256_res_8_tab [8] = {0xb5e77758, 0x62c89bc5, 0x3e33a690, 0xed202151, 0x63d3632e, 0xbdea6963, 0x5aa9e870, 0xe908fbc};
+//variable 'shr_256_res_8' value: 0x6068e55c6639d4106c2b006df7ee136812912a618c6b3914f880e2a1ce8f177b
+uint32_t shr_256_res_8_tab [8] = {0xce8f177b, 0xf880e2a1, 0x8c6b3914, 0x12912a61, 0xf7ee1368, 0x6c2b006d, 0x6639d410, 0x6068e55c};
 bn_uint_t shr_256_res_8= {.number = shr_256_res_8_tab, .length = 8};
-//variable 'shr_256_a_9' value: 0x33eaecde5fe80b8dc60caf08c577d3763d57fc7ad8d8334ed4a75e49cf4335b7
-uint32_t shr_256_a_9_tab [8] = {0xcf4335b7, 0xd4a75e49, 0xd8d8334e, 0x3d57fc7a, 0xc577d376, 0xc60caf08, 0x5fe80b8d, 0x33eaecde};
+//variable 'shr_256_a_9' value: 0x10443c66fd426ac14cd28927825c98e5381c464c1d456c6e31769364e8240d9
+uint32_t shr_256_a_9_tab [8] = {0x4e8240d9, 0xe3176936, 0xc1d456c6, 0x5381c464, 0x7825c98e, 0x14cd2892, 0x6fd426ac, 0x10443c6};
 bn_uint_t shr_256_a_9= {.number = shr_256_a_9_tab, .length = 8};
-//variable 'shr_256_res_9' value: 0x19f5766f2ff405c6e306578462bbe9bb1eabfe3d6c6c19a76a53af24e7a19adb
-uint32_t shr_256_res_9_tab [8] = {0xe7a19adb, 0x6a53af24, 0x6c6c19a7, 0x1eabfe3d, 0x62bbe9bb, 0xe3065784, 0x2ff405c6, 0x19f5766f};
+//variable 'shr_256_res_9' value: 0x8221e337ea13560a6694493c12e4c729c0e23260ea2b63718bb49b2741206c
+uint32_t shr_256_res_9_tab [8] = {0x2741206c, 0x718bb49b, 0x60ea2b63, 0x29c0e232, 0x3c12e4c7, 0x0a669449, 0x37ea1356, 0x8221e3};
 bn_uint_t shr_256_res_9= {.number = shr_256_res_9_tab, .length = 8};
 uint32_t shr_256_tab_len=10;
 bn_uint_t *shr_256_test_tab[10][2]={
@@ -1095,95 +1095,95 @@ bn_uint_t *shr_256_test_tab[10][2]={
 {&shr_256_a_8,&shr_256_res_8},
 {&shr_256_a_9,&shr_256_res_9},
 };
-//variable 'inv_mod_128_a_0' value: 0x64208d0e3fb190b04f5bbed9c658cc44
-uint32_t inv_mod_128_a_0_tab [4] = {0xc658cc44, 0x4f5bbed9, 0x3fb190b0, 0x64208d0e};
+//variable 'inv_mod_128_a_0' value: 0x7afb08d919d8e3ae75b88054a875f711
+uint32_t inv_mod_128_a_0_tab [4] = {0xa875f711, 0x75b88054, 0x19d8e3ae, 0x7afb08d9};
 bn_uint_t inv_mod_128_a_0= {.number = inv_mod_128_a_0_tab, .length = 4};
-//variable 'inv_mod_128_p_0' value: 0xdeb2fe15758fe08e0c929fd4f4095605
-uint32_t inv_mod_128_p_0_tab [4] = {0xf4095605, 0x0c929fd4, 0x758fe08e, 0xdeb2fe15};
+//variable 'inv_mod_128_p_0' value: 0xa1161ff679fab8a4fca1c941ba217701
+uint32_t inv_mod_128_p_0_tab [4] = {0xba217701, 0xfca1c941, 0x79fab8a4, 0xa1161ff6};
 bn_uint_t inv_mod_128_p_0= {.number = inv_mod_128_p_0_tab, .length = 4};
-//variable 'inv_mod_128_res_0' value: 0xa1d2768ca2606d0603f066aa5db0fb9a
-uint32_t inv_mod_128_res_0_tab [4] = {0x5db0fb9a, 0x03f066aa, 0xa2606d06, 0xa1d2768c};
+//variable 'inv_mod_128_res_0' value: 0xff6ed29c1c1abb33974da5ab04c8ba1
+uint32_t inv_mod_128_res_0_tab [4] = {0xb04c8ba1, 0x3974da5a, 0xc1c1abb3, 0xff6ed29};
 bn_uint_t inv_mod_128_res_0= {.number = inv_mod_128_res_0_tab, .length = 4};
-//variable 'inv_mod_128_a_1' value: 0x14d5f8648c032d251b4e7ce602d56aa3
-uint32_t inv_mod_128_a_1_tab [4] = {0x02d56aa3, 0x1b4e7ce6, 0x8c032d25, 0x14d5f864};
+//variable 'inv_mod_128_a_1' value: 0x4ae2bb47c8e8cdf6b501eb315ad149fc
+uint32_t inv_mod_128_a_1_tab [4] = {0x5ad149fc, 0xb501eb31, 0xc8e8cdf6, 0x4ae2bb47};
 bn_uint_t inv_mod_128_a_1= {.number = inv_mod_128_a_1_tab, .length = 4};
-//variable 'inv_mod_128_p_1' value: 0x480a70d5c5ccf684dfd38dabdf5e2df3
-uint32_t inv_mod_128_p_1_tab [4] = {0xdf5e2df3, 0xdfd38dab, 0xc5ccf684, 0x480a70d5};
+//variable 'inv_mod_128_p_1' value: 0xda4bfc933c7b33360cd696cd5cce3783
+uint32_t inv_mod_128_p_1_tab [4] = {0x5cce3783, 0x0cd696cd, 0x3c7b3336, 0xda4bfc93};
 bn_uint_t inv_mod_128_p_1= {.number = inv_mod_128_p_1_tab, .length = 4};
-//variable 'inv_mod_128_res_1' value: 0xbf30bc9f4a3c404cd32006f5117f419
-uint32_t inv_mod_128_res_1_tab [4] = {0x5117f419, 0xcd32006f, 0xf4a3c404, 0xbf30bc9};
+//variable 'inv_mod_128_res_1' value: 0x309db0581f9683ccb4de3231ec0bab8e
+uint32_t inv_mod_128_res_1_tab [4] = {0xec0bab8e, 0xb4de3231, 0x1f9683cc, 0x309db058};
 bn_uint_t inv_mod_128_res_1= {.number = inv_mod_128_res_1_tab, .length = 4};
-//variable 'inv_mod_128_a_2' value: 0xbf7af95fcd67fe08fdf6508e1e71bc6c
-uint32_t inv_mod_128_a_2_tab [4] = {0x1e71bc6c, 0xfdf6508e, 0xcd67fe08, 0xbf7af95f};
+//variable 'inv_mod_128_a_2' value: 0x2027995c9925e43b715426ff18655c7f
+uint32_t inv_mod_128_a_2_tab [4] = {0x18655c7f, 0x715426ff, 0x9925e43b, 0x2027995c};
 bn_uint_t inv_mod_128_a_2= {.number = inv_mod_128_a_2_tab, .length = 4};
-//variable 'inv_mod_128_p_2' value: 0xcce6d27e1c856905a9542962a8c37777
-uint32_t inv_mod_128_p_2_tab [4] = {0xa8c37777, 0xa9542962, 0x1c856905, 0xcce6d27e};
+//variable 'inv_mod_128_p_2' value: 0x49efe71b55e4bce66eaafc4286a77789
+uint32_t inv_mod_128_p_2_tab [4] = {0x86a77789, 0x6eaafc42, 0x55e4bce6, 0x49efe71b};
 bn_uint_t inv_mod_128_p_2= {.number = inv_mod_128_p_2_tab, .length = 4};
-//variable 'inv_mod_128_res_2' value: 0x7cc07040c3928d6a09d750aebad38850
-uint32_t inv_mod_128_res_2_tab [4] = {0xbad38850, 0x09d750ae, 0xc3928d6a, 0x7cc07040};
+//variable 'inv_mod_128_res_2' value: 0x47f3c20d842f26188dbe67ff6095e71d
+uint32_t inv_mod_128_res_2_tab [4] = {0x6095e71d, 0x8dbe67ff, 0x842f2618, 0x47f3c20d};
 bn_uint_t inv_mod_128_res_2= {.number = inv_mod_128_res_2_tab, .length = 4};
-//variable 'inv_mod_128_a_3' value: 0xbeb7004e1fc980599c838224b529efa7
-uint32_t inv_mod_128_a_3_tab [4] = {0xb529efa7, 0x9c838224, 0x1fc98059, 0xbeb7004e};
+//variable 'inv_mod_128_a_3' value: 0x9d556726772f86e4508709066342ca35
+uint32_t inv_mod_128_a_3_tab [4] = {0x6342ca35, 0x50870906, 0x772f86e4, 0x9d556726};
 bn_uint_t inv_mod_128_a_3= {.number = inv_mod_128_a_3_tab, .length = 4};
-//variable 'inv_mod_128_p_3' value: 0xdf00d006da54082c003298ee324210ff
-uint32_t inv_mod_128_p_3_tab [4] = {0x324210ff, 0x003298ee, 0xda54082c, 0xdf00d006};
+//variable 'inv_mod_128_p_3' value: 0xc3d0ea5911ec462efe37af22562882b9
+uint32_t inv_mod_128_p_3_tab [4] = {0x562882b9, 0xfe37af22, 0x11ec462e, 0xc3d0ea59};
 bn_uint_t inv_mod_128_p_3= {.number = inv_mod_128_p_3_tab, .length = 4};
-//variable 'inv_mod_128_res_3' value: 0x4491398cae068dd139a5689873bd675d
-uint32_t inv_mod_128_res_3_tab [4] = {0x73bd675d, 0x39a56898, 0xae068dd1, 0x4491398c};
+//variable 'inv_mod_128_res_3' value: 0x2b3956276529118ad87b58a760d4fbf0
+uint32_t inv_mod_128_res_3_tab [4] = {0x60d4fbf0, 0xd87b58a7, 0x6529118a, 0x2b395627};
 bn_uint_t inv_mod_128_res_3= {.number = inv_mod_128_res_3_tab, .length = 4};
-//variable 'inv_mod_128_a_4' value: 0x1e898684d36967ae1c462b935df2a643
-uint32_t inv_mod_128_a_4_tab [4] = {0x5df2a643, 0x1c462b93, 0xd36967ae, 0x1e898684};
+//variable 'inv_mod_128_a_4' value: 0x5db790e848d1f98eb8d1c45aa9b304f7
+uint32_t inv_mod_128_a_4_tab [4] = {0xa9b304f7, 0xb8d1c45a, 0x48d1f98e, 0x5db790e8};
 bn_uint_t inv_mod_128_a_4= {.number = inv_mod_128_a_4_tab, .length = 4};
-//variable 'inv_mod_128_p_4' value: 0xaf0565f564b062537a092c267088ff83
-uint32_t inv_mod_128_p_4_tab [4] = {0x7088ff83, 0x7a092c26, 0x64b06253, 0xaf0565f5};
+//variable 'inv_mod_128_p_4' value: 0xd4f67ff0cd10ee70964ba84973b2076f
+uint32_t inv_mod_128_p_4_tab [4] = {0x73b2076f, 0x964ba849, 0xcd10ee70, 0xd4f67ff0};
 bn_uint_t inv_mod_128_p_4= {.number = inv_mod_128_p_4_tab, .length = 4};
-//variable 'inv_mod_128_res_4' value: 0x75ee255897f26f473ccc091de19185fd
-uint32_t inv_mod_128_res_4_tab [4] = {0xe19185fd, 0x3ccc091d, 0x97f26f47, 0x75ee2558};
+//variable 'inv_mod_128_res_4' value: 0x32c9e03377f095a3dd6202796f6a336
+uint32_t inv_mod_128_res_4_tab [4] = {0x96f6a336, 0x3dd62027, 0x377f095a, 0x32c9e03};
 bn_uint_t inv_mod_128_res_4= {.number = inv_mod_128_res_4_tab, .length = 4};
-//variable 'inv_mod_128_a_5' value: 0x340901451d0ceb5f4a3f060f23d2175d
-uint32_t inv_mod_128_a_5_tab [4] = {0x23d2175d, 0x4a3f060f, 0x1d0ceb5f, 0x34090145};
+//variable 'inv_mod_128_a_5' value: 0xa440acde4503331808074d8a2eb5b12
+uint32_t inv_mod_128_a_5_tab [4] = {0xa2eb5b12, 0x808074d8, 0xe4503331, 0xa440acd};
 bn_uint_t inv_mod_128_a_5= {.number = inv_mod_128_a_5_tab, .length = 4};
-//variable 'inv_mod_128_p_5' value: 0xb2ecbfbae5915431c51d14a4e59bdde7
-uint32_t inv_mod_128_p_5_tab [4] = {0xe59bdde7, 0xc51d14a4, 0xe5915431, 0xb2ecbfba};
+//variable 'inv_mod_128_p_5' value: 0xb74acf8c0ab4826a5bf54f59313c4673
+uint32_t inv_mod_128_p_5_tab [4] = {0x313c4673, 0x5bf54f59, 0x0ab4826a, 0xb74acf8c};
 bn_uint_t inv_mod_128_p_5= {.number = inv_mod_128_p_5_tab, .length = 4};
-//variable 'inv_mod_128_res_5' value: 0xd7d381293465b18fca4aa79a5698770
-uint32_t inv_mod_128_res_5_tab [4] = {0xa5698770, 0xfca4aa79, 0x93465b18, 0xd7d3812};
+//variable 'inv_mod_128_res_5' value: 0x2cebfb14ee36e1bdeac9e547b2dc2ab7
+uint32_t inv_mod_128_res_5_tab [4] = {0xb2dc2ab7, 0xeac9e547, 0xee36e1bd, 0x2cebfb14};
 bn_uint_t inv_mod_128_res_5= {.number = inv_mod_128_res_5_tab, .length = 4};
-//variable 'inv_mod_128_a_6' value: 0xa9e22daf5db9e82ca09672fc2e4177e4
-uint32_t inv_mod_128_a_6_tab [4] = {0x2e4177e4, 0xa09672fc, 0x5db9e82c, 0xa9e22daf};
+//variable 'inv_mod_128_a_6' value: 0x7dd800abbde2c6b8a924832009599dfa
+uint32_t inv_mod_128_a_6_tab [4] = {0x09599dfa, 0xa9248320, 0xbde2c6b8, 0x7dd800ab};
 bn_uint_t inv_mod_128_a_6= {.number = inv_mod_128_a_6_tab, .length = 4};
-//variable 'inv_mod_128_p_6' value: 0xf2e6a132e47c1922e8427259cdd30749
-uint32_t inv_mod_128_p_6_tab [4] = {0xcdd30749, 0xe8427259, 0xe47c1922, 0xf2e6a132};
+//variable 'inv_mod_128_p_6' value: 0xf8d926ce79f9dcc0258b389c6a907913
+uint32_t inv_mod_128_p_6_tab [4] = {0x6a907913, 0x258b389c, 0x79f9dcc0, 0xf8d926ce};
 bn_uint_t inv_mod_128_p_6= {.number = inv_mod_128_p_6_tab, .length = 4};
-//variable 'inv_mod_128_res_6' value: 0x1fa76e8a32545fa84c3d2c3cb8baa4fa
-uint32_t inv_mod_128_res_6_tab [4] = {0xb8baa4fa, 0x4c3d2c3c, 0x32545fa8, 0x1fa76e8a};
+//variable 'inv_mod_128_res_6' value: 0x224f8a860d2734602620651d3e12b2c8
+uint32_t inv_mod_128_res_6_tab [4] = {0x3e12b2c8, 0x2620651d, 0x0d273460, 0x224f8a86};
 bn_uint_t inv_mod_128_res_6= {.number = inv_mod_128_res_6_tab, .length = 4};
-//variable 'inv_mod_128_a_7' value: 0xe481c7f2479e5479d74e62095de47791
-uint32_t inv_mod_128_a_7_tab [4] = {0x5de47791, 0xd74e6209, 0x479e5479, 0xe481c7f2};
+//variable 'inv_mod_128_a_7' value: 0x959ee8cc83e0e8ec5c974cb775ca15ce
+uint32_t inv_mod_128_a_7_tab [4] = {0x75ca15ce, 0x5c974cb7, 0x83e0e8ec, 0x959ee8cc};
 bn_uint_t inv_mod_128_a_7= {.number = inv_mod_128_a_7_tab, .length = 4};
-//variable 'inv_mod_128_p_7' value: 0xf527bd6e6376b4dbb6b6df61cc502949
-uint32_t inv_mod_128_p_7_tab [4] = {0xcc502949, 0xb6b6df61, 0x6376b4db, 0xf527bd6e};
+//variable 'inv_mod_128_p_7' value: 0xeff1e17c52b652828a083e01159b5955
+uint32_t inv_mod_128_p_7_tab [4] = {0x159b5955, 0x8a083e01, 0x52b65282, 0xeff1e17c};
 bn_uint_t inv_mod_128_p_7= {.number = inv_mod_128_p_7_tab, .length = 4};
-//variable 'inv_mod_128_res_7' value: 0xaaed7fd5684cdb9aed031fef71444197
-uint32_t inv_mod_128_res_7_tab [4] = {0x71444197, 0xed031fef, 0x684cdb9a, 0xaaed7fd5};
+//variable 'inv_mod_128_res_7' value: 0x8301f72c8c35503ac4cd96b1fdca3ef0
+uint32_t inv_mod_128_res_7_tab [4] = {0xfdca3ef0, 0xc4cd96b1, 0x8c35503a, 0x8301f72c};
 bn_uint_t inv_mod_128_res_7= {.number = inv_mod_128_res_7_tab, .length = 4};
-//variable 'inv_mod_128_a_8' value: 0x416114354978c1d17abb6ca9ea25e176
-uint32_t inv_mod_128_a_8_tab [4] = {0xea25e176, 0x7abb6ca9, 0x4978c1d1, 0x41611435};
+//variable 'inv_mod_128_a_8' value: 0x67ae6e3df11b32845f2cd6abe9cf5636
+uint32_t inv_mod_128_a_8_tab [4] = {0xe9cf5636, 0x5f2cd6ab, 0xf11b3284, 0x67ae6e3d};
 bn_uint_t inv_mod_128_a_8= {.number = inv_mod_128_a_8_tab, .length = 4};
-//variable 'inv_mod_128_p_8' value: 0xc9e18d950b0d56cf10558461bd507e2b
-uint32_t inv_mod_128_p_8_tab [4] = {0xbd507e2b, 0x10558461, 0x0b0d56cf, 0xc9e18d95};
+//variable 'inv_mod_128_p_8' value: 0xeb88be433d10adcb883a05241c9dec29
+uint32_t inv_mod_128_p_8_tab [4] = {0x1c9dec29, 0x883a0524, 0x3d10adcb, 0xeb88be43};
 bn_uint_t inv_mod_128_p_8= {.number = inv_mod_128_p_8_tab, .length = 4};
-//variable 'inv_mod_128_res_8' value: 0x7b157245d0a125d5102fa565825eda1b
-uint32_t inv_mod_128_res_8_tab [4] = {0x825eda1b, 0x102fa565, 0xd0a125d5, 0x7b157245};
+//variable 'inv_mod_128_res_8' value: 0x9e493456b870389ab6223ae05ca31b01
+uint32_t inv_mod_128_res_8_tab [4] = {0x5ca31b01, 0xb6223ae0, 0xb870389a, 0x9e493456};
 bn_uint_t inv_mod_128_res_8= {.number = inv_mod_128_res_8_tab, .length = 4};
-//variable 'inv_mod_128_a_9' value: 0x2fef42d94ad9887bdc52c6d82407ea2f
-uint32_t inv_mod_128_a_9_tab [4] = {0x2407ea2f, 0xdc52c6d8, 0x4ad9887b, 0x2fef42d9};
+//variable 'inv_mod_128_a_9' value: 0xdda59a7787fe2c7161403e56cdd8373
+uint32_t inv_mod_128_a_9_tab [4] = {0x6cdd8373, 0x161403e5, 0x787fe2c7, 0xdda59a7};
 bn_uint_t inv_mod_128_a_9= {.number = inv_mod_128_a_9_tab, .length = 4};
-//variable 'inv_mod_128_p_9' value: 0x49097ce685fc3ce4320ffca3dc76f491
-uint32_t inv_mod_128_p_9_tab [4] = {0xdc76f491, 0x320ffca3, 0x85fc3ce4, 0x49097ce6};
+//variable 'inv_mod_128_p_9' value: 0x1cef45baebaec73d056c865b7c0bf269
+uint32_t inv_mod_128_p_9_tab [4] = {0x7c0bf269, 0x056c865b, 0xebaec73d, 0x1cef45ba};
 bn_uint_t inv_mod_128_p_9= {.number = inv_mod_128_p_9_tab, .length = 4};
-//variable 'inv_mod_128_res_9' value: 0x8e21ecdc9aca8551f8abaaef2cab3a4
-uint32_t inv_mod_128_res_9_tab [4] = {0xf2cab3a4, 0x1f8abaae, 0xc9aca855, 0x8e21ecd};
+//variable 'inv_mod_128_res_9' value: 0x30264ec6934bd3a9e3d3f8c6a418de9
+uint32_t inv_mod_128_res_9_tab [4] = {0x6a418de9, 0x9e3d3f8c, 0x6934bd3a, 0x30264ec};
 bn_uint_t inv_mod_128_res_9= {.number = inv_mod_128_res_9_tab, .length = 4};
 uint32_t inv_mod_128_tab_len=10;
 bn_uint_t *inv_mod_128_test_tab[10][3]={
@@ -1198,95 +1198,95 @@ bn_uint_t *inv_mod_128_test_tab[10][3]={
 {&inv_mod_128_a_8,&inv_mod_128_p_8,&inv_mod_128_res_8},
 {&inv_mod_128_a_9,&inv_mod_128_p_9,&inv_mod_128_res_9},
 };
-//variable 'inv_mod_256_a_0' value: 0xb22d19cf8a47d3cace8f7bc9c6c273a328153797c77cfa764948fc02ab880e7c
-uint32_t inv_mod_256_a_0_tab [8] = {0xab880e7c, 0x4948fc02, 0xc77cfa76, 0x28153797, 0xc6c273a3, 0xce8f7bc9, 0x8a47d3ca, 0xb22d19cf};
+//variable 'inv_mod_256_a_0' value: 0x3c08e2926f91dc772ac45f61083acc825c9fdea049a902f228cdcf403edf754b
+uint32_t inv_mod_256_a_0_tab [8] = {0x3edf754b, 0x28cdcf40, 0x49a902f2, 0x5c9fdea0, 0x083acc82, 0x2ac45f61, 0x6f91dc77, 0x3c08e292};
 bn_uint_t inv_mod_256_a_0= {.number = inv_mod_256_a_0_tab, .length = 8};
-//variable 'inv_mod_256_p_0' value: 0xba02d86a4444484c8139adacf8d3131b98da4b0fe10fa6b8f178b347785f5e69
-uint32_t inv_mod_256_p_0_tab [8] = {0x785f5e69, 0xf178b347, 0xe10fa6b8, 0x98da4b0f, 0xf8d3131b, 0x8139adac, 0x4444484c, 0xba02d86a};
+//variable 'inv_mod_256_p_0' value: 0xe157d1365aae69dbe1e7e5ea473a82ae7f28ece05d211718a3564d20a03fc9d5
+uint32_t inv_mod_256_p_0_tab [8] = {0xa03fc9d5, 0xa3564d20, 0x5d211718, 0x7f28ece0, 0x473a82ae, 0xe1e7e5ea, 0x5aae69db, 0xe157d136};
 bn_uint_t inv_mod_256_p_0= {.number = inv_mod_256_p_0_tab, .length = 8};
-//variable 'inv_mod_256_res_0' value: 0x4aa72a56bcedbee3c5195acf3bdf798d3daacab507bd4e3d4fb77f19ba8476f0
-uint32_t inv_mod_256_res_0_tab [8] = {0xba8476f0, 0x4fb77f19, 0x07bd4e3d, 0x3daacab5, 0x3bdf798d, 0xc5195acf, 0xbcedbee3, 0x4aa72a56};
+//variable 'inv_mod_256_res_0' value: 0x875952e8f7d857b9cc4afd2325daedcb10ea693509ae84b6558ef02bfbd7157f
+uint32_t inv_mod_256_res_0_tab [8] = {0xfbd7157f, 0x558ef02b, 0x09ae84b6, 0x10ea6935, 0x25daedcb, 0xcc4afd23, 0xf7d857b9, 0x875952e8};
 bn_uint_t inv_mod_256_res_0= {.number = inv_mod_256_res_0_tab, .length = 8};
-//variable 'inv_mod_256_a_1' value: 0xb604dadb52c58f320f08fbd7fd20cbc122d91aa7e3d9480ba7fc514bd899a378
-uint32_t inv_mod_256_a_1_tab [8] = {0xd899a378, 0xa7fc514b, 0xe3d9480b, 0x22d91aa7, 0xfd20cbc1, 0x0f08fbd7, 0x52c58f32, 0xb604dadb};
+//variable 'inv_mod_256_a_1' value: 0x3b78b4d86ef0aee5e3a56087d2942e1dfcda4f45ca7cefb5c48f554ad3e0e856
+uint32_t inv_mod_256_a_1_tab [8] = {0xd3e0e856, 0xc48f554a, 0xca7cefb5, 0xfcda4f45, 0xd2942e1d, 0xe3a56087, 0x6ef0aee5, 0x3b78b4d8};
 bn_uint_t inv_mod_256_a_1= {.number = inv_mod_256_a_1_tab, .length = 8};
-//variable 'inv_mod_256_p_1' value: 0xfee7ac8e73951b2da20c0873ad82ed92d5582c17abb1d5353ab442c9a0828cc5
-uint32_t inv_mod_256_p_1_tab [8] = {0xa0828cc5, 0x3ab442c9, 0xabb1d535, 0xd5582c17, 0xad82ed92, 0xa20c0873, 0x73951b2d, 0xfee7ac8e};
+//variable 'inv_mod_256_p_1' value: 0x728c4693bc2528868965995f6fac638258f162325776e5012b81c43cb55792bb
+uint32_t inv_mod_256_p_1_tab [8] = {0xb55792bb, 0x2b81c43c, 0x5776e501, 0x58f16232, 0x6fac6382, 0x8965995f, 0xbc252886, 0x728c4693};
 bn_uint_t inv_mod_256_p_1= {.number = inv_mod_256_p_1_tab, .length = 8};
-//variable 'inv_mod_256_res_1' value: 0xa959b253a266cfff8dbf4359ee9c83d64036861f3fbb67cc117345dc17300d8b
-uint32_t inv_mod_256_res_1_tab [8] = {0x17300d8b, 0x117345dc, 0x3fbb67cc, 0x4036861f, 0xee9c83d6, 0x8dbf4359, 0xa266cfff, 0xa959b253};
+//variable 'inv_mod_256_res_1' value: 0x4400772ad1aff60adc524bb803418f7c40cccd52879aa80e0df9396725d77cf
+uint32_t inv_mod_256_res_1_tab [8] = {0x725d77cf, 0xe0df9396, 0x2879aa80, 0xc40cccd5, 0x803418f7, 0xadc524bb, 0xad1aff60, 0x4400772};
 bn_uint_t inv_mod_256_res_1= {.number = inv_mod_256_res_1_tab, .length = 8};
-//variable 'inv_mod_256_a_2' value: 0x56358376990706bfcf435b31de0f11406a35c8cee79ccbfebeb54a0c6b400e88
-uint32_t inv_mod_256_a_2_tab [8] = {0x6b400e88, 0xbeb54a0c, 0xe79ccbfe, 0x6a35c8ce, 0xde0f1140, 0xcf435b31, 0x990706bf, 0x56358376};
+//variable 'inv_mod_256_a_2' value: 0xa38fad3238cb49c9ef4bc9162325d20cb2e918990f0adc0be473c1fdad122f0b
+uint32_t inv_mod_256_a_2_tab [8] = {0xad122f0b, 0xe473c1fd, 0x0f0adc0b, 0xb2e91899, 0x2325d20c, 0xef4bc916, 0x38cb49c9, 0xa38fad32};
 bn_uint_t inv_mod_256_a_2= {.number = inv_mod_256_a_2_tab, .length = 8};
-//variable 'inv_mod_256_p_2' value: 0xa2a7610b3df4ff52186b8a89e3bd6551422d476d705739acd2f42e4e2daf3aa1
-uint32_t inv_mod_256_p_2_tab [8] = {0x2daf3aa1, 0xd2f42e4e, 0x705739ac, 0x422d476d, 0xe3bd6551, 0x186b8a89, 0x3df4ff52, 0xa2a7610b};
+//variable 'inv_mod_256_p_2' value: 0xb61ab956ab90ee18562cf41398ffeaaf66fe57865bc67d4b65709b644a8865e9
+uint32_t inv_mod_256_p_2_tab [8] = {0x4a8865e9, 0x65709b64, 0x5bc67d4b, 0x66fe5786, 0x98ffeaaf, 0x562cf413, 0xab90ee18, 0xb61ab956};
 bn_uint_t inv_mod_256_p_2= {.number = inv_mod_256_p_2_tab, .length = 8};
-//variable 'inv_mod_256_res_2' value: 0x8532fdfe317bb67a4f7a6976a99d8e2d234a6682cebf982071ead711e4fcb49f
-uint32_t inv_mod_256_res_2_tab [8] = {0xe4fcb49f, 0x71ead711, 0xcebf9820, 0x234a6682, 0xa99d8e2d, 0x4f7a6976, 0x317bb67a, 0x8532fdfe};
+//variable 'inv_mod_256_res_2' value: 0xe6bf4ee6ffe428040c0a3a2804da830633da2f56bbf0d3be9aad0363ebe6300
+uint32_t inv_mod_256_res_2_tab [8] = {0x3ebe6300, 0xe9aad036, 0x6bbf0d3b, 0x633da2f5, 0x804da830, 0x40c0a3a2, 0x6ffe4280, 0xe6bf4ee};
 bn_uint_t inv_mod_256_res_2= {.number = inv_mod_256_res_2_tab, .length = 8};
-//variable 'inv_mod_256_a_3' value: 0x2408096c0109190ce8419f9799a21e54c4f758980f4c058a1476af5701e0d7a5
-uint32_t inv_mod_256_a_3_tab [8] = {0x01e0d7a5, 0x1476af57, 0x0f4c058a, 0xc4f75898, 0x99a21e54, 0xe8419f97, 0x0109190c, 0x2408096c};
+//variable 'inv_mod_256_a_3' value: 0x45931192f35d46ea6f15659e929bd5dcffc5f3d64e49d4b16c3a92513c8cbf95
+uint32_t inv_mod_256_a_3_tab [8] = {0x3c8cbf95, 0x6c3a9251, 0x4e49d4b1, 0xffc5f3d6, 0x929bd5dc, 0x6f15659e, 0xf35d46ea, 0x45931192};
 bn_uint_t inv_mod_256_a_3= {.number = inv_mod_256_a_3_tab, .length = 8};
-//variable 'inv_mod_256_p_3' value: 0xd35b01255bac1705f599cda3d523ef3eb4ba24b897d6afc1ce5aec7068db5365
-uint32_t inv_mod_256_p_3_tab [8] = {0x68db5365, 0xce5aec70, 0x97d6afc1, 0xb4ba24b8, 0xd523ef3e, 0xf599cda3, 0x5bac1705, 0xd35b0125};
+//variable 'inv_mod_256_p_3' value: 0xc21a74330365a5e3617974b024e1d47d532716ab6e6de72613c5cd31f73a2f99
+uint32_t inv_mod_256_p_3_tab [8] = {0xf73a2f99, 0x13c5cd31, 0x6e6de726, 0x532716ab, 0x24e1d47d, 0x617974b0, 0x0365a5e3, 0xc21a7433};
 bn_uint_t inv_mod_256_p_3= {.number = inv_mod_256_p_3_tab, .length = 8};
-//variable 'inv_mod_256_res_3' value: 0x2b15e5183a4ad1d920c0f6c35f2eeafb0d1b6492c2a2bc3c981826c3dab5b84b
-uint32_t inv_mod_256_res_3_tab [8] = {0xdab5b84b, 0x981826c3, 0xc2a2bc3c, 0x0d1b6492, 0x5f2eeafb, 0x20c0f6c3, 0x3a4ad1d9, 0x2b15e518};
+//variable 'inv_mod_256_res_3' value: 0xa52a11b955d8f7f26c813533337e0d181ec656cfa57040b0917d4132cb335faa
+uint32_t inv_mod_256_res_3_tab [8] = {0xcb335faa, 0x917d4132, 0xa57040b0, 0x1ec656cf, 0x337e0d18, 0x6c813533, 0x55d8f7f2, 0xa52a11b9};
 bn_uint_t inv_mod_256_res_3= {.number = inv_mod_256_res_3_tab, .length = 8};
-//variable 'inv_mod_256_a_4' value: 0x5e1a9486595149e3123fc3d9f560289ce910250a9f29795af3d82906cf450b2d
-uint32_t inv_mod_256_a_4_tab [8] = {0xcf450b2d, 0xf3d82906, 0x9f29795a, 0xe910250a, 0xf560289c, 0x123fc3d9, 0x595149e3, 0x5e1a9486};
+//variable 'inv_mod_256_a_4' value: 0x77b284ed1c61f08978de1293d6b953aa760e2ed16171e8ea7d5501da77a706b8
+uint32_t inv_mod_256_a_4_tab [8] = {0x77a706b8, 0x7d5501da, 0x6171e8ea, 0x760e2ed1, 0xd6b953aa, 0x78de1293, 0x1c61f089, 0x77b284ed};
 bn_uint_t inv_mod_256_a_4= {.number = inv_mod_256_a_4_tab, .length = 8};
-//variable 'inv_mod_256_p_4' value: 0xedaccd16627ccf5689c475ed6b7f3c6907359b9fdc8fb0c9a20d8b3fa48d240d
-uint32_t inv_mod_256_p_4_tab [8] = {0xa48d240d, 0xa20d8b3f, 0xdc8fb0c9, 0x07359b9f, 0x6b7f3c69, 0x89c475ed, 0x627ccf56, 0xedaccd16};
+//variable 'inv_mod_256_p_4' value: 0xec7d27ea39a854aa44b74a4c6cb9bab5046d0558d0bf37344f54f70d4d3f927f
+uint32_t inv_mod_256_p_4_tab [8] = {0x4d3f927f, 0x4f54f70d, 0xd0bf3734, 0x046d0558, 0x6cb9bab5, 0x44b74a4c, 0x39a854aa, 0xec7d27ea};
 bn_uint_t inv_mod_256_p_4= {.number = inv_mod_256_p_4_tab, .length = 8};
-//variable 'inv_mod_256_res_4' value: 0xcc31a1ce4bf9d7fa1daaf3a2b530e861b41e05045d086be7524d645b39fbf695
-uint32_t inv_mod_256_res_4_tab [8] = {0x39fbf695, 0x524d645b, 0x5d086be7, 0xb41e0504, 0xb530e861, 0x1daaf3a2, 0x4bf9d7fa, 0xcc31a1ce};
+//variable 'inv_mod_256_res_4' value: 0x3ef2cfcacdc442da0cc8e0a98c0b0356842ab2a2f9ed086c8cf237c6fe5ea0f0
+uint32_t inv_mod_256_res_4_tab [8] = {0xfe5ea0f0, 0x8cf237c6, 0xf9ed086c, 0x842ab2a2, 0x8c0b0356, 0x0cc8e0a9, 0xcdc442da, 0x3ef2cfca};
 bn_uint_t inv_mod_256_res_4= {.number = inv_mod_256_res_4_tab, .length = 8};
-//variable 'inv_mod_256_a_5' value: 0x2e60a39bca46d51934606fa89e03b358a1b602d2b6c772111eed9e28fd1c6f5
-uint32_t inv_mod_256_a_5_tab [8] = {0x8fd1c6f5, 0x11eed9e2, 0x2b6c7721, 0x8a1b602d, 0x89e03b35, 0x934606fa, 0xbca46d51, 0x2e60a39};
+//variable 'inv_mod_256_a_5' value: 0x1e37281b6540f5224bcad70cf3264038b52260520776566ce6c91a40cd0b9453
+uint32_t inv_mod_256_a_5_tab [8] = {0xcd0b9453, 0xe6c91a40, 0x0776566c, 0xb5226052, 0xf3264038, 0x4bcad70c, 0x6540f522, 0x1e37281b};
 bn_uint_t inv_mod_256_a_5= {.number = inv_mod_256_a_5_tab, .length = 8};
-//variable 'inv_mod_256_p_5' value: 0xd9b147ef7c153f0801ced12bd5aca829d1ea848483e8f1f4baa1038748341077
-uint32_t inv_mod_256_p_5_tab [8] = {0x48341077, 0xbaa10387, 0x83e8f1f4, 0xd1ea8484, 0xd5aca829, 0x01ced12b, 0x7c153f08, 0xd9b147ef};
+//variable 'inv_mod_256_p_5' value: 0x9062e38a787accd1e44ffcdc7e1e43aadb5d0df607452e7353a3fa8f19c1f5f1
+uint32_t inv_mod_256_p_5_tab [8] = {0x19c1f5f1, 0x53a3fa8f, 0x07452e73, 0xdb5d0df6, 0x7e1e43aa, 0xe44ffcdc, 0x787accd1, 0x9062e38a};
 bn_uint_t inv_mod_256_p_5= {.number = inv_mod_256_p_5_tab, .length = 8};
-//variable 'inv_mod_256_res_5' value: 0x34abd05bee07467340b5e9bdebc9a99a2136598ed09a5402209a7a4ebb720610
-uint32_t inv_mod_256_res_5_tab [8] = {0xbb720610, 0x209a7a4e, 0xd09a5402, 0x2136598e, 0xebc9a99a, 0x40b5e9bd, 0xee074673, 0x34abd05b};
+//variable 'inv_mod_256_res_5' value: 0x711dec4ef522518d17b1e83ccb3a8ac124a0b4e9e3b8cc0ac8c783679c6551c8
+uint32_t inv_mod_256_res_5_tab [8] = {0x9c6551c8, 0xc8c78367, 0xe3b8cc0a, 0x24a0b4e9, 0xcb3a8ac1, 0x17b1e83c, 0xf522518d, 0x711dec4e};
 bn_uint_t inv_mod_256_res_5= {.number = inv_mod_256_res_5_tab, .length = 8};
-//variable 'inv_mod_256_a_6' value: 0x67758172d2ee8f5e7e0aa6d839a26ea263fcb0201d261b3dff387c330bd5d8
-uint32_t inv_mod_256_a_6_tab [8] = {0x330bd5d8, 0x3dff387c, 0x201d261b, 0xa263fcb0, 0xd839a26e, 0x5e7e0aa6, 0x72d2ee8f, 0x677581};
+//variable 'inv_mod_256_a_6' value: 0x60b348f916c4c6d55bff2aeead1e73ae45e1b9be439ddb3e5d7780bab55ad3b5
+uint32_t inv_mod_256_a_6_tab [8] = {0xb55ad3b5, 0x5d7780ba, 0x439ddb3e, 0x45e1b9be, 0xad1e73ae, 0x5bff2aee, 0x16c4c6d5, 0x60b348f9};
 bn_uint_t inv_mod_256_a_6= {.number = inv_mod_256_a_6_tab, .length = 8};
-//variable 'inv_mod_256_p_6' value: 0xd2cd21bd675b49673061c43d0c9e1ab92652cd9b915c8d2cf85cf5ee8385098b
-uint32_t inv_mod_256_p_6_tab [8] = {0x8385098b, 0xf85cf5ee, 0x915c8d2c, 0x2652cd9b, 0x0c9e1ab9, 0x3061c43d, 0x675b4967, 0xd2cd21bd};
+//variable 'inv_mod_256_p_6' value: 0x8f29f602ba68eb75c66a5da4edcd2ca32d705985f7336510ea1e0a40b7591f81
+uint32_t inv_mod_256_p_6_tab [8] = {0xb7591f81, 0xea1e0a40, 0xf7336510, 0x2d705985, 0xedcd2ca3, 0xc66a5da4, 0xba68eb75, 0x8f29f602};
 bn_uint_t inv_mod_256_p_6= {.number = inv_mod_256_p_6_tab, .length = 8};
-//variable 'inv_mod_256_res_6' value: 0x43bfe88c4dd6181c1bbd686dd13df02ef43d088c5e615e78dcab0a90c1f6da85
-uint32_t inv_mod_256_res_6_tab [8] = {0xc1f6da85, 0xdcab0a90, 0x5e615e78, 0xf43d088c, 0xd13df02e, 0x1bbd686d, 0x4dd6181c, 0x43bfe88c};
+//variable 'inv_mod_256_res_6' value: 0x2bbef2960472a5b24ed2173a5a94a6eb590103d024fbd27ee71d42493c8694
+uint32_t inv_mod_256_res_6_tab [8] = {0x493c8694, 0x7ee71d42, 0xd024fbd2, 0xeb590103, 0x3a5a94a6, 0xb24ed217, 0x960472a5, 0x2bbef2};
 bn_uint_t inv_mod_256_res_6= {.number = inv_mod_256_res_6_tab, .length = 8};
-//variable 'inv_mod_256_a_7' value: 0x4e33580f959b0b8be21eeeef0519ebe3265d31f79b6ceb53559ea706769ff5a0
-uint32_t inv_mod_256_a_7_tab [8] = {0x769ff5a0, 0x559ea706, 0x9b6ceb53, 0x265d31f7, 0x0519ebe3, 0xe21eeeef, 0x959b0b8b, 0x4e33580f};
+//variable 'inv_mod_256_a_7' value: 0x166b4149be29a591b93a2c30820302a1cdfcd3d358c9b9615e2f564570f33283
+uint32_t inv_mod_256_a_7_tab [8] = {0x70f33283, 0x5e2f5645, 0x58c9b961, 0xcdfcd3d3, 0x820302a1, 0xb93a2c30, 0xbe29a591, 0x166b4149};
 bn_uint_t inv_mod_256_a_7= {.number = inv_mod_256_a_7_tab, .length = 8};
-//variable 'inv_mod_256_p_7' value: 0xe088216e1cb2233285520d997472671f6d076647e639ff8cbc822497dbfcda6b
-uint32_t inv_mod_256_p_7_tab [8] = {0xdbfcda6b, 0xbc822497, 0xe639ff8c, 0x6d076647, 0x7472671f, 0x85520d99, 0x1cb22332, 0xe088216e};
+//variable 'inv_mod_256_p_7' value: 0xafa5825dd7797c6e9711dfd9a1f12cae778bc5fbfef1246ec7908be0d8183b0f
+uint32_t inv_mod_256_p_7_tab [8] = {0xd8183b0f, 0xc7908be0, 0xfef1246e, 0x778bc5fb, 0xa1f12cae, 0x9711dfd9, 0xd7797c6e, 0xafa5825d};
 bn_uint_t inv_mod_256_p_7= {.number = inv_mod_256_p_7_tab, .length = 8};
-//variable 'inv_mod_256_res_7' value: 0x4a80cc3cea3e25c3333c6f2a7f7d983ea808e394b477a60723cbd485c342ba4b
-uint32_t inv_mod_256_res_7_tab [8] = {0xc342ba4b, 0x23cbd485, 0xb477a607, 0xa808e394, 0x7f7d983e, 0x333c6f2a, 0xea3e25c3, 0x4a80cc3c};
+//variable 'inv_mod_256_res_7' value: 0x820f07bd868a21d4c58b0bd4295f8c6adc02cd9fbc818ff7e8eb7d1ce30f3fbe
+uint32_t inv_mod_256_res_7_tab [8] = {0xe30f3fbe, 0xe8eb7d1c, 0xbc818ff7, 0xdc02cd9f, 0x295f8c6a, 0xc58b0bd4, 0x868a21d4, 0x820f07bd};
 bn_uint_t inv_mod_256_res_7= {.number = inv_mod_256_res_7_tab, .length = 8};
-//variable 'inv_mod_256_a_8' value: 0x387319036fa9d05e8f70f30c0c274ffece96d77202e40863197cad35b86beb27
-uint32_t inv_mod_256_a_8_tab [8] = {0xb86beb27, 0x197cad35, 0x02e40863, 0xce96d772, 0x0c274ffe, 0x8f70f30c, 0x6fa9d05e, 0x38731903};
+//variable 'inv_mod_256_a_8' value: 0x56b6ae9325b79b5fca1d4105b6bdaef71b5a96d171fe85b6a501553c8bff57ae
+uint32_t inv_mod_256_a_8_tab [8] = {0x8bff57ae, 0xa501553c, 0x71fe85b6, 0x1b5a96d1, 0xb6bdaef7, 0xca1d4105, 0x25b79b5f, 0x56b6ae93};
 bn_uint_t inv_mod_256_a_8= {.number = inv_mod_256_a_8_tab, .length = 8};
-//variable 'inv_mod_256_p_8' value: 0xfcae75edda25f9c716c40585f5f7f59107fda59fbf36fe4a72add053efb99801
-uint32_t inv_mod_256_p_8_tab [8] = {0xefb99801, 0x72add053, 0xbf36fe4a, 0x07fda59f, 0xf5f7f591, 0x16c40585, 0xda25f9c7, 0xfcae75ed};
+//variable 'inv_mod_256_p_8' value: 0xa2fb65c78d35ed9aff33fa8d3423d5c7b8345d017232cd33b2e35c14b1b9b75f
+uint32_t inv_mod_256_p_8_tab [8] = {0xb1b9b75f, 0xb2e35c14, 0x7232cd33, 0xb8345d01, 0x3423d5c7, 0xff33fa8d, 0x8d35ed9a, 0xa2fb65c7};
 bn_uint_t inv_mod_256_p_8= {.number = inv_mod_256_p_8_tab, .length = 8};
-//variable 'inv_mod_256_res_8' value: 0xe85ca7e2fd9e4931c15a306dd0de465a04f7f703069e64df899b1fe27cd07686
-uint32_t inv_mod_256_res_8_tab [8] = {0x7cd07686, 0x899b1fe2, 0x069e64df, 0x04f7f703, 0xd0de465a, 0xc15a306d, 0xfd9e4931, 0xe85ca7e2};
+//variable 'inv_mod_256_res_8' value: 0x8ca0f8c8aaf33bcfef3033a193a383eed19d23f761fb669ec355e78661c7641
+uint32_t inv_mod_256_res_8_tab [8] = {0x661c7641, 0xec355e78, 0x761fb669, 0xed19d23f, 0x193a383e, 0xfef3033a, 0x8aaf33bc, 0x8ca0f8c};
 bn_uint_t inv_mod_256_res_8= {.number = inv_mod_256_res_8_tab, .length = 8};
-//variable 'inv_mod_256_a_9' value: 0xc005e286ed24dd2f19e386e3c47d157eab4038e4f65211d10bd23dbf332f155
-uint32_t inv_mod_256_a_9_tab [8] = {0xf332f155, 0x10bd23db, 0x4f65211d, 0xeab4038e, 0x3c47d157, 0xf19e386e, 0x6ed24dd2, 0xc005e28};
+//variable 'inv_mod_256_a_9' value: 0x105c211af0b4dd200bb483a102534608c0a97a389509660efd7c1ba899cdc876
+uint32_t inv_mod_256_a_9_tab [8] = {0x99cdc876, 0xfd7c1ba8, 0x9509660e, 0xc0a97a38, 0x02534608, 0x0bb483a1, 0xf0b4dd20, 0x105c211a};
 bn_uint_t inv_mod_256_a_9= {.number = inv_mod_256_a_9_tab, .length = 8};
-//variable 'inv_mod_256_p_9' value: 0xf9646033e71e21c6e6de9f58573e6e6f7e0100f594dbad21fae26a6f4726e239
-uint32_t inv_mod_256_p_9_tab [8] = {0x4726e239, 0xfae26a6f, 0x94dbad21, 0x7e0100f5, 0x573e6e6f, 0xe6de9f58, 0xe71e21c6, 0xf9646033};
+//variable 'inv_mod_256_p_9' value: 0xc93dde6ea1d7bfd7fcae3438f8a370242494a9f629bff0044d0c7508b422d90f
+uint32_t inv_mod_256_p_9_tab [8] = {0xb422d90f, 0x4d0c7508, 0x29bff004, 0x2494a9f6, 0xf8a37024, 0xfcae3438, 0xa1d7bfd7, 0xc93dde6e};
 bn_uint_t inv_mod_256_p_9= {.number = inv_mod_256_p_9_tab, .length = 8};
-//variable 'inv_mod_256_res_9' value: 0x726072b2772eb12f062b622a46733ca792b604f48512a1997879498cba9544de
-uint32_t inv_mod_256_res_9_tab [8] = {0xba9544de, 0x7879498c, 0x8512a199, 0x92b604f4, 0x46733ca7, 0x062b622a, 0x772eb12f, 0x726072b2};
+//variable 'inv_mod_256_res_9' value: 0x90208de8ebf7984662987d0dee374da607c8f9dc7aa4f0bddea39e1f182386e2
+uint32_t inv_mod_256_res_9_tab [8] = {0x182386e2, 0xdea39e1f, 0x7aa4f0bd, 0x07c8f9dc, 0xee374da6, 0x62987d0d, 0xebf79846, 0x90208de8};
 bn_uint_t inv_mod_256_res_9= {.number = inv_mod_256_res_9_tab, .length = 8};
 uint32_t inv_mod_256_tab_len=10;
 bn_uint_t *inv_mod_256_test_tab[10][3]={
@@ -1301,95 +1301,95 @@ bn_uint_t *inv_mod_256_test_tab[10][3]={
 {&inv_mod_256_a_8,&inv_mod_256_p_8,&inv_mod_256_res_8},
 {&inv_mod_256_a_9,&inv_mod_256_p_9,&inv_mod_256_res_9},
 };
-//variable 'mul_128_a_0' value: 0xe6618df05d573ca30d89252c6beb7738
-uint32_t mul_128_a_0_tab [4] = {0x6beb7738, 0x0d89252c, 0x5d573ca3, 0xe6618df0};
+//variable 'mul_128_a_0' value: 0x278e59aba483f38900261b30629e5f6d
+uint32_t mul_128_a_0_tab [4] = {0x629e5f6d, 0x00261b30, 0xa483f389, 0x278e59ab};
 bn_uint_t mul_128_a_0= {.number = mul_128_a_0_tab, .length = 4};
-//variable 'mul_128_b_0' value: 0xda013dc06137640eac11cd288a5395ed
-uint32_t mul_128_b_0_tab [4] = {0x8a5395ed, 0xac11cd28, 0x6137640e, 0xda013dc0};
+//variable 'mul_128_b_0' value: 0xc6e8bc709e2131cdc0b6bb286600fd6c
+uint32_t mul_128_b_0_tab [4] = {0x6600fd6c, 0xc0b6bb28, 0x9e2131cd, 0xc6e8bc70};
 bn_uint_t mul_128_b_0= {.number = mul_128_b_0_tab, .length = 4};
-//variable 'mul_128_res_0' value: 0xc43030d29ce63146c2ad7f8051788f2100f73a91b559807e5028a94bcc88f6d8
-uint32_t mul_128_res_0_tab [8] = {0xcc88f6d8, 0x5028a94b, 0xb559807e, 0x00f73a91, 0x51788f21, 0xc2ad7f80, 0x9ce63146, 0xc43030d2};
+//variable 'mul_128_res_0' value: 0x1ebc0f79f55b6a3d1371113cc3b641b0c13722a6bbb914d2b02eebed8d1efafc
+uint32_t mul_128_res_0_tab [8] = {0x8d1efafc, 0xb02eebed, 0xbbb914d2, 0xc13722a6, 0xc3b641b0, 0x1371113c, 0xf55b6a3d, 0x1ebc0f79};
 bn_uint_t mul_128_res_0= {.number = mul_128_res_0_tab, .length = 8};
-//variable 'mul_128_a_1' value: 0x6075f2b5d9359dec99f69fe7fff0781e
-uint32_t mul_128_a_1_tab [4] = {0xfff0781e, 0x99f69fe7, 0xd9359dec, 0x6075f2b5};
+//variable 'mul_128_a_1' value: 0x72c949b4e7586d9fb5e2d9205717f4eb
+uint32_t mul_128_a_1_tab [4] = {0x5717f4eb, 0xb5e2d920, 0xe7586d9f, 0x72c949b4};
 bn_uint_t mul_128_a_1= {.number = mul_128_a_1_tab, .length = 4};
-//variable 'mul_128_b_1' value: 0xcb15fc0164afa82d10c66c08b0b756d7
-uint32_t mul_128_b_1_tab [4] = {0xb0b756d7, 0x10c66c08, 0x64afa82d, 0xcb15fc01};
+//variable 'mul_128_b_1' value: 0xa7584bee6b3af74c3cf2232389a33bbb
+uint32_t mul_128_b_1_tab [4] = {0x89a33bbb, 0x3cf22323, 0x6b3af74c, 0xa7584bee};
 bn_uint_t mul_128_b_1= {.number = mul_128_b_1_tab, .length = 4};
-//variable 'mul_128_res_1' value: 0x4c85d017bd798cf588a7487753301e0fb2568ed8a64562a83009ec3d38c0f532
-uint32_t mul_128_res_1_tab [8] = {0x38c0f532, 0x3009ec3d, 0xa64562a8, 0xb2568ed8, 0x53301e0f, 0x88a74877, 0xbd798cf5, 0x4c85d017};
+//variable 'mul_128_res_1' value: 0x4b08e65238e94e2a8fc2c2786936b4add2120a5f093b985c7bdaf225d89310a9
+uint32_t mul_128_res_1_tab [8] = {0xd89310a9, 0x7bdaf225, 0x093b985c, 0xd2120a5f, 0x6936b4ad, 0x8fc2c278, 0x38e94e2a, 0x4b08e652};
 bn_uint_t mul_128_res_1= {.number = mul_128_res_1_tab, .length = 8};
-//variable 'mul_128_a_2' value: 0xa4c3611fd83f83eba6a617c583688080
-uint32_t mul_128_a_2_tab [4] = {0x83688080, 0xa6a617c5, 0xd83f83eb, 0xa4c3611f};
+//variable 'mul_128_a_2' value: 0xde3a61aeddb9c63984afa9c87136e16e
+uint32_t mul_128_a_2_tab [4] = {0x7136e16e, 0x84afa9c8, 0xddb9c639, 0xde3a61ae};
 bn_uint_t mul_128_a_2= {.number = mul_128_a_2_tab, .length = 4};
-//variable 'mul_128_b_2' value: 0xd7199588e50189ee3d7823f5aa1d4ec6
-uint32_t mul_128_b_2_tab [4] = {0xaa1d4ec6, 0x3d7823f5, 0xe50189ee, 0xd7199588};
+//variable 'mul_128_b_2' value: 0xe4f56942e8a9ed9e4f6667376f31d1e0
+uint32_t mul_128_b_2_tab [4] = {0x6f31d1e0, 0x4f666737, 0xe8a9ed9e, 0xe4f56942};
 bn_uint_t mul_128_b_2= {.number = mul_128_b_2_tab, .length = 4};
-//variable 'mul_128_res_2' value: 0x8a708de40d705b31663de1d3b091944b042c38738934393c22ec5379087a6300
-uint32_t mul_128_res_2_tab [8] = {0x087a6300, 0x22ec5379, 0x8934393c, 0x042c3873, 0xb091944b, 0x663de1d3, 0x0d705b31, 0x8a708de4};
+//variable 'mul_128_res_2' value: 0xc6c1083f40e9fab2ba2ff30f93712b43676118116ef71ad517175bb2b61e0e40
+uint32_t mul_128_res_2_tab [8] = {0xb61e0e40, 0x17175bb2, 0x6ef71ad5, 0x67611811, 0x93712b43, 0xba2ff30f, 0x40e9fab2, 0xc6c1083f};
 bn_uint_t mul_128_res_2= {.number = mul_128_res_2_tab, .length = 8};
-//variable 'mul_128_a_3' value: 0x1ac4147a7725aea5c9a91377c1efadb
-uint32_t mul_128_a_3_tab [4] = {0x7c1efadb, 0x5c9a9137, 0xa7725aea, 0x1ac4147};
+//variable 'mul_128_a_3' value: 0x1efa73de85ee1e550494a15ee7313379
+uint32_t mul_128_a_3_tab [4] = {0xe7313379, 0x0494a15e, 0x85ee1e55, 0x1efa73de};
 bn_uint_t mul_128_a_3= {.number = mul_128_a_3_tab, .length = 4};
-//variable 'mul_128_b_3' value: 0x4553795f2bea19ff0baab270a2ca99c8
-uint32_t mul_128_b_3_tab [4] = {0xa2ca99c8, 0x0baab270, 0x2bea19ff, 0x4553795f};
+//variable 'mul_128_b_3' value: 0xcdb953605a23970aed674cbbe2f8010e
+uint32_t mul_128_b_3_tab [4] = {0xe2f8010e, 0xed674cbb, 0x5a23970a, 0xcdb95360};
 bn_uint_t mul_128_b_3= {.number = mul_128_b_3_tab, .length = 4};
-//variable 'mul_128_res_3' value: 0x73f93c846daae70701ffe0d29894efc7b982bcc1831b5f42472d8802eede18
-uint32_t mul_128_res_3_tab [8] = {0x02eede18, 0x42472d88, 0xc1831b5f, 0xc7b982bc, 0xd29894ef, 0x0701ffe0, 0x846daae7, 0x73f93c};
+//variable 'mul_128_res_3' value: 0x18e4fbddc9736b7d8c99703af4881ca1d12ab9139410a43f27b31e95851c499e
+uint32_t mul_128_res_3_tab [8] = {0x851c499e, 0x27b31e95, 0x9410a43f, 0xd12ab913, 0xf4881ca1, 0x8c99703a, 0xc9736b7d, 0x18e4fbdd};
 bn_uint_t mul_128_res_3= {.number = mul_128_res_3_tab, .length = 8};
-//variable 'mul_128_a_4' value: 0xff8c8d8c7b70b9d086a0db72294446b9
-uint32_t mul_128_a_4_tab [4] = {0x294446b9, 0x86a0db72, 0x7b70b9d0, 0xff8c8d8c};
+//variable 'mul_128_a_4' value: 0x7cb9936530e4448493c8bcafe7aec3bd
+uint32_t mul_128_a_4_tab [4] = {0xe7aec3bd, 0x93c8bcaf, 0x30e44484, 0x7cb99365};
 bn_uint_t mul_128_a_4= {.number = mul_128_a_4_tab, .length = 4};
-//variable 'mul_128_b_4' value: 0xc3ffe0d47da86d30e6dd4b4ff4752309
-uint32_t mul_128_b_4_tab [4] = {0xf4752309, 0xe6dd4b4f, 0x7da86d30, 0xc3ffe0d4};
+//variable 'mul_128_b_4' value: 0xe8a53e3476fb2b3feab6d32ccceebfb0
+uint32_t mul_128_b_4_tab [4] = {0xcceebfb0, 0xeab6d32c, 0x76fb2b3f, 0xe8a53e34};
 bn_uint_t mul_128_b_4= {.number = mul_128_b_4_tab, .length = 4};
-//variable 'mul_128_res_4' value: 0xc3a77d421aa5b985eebe8e2a1741d38f6eb6d4c5a8de0ce6d4a9485b6f9ec781
-uint32_t mul_128_res_4_tab [8] = {0x6f9ec781, 0xd4a9485b, 0xa8de0ce6, 0x6eb6d4c5, 0x1741d38f, 0xeebe8e2a, 0x1aa5b985, 0xc3a77d42};
+//variable 'mul_128_res_4' value: 0x7158af7e35e3bc93fedf522764758a164fb603cf751f2a41beae0abb41e694f0
+uint32_t mul_128_res_4_tab [8] = {0x41e694f0, 0xbeae0abb, 0x751f2a41, 0x4fb603cf, 0x64758a16, 0xfedf5227, 0x35e3bc93, 0x7158af7e};
 bn_uint_t mul_128_res_4= {.number = mul_128_res_4_tab, .length = 8};
-//variable 'mul_128_a_5' value: 0xbe242e4ebe3a6374c8798ae9d57392c6
-uint32_t mul_128_a_5_tab [4] = {0xd57392c6, 0xc8798ae9, 0xbe3a6374, 0xbe242e4e};
+//variable 'mul_128_a_5' value: 0x88036a99fe5705c5b7ec658a8e9ca4ce
+uint32_t mul_128_a_5_tab [4] = {0x8e9ca4ce, 0xb7ec658a, 0xfe5705c5, 0x88036a99};
 bn_uint_t mul_128_a_5= {.number = mul_128_a_5_tab, .length = 4};
-//variable 'mul_128_b_5' value: 0x72b0c500307f00f8e2c08d62deca2014
-uint32_t mul_128_b_5_tab [4] = {0xdeca2014, 0xe2c08d62, 0x307f00f8, 0x72b0c500};
+//variable 'mul_128_b_5' value: 0xa5aeafb91fce5f6b16dc4bb3ff40549a
+uint32_t mul_128_b_5_tab [4] = {0xff40549a, 0x16dc4bb3, 0x1fce5f6b, 0xa5aeafb9};
 bn_uint_t mul_128_b_5= {.number = mul_128_b_5_tab, .length = 4};
-//variable 'mul_128_res_5' value: 0x552f67d0e2807e2be84bf49e4a9f9097db40bf8bef083ab27d0df938a39c3778
-uint32_t mul_128_res_5_tab [8] = {0xa39c3778, 0x7d0df938, 0xef083ab2, 0xdb40bf8b, 0x4a9f9097, 0xe84bf49e, 0xe2807e2b, 0x552f67d0};
+//variable 'mul_128_res_5' value: 0x5807036466d6535f3d9cf2867fa8b02e4943c35145a4be138d0fd18195cebbec
+uint32_t mul_128_res_5_tab [8] = {0x95cebbec, 0x8d0fd181, 0x45a4be13, 0x4943c351, 0x7fa8b02e, 0x3d9cf286, 0x66d6535f, 0x58070364};
 bn_uint_t mul_128_res_5= {.number = mul_128_res_5_tab, .length = 8};
-//variable 'mul_128_a_6' value: 0xe7294e646c87f2285600ad2f1bcb7551
-uint32_t mul_128_a_6_tab [4] = {0x1bcb7551, 0x5600ad2f, 0x6c87f228, 0xe7294e64};
+//variable 'mul_128_a_6' value: 0xf32f561d5a885c02296ee294cf6c6f1
+uint32_t mul_128_a_6_tab [4] = {0x4cf6c6f1, 0x2296ee29, 0xd5a885c0, 0xf32f561};
 bn_uint_t mul_128_a_6= {.number = mul_128_a_6_tab, .length = 4};
-//variable 'mul_128_b_6' value: 0xe9d24098156f37395ade168c6c4dfda9
-uint32_t mul_128_b_6_tab [4] = {0x6c4dfda9, 0x5ade168c, 0x156f3739, 0xe9d24098};
+//variable 'mul_128_b_6' value: 0xfe54e2601d4889240760a6db5cabd40e
+uint32_t mul_128_b_6_tab [4] = {0x5cabd40e, 0x0760a6db, 0x1d488924, 0xfe54e260};
 bn_uint_t mul_128_b_6= {.number = mul_128_b_6_tab, .length = 4};
-//variable 'mul_128_res_6' value: 0xd322728f5ca339e2ad2854db7cd7c65e28bf09ec19fbcac14e16328de19e7f79
-uint32_t mul_128_res_6_tab [8] = {0xe19e7f79, 0x4e16328d, 0x19fbcac1, 0x28bf09ec, 0x7cd7c65e, 0xad2854db, 0x5ca339e2, 0xd322728f};
+//variable 'mul_128_res_6' value: 0xf1999a04790c794ec470dc8b6bceea7f9476123abd6d9aadc36c87f1139752e
+uint32_t mul_128_res_6_tab [8] = {0x1139752e, 0xdc36c87f, 0xabd6d9aa, 0xf9476123, 0xb6bceea7, 0xec470dc8, 0x4790c794, 0xf1999a0};
 bn_uint_t mul_128_res_6= {.number = mul_128_res_6_tab, .length = 8};
-//variable 'mul_128_a_7' value: 0xd5f067248be90d4c338db9a8b3c741d9
-uint32_t mul_128_a_7_tab [4] = {0xb3c741d9, 0x338db9a8, 0x8be90d4c, 0xd5f06724};
+//variable 'mul_128_a_7' value: 0xdb37303f3c5bf2cc0db8c942a527b50f
+uint32_t mul_128_a_7_tab [4] = {0xa527b50f, 0x0db8c942, 0x3c5bf2cc, 0xdb37303f};
 bn_uint_t mul_128_a_7= {.number = mul_128_a_7_tab, .length = 4};
-//variable 'mul_128_b_7' value: 0x9419832899e0a49276e0e8b87ac12b73
-uint32_t mul_128_b_7_tab [4] = {0x7ac12b73, 0x76e0e8b8, 0x99e0a492, 0x94198328};
+//variable 'mul_128_b_7' value: 0xe5433099b9cd06a135d0109bf1adb789
+uint32_t mul_128_b_7_tab [4] = {0xf1adb789, 0x35d0109b, 0xb9cd06a1, 0xe5433099};
 bn_uint_t mul_128_b_7= {.number = mul_128_b_7_tab, .length = 4};
-//variable 'mul_128_res_7' value: 0x7bc44db72664a047f896c02ea3cb66279863c006873d3adac37a378d492b077b
-uint32_t mul_128_res_7_tab [8] = {0x492b077b, 0xc37a378d, 0x873d3ada, 0x9863c006, 0xa3cb6627, 0xf896c02e, 0x2664a047, 0x7bc44db7};
+//variable 'mul_128_res_7' value: 0xc451e7382dad301a1055753f6b727b21f450a54c029caf34e0d1e6173ed09e07
+uint32_t mul_128_res_7_tab [8] = {0x3ed09e07, 0xe0d1e617, 0x029caf34, 0xf450a54c, 0x6b727b21, 0x1055753f, 0x2dad301a, 0xc451e738};
 bn_uint_t mul_128_res_7= {.number = mul_128_res_7_tab, .length = 8};
-//variable 'mul_128_a_8' value: 0xe4c913d8bd96b32121198929a4cbd4dc
-uint32_t mul_128_a_8_tab [4] = {0xa4cbd4dc, 0x21198929, 0xbd96b321, 0xe4c913d8};
+//variable 'mul_128_a_8' value: 0x13e75d0429d78620882c7a4fb0b674ef
+uint32_t mul_128_a_8_tab [4] = {0xb0b674ef, 0x882c7a4f, 0x29d78620, 0x13e75d04};
 bn_uint_t mul_128_a_8= {.number = mul_128_a_8_tab, .length = 4};
-//variable 'mul_128_b_8' value: 0x2690903f52f37e0d5ab201f07376a27a
-uint32_t mul_128_b_8_tab [4] = {0x7376a27a, 0x5ab201f0, 0x52f37e0d, 0x2690903f};
+//variable 'mul_128_b_8' value: 0x10c80c7323144554befebeb56b56c845
+uint32_t mul_128_b_8_tab [4] = {0x6b56c845, 0xbefebeb5, 0x23144554, 0x10c80c73};
 bn_uint_t mul_128_b_8= {.number = mul_128_b_8_tab, .length = 4};
-//variable 'mul_128_res_8' value: 0x22770af708d6d43744e3d1c2f652bdd7b2e0116384a025898115a8f4773ea8d8
-uint32_t mul_128_res_8_tab [8] = {0x773ea8d8, 0x8115a8f4, 0x84a02589, 0xb2e01163, 0xf652bdd7, 0x44e3d1c2, 0x08d6d437, 0x22770af7};
+//variable 'mul_128_res_8' value: 0x14e0388b9e358c680e9d7a0bd316b11384ca7a2133a0ff49c18e8af59d23c6b
+uint32_t mul_128_res_8_tab [8] = {0x59d23c6b, 0x9c18e8af, 0x133a0ff4, 0x384ca7a2, 0xbd316b11, 0x80e9d7a0, 0xb9e358c6, 0x14e0388};
 bn_uint_t mul_128_res_8= {.number = mul_128_res_8_tab, .length = 8};
-//variable 'mul_128_a_9' value: 0x2d0e84955aa7415d4cfca1a8594090aa
-uint32_t mul_128_a_9_tab [4] = {0x594090aa, 0x4cfca1a8, 0x5aa7415d, 0x2d0e8495};
+//variable 'mul_128_a_9' value: 0x896737e5bbf42b3f712608148bff00bb
+uint32_t mul_128_a_9_tab [4] = {0x8bff00bb, 0x71260814, 0xbbf42b3f, 0x896737e5};
 bn_uint_t mul_128_a_9= {.number = mul_128_a_9_tab, .length = 4};
-//variable 'mul_128_b_9' value: 0x3656f5fa236530cbb4df26b915013f21
-uint32_t mul_128_b_9_tab [4] = {0x15013f21, 0xb4df26b9, 0x236530cb, 0x3656f5fa};
+//variable 'mul_128_b_9' value: 0xf2a4205cd06b9d761dcdd29560545965
+uint32_t mul_128_b_9_tab [4] = {0x60545965, 0x1dcdd295, 0xd06b9d76, 0xf2a4205c};
 bn_uint_t mul_128_b_9= {.number = mul_128_b_9_tab, .length = 4};
-//variable 'mul_128_res_9' value: 0x9905e22f696f10789ff87cccdbbc94da65d76a846aef4e42a8bb0a2e7967bea
-uint32_t mul_128_res_9_tab [8] = {0xe7967bea, 0x2a8bb0a2, 0x46aef4e4, 0xa65d76a8, 0xcdbbc94d, 0x89ff87cc, 0xf696f107, 0x9905e22};
+//variable 'mul_128_res_9' value: 0x823baa55b2cba76e7758ad50a69763291294f42308d71427a6d1b79040384cc7
+uint32_t mul_128_res_9_tab [8] = {0x40384cc7, 0xa6d1b790, 0x08d71427, 0x1294f423, 0xa6976329, 0x7758ad50, 0xb2cba76e, 0x823baa55};
 bn_uint_t mul_128_res_9= {.number = mul_128_res_9_tab, .length = 8};
 uint32_t mul_128_tab_len=10;
 bn_uint_t *mul_128_test_tab[10][3]={
@@ -1404,95 +1404,95 @@ bn_uint_t *mul_128_test_tab[10][3]={
 {&mul_128_a_8,&mul_128_b_8,&mul_128_res_8},
 {&mul_128_a_9,&mul_128_b_9,&mul_128_res_9},
 };
-//variable 'mul_256_a_0' value: 0x4e1a3a5239cab1d67a54f9550db7df4cfddc372fb4467e562d4d62ae2e7a55d8
-uint32_t mul_256_a_0_tab [8] = {0x2e7a55d8, 0x2d4d62ae, 0xb4467e56, 0xfddc372f, 0x0db7df4c, 0x7a54f955, 0x39cab1d6, 0x4e1a3a52};
+//variable 'mul_256_a_0' value: 0xe806364224ec9ec41cca144b0e61bd2f8cfb4eeb78d0051aa09d8f136150f35c
+uint32_t mul_256_a_0_tab [8] = {0x6150f35c, 0xa09d8f13, 0x78d0051a, 0x8cfb4eeb, 0x0e61bd2f, 0x1cca144b, 0x24ec9ec4, 0xe8063642};
 bn_uint_t mul_256_a_0= {.number = mul_256_a_0_tab, .length = 8};
-//variable 'mul_256_b_0' value: 0x13ba877edae98b5dc9b1624cf576113a2a520a86d5243d2ea3e5f3a3574dd32f
-uint32_t mul_256_b_0_tab [8] = {0x574dd32f, 0xa3e5f3a3, 0xd5243d2e, 0x2a520a86, 0xf576113a, 0xc9b1624c, 0xdae98b5d, 0x13ba877e};
+//variable 'mul_256_b_0' value: 0x32881716fcd2fcc868dab906901972448c9ae5114423b4ce106ec28879882a0b
+uint32_t mul_256_b_0_tab [8] = {0x79882a0b, 0x106ec288, 0x4423b4ce, 0x8c9ae511, 0x90197244, 0x68dab906, 0xfcd2fcc8, 0x32881716};
 bn_uint_t mul_256_b_0= {.number = mul_256_b_0_tab, .length = 8};
-//variable 'mul_256_res_0' value: 0x604dab9027baf786b3c926871ecf6bbc7e8f3027899191d23084230a4ce272c04f249f430cd4e75dc90a4dd54a26ad1ed6d9979418bade60352ecc9972ecaa8
-uint32_t mul_256_res_0_tab [16] = {0x972ecaa8, 0x0352ecc9, 0x418bade6, 0xed6d9979, 0x54a26ad1, 0xdc90a4dd, 0x30cd4e75, 0x04f249f4, 0xa4ce272c, 0x23084230, 0x7899191d, 0xc7e8f302, 0x71ecf6bb, 0x6b3c9268, 0x027baf78, 0x604dab9};
+//variable 'mul_256_res_0' value: 0x2dcc8ed322e7c754744f8032a38409d5e239ab0d8d7f706342360ace513e5c4565e54ccdf06217f4edc17f128aa5cacc83194d34f83478e4487e4ab43b478cf4
+uint32_t mul_256_res_0_tab [16] = {0x3b478cf4, 0x487e4ab4, 0xf83478e4, 0x83194d34, 0x8aa5cacc, 0xedc17f12, 0xf06217f4, 0x65e54ccd, 0x513e5c45, 0x42360ace, 0x8d7f7063, 0xe239ab0d, 0xa38409d5, 0x744f8032, 0x22e7c754, 0x2dcc8ed3};
 bn_uint_t mul_256_res_0= {.number = mul_256_res_0_tab, .length = 16};
-//variable 'mul_256_a_1' value: 0x44142c03a2e1ef6a0f5311ac87d117fa181c080f32586bed3ca02ce68f43f88d
-uint32_t mul_256_a_1_tab [8] = {0x8f43f88d, 0x3ca02ce6, 0x32586bed, 0x181c080f, 0x87d117fa, 0x0f5311ac, 0xa2e1ef6a, 0x44142c03};
+//variable 'mul_256_a_1' value: 0xe49f5070ace28f841240cf8843dad7affa75ccae43ec5b7dc86f4a774aae9bc4
+uint32_t mul_256_a_1_tab [8] = {0x4aae9bc4, 0xc86f4a77, 0x43ec5b7d, 0xfa75ccae, 0x43dad7af, 0x1240cf88, 0xace28f84, 0xe49f5070};
 bn_uint_t mul_256_a_1= {.number = mul_256_a_1_tab, .length = 8};
-//variable 'mul_256_b_1' value: 0x127598ad8f879994d84904c313452ee62d65c89d6ae4dc3f3457f558f709eeec
-uint32_t mul_256_b_1_tab [8] = {0xf709eeec, 0x3457f558, 0x6ae4dc3f, 0x2d65c89d, 0x13452ee6, 0xd84904c3, 0x8f879994, 0x127598ad};
+//variable 'mul_256_b_1' value: 0x381394d3031db0992b98a65d1b8211a6b9ec7773023f3a20384c8a9a699b334f
+uint32_t mul_256_b_1_tab [8] = {0x699b334f, 0x384c8a9a, 0x023f3a20, 0xb9ec7773, 0x1b8211a6, 0x2b98a65d, 0x031db099, 0x381394d3};
 bn_uint_t mul_256_b_1= {.number = mul_256_b_1_tab, .length = 8};
-//variable 'mul_256_res_1' value: 0x4e8b0ea810c8f53fac5c47764dfff8f01286726111b300c26e88cdb61848d9fb474a85373ffbd4d6a73be745bef6b59dd3a6ff6f313a5ab3de4bd690bb137fc
-uint32_t mul_256_res_1_tab [16] = {0x0bb137fc, 0x3de4bd69, 0xf313a5ab, 0xdd3a6ff6, 0x5bef6b59, 0x6a73be74, 0x73ffbd4d, 0xb474a853, 0x61848d9f, 0x26e88cdb, 0x111b300c, 0x01286726, 0x64dfff8f, 0xfac5c477, 0x810c8f53, 0x4e8b0ea};
+//variable 'mul_256_res_1' value: 0x321456542ac736bac4be09d6c2251708d78cf9536ccae62f2f8cb3899aa1e1ae2af1df579d7d6ea2460665e8520399239671cd0c8fb9a41a353af03488961d7c
+uint32_t mul_256_res_1_tab [16] = {0x88961d7c, 0x353af034, 0x8fb9a41a, 0x9671cd0c, 0x52039923, 0x460665e8, 0x9d7d6ea2, 0x2af1df57, 0x9aa1e1ae, 0x2f8cb389, 0x6ccae62f, 0xd78cf953, 0xc2251708, 0xc4be09d6, 0x2ac736ba, 0x32145654};
 bn_uint_t mul_256_res_1= {.number = mul_256_res_1_tab, .length = 16};
-//variable 'mul_256_a_2' value: 0x321af8c8e21f9941fe48e65b59bfa7282d53c0853d70d83be87336a8d0861444
-uint32_t mul_256_a_2_tab [8] = {0xd0861444, 0xe87336a8, 0x3d70d83b, 0x2d53c085, 0x59bfa728, 0xfe48e65b, 0xe21f9941, 0x321af8c8};
+//variable 'mul_256_a_2' value: 0x105d25e398a1da80aa8b40260058440e718581be4c2ab412c7522d0ba83033c8
+uint32_t mul_256_a_2_tab [8] = {0xa83033c8, 0xc7522d0b, 0x4c2ab412, 0x718581be, 0x0058440e, 0xaa8b4026, 0x98a1da80, 0x105d25e3};
 bn_uint_t mul_256_a_2= {.number = mul_256_a_2_tab, .length = 8};
-//variable 'mul_256_b_2' value: 0x4c635a121e4ae586f44d052ccd18564f357e319cac6fd1863924999b0e3c96d6
-uint32_t mul_256_b_2_tab [8] = {0x0e3c96d6, 0x3924999b, 0xac6fd186, 0x357e319c, 0xcd18564f, 0xf44d052c, 0x1e4ae586, 0x4c635a12};
+//variable 'mul_256_b_2' value: 0x8469318b7e94b73c333b726f125855b13a04be68a47dc859e82a87b07b64c2a2
+uint32_t mul_256_b_2_tab [8] = {0x7b64c2a2, 0xe82a87b0, 0xa47dc859, 0x3a04be68, 0x125855b1, 0x333b726f, 0x7e94b73c, 0x8469318b};
 bn_uint_t mul_256_b_2= {.number = mul_256_b_2_tab, .length = 8};
-//variable 'mul_256_res_2' value: 0xef373eae01ac336dd28b961f72c64f5184b9b520ab29c7dd2dce228504b21ecc727f64dd0a8ec65ae5da8d6877ad77a676cf1046596ee123e29b90157e4c8d8
-uint32_t mul_256_res_2_tab [16] = {0x57e4c8d8, 0x3e29b901, 0x6596ee12, 0x676cf104, 0x877ad77a, 0xae5da8d6, 0xd0a8ec65, 0xc727f64d, 0x504b21ec, 0xd2dce228, 0x0ab29c7d, 0x184b9b52, 0xf72c64f5, 0xdd28b961, 0xe01ac336, 0xef373ea};
+//variable 'mul_256_res_2' value: 0x876c0e8a3f88c0e2d4eda97ef6679c946d010c3e1456fae322ac9d15c2e5f82ccac3ffb00516d7e1b28d68615d43368c01bb413c90a2bbf65c2440a47de5490
+uint32_t mul_256_res_2_tab [16] = {0x47de5490, 0x65c2440a, 0xc90a2bbf, 0xc01bb413, 0x15d43368, 0x1b28d686, 0x00516d7e, 0xccac3ffb, 0x5c2e5f82, 0x322ac9d1, 0xe1456fae, 0x46d010c3, 0xef6679c9, 0x2d4eda97, 0xa3f88c0e, 0x876c0e8};
 bn_uint_t mul_256_res_2= {.number = mul_256_res_2_tab, .length = 16};
-//variable 'mul_256_a_3' value: 0x6a1b6939278b0cf727c91cd2d0a133fd109056c42d00542e34b9a9592749b65
-uint32_t mul_256_a_3_tab [8] = {0x92749b65, 0xe34b9a95, 0x42d00542, 0xd109056c, 0x2d0a133f, 0x727c91cd, 0x9278b0cf, 0x6a1b693};
+//variable 'mul_256_a_3' value: 0x478d7d0953cf54e0b80c440785205c24d8d9adb8e7fc092196731a26f0fe3d48
+uint32_t mul_256_a_3_tab [8] = {0xf0fe3d48, 0x96731a26, 0xe7fc0921, 0xd8d9adb8, 0x85205c24, 0xb80c4407, 0x53cf54e0, 0x478d7d09};
 bn_uint_t mul_256_a_3= {.number = mul_256_a_3_tab, .length = 8};
-//variable 'mul_256_b_3' value: 0xb281c5573c17b6d4441e69417881707e1a41c6989e5ddb4ebe043f092074c583
-uint32_t mul_256_b_3_tab [8] = {0x2074c583, 0xbe043f09, 0x9e5ddb4e, 0x1a41c698, 0x7881707e, 0x441e6941, 0x3c17b6d4, 0xb281c557};
+//variable 'mul_256_b_3' value: 0xb1c6cdf8c2df6d436d3fcccc33fceb92366e0ba4b28992df86b46f9b33e87877
+uint32_t mul_256_b_3_tab [8] = {0x33e87877, 0x86b46f9b, 0xb28992df, 0x366e0ba4, 0x33fceb92, 0x6d3fcccc, 0xc2df6d43, 0xb1c6cdf8};
 bn_uint_t mul_256_b_3= {.number = mul_256_b_3_tab, .length = 8};
-//variable 'mul_256_res_3' value: 0x49fcd8c5037d9ad7249548c1f9fca096599b1537d12e304a85d5495c789c1157af754c794aa6c6ac76b8bc7a0fc4c906d9e4807331b6ef277a5760db7043daf
-uint32_t mul_256_res_3_tab [16] = {0xb7043daf, 0x77a5760d, 0x331b6ef2, 0x6d9e4807, 0xa0fc4c90, 0xc76b8bc7, 0x94aa6c6a, 0x7af754c7, 0xc789c115, 0xa85d5495, 0x7d12e304, 0x6599b153, 0x1f9fca09, 0x7249548c, 0x5037d9ad, 0x49fcd8c};
+//variable 'mul_256_res_3' value: 0x31b06473fcd270bc5051e6f3f1bea1743c42fee308aed6acb3966faca027793131b2e861df2cfab689008fbed848b191745c16447f59f4494631c84614283c78
+uint32_t mul_256_res_3_tab [16] = {0x14283c78, 0x4631c846, 0x7f59f449, 0x745c1644, 0xd848b191, 0x89008fbe, 0xdf2cfab6, 0x31b2e861, 0xa0277931, 0xb3966fac, 0x08aed6ac, 0x3c42fee3, 0xf1bea174, 0x5051e6f3, 0xfcd270bc, 0x31b06473};
 bn_uint_t mul_256_res_3= {.number = mul_256_res_3_tab, .length = 16};
-//variable 'mul_256_a_4' value: 0xd25f60ae93fb8af4819821946e9d02a2b06f2e3737f3221ca1e7e22079ad3d07
-uint32_t mul_256_a_4_tab [8] = {0x79ad3d07, 0xa1e7e220, 0x37f3221c, 0xb06f2e37, 0x6e9d02a2, 0x81982194, 0x93fb8af4, 0xd25f60ae};
+//variable 'mul_256_a_4' value: 0x94ad08b81e11c2a42da06ffc91745e60161819d5ac7450e1ca1d041e4b8dbd64
+uint32_t mul_256_a_4_tab [8] = {0x4b8dbd64, 0xca1d041e, 0xac7450e1, 0x161819d5, 0x91745e60, 0x2da06ffc, 0x1e11c2a4, 0x94ad08b8};
 bn_uint_t mul_256_a_4= {.number = mul_256_a_4_tab, .length = 8};
-//variable 'mul_256_b_4' value: 0x2aaeced8c914fa542720ba94aea3989d201ec3711d522c11adc14a8e705fe9df
-uint32_t mul_256_b_4_tab [8] = {0x705fe9df, 0xadc14a8e, 0x1d522c11, 0x201ec371, 0xaea3989d, 0x2720ba94, 0xc914fa54, 0x2aaeced8};
+//variable 'mul_256_b_4' value: 0x9f79641673d69fd8c28fbccd2f8d9ec490b78c3feee302c2205183132107f173
+uint32_t mul_256_b_4_tab [8] = {0x2107f173, 0x20518313, 0xeee302c2, 0x90b78c3f, 0x2f8d9ec4, 0xc28fbccd, 0x73d69fd8, 0x9f796416};
 bn_uint_t mul_256_b_4= {.number = mul_256_b_4_tab, .length = 8};
-//variable 'mul_256_res_4' value: 0x23134cab40740838c132bc0622c57a594fffe4822a204041d27442dac81892b8bb049e60e01051bab6c4201c0045edcafbd4140cab3b2ec784195ae7600c8819
-uint32_t mul_256_res_4_tab [16] = {0x600c8819, 0x84195ae7, 0xab3b2ec7, 0xfbd4140c, 0x0045edca, 0xb6c4201c, 0xe01051ba, 0xbb049e60, 0xc81892b8, 0xd27442da, 0x2a204041, 0x4fffe482, 0x22c57a59, 0xc132bc06, 0x40740838, 0x23134cab};
+//variable 'mul_256_res_4' value: 0x5c9df8541b404a3fd8528089e3152f7b47aed7fe7e7d99f0fc0233d47b78ab541dbb5bfde5103a6761384d8888b23767f30302bc7e79e53cb08def7271b337ec
+uint32_t mul_256_res_4_tab [16] = {0x71b337ec, 0xb08def72, 0x7e79e53c, 0xf30302bc, 0x88b23767, 0x61384d88, 0xe5103a67, 0x1dbb5bfd, 0x7b78ab54, 0xfc0233d4, 0x7e7d99f0, 0x47aed7fe, 0xe3152f7b, 0xd8528089, 0x1b404a3f, 0x5c9df854};
 bn_uint_t mul_256_res_4= {.number = mul_256_res_4_tab, .length = 16};
-//variable 'mul_256_a_5' value: 0x32f3abd92ea0f9c689b7fa16a7ea193a34d9e86780b8b983d91214ac0e3f17a1
-uint32_t mul_256_a_5_tab [8] = {0x0e3f17a1, 0xd91214ac, 0x80b8b983, 0x34d9e867, 0xa7ea193a, 0x89b7fa16, 0x2ea0f9c6, 0x32f3abd9};
+//variable 'mul_256_a_5' value: 0xb912a913f726b2890bdae8689cca0fe201c129eef25ac5172f51962c48218456
+uint32_t mul_256_a_5_tab [8] = {0x48218456, 0x2f51962c, 0xf25ac517, 0x01c129ee, 0x9cca0fe2, 0x0bdae868, 0xf726b289, 0xb912a913};
 bn_uint_t mul_256_a_5= {.number = mul_256_a_5_tab, .length = 8};
-//variable 'mul_256_b_5' value: 0xdfdc7aadcb4e7585e18490e09b64d98f9b6f612a2a53f939272d612332727f86
-uint32_t mul_256_b_5_tab [8] = {0x32727f86, 0x272d6123, 0x2a53f939, 0x9b6f612a, 0x9b64d98f, 0xe18490e0, 0xcb4e7585, 0xdfdc7aad};
+//variable 'mul_256_b_5' value: 0xb2825406f63ba2c86552db058ae78c44a6ceb7453b8960a74d9f8a8bb333e936
+uint32_t mul_256_b_5_tab [8] = {0xb333e936, 0x4d9f8a8b, 0x3b8960a7, 0xa6ceb745, 0x8ae78c44, 0x6552db05, 0xf63ba2c8, 0xb2825406};
 bn_uint_t mul_256_b_5= {.number = mul_256_b_5_tab, .length = 8};
-//variable 'mul_256_res_5' value: 0x2c8e24849549c4cf6991f786fe820b459bc483ed604d48ed2d39903fdf1f3402a41f8e41957a3ac90282f2d9e81276bd94bf6f0b5ec8b43ff00013d9b9713d46
-uint32_t mul_256_res_5_tab [16] = {0xb9713d46, 0xf00013d9, 0x5ec8b43f, 0x94bf6f0b, 0xe81276bd, 0x0282f2d9, 0x957a3ac9, 0xa41f8e41, 0xdf1f3402, 0x2d39903f, 0x604d48ed, 0x9bc483ed, 0xfe820b45, 0x6991f786, 0x9549c4cf, 0x2c8e2484};
+//variable 'mul_256_res_5' value: 0x810d31c8e5e9f8cf473f845d490c73f16b1ff14c748480668a044b762e23b0b50795ee9f3be4c857fb8e12b5042d596134d48e5dbd3304dd6918ffe537a63024
+uint32_t mul_256_res_5_tab [16] = {0x37a63024, 0x6918ffe5, 0xbd3304dd, 0x34d48e5d, 0x042d5961, 0xfb8e12b5, 0x3be4c857, 0x0795ee9f, 0x2e23b0b5, 0x8a044b76, 0x74848066, 0x6b1ff14c, 0x490c73f1, 0x473f845d, 0xe5e9f8cf, 0x810d31c8};
 bn_uint_t mul_256_res_5= {.number = mul_256_res_5_tab, .length = 16};
-//variable 'mul_256_a_6' value: 0xf0b1a2aa6d59b1ee23032966af5f437c66751d30f79e24af216137ce00594312
-uint32_t mul_256_a_6_tab [8] = {0x00594312, 0x216137ce, 0xf79e24af, 0x66751d30, 0xaf5f437c, 0x23032966, 0x6d59b1ee, 0xf0b1a2aa};
+//variable 'mul_256_a_6' value: 0x3cecdff74cd8e52f3bc49b5eacfaedad4775278154a6ad58e63d333ce1df8fb
+uint32_t mul_256_a_6_tab [8] = {0xce1df8fb, 0x8e63d333, 0x154a6ad5, 0xd4775278, 0xeacfaeda, 0xf3bc49b5, 0x74cd8e52, 0x3cecdff};
 bn_uint_t mul_256_a_6= {.number = mul_256_a_6_tab, .length = 8};
-//variable 'mul_256_b_6' value: 0x58850eda8c6be9a5b75554b6ad96cb0d2c67dd1cca0cd8b6fe0f99e523a33b9e
-uint32_t mul_256_b_6_tab [8] = {0x23a33b9e, 0xfe0f99e5, 0xca0cd8b6, 0x2c67dd1c, 0xad96cb0d, 0xb75554b6, 0x8c6be9a5, 0x58850eda};
+//variable 'mul_256_b_6' value: 0x626a3d36331af4f58416402415883b7b9d9afbdc38256b558c35778aa193c719
+uint32_t mul_256_b_6_tab [8] = {0xa193c719, 0x8c35778a, 0x38256b55, 0x9d9afbdc, 0x15883b7b, 0x84164024, 0x331af4f5, 0x626a3d36};
 bn_uint_t mul_256_b_6= {.number = mul_256_b_6_tab, .length = 8};
-//variable 'mul_256_res_6' value: 0x533a2a2b4a5216c0ffd0bea764a753fa7cf918dbba0eaf9c88151171f8ad5732baf1be3ef673d92e6da7ecf4314596db88d94b7f1bc20a5e27101953f4028b1c
-uint32_t mul_256_res_6_tab [16] = {0xf4028b1c, 0x27101953, 0x1bc20a5e, 0x88d94b7f, 0x314596db, 0x6da7ecf4, 0xf673d92e, 0xbaf1be3e, 0xf8ad5732, 0x88151171, 0xba0eaf9c, 0x7cf918db, 0x64a753fa, 0xffd0bea7, 0x4a5216c0, 0x533a2a2b};
+//variable 'mul_256_res_6' value: 0x176bf662bf4f9ffe15d31bcc8ef039559e4846768bdbc88bbdbcf8bfb45192b6e5003c51bdf58c02a3e6ab15694e65b71d38c86a7388f223728fe6240996d83
+uint32_t mul_256_res_6_tab [16] = {0x40996d83, 0x3728fe62, 0xa7388f22, 0x71d38c86, 0x5694e65b, 0x2a3e6ab1, 0x1bdf58c0, 0x6e5003c5, 0xfb45192b, 0xbbdbcf8b, 0x68bdbc88, 0x59e48467, 0xc8ef0395, 0xe15d31bc, 0x2bf4f9ff, 0x176bf66};
 bn_uint_t mul_256_res_6= {.number = mul_256_res_6_tab, .length = 16};
-//variable 'mul_256_a_7' value: 0x77a8520648fcd8b63e248dfcb787d1a0ade3e8ec27e584424fcb26e51a5cca1a
-uint32_t mul_256_a_7_tab [8] = {0x1a5cca1a, 0x4fcb26e5, 0x27e58442, 0xade3e8ec, 0xb787d1a0, 0x3e248dfc, 0x48fcd8b6, 0x77a85206};
+//variable 'mul_256_a_7' value: 0xd4effd9d5a97fed4a19561f64d057c540dc80095cf7db5412be0a29f42c54a9a
+uint32_t mul_256_a_7_tab [8] = {0x42c54a9a, 0x2be0a29f, 0xcf7db541, 0x0dc80095, 0x4d057c54, 0xa19561f6, 0x5a97fed4, 0xd4effd9d};
 bn_uint_t mul_256_a_7= {.number = mul_256_a_7_tab, .length = 8};
-//variable 'mul_256_b_7' value: 0xba926bc19ffb2d41093fc10bdfd2747de067b7178648192f5495ed9e6a63a16f
-uint32_t mul_256_b_7_tab [8] = {0x6a63a16f, 0x5495ed9e, 0x8648192f, 0xe067b717, 0xdfd2747d, 0x093fc10b, 0x9ffb2d41, 0xba926bc1};
+//variable 'mul_256_b_7' value: 0x6fead7a8404857ebdaa9921ab000da1dcddcbf64b558a1e13b8d2d729fa5a409
+uint32_t mul_256_b_7_tab [8] = {0x9fa5a409, 0x3b8d2d72, 0xb558a1e1, 0xcddcbf64, 0xb000da1d, 0xdaa9921a, 0x404857eb, 0x6fead7a8};
 bn_uint_t mul_256_b_7= {.number = mul_256_b_7_tab, .length = 8};
-//variable 'mul_256_res_7' value: 0x5734bbf53392bf080642cdd938c0d2572c42cde5302f642acbe41afe2067e680a19d51a7dcd0cd61a65eb67378b08b0a8ba056aabbd9908099905e87b563fb46
-uint32_t mul_256_res_7_tab [16] = {0xb563fb46, 0x99905e87, 0xbbd99080, 0x8ba056aa, 0x78b08b0a, 0xa65eb673, 0xdcd0cd61, 0xa19d51a7, 0x2067e680, 0xcbe41afe, 0x302f642a, 0x2c42cde5, 0x38c0d257, 0x0642cdd9, 0x3392bf08, 0x5734bbf5};
+//variable 'mul_256_res_7' value: 0x5d1765b68d1278cea37674e1f89957a0fc2e352ebb22f3fb21d4e3a0d7c89a8b65cf20b3e958ae29dc4724b8fb44ad156f6a7c6ab7c6000e2cfc9b7277fc476a
+uint32_t mul_256_res_7_tab [16] = {0x77fc476a, 0x2cfc9b72, 0xb7c6000e, 0x6f6a7c6a, 0xfb44ad15, 0xdc4724b8, 0xe958ae29, 0x65cf20b3, 0xd7c89a8b, 0x21d4e3a0, 0xbb22f3fb, 0xfc2e352e, 0xf89957a0, 0xa37674e1, 0x8d1278ce, 0x5d1765b6};
 bn_uint_t mul_256_res_7= {.number = mul_256_res_7_tab, .length = 16};
-//variable 'mul_256_a_8' value: 0x739562c78912462ef20d864cc4a486ff8c45e6d78a916450be51bce2b61676d8
-uint32_t mul_256_a_8_tab [8] = {0xb61676d8, 0xbe51bce2, 0x8a916450, 0x8c45e6d7, 0xc4a486ff, 0xf20d864c, 0x8912462e, 0x739562c7};
+//variable 'mul_256_a_8' value: 0xd0d53768534e96584e5335f75bc9bddbd722bccc735fbb4dbdb30dc4cac3bd83
+uint32_t mul_256_a_8_tab [8] = {0xcac3bd83, 0xbdb30dc4, 0x735fbb4d, 0xd722bccc, 0x5bc9bddb, 0x4e5335f7, 0x534e9658, 0xd0d53768};
 bn_uint_t mul_256_a_8= {.number = mul_256_a_8_tab, .length = 8};
-//variable 'mul_256_b_8' value: 0x30d3b5c838b03e08c96fc286dfb1c4fc5c654ecbe5d7f514461fca5b9fb1f56
-uint32_t mul_256_b_8_tab [8] = {0xb9fb1f56, 0x4461fca5, 0xbe5d7f51, 0xc5c654ec, 0x6dfb1c4f, 0x8c96fc28, 0x838b03e0, 0x30d3b5c};
+//variable 'mul_256_b_8' value: 0xa799a449e534d96a150d0e1f57035bfe78f4b0177feaeacb1d71378ff8e8abc2
+uint32_t mul_256_b_8_tab [8] = {0xf8e8abc2, 0x1d71378f, 0x7feaeacb, 0x78f4b017, 0x57035bfe, 0x150d0e1f, 0xe534d96a, 0xa799a449};
 bn_uint_t mul_256_b_8= {.number = mul_256_b_8_tab, .length = 8};
-//variable 'mul_256_res_8' value: 0x160b98b8d94de7575cae75a694a5254f6991d8d9718c09d293a713a8944c11bbd8a25f1b5d1fdbf9f980efd432cf75497590852061cc799be82e55681b81490
-uint32_t mul_256_res_8_tab [16] = {0x81b81490, 0xbe82e556, 0x061cc799, 0x97590852, 0x432cf754, 0x9f980efd, 0xb5d1fdbf, 0xbd8a25f1, 0x8944c11b, 0x293a713a, 0x9718c09d, 0xf6991d8d, 0x694a5254, 0x75cae75a, 0x8d94de75, 0x160b98b};
+//variable 'mul_256_res_8' value: 0x88b86c980af7876468bb45737ef50ec83d897914f1265572a5d8a81d3a99caba9713901ff5e8c17cd3321bad4231742505c89e1427e0e878498944ba0ea41e46
+uint32_t mul_256_res_8_tab [16] = {0x0ea41e46, 0x498944ba, 0x27e0e878, 0x05c89e14, 0x42317425, 0xd3321bad, 0xf5e8c17c, 0x9713901f, 0x3a99caba, 0xa5d8a81d, 0xf1265572, 0x3d897914, 0x7ef50ec8, 0x68bb4573, 0x0af78764, 0x88b86c98};
 bn_uint_t mul_256_res_8= {.number = mul_256_res_8_tab, .length = 16};
-//variable 'mul_256_a_9' value: 0x4918f409884214ceb9989d0706e2faa6b00688aea65aa9b6d95a54a549306b77
-uint32_t mul_256_a_9_tab [8] = {0x49306b77, 0xd95a54a5, 0xa65aa9b6, 0xb00688ae, 0x06e2faa6, 0xb9989d07, 0x884214ce, 0x4918f409};
+//variable 'mul_256_a_9' value: 0x8bab435646310f5f99303e756778dd9b86d65037a2a9d6fc79a401a0efc3d730
+uint32_t mul_256_a_9_tab [8] = {0xefc3d730, 0x79a401a0, 0xa2a9d6fc, 0x86d65037, 0x6778dd9b, 0x99303e75, 0x46310f5f, 0x8bab4356};
 bn_uint_t mul_256_a_9= {.number = mul_256_a_9_tab, .length = 8};
-//variable 'mul_256_b_9' value: 0xe13a197f077d4bd638c4dcf33688335c8f5a50623d2909b43437256b30708d41
-uint32_t mul_256_b_9_tab [8] = {0x30708d41, 0x3437256b, 0x3d2909b4, 0x8f5a5062, 0x3688335c, 0x38c4dcf3, 0x077d4bd6, 0xe13a197f};
+//variable 'mul_256_b_9' value: 0x246002aa9cd367495e1cdde29d155a03ae5808294dbebb4c4aa47fa6e6090ad0
+uint32_t mul_256_b_9_tab [8] = {0xe6090ad0, 0x4aa47fa6, 0x4dbebb4c, 0xae580829, 0x9d155a03, 0x5e1cdde2, 0x9cd36749, 0x246002aa};
 bn_uint_t mul_256_b_9= {.number = mul_256_b_9_tab, .length = 8};
-//variable 'mul_256_res_9' value: 0x404f856b604467ce5ab77e919f1f2990ee8eae187a0c13185fd0ed575323e9910e56140af2f1b8c23eb5800d9a41778f6bc0ff9a197e6718cfedbe59948bd437
-uint32_t mul_256_res_9_tab [16] = {0x948bd437, 0xcfedbe59, 0x197e6718, 0x6bc0ff9a, 0x9a41778f, 0x3eb5800d, 0xf2f1b8c2, 0x0e56140a, 0x5323e991, 0x5fd0ed57, 0x7a0c1318, 0xee8eae18, 0x9f1f2990, 0x5ab77e91, 0x604467ce, 0x404f856b};
+//variable 'mul_256_res_9' value: 0x13d87725ce0a4ff1363f7bb73ea7ff34803207d62417beefc4fa37b2d3e30dbf5b30a644a4ced121881f665eb1d16963d11482f5601237553ee256782636b700
+uint32_t mul_256_res_9_tab [16] = {0x2636b700, 0x3ee25678, 0x60123755, 0xd11482f5, 0xb1d16963, 0x881f665e, 0xa4ced121, 0x5b30a644, 0xd3e30dbf, 0xc4fa37b2, 0x2417beef, 0x803207d6, 0x3ea7ff34, 0x363f7bb7, 0xce0a4ff1, 0x13d87725};
 bn_uint_t mul_256_res_9= {.number = mul_256_res_9_tab, .length = 16};
 uint32_t mul_256_tab_len=10;
 bn_uint_t *mul_256_test_tab[10][3]={
@@ -1507,65 +1507,65 @@ bn_uint_t *mul_256_test_tab[10][3]={
 {&mul_256_a_8,&mul_256_b_8,&mul_256_res_8},
 {&mul_256_a_9,&mul_256_b_9,&mul_256_res_9},
 };
-//variable 'mod_barret_128_a_0' value: 0xb043400d1aec2b11fc9f2c15c8b6c65ae9dedfca729c72c6b939c7b33bea5019
-uint32_t mod_barret_128_a_0_tab [8] = {0x3bea5019, 0xb939c7b3, 0x729c72c6, 0xe9dedfca, 0xc8b6c65a, 0xfc9f2c15, 0x1aec2b11, 0xb043400d};
+//variable 'mod_barret_128_a_0' value: 0x24b31d50af2ae4a4330c6d4df8486fcd07b754e6a670c4ba5ed5c91ee1ca5de1
+uint32_t mod_barret_128_a_0_tab [8] = {0xe1ca5de1, 0x5ed5c91e, 0xa670c4ba, 0x07b754e6, 0xf8486fcd, 0x330c6d4d, 0xaf2ae4a4, 0x24b31d50};
 bn_uint_t mod_barret_128_a_0= {.number = mod_barret_128_a_0_tab, .length = 8};
-//variable 'mod_barret_128_res_0' value: 0xf9a1b65cee0f1df5acbe4a26ebaa1b5b
-uint32_t mod_barret_128_res_0_tab [4] = {0xebaa1b5b, 0xacbe4a26, 0xee0f1df5, 0xf9a1b65c};
+//variable 'mod_barret_128_res_0' value: 0xadb601399f01e400830474f922702562
+uint32_t mod_barret_128_res_0_tab [4] = {0x22702562, 0x830474f9, 0x9f01e400, 0xadb60139};
 bn_uint_t mod_barret_128_res_0= {.number = mod_barret_128_res_0_tab, .length = 4};
-//variable 'mod_barret_128_a_1' value: 0x40cbebb161e858cdb2c0c840155db120c3315e63d9bb51adc8115a83861d6ab
-uint32_t mod_barret_128_a_1_tab [8] = {0x3861d6ab, 0xdc8115a8, 0x3d9bb51a, 0x0c3315e6, 0x0155db12, 0xdb2c0c84, 0x161e858c, 0x40cbebb};
+//variable 'mod_barret_128_a_1' value: 0x2e44c3b598ba5f971be665829c76eddac6c77c863691c5e8e017c851393b3e87
+uint32_t mod_barret_128_a_1_tab [8] = {0x393b3e87, 0xe017c851, 0x3691c5e8, 0xc6c77c86, 0x9c76edda, 0x1be66582, 0x98ba5f97, 0x2e44c3b5};
 bn_uint_t mod_barret_128_a_1= {.number = mod_barret_128_a_1_tab, .length = 8};
-//variable 'mod_barret_128_res_1' value: 0x715bd4ed5bd3b81df41d283268efd6d1
-uint32_t mod_barret_128_res_1_tab [4] = {0x68efd6d1, 0xf41d2832, 0x5bd3b81d, 0x715bd4ed};
+//variable 'mod_barret_128_res_1' value: 0x47b2ea142bd5acebe685fbd9e28e9373
+uint32_t mod_barret_128_res_1_tab [4] = {0xe28e9373, 0xe685fbd9, 0x2bd5aceb, 0x47b2ea14};
 bn_uint_t mod_barret_128_res_1= {.number = mod_barret_128_res_1_tab, .length = 4};
-//variable 'mod_barret_128_a_2' value: 0x806f98f6de726800d7048269fc0a374da7f3f7e906d063d11504ecf8c14566f4
-uint32_t mod_barret_128_a_2_tab [8] = {0xc14566f4, 0x1504ecf8, 0x06d063d1, 0xa7f3f7e9, 0xfc0a374d, 0xd7048269, 0xde726800, 0x806f98f6};
+//variable 'mod_barret_128_a_2' value: 0xd01f405be9554394791839f31d5a9389ebf09258cdbc911af4d10506242b48f1
+uint32_t mod_barret_128_a_2_tab [8] = {0x242b48f1, 0xf4d10506, 0xcdbc911a, 0xebf09258, 0x1d5a9389, 0x791839f3, 0xe9554394, 0xd01f405b};
 bn_uint_t mod_barret_128_a_2= {.number = mod_barret_128_a_2_tab, .length = 8};
-//variable 'mod_barret_128_res_2' value: 0x7716d8a8e621fdc1aaaca343e89f0ad8
-uint32_t mod_barret_128_res_2_tab [4] = {0xe89f0ad8, 0xaaaca343, 0xe621fdc1, 0x7716d8a8};
+//variable 'mod_barret_128_res_2' value: 0x27c404145750556a8110c7985a0561a0
+uint32_t mod_barret_128_res_2_tab [4] = {0x5a0561a0, 0x8110c798, 0x5750556a, 0x27c40414};
 bn_uint_t mod_barret_128_res_2= {.number = mod_barret_128_res_2_tab, .length = 4};
-//variable 'mod_barret_128_a_3' value: 0x3b9602ea7e8b17efed8efaf3b86ebca944232d2e70ad09f377a18b4d1da7b713
-uint32_t mod_barret_128_a_3_tab [8] = {0x1da7b713, 0x77a18b4d, 0x70ad09f3, 0x44232d2e, 0xb86ebca9, 0xed8efaf3, 0x7e8b17ef, 0x3b9602ea};
+//variable 'mod_barret_128_a_3' value: 0x3c5d0b9d3498f0ae717bb5495f983263e2875476a696720f17fcdd4e928863db
+uint32_t mod_barret_128_a_3_tab [8] = {0x928863db, 0x17fcdd4e, 0xa696720f, 0xe2875476, 0x5f983263, 0x717bb549, 0x3498f0ae, 0x3c5d0b9d};
 bn_uint_t mod_barret_128_a_3= {.number = mod_barret_128_a_3_tab, .length = 8};
-//variable 'mod_barret_128_res_3' value: 0x548b8369666427b9509ec1cc8810e0bb
-uint32_t mod_barret_128_res_3_tab [4] = {0x8810e0bb, 0x509ec1cc, 0x666427b9, 0x548b8369};
+//variable 'mod_barret_128_res_3' value: 0xe9bd95053e979f8e41ea26b8a642079
+uint32_t mod_barret_128_res_3_tab [4] = {0x8a642079, 0xe41ea26b, 0x53e979f8, 0xe9bd950};
 bn_uint_t mod_barret_128_res_3= {.number = mod_barret_128_res_3_tab, .length = 4};
-//variable 'mod_barret_128_a_4' value: 0x70a5d835440c4cfcf68c7ff70f859124df7bf0a962dddce36d7cb42cccc36f70
-uint32_t mod_barret_128_a_4_tab [8] = {0xccc36f70, 0x6d7cb42c, 0x62dddce3, 0xdf7bf0a9, 0x0f859124, 0xf68c7ff7, 0x440c4cfc, 0x70a5d835};
+//variable 'mod_barret_128_a_4' value: 0x3d10edece177b6a7cd86d5847973c8c980588017131d6abf538227a907b6a773
+uint32_t mod_barret_128_a_4_tab [8] = {0x07b6a773, 0x538227a9, 0x131d6abf, 0x80588017, 0x7973c8c9, 0xcd86d584, 0xe177b6a7, 0x3d10edec};
 bn_uint_t mod_barret_128_a_4= {.number = mod_barret_128_a_4_tab, .length = 8};
-//variable 'mod_barret_128_res_4' value: 0x741ed64f8835da4caeb92ef65ec1f628
-uint32_t mod_barret_128_res_4_tab [4] = {0x5ec1f628, 0xaeb92ef6, 0x8835da4c, 0x741ed64f};
+//variable 'mod_barret_128_res_4' value: 0xc338e9bc6eb6fd41d83c22328a9e654f
+uint32_t mod_barret_128_res_4_tab [4] = {0x8a9e654f, 0xd83c2232, 0x6eb6fd41, 0xc338e9bc};
 bn_uint_t mod_barret_128_res_4= {.number = mod_barret_128_res_4_tab, .length = 4};
-//variable 'mod_barret_128_a_5' value: 0xb07aaf35a5b570ce1da6946b53a55da5ac091de0127fa22d5906359670d0184f
-uint32_t mod_barret_128_a_5_tab [8] = {0x70d0184f, 0x59063596, 0x127fa22d, 0xac091de0, 0x53a55da5, 0x1da6946b, 0xa5b570ce, 0xb07aaf35};
+//variable 'mod_barret_128_a_5' value: 0x75e2066d256bf34eeefaf901627c479a0ba54da205d349eac1dde10a7077636a
+uint32_t mod_barret_128_a_5_tab [8] = {0x7077636a, 0xc1dde10a, 0x05d349ea, 0x0ba54da2, 0x627c479a, 0xeefaf901, 0x256bf34e, 0x75e2066d};
 bn_uint_t mod_barret_128_a_5= {.number = mod_barret_128_a_5_tab, .length = 8};
-//variable 'mod_barret_128_res_5' value: 0xafbf53f1192a71698402687a1a6ddbbc
-uint32_t mod_barret_128_res_5_tab [4] = {0x1a6ddbbc, 0x8402687a, 0x192a7169, 0xafbf53f1};
+//variable 'mod_barret_128_res_5' value: 0x8bebc8a217034a15d338da61f5a99db3
+uint32_t mod_barret_128_res_5_tab [4] = {0xf5a99db3, 0xd338da61, 0x17034a15, 0x8bebc8a2};
 bn_uint_t mod_barret_128_res_5= {.number = mod_barret_128_res_5_tab, .length = 4};
-//variable 'mod_barret_128_a_6' value: 0xea2ea4806c8b86c27386e071327aa41282004d869bae80ba095b53d130da16c0
-uint32_t mod_barret_128_a_6_tab [8] = {0x30da16c0, 0x095b53d1, 0x9bae80ba, 0x82004d86, 0x327aa412, 0x7386e071, 0x6c8b86c2, 0xea2ea480};
+//variable 'mod_barret_128_a_6' value: 0x1df62eb0fbba8512e3662cf327f589bc733b19423ae17aa32a04c955dfff5049
+uint32_t mod_barret_128_a_6_tab [8] = {0xdfff5049, 0x2a04c955, 0x3ae17aa3, 0x733b1942, 0x27f589bc, 0xe3662cf3, 0xfbba8512, 0x1df62eb0};
 bn_uint_t mod_barret_128_a_6= {.number = mod_barret_128_a_6_tab, .length = 8};
-//variable 'mod_barret_128_res_6' value: 0xa6863a2adc975080feb3d3d04e05bad1
-uint32_t mod_barret_128_res_6_tab [4] = {0x4e05bad1, 0xfeb3d3d0, 0xdc975080, 0xa6863a2a};
+//variable 'mod_barret_128_res_6' value: 0x2bec22e372885d187cb8bb33ad5cbdc1
+uint32_t mod_barret_128_res_6_tab [4] = {0xad5cbdc1, 0x7cb8bb33, 0x72885d18, 0x2bec22e3};
 bn_uint_t mod_barret_128_res_6= {.number = mod_barret_128_res_6_tab, .length = 4};
-//variable 'mod_barret_128_a_7' value: 0xf555958b1495d03f908c110cecff699684f2834a5489cfb6faa9c2d2593cc0de
-uint32_t mod_barret_128_a_7_tab [8] = {0x593cc0de, 0xfaa9c2d2, 0x5489cfb6, 0x84f2834a, 0xecff6996, 0x908c110c, 0x1495d03f, 0xf555958b};
+//variable 'mod_barret_128_a_7' value: 0xf29f35503e280f4e1bde31a6d429d48b29ac828e74fa98e22c30d76e8ffc7577
+uint32_t mod_barret_128_a_7_tab [8] = {0x8ffc7577, 0x2c30d76e, 0x74fa98e2, 0x29ac828e, 0xd429d48b, 0x1bde31a6, 0x3e280f4e, 0xf29f3550};
 bn_uint_t mod_barret_128_a_7= {.number = mod_barret_128_a_7_tab, .length = 8};
-//variable 'mod_barret_128_res_7' value: 0x907f0b0553cacb1089b7ca92645839f5
-uint32_t mod_barret_128_res_7_tab [4] = {0x645839f5, 0x89b7ca92, 0x53cacb10, 0x907f0b05};
+//variable 'mod_barret_128_res_7' value: 0x4f4bf726986112d48edbfcfa297c951a
+uint32_t mod_barret_128_res_7_tab [4] = {0x297c951a, 0x8edbfcfa, 0x986112d4, 0x4f4bf726};
 bn_uint_t mod_barret_128_res_7= {.number = mod_barret_128_res_7_tab, .length = 4};
-//variable 'mod_barret_128_a_8' value: 0x89e0a3c88679cdd8ba6d5166e160eb1cc712dd06f30fe3e65d3cc039d398781c
-uint32_t mod_barret_128_a_8_tab [8] = {0xd398781c, 0x5d3cc039, 0xf30fe3e6, 0xc712dd06, 0xe160eb1c, 0xba6d5166, 0x8679cdd8, 0x89e0a3c8};
+//variable 'mod_barret_128_a_8' value: 0x77472babaae4ee21de497e2c1478a132aabd0e26270401ef285cc0674fa7ede2
+uint32_t mod_barret_128_a_8_tab [8] = {0x4fa7ede2, 0x285cc067, 0x270401ef, 0xaabd0e26, 0x1478a132, 0xde497e2c, 0xaae4ee21, 0x77472bab};
 bn_uint_t mod_barret_128_a_8= {.number = mod_barret_128_a_8_tab, .length = 8};
-//variable 'mod_barret_128_res_8' value: 0xcf4348048d4af9524c203c7892c05bb6
-uint32_t mod_barret_128_res_8_tab [4] = {0x92c05bb6, 0x4c203c78, 0x8d4af952, 0xcf434804};
+//variable 'mod_barret_128_res_8' value: 0x8fb5a0c0c077476a398cc9898680a159
+uint32_t mod_barret_128_res_8_tab [4] = {0x8680a159, 0x398cc989, 0xc077476a, 0x8fb5a0c0};
 bn_uint_t mod_barret_128_res_8= {.number = mod_barret_128_res_8_tab, .length = 4};
-//variable 'mod_barret_128_a_9' value: 0x26c599c74c778913fb00c88f04a9ed174f493f19e8e83b3f2b4b7165db64bdef
-uint32_t mod_barret_128_a_9_tab [8] = {0xdb64bdef, 0x2b4b7165, 0xe8e83b3f, 0x4f493f19, 0x04a9ed17, 0xfb00c88f, 0x4c778913, 0x26c599c7};
+//variable 'mod_barret_128_a_9' value: 0xe0b51d94c876fca7fd1584538d8adb3b7c737c5defbc4ae944e1dffa54ce1195
+uint32_t mod_barret_128_a_9_tab [8] = {0x54ce1195, 0x44e1dffa, 0xefbc4ae9, 0x7c737c5d, 0x8d8adb3b, 0xfd158453, 0xc876fca7, 0xe0b51d94};
 bn_uint_t mod_barret_128_a_9= {.number = mod_barret_128_a_9_tab, .length = 8};
-//variable 'mod_barret_128_res_9' value: 0x3b7bba6582eaf7e25a51b33b3e1b2eb1
-uint32_t mod_barret_128_res_9_tab [4] = {0x3e1b2eb1, 0x5a51b33b, 0x82eaf7e2, 0x3b7bba65};
+//variable 'mod_barret_128_res_9' value: 0xbb9e2062799d82be55b9d3f80408d4cc
+uint32_t mod_barret_128_res_9_tab [4] = {0x0408d4cc, 0x55b9d3f8, 0x799d82be, 0xbb9e2062};
 bn_uint_t mod_barret_128_res_9= {.number = mod_barret_128_res_9_tab, .length = 4};
 //variable 'mod_barret_128_mi_' value: 0x100000002000000040000000800000011
 uint32_t mod_barret_128_mi__tab [5] = {0x00000011, 0x00000008, 0x00000004, 0x00000002, 0x1};
@@ -1586,95 +1586,95 @@ bn_uint_t *mod_barret_128_test_tab[10][2]={
 {&mod_barret_128_a_8,&mod_barret_128_res_8},
 {&mod_barret_128_a_9,&mod_barret_128_res_9},
 };
-//variable 'mul_mod_barret_128_a_0' value: 0xebc8b311282d0c8def7f9f5e6e2e0e68
-uint32_t mul_mod_barret_128_a_0_tab [4] = {0x6e2e0e68, 0xef7f9f5e, 0x282d0c8d, 0xebc8b311};
+//variable 'mul_mod_barret_128_a_0' value: 0x4cfa17aeb29a86d17d818599834d2c44
+uint32_t mul_mod_barret_128_a_0_tab [4] = {0x834d2c44, 0x7d818599, 0xb29a86d1, 0x4cfa17ae};
 bn_uint_t mul_mod_barret_128_a_0= {.number = mul_mod_barret_128_a_0_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_0' value: 0xe629c261f2c91f68c633fd4688efdc4b
-uint32_t mul_mod_barret_128_b_0_tab [4] = {0x88efdc4b, 0xc633fd46, 0xf2c91f68, 0xe629c261};
+//variable 'mul_mod_barret_128_b_0' value: 0x1743ba7422144e92fb75d2fc3472fd8a
+uint32_t mul_mod_barret_128_b_0_tab [4] = {0x3472fd8a, 0xfb75d2fc, 0x22144e92, 0x1743ba74};
 bn_uint_t mul_mod_barret_128_b_0= {.number = mul_mod_barret_128_b_0_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_0' value: 0x42b9625206723ed75da6d9ddb075c3eb
-uint32_t mul_mod_barret_128_res_0_tab [4] = {0xb075c3eb, 0x5da6d9dd, 0x06723ed7, 0x42b96252};
+//variable 'mul_mod_barret_128_res_0' value: 0x554337b169a84423b4386afc85e5a96c
+uint32_t mul_mod_barret_128_res_0_tab [4] = {0x85e5a96c, 0xb4386afc, 0x69a84423, 0x554337b1};
 bn_uint_t mul_mod_barret_128_res_0= {.number = mul_mod_barret_128_res_0_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_1' value: 0x78f040fdc3982767d90e8a5c89e61ec5
-uint32_t mul_mod_barret_128_a_1_tab [4] = {0x89e61ec5, 0xd90e8a5c, 0xc3982767, 0x78f040fd};
+//variable 'mul_mod_barret_128_a_1' value: 0x763bd3512a8bcf1f4adb014d6593d50e
+uint32_t mul_mod_barret_128_a_1_tab [4] = {0x6593d50e, 0x4adb014d, 0x2a8bcf1f, 0x763bd351};
 bn_uint_t mul_mod_barret_128_a_1= {.number = mul_mod_barret_128_a_1_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_1' value: 0x73395d17a8d16e80d3bb71445b38ca5
-uint32_t mul_mod_barret_128_b_1_tab [4] = {0x45b38ca5, 0x0d3bb714, 0x7a8d16e8, 0x73395d1};
+//variable 'mul_mod_barret_128_b_1' value: 0x832f35fdabdbe80349854589005df941
+uint32_t mul_mod_barret_128_b_1_tab [4] = {0x005df941, 0x49854589, 0xabdbe803, 0x832f35fd};
 bn_uint_t mul_mod_barret_128_b_1= {.number = mul_mod_barret_128_b_1_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_1' value: 0x42d50e790b60086442c2e4b085effeee
-uint32_t mul_mod_barret_128_res_1_tab [4] = {0x85effeee, 0x42c2e4b0, 0x0b600864, 0x42d50e79};
+//variable 'mul_mod_barret_128_res_1' value: 0x3c801b4fdf0401cd61c706babec0aaa
+uint32_t mul_mod_barret_128_res_1_tab [4] = {0xabec0aaa, 0xd61c706b, 0xfdf0401c, 0x3c801b4};
 bn_uint_t mul_mod_barret_128_res_1= {.number = mul_mod_barret_128_res_1_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_2' value: 0x35d017c485678706b3c4673b81bc74f8
-uint32_t mul_mod_barret_128_a_2_tab [4] = {0x81bc74f8, 0xb3c4673b, 0x85678706, 0x35d017c4};
+//variable 'mul_mod_barret_128_a_2' value: 0xd6b1a00a5a68c1e340d4d0e47a2010c5
+uint32_t mul_mod_barret_128_a_2_tab [4] = {0x7a2010c5, 0x40d4d0e4, 0x5a68c1e3, 0xd6b1a00a};
 bn_uint_t mul_mod_barret_128_a_2= {.number = mul_mod_barret_128_a_2_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_2' value: 0x849193e07760599cba4556b527f35a75
-uint32_t mul_mod_barret_128_b_2_tab [4] = {0x27f35a75, 0xba4556b5, 0x7760599c, 0x849193e0};
+//variable 'mul_mod_barret_128_b_2' value: 0x68c44957a9f5c2eae2277e9ad15af71d
+uint32_t mul_mod_barret_128_b_2_tab [4] = {0xd15af71d, 0xe2277e9a, 0xa9f5c2ea, 0x68c44957};
 bn_uint_t mul_mod_barret_128_b_2= {.number = mul_mod_barret_128_b_2_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_2' value: 0xd2c8947a1a895d220d898507e09a1276
-uint32_t mul_mod_barret_128_res_2_tab [4] = {0xe09a1276, 0x0d898507, 0x1a895d22, 0xd2c8947a};
+//variable 'mul_mod_barret_128_res_2' value: 0xf29005fde7b072648130e04ea3f7c304
+uint32_t mul_mod_barret_128_res_2_tab [4] = {0xa3f7c304, 0x8130e04e, 0xe7b07264, 0xf29005fd};
 bn_uint_t mul_mod_barret_128_res_2= {.number = mul_mod_barret_128_res_2_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_3' value: 0x20122efbae258cd0cd2a6099c95f460e
-uint32_t mul_mod_barret_128_a_3_tab [4] = {0xc95f460e, 0xcd2a6099, 0xae258cd0, 0x20122efb};
+//variable 'mul_mod_barret_128_a_3' value: 0xd3cc12863449446b4897ee05c17b19ec
+uint32_t mul_mod_barret_128_a_3_tab [4] = {0xc17b19ec, 0x4897ee05, 0x3449446b, 0xd3cc1286};
 bn_uint_t mul_mod_barret_128_a_3= {.number = mul_mod_barret_128_a_3_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_3' value: 0x99395378e83a18c1da6cad9fa49bf245
-uint32_t mul_mod_barret_128_b_3_tab [4] = {0xa49bf245, 0xda6cad9f, 0xe83a18c1, 0x99395378};
+//variable 'mul_mod_barret_128_b_3' value: 0x7268bed7a001936ef24c4b01de11109d
+uint32_t mul_mod_barret_128_b_3_tab [4] = {0xde11109d, 0xf24c4b01, 0xa001936e, 0x7268bed7};
 bn_uint_t mul_mod_barret_128_b_3= {.number = mul_mod_barret_128_b_3_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_3' value: 0x26819a089cfa89b31cae0c1d0dd8f555
-uint32_t mul_mod_barret_128_res_3_tab [4] = {0x0dd8f555, 0x1cae0c1d, 0x9cfa89b3, 0x26819a08};
+//variable 'mul_mod_barret_128_res_3' value: 0xba5d4a786d8d442ff7d35c2b5c411c6f
+uint32_t mul_mod_barret_128_res_3_tab [4] = {0x5c411c6f, 0xf7d35c2b, 0x6d8d442f, 0xba5d4a78};
 bn_uint_t mul_mod_barret_128_res_3= {.number = mul_mod_barret_128_res_3_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_4' value: 0x2304a130a1906a789800f81c9a7510a5
-uint32_t mul_mod_barret_128_a_4_tab [4] = {0x9a7510a5, 0x9800f81c, 0xa1906a78, 0x2304a130};
+//variable 'mul_mod_barret_128_a_4' value: 0x8369371eb96f11ac25096bdc8d702674
+uint32_t mul_mod_barret_128_a_4_tab [4] = {0x8d702674, 0x25096bdc, 0xb96f11ac, 0x8369371e};
 bn_uint_t mul_mod_barret_128_a_4= {.number = mul_mod_barret_128_a_4_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_4' value: 0xe9ab0512305a51a6cd2adb3558e6ab87
-uint32_t mul_mod_barret_128_b_4_tab [4] = {0x58e6ab87, 0xcd2adb35, 0x305a51a6, 0xe9ab0512};
+//variable 'mul_mod_barret_128_b_4' value: 0xef7ec9d77d6401fd53697b928826ba95
+uint32_t mul_mod_barret_128_b_4_tab [4] = {0x8826ba95, 0x53697b92, 0x7d6401fd, 0xef7ec9d7};
 bn_uint_t mul_mod_barret_128_b_4= {.number = mul_mod_barret_128_b_4_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_4' value: 0xf9db20486e6f99d32e44555a3baa5be1
-uint32_t mul_mod_barret_128_res_4_tab [4] = {0x3baa5be1, 0x2e44555a, 0x6e6f99d3, 0xf9db2048};
+//variable 'mul_mod_barret_128_res_4' value: 0xf435a795faa7e2f7d9053c8d4d73ed78
+uint32_t mul_mod_barret_128_res_4_tab [4] = {0x4d73ed78, 0xd9053c8d, 0xfaa7e2f7, 0xf435a795};
 bn_uint_t mul_mod_barret_128_res_4= {.number = mul_mod_barret_128_res_4_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_5' value: 0xe04d319f69886e1962ae08cf458262c5
-uint32_t mul_mod_barret_128_a_5_tab [4] = {0x458262c5, 0x62ae08cf, 0x69886e19, 0xe04d319f};
+//variable 'mul_mod_barret_128_a_5' value: 0x6cd736ba647aedaabecd5dbbdf14c9b7
+uint32_t mul_mod_barret_128_a_5_tab [4] = {0xdf14c9b7, 0xbecd5dbb, 0x647aedaa, 0x6cd736ba};
 bn_uint_t mul_mod_barret_128_a_5= {.number = mul_mod_barret_128_a_5_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_5' value: 0xdad761e6ed4ff9435340dedb1bf72f0e
-uint32_t mul_mod_barret_128_b_5_tab [4] = {0x1bf72f0e, 0x5340dedb, 0xed4ff943, 0xdad761e6};
+//variable 'mul_mod_barret_128_b_5' value: 0x76651f4e42eb94b8a3f961a5d423fa6f
+uint32_t mul_mod_barret_128_b_5_tab [4] = {0xd423fa6f, 0xa3f961a5, 0x42eb94b8, 0x76651f4e};
 bn_uint_t mul_mod_barret_128_b_5= {.number = mul_mod_barret_128_b_5_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_5' value: 0x648ab337d7c1de925f7c87a7431d39b0
-uint32_t mul_mod_barret_128_res_5_tab [4] = {0x431d39b0, 0x5f7c87a7, 0xd7c1de92, 0x648ab337};
+//variable 'mul_mod_barret_128_res_5' value: 0xf1d76e4082120aab6c872f97c64ad79
+uint32_t mul_mod_barret_128_res_5_tab [4] = {0x7c64ad79, 0xb6c872f9, 0x082120aa, 0xf1d76e4};
 bn_uint_t mul_mod_barret_128_res_5= {.number = mul_mod_barret_128_res_5_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_6' value: 0xbe0a4045dd9833c2d7731d87dd596df5
-uint32_t mul_mod_barret_128_a_6_tab [4] = {0xdd596df5, 0xd7731d87, 0xdd9833c2, 0xbe0a4045};
+//variable 'mul_mod_barret_128_a_6' value: 0xc75feaa29fcec62b403c49fd6e56118f
+uint32_t mul_mod_barret_128_a_6_tab [4] = {0x6e56118f, 0x403c49fd, 0x9fcec62b, 0xc75feaa2};
 bn_uint_t mul_mod_barret_128_a_6= {.number = mul_mod_barret_128_a_6_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_6' value: 0x7761e323f67cb363066d114bc5e6335
-uint32_t mul_mod_barret_128_b_6_tab [4] = {0xbc5e6335, 0x3066d114, 0x3f67cb36, 0x7761e32};
+//variable 'mul_mod_barret_128_b_6' value: 0xc0d238308935a9edfde5636142c7fa9f
+uint32_t mul_mod_barret_128_b_6_tab [4] = {0x42c7fa9f, 0xfde56361, 0x8935a9ed, 0xc0d23830};
 bn_uint_t mul_mod_barret_128_b_6= {.number = mul_mod_barret_128_b_6_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_6' value: 0xc2e499ab1a9aeba4ab2686f508d83748
-uint32_t mul_mod_barret_128_res_6_tab [4] = {0x08d83748, 0xab2686f5, 0x1a9aeba4, 0xc2e499ab};
+//variable 'mul_mod_barret_128_res_6' value: 0x844784d434fb6f450368027eb2d960b0
+uint32_t mul_mod_barret_128_res_6_tab [4] = {0xb2d960b0, 0x0368027e, 0x34fb6f45, 0x844784d4};
 bn_uint_t mul_mod_barret_128_res_6= {.number = mul_mod_barret_128_res_6_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_7' value: 0xe547086a7f7f62575bab89c6d5d1e12d
-uint32_t mul_mod_barret_128_a_7_tab [4] = {0xd5d1e12d, 0x5bab89c6, 0x7f7f6257, 0xe547086a};
+//variable 'mul_mod_barret_128_a_7' value: 0x14880ec44e15fdfef26af5128895856
+uint32_t mul_mod_barret_128_a_7_tab [4] = {0x28895856, 0xef26af51, 0x44e15fdf, 0x14880ec};
 bn_uint_t mul_mod_barret_128_a_7= {.number = mul_mod_barret_128_a_7_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_7' value: 0xfe4f0c465278ed7491dd26fb2e29eab
-uint32_t mul_mod_barret_128_b_7_tab [4] = {0xb2e29eab, 0x491dd26f, 0x65278ed7, 0xfe4f0c4};
+//variable 'mul_mod_barret_128_b_7' value: 0x46e59b711f671df9788831bff3c91e07
+uint32_t mul_mod_barret_128_b_7_tab [4] = {0xf3c91e07, 0x788831bf, 0x1f671df9, 0x46e59b71};
 bn_uint_t mul_mod_barret_128_b_7= {.number = mul_mod_barret_128_b_7_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_7' value: 0x9fa126757f38f5b12130fe607576a1ef
-uint32_t mul_mod_barret_128_res_7_tab [4] = {0x7576a1ef, 0x2130fe60, 0x7f38f5b1, 0x9fa12675};
+//variable 'mul_mod_barret_128_res_7' value: 0x6a13ca177d13b8cb22790528b2ac23b1
+uint32_t mul_mod_barret_128_res_7_tab [4] = {0xb2ac23b1, 0x22790528, 0x7d13b8cb, 0x6a13ca17};
 bn_uint_t mul_mod_barret_128_res_7= {.number = mul_mod_barret_128_res_7_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_8' value: 0xaee90d6d3473be6eb7182e86a46b29ef
-uint32_t mul_mod_barret_128_a_8_tab [4] = {0xa46b29ef, 0xb7182e86, 0x3473be6e, 0xaee90d6d};
+//variable 'mul_mod_barret_128_a_8' value: 0x5f54bb863229446c222d31795be0edfc
+uint32_t mul_mod_barret_128_a_8_tab [4] = {0x5be0edfc, 0x222d3179, 0x3229446c, 0x5f54bb86};
 bn_uint_t mul_mod_barret_128_a_8= {.number = mul_mod_barret_128_a_8_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_8' value: 0x719a10e3a1c681eb78ae90baaf585f12
-uint32_t mul_mod_barret_128_b_8_tab [4] = {0xaf585f12, 0x78ae90ba, 0xa1c681eb, 0x719a10e3};
+//variable 'mul_mod_barret_128_b_8' value: 0xcbea723bf76d5d984f3fa0f8d34f3cdd
+uint32_t mul_mod_barret_128_b_8_tab [4] = {0xd34f3cdd, 0x4f3fa0f8, 0xf76d5d98, 0xcbea723b};
 bn_uint_t mul_mod_barret_128_b_8= {.number = mul_mod_barret_128_b_8_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_8' value: 0x612c9fd2ced03da2ac4f6d0dcb33be2d
-uint32_t mul_mod_barret_128_res_8_tab [4] = {0xcb33be2d, 0xac4f6d0d, 0xced03da2, 0x612c9fd2};
+//variable 'mul_mod_barret_128_res_8' value: 0xdca475b168e8e0fc50d118cf108da0fa
+uint32_t mul_mod_barret_128_res_8_tab [4] = {0x108da0fa, 0x50d118cf, 0x68e8e0fc, 0xdca475b1};
 bn_uint_t mul_mod_barret_128_res_8= {.number = mul_mod_barret_128_res_8_tab, .length = 4};
-//variable 'mul_mod_barret_128_a_9' value: 0x6707579937f614f5b0ecefeef0aace9e
-uint32_t mul_mod_barret_128_a_9_tab [4] = {0xf0aace9e, 0xb0ecefee, 0x37f614f5, 0x67075799};
+//variable 'mul_mod_barret_128_a_9' value: 0x6ff0f843f668079767c26ce5b369f665
+uint32_t mul_mod_barret_128_a_9_tab [4] = {0xb369f665, 0x67c26ce5, 0xf6680797, 0x6ff0f843};
 bn_uint_t mul_mod_barret_128_a_9= {.number = mul_mod_barret_128_a_9_tab, .length = 4};
-//variable 'mul_mod_barret_128_b_9' value: 0xe972d37d4dd15ef2f701fa5b013f24bc
-uint32_t mul_mod_barret_128_b_9_tab [4] = {0x013f24bc, 0xf701fa5b, 0x4dd15ef2, 0xe972d37d};
+//variable 'mul_mod_barret_128_b_9' value: 0xc53557eb0b2dc76d2cb67cf602f05d6f
+uint32_t mul_mod_barret_128_b_9_tab [4] = {0x02f05d6f, 0x2cb67cf6, 0x0b2dc76d, 0xc53557eb};
 bn_uint_t mul_mod_barret_128_b_9= {.number = mul_mod_barret_128_b_9_tab, .length = 4};
-//variable 'mul_mod_barret_128_res_9' value: 0x46f15a79adfd53485e3eb0ab86f2c6ef
-uint32_t mul_mod_barret_128_res_9_tab [4] = {0x86f2c6ef, 0x5e3eb0ab, 0xadfd5348, 0x46f15a79};
+//variable 'mul_mod_barret_128_res_9' value: 0xd212a3e32a5b224918c2591d74a138d1
+uint32_t mul_mod_barret_128_res_9_tab [4] = {0x74a138d1, 0x18c2591d, 0x2a5b2249, 0xd212a3e3};
 bn_uint_t mul_mod_barret_128_res_9= {.number = mul_mod_barret_128_res_9_tab, .length = 4};
 //variable 'mul_mod_barret_128_mi_' value: 0x100000002000000040000000800000011
 uint32_t mul_mod_barret_128_mi__tab [5] = {0x00000011, 0x00000008, 0x00000004, 0x00000002, 0x1};
@@ -1695,65 +1695,65 @@ bn_uint_t *mul_mod_barret_128_test_tab[10][3]={
 {&mul_mod_barret_128_a_8,&mul_mod_barret_128_b_8,&mul_mod_barret_128_res_8},
 {&mul_mod_barret_128_a_9,&mul_mod_barret_128_b_9,&mul_mod_barret_128_res_9},
 };
-//variable 'mod_barret_256_a_0' value: 0x1c9d33fadf9b92f003271c1c8d72e0b3e2efe93d8e18ba5733fa7ddbe3eb1e3d40429c1d1bfaf9c3f2d43eff404db21a0442ba0bcbe0170ea47c324201894152
-uint32_t mod_barret_256_a_0_tab [16] = {0x01894152, 0xa47c3242, 0xcbe0170e, 0x0442ba0b, 0x404db21a, 0xf2d43eff, 0x1bfaf9c3, 0x40429c1d, 0xe3eb1e3d, 0x33fa7ddb, 0x8e18ba57, 0xe2efe93d, 0x8d72e0b3, 0x03271c1c, 0xdf9b92f0, 0x1c9d33fa};
+//variable 'mod_barret_256_a_0' value: 0xf026edf35192b58a3823cb2fd7ce9910fd076c1e8b865689ccc1a4cfba776e3bd6cb08f678cef6ec1afba7b7d224c1475f9c72fb8f58035e9a6071b50ccdd348
+uint32_t mod_barret_256_a_0_tab [16] = {0x0ccdd348, 0x9a6071b5, 0x8f58035e, 0x5f9c72fb, 0xd224c147, 0x1afba7b7, 0x78cef6ec, 0xd6cb08f6, 0xba776e3b, 0xccc1a4cf, 0x8b865689, 0xfd076c1e, 0xd7ce9910, 0x3823cb2f, 0x5192b58a, 0xf026edf3};
 bn_uint_t mod_barret_256_a_0= {.number = mod_barret_256_a_0_tab, .length = 16};
-//variable 'mod_barret_256_res_0' value: 0x7862b5e5df499a8d63ee2d7e7f0a0677b3ac99f73d88d79bd9bca6b9c649646d
-uint32_t mod_barret_256_res_0_tab [8] = {0xc649646d, 0xd9bca6b9, 0x3d88d79b, 0xb3ac99f7, 0x7f0a0677, 0x63ee2d7e, 0xdf499a8d, 0x7862b5e5};
+//variable 'mod_barret_256_res_0' value: 0xc9371a26febfab949601d476eb5443f8ca0c47889e085758a0fc6550357a606c
+uint32_t mod_barret_256_res_0_tab [8] = {0x357a606c, 0xa0fc6550, 0x9e085758, 0xca0c4788, 0xeb5443f8, 0x9601d476, 0xfebfab94, 0xc9371a26};
 bn_uint_t mod_barret_256_res_0= {.number = mod_barret_256_res_0_tab, .length = 8};
-//variable 'mod_barret_256_a_1' value: 0xd1cfeaee0e4dd2e9ce1e2665b37468c3919537e7ed69f47da766e80f70c4ad36ae82db908d97a05974f7ce97cd827de99020efbdbe42721842a687bd1b13e19b
-uint32_t mod_barret_256_a_1_tab [16] = {0x1b13e19b, 0x42a687bd, 0xbe427218, 0x9020efbd, 0xcd827de9, 0x74f7ce97, 0x8d97a059, 0xae82db90, 0x70c4ad36, 0xa766e80f, 0xed69f47d, 0x919537e7, 0xb37468c3, 0xce1e2665, 0x0e4dd2e9, 0xd1cfeaee};
+//variable 'mod_barret_256_a_1' value: 0x1a1621f5fb9bf48aa5fd25e98d1351c295893e383149a64a6a3b369811d46d01efe993cd43606c227ec9c85d5cb58c77068e99e38a80d36e8f7d3dbd49057ee9
+uint32_t mod_barret_256_a_1_tab [16] = {0x49057ee9, 0x8f7d3dbd, 0x8a80d36e, 0x068e99e3, 0x5cb58c77, 0x7ec9c85d, 0x43606c22, 0xefe993cd, 0x11d46d01, 0x6a3b3698, 0x3149a64a, 0x95893e38, 0x8d1351c2, 0xa5fd25e9, 0xfb9bf48a, 0x1a1621f5};
 bn_uint_t mod_barret_256_a_1= {.number = mod_barret_256_a_1_tab, .length = 16};
-//variable 'mod_barret_256_res_1' value: 0x94258e061213801180a07fbf4a249297fe56d7438f05ba3f75c7174911c9dce8
-uint32_t mod_barret_256_res_1_tab [8] = {0x11c9dce8, 0x75c71749, 0x8f05ba3f, 0xfe56d743, 0x4a249297, 0x80a07fbf, 0x12138011, 0x94258e06};
+//variable 'mod_barret_256_res_1' value: 0x561d0a82944e0ffe153f3ab922ed93775b9f1a3295a47b86e23f8c7300df7814
+uint32_t mod_barret_256_res_1_tab [8] = {0x00df7814, 0xe23f8c73, 0x95a47b86, 0x5b9f1a32, 0x22ed9377, 0x153f3ab9, 0x944e0ffe, 0x561d0a82};
 bn_uint_t mod_barret_256_res_1= {.number = mod_barret_256_res_1_tab, .length = 8};
-//variable 'mod_barret_256_a_2' value: 0x16abe1bc358f2070da2bd3e8bfb322da17ce5082a5594d7d72558907a7eb62f34b736b60dad5d1a10707a12e51f19df9fd9a7b86e7327ead1ab6906c3d56e91f
-uint32_t mod_barret_256_a_2_tab [16] = {0x3d56e91f, 0x1ab6906c, 0xe7327ead, 0xfd9a7b86, 0x51f19df9, 0x0707a12e, 0xdad5d1a1, 0x4b736b60, 0xa7eb62f3, 0x72558907, 0xa5594d7d, 0x17ce5082, 0xbfb322da, 0xda2bd3e8, 0x358f2070, 0x16abe1bc};
+//variable 'mod_barret_256_a_2' value: 0xab04c773d6edb869bd6023b68a89d4a2c3f5089ae92fac5ded9913be7471dde93dbfa2f83d98768cd3607edfc62f03500e7a4d3024679a9ebc04406f19d596f8
+uint32_t mod_barret_256_a_2_tab [16] = {0x19d596f8, 0xbc04406f, 0x24679a9e, 0x0e7a4d30, 0xc62f0350, 0xd3607edf, 0x3d98768c, 0x3dbfa2f8, 0x7471dde9, 0xed9913be, 0xe92fac5d, 0xc3f5089a, 0x8a89d4a2, 0xbd6023b6, 0xd6edb869, 0xab04c773};
 bn_uint_t mod_barret_256_a_2= {.number = mod_barret_256_a_2_tab, .length = 16};
-//variable 'mod_barret_256_res_2' value: 0xe05bdec568c5de5a8001cd9da38fd56b55dc68727df346974c4b6e01705b6d63
-uint32_t mod_barret_256_res_2_tab [8] = {0x705b6d63, 0x4c4b6e01, 0x7df34697, 0x55dc6872, 0xa38fd56b, 0x8001cd9d, 0x68c5de5a, 0xe05bdec5};
+//variable 'mod_barret_256_res_2' value: 0xbe3129ed73c060bff9dc499b5627ec4f5bc872449239ac02c8f088549913cf43
+uint32_t mod_barret_256_res_2_tab [8] = {0x9913cf43, 0xc8f08854, 0x9239ac02, 0x5bc87244, 0x5627ec4f, 0xf9dc499b, 0x73c060bf, 0xbe3129ed};
 bn_uint_t mod_barret_256_res_2= {.number = mod_barret_256_res_2_tab, .length = 8};
-//variable 'mod_barret_256_a_3' value: 0x7285d76ce3804844e801062449a0870426fd6d940819e04b6db960c50700c2732494dddf6bdfe5b62324a4e15b4ec251da4cdd04aabfd077c308209c10f05415
-uint32_t mod_barret_256_a_3_tab [16] = {0x10f05415, 0xc308209c, 0xaabfd077, 0xda4cdd04, 0x5b4ec251, 0x2324a4e1, 0x6bdfe5b6, 0x2494dddf, 0x0700c273, 0x6db960c5, 0x0819e04b, 0x26fd6d94, 0x49a08704, 0xe8010624, 0xe3804844, 0x7285d76c};
+//variable 'mod_barret_256_a_3' value: 0x63ec6ddd2791856d8dd47d845ee64a2abef0842304f4e66c914ec73c8735b6f25fbdd254691d9a78eb615a97669a31945035f7f53060b7e99c0eddaea610e125
+uint32_t mod_barret_256_a_3_tab [16] = {0xa610e125, 0x9c0eddae, 0x3060b7e9, 0x5035f7f5, 0x669a3194, 0xeb615a97, 0x691d9a78, 0x5fbdd254, 0x8735b6f2, 0x914ec73c, 0x04f4e66c, 0xbef08423, 0x5ee64a2a, 0x8dd47d84, 0x2791856d, 0x63ec6ddd};
 bn_uint_t mod_barret_256_a_3= {.number = mod_barret_256_a_3_tab, .length = 16};
-//variable 'mod_barret_256_res_3' value: 0x226e4b936eb35049fd95cb412c3ee3d6bc49d1b29bcff880b133b4d2498b344d
-uint32_t mod_barret_256_res_3_tab [8] = {0x498b344d, 0xb133b4d2, 0x9bcff880, 0xbc49d1b2, 0x2c3ee3d6, 0xfd95cb41, 0x6eb35049, 0x226e4b93};
+//variable 'mod_barret_256_res_3' value: 0x6218a0a11cfb05d0f63463c8d15d98b69d472607daf3b1a9ba19d05deb588e15
+uint32_t mod_barret_256_res_3_tab [8] = {0xeb588e15, 0xba19d05d, 0xdaf3b1a9, 0x9d472607, 0xd15d98b6, 0xf63463c8, 0x1cfb05d0, 0x6218a0a1};
 bn_uint_t mod_barret_256_res_3= {.number = mod_barret_256_res_3_tab, .length = 8};
-//variable 'mod_barret_256_a_4' value: 0x822801644f27b05d2d123d2ac951bc02aa2a42b6f9f09bed53927324a1ffad9c5263941bba4a14608046c8b30166ebbbd6f2f6eacfeca5e6a5bee781db019ee
-uint32_t mod_barret_256_a_4_tab [16] = {0x1db019ee, 0x6a5bee78, 0xacfeca5e, 0xbd6f2f6e, 0x30166ebb, 0x08046c8b, 0xbba4a146, 0xc5263941, 0x4a1ffad9, 0xd5392732, 0x6f9f09be, 0x2aa2a42b, 0xac951bc0, 0xd2d123d2, 0x44f27b05, 0x8228016};
+//variable 'mod_barret_256_a_4' value: 0x1250fdb86d09132066261071c9da209c2c897909856cb7ac6d1a6fb17e6a39c3b6d2fc093767629474e02cb98b87d462c2be07c032e96417319d4d3dfad24e32
+uint32_t mod_barret_256_a_4_tab [16] = {0xfad24e32, 0x319d4d3d, 0x32e96417, 0xc2be07c0, 0x8b87d462, 0x74e02cb9, 0x37676294, 0xb6d2fc09, 0x7e6a39c3, 0x6d1a6fb1, 0x856cb7ac, 0x2c897909, 0xc9da209c, 0x66261071, 0x6d091320, 0x1250fdb8};
 bn_uint_t mod_barret_256_a_4= {.number = mod_barret_256_a_4_tab, .length = 16};
-//variable 'mod_barret_256_res_4' value: 0xe05c6e14e39144aa56c7c682efd37f6173430f6275a5959e2b8e4ba4e0ddd36
-uint32_t mod_barret_256_res_4_tab [8] = {0x4e0ddd36, 0xe2b8e4ba, 0x275a5959, 0x173430f6, 0x2efd37f6, 0xa56c7c68, 0x4e39144a, 0xe05c6e1};
+//variable 'mod_barret_256_res_4' value: 0x8a39cd321dc5fe637b9940e0660a224117d5a44fff5f738274ca32b51cc43a6f
+uint32_t mod_barret_256_res_4_tab [8] = {0x1cc43a6f, 0x74ca32b5, 0xff5f7382, 0x17d5a44f, 0x660a2241, 0x7b9940e0, 0x1dc5fe63, 0x8a39cd32};
 bn_uint_t mod_barret_256_res_4= {.number = mod_barret_256_res_4_tab, .length = 8};
-//variable 'mod_barret_256_a_5' value: 0x1b60ced138b8f36cc79fed0503710f792c6bfb21462ff98e6be1ff35f1013086f68f2259f419352b17cd436ae62f9594e159a8e1e9734714e6144e52323969a0
-uint32_t mod_barret_256_a_5_tab [16] = {0x323969a0, 0xe6144e52, 0xe9734714, 0xe159a8e1, 0xe62f9594, 0x17cd436a, 0xf419352b, 0xf68f2259, 0xf1013086, 0x6be1ff35, 0x462ff98e, 0x2c6bfb21, 0x03710f79, 0xc79fed05, 0x38b8f36c, 0x1b60ced1};
+//variable 'mod_barret_256_a_5' value: 0xa89368296eb8c822ac1fe8a7a4c765ebae76d12143236e5bec33ed38f3ec6f6b9061c5db30a9ea467e2e39d22c4c672069c60827e80e8204386dddcda61ad24d
+uint32_t mod_barret_256_a_5_tab [16] = {0xa61ad24d, 0x386dddcd, 0xe80e8204, 0x69c60827, 0x2c4c6720, 0x7e2e39d2, 0x30a9ea46, 0x9061c5db, 0xf3ec6f6b, 0xec33ed38, 0x43236e5b, 0xae76d121, 0xa4c765eb, 0xac1fe8a7, 0x6eb8c822, 0xa8936829};
 bn_uint_t mod_barret_256_a_5= {.number = mod_barret_256_a_5_tab, .length = 16};
-//variable 'mod_barret_256_res_5' value: 0xfc05ce263fc26a5cc143de7002f88939906fac8e40558c8178fb885a5ee6ae50
-uint32_t mod_barret_256_res_5_tab [8] = {0x5ee6ae50, 0x78fb885a, 0x40558c81, 0x906fac8e, 0x02f88939, 0xc143de70, 0x3fc26a5c, 0xfc05ce26};
+//variable 'mod_barret_256_res_5' value: 0x3b86dfb599fa9f036ad8c4130d7c70d433ae9a19163ca88cff91ba831824471c
+uint32_t mod_barret_256_res_5_tab [8] = {0x1824471c, 0xff91ba83, 0x163ca88c, 0x33ae9a19, 0x0d7c70d4, 0x6ad8c413, 0x99fa9f03, 0x3b86dfb5};
 bn_uint_t mod_barret_256_res_5= {.number = mod_barret_256_res_5_tab, .length = 8};
-//variable 'mod_barret_256_a_6' value: 0xc7b728771e1f352f20ac66b1fea0d69f1d5f592ad72d47a1f53cf98df1d44c6e2cc43d91c2deba0dd171f5b9e74030c1020f2cb13914295b67bf23c97db71040
-uint32_t mod_barret_256_a_6_tab [16] = {0x7db71040, 0x67bf23c9, 0x3914295b, 0x020f2cb1, 0xe74030c1, 0xd171f5b9, 0xc2deba0d, 0x2cc43d91, 0xf1d44c6e, 0xf53cf98d, 0xd72d47a1, 0x1d5f592a, 0xfea0d69f, 0x20ac66b1, 0x1e1f352f, 0xc7b72877};
+//variable 'mod_barret_256_a_6' value: 0x6db89d1bb8bc5df718542b467cb693aa12bdd083b201d7abbd55109dcef02832b3582470d1fcadc6db3dba9f1c8ad2d5581d1e15a2b83b177aaa9f6089d2ba51
+uint32_t mod_barret_256_a_6_tab [16] = {0x89d2ba51, 0x7aaa9f60, 0xa2b83b17, 0x581d1e15, 0x1c8ad2d5, 0xdb3dba9f, 0xd1fcadc6, 0xb3582470, 0xcef02832, 0xbd55109d, 0xb201d7ab, 0x12bdd083, 0x7cb693aa, 0x18542b46, 0xb8bc5df7, 0x6db89d1b};
 bn_uint_t mod_barret_256_a_6= {.number = mod_barret_256_a_6_tab, .length = 16};
-//variable 'mod_barret_256_res_6' value: 0x61e4254ae645cb3e2233b526778f9f61abf38481271e05cf2f05ca0209fc8a93
-uint32_t mod_barret_256_res_6_tab [8] = {0x09fc8a93, 0x2f05ca02, 0x271e05cf, 0xabf38481, 0x778f9f61, 0x2233b526, 0xe645cb3e, 0x61e4254a};
+//variable 'mod_barret_256_res_6' value: 0x71a7bcd863b1f4592657c2069005c663955c3bca28aebced2e81cda6b59305b7
+uint32_t mod_barret_256_res_6_tab [8] = {0xb59305b7, 0x2e81cda6, 0x28aebced, 0x955c3bca, 0x9005c663, 0x2657c206, 0x63b1f459, 0x71a7bcd8};
 bn_uint_t mod_barret_256_res_6= {.number = mod_barret_256_res_6_tab, .length = 8};
-//variable 'mod_barret_256_a_7' value: 0x4b3262a1b1cb8cb81bf4cdbdd2902e51343379b262374170a4f34aac8e04a8f51791095b11a59b53941c3e03e61a3d45d3f34a9d4274de634a6fa5003c98175b
-uint32_t mod_barret_256_a_7_tab [16] = {0x3c98175b, 0x4a6fa500, 0x4274de63, 0xd3f34a9d, 0xe61a3d45, 0x941c3e03, 0x11a59b53, 0x1791095b, 0x8e04a8f5, 0xa4f34aac, 0x62374170, 0x343379b2, 0xd2902e51, 0x1bf4cdbd, 0xb1cb8cb8, 0x4b3262a1};
+//variable 'mod_barret_256_a_7' value: 0x5deb74e5d9d541a684a53fb95353715ec4bd3b9469869def2f4fc9dc74a195d754e6ae25f7b81353d0e42d766ebe2f404e224f248c9070f04101878784ede94a
+uint32_t mod_barret_256_a_7_tab [16] = {0x84ede94a, 0x41018787, 0x8c9070f0, 0x4e224f24, 0x6ebe2f40, 0xd0e42d76, 0xf7b81353, 0x54e6ae25, 0x74a195d7, 0x2f4fc9dc, 0x69869def, 0xc4bd3b94, 0x5353715e, 0x84a53fb9, 0xd9d541a6, 0x5deb74e5};
 bn_uint_t mod_barret_256_a_7= {.number = mod_barret_256_a_7_tab, .length = 16};
-//variable 'mod_barret_256_res_7' value: 0x23d2304a669e0dae4649a6e6dc535fe7f45121dbfecdc6e661745b49b0c0884
-uint32_t mod_barret_256_res_7_tab [8] = {0x9b0c0884, 0x661745b4, 0xbfecdc6e, 0x7f45121d, 0x6dc535fe, 0xe4649a6e, 0xa669e0da, 0x23d2304};
+//variable 'mod_barret_256_res_7' value: 0xdd0e181421c2a218bd80cb985fae6b4b010c1429fe6e542dca1e87aeb2541aab
+uint32_t mod_barret_256_res_7_tab [8] = {0xb2541aab, 0xca1e87ae, 0xfe6e542d, 0x010c1429, 0x5fae6b4b, 0xbd80cb98, 0x21c2a218, 0xdd0e1814};
 bn_uint_t mod_barret_256_res_7= {.number = mod_barret_256_res_7_tab, .length = 8};
-//variable 'mod_barret_256_a_8' value: 0xe769a4763ce773edf22bb6cb4b7505efd65699758ed61a1740b7ba3fe3ffccbf229f330563f145d45c51cc40b6193ff9f6babacb776c558d237d845b3e416200
-uint32_t mod_barret_256_a_8_tab [16] = {0x3e416200, 0x237d845b, 0x776c558d, 0xf6babacb, 0xb6193ff9, 0x5c51cc40, 0x63f145d4, 0x229f3305, 0xe3ffccbf, 0x40b7ba3f, 0x8ed61a17, 0xd6569975, 0x4b7505ef, 0xf22bb6cb, 0x3ce773ed, 0xe769a476};
+//variable 'mod_barret_256_a_8' value: 0xf9b06347c848d245ca320818c880ad5f02fac929d6065bcab002ee9a9571f171a4b2b4c07088522b82e08b9f4d82be9fa87456eb3588779cc64af252c6fc9872
+uint32_t mod_barret_256_a_8_tab [16] = {0xc6fc9872, 0xc64af252, 0x3588779c, 0xa87456eb, 0x4d82be9f, 0x82e08b9f, 0x7088522b, 0xa4b2b4c0, 0x9571f171, 0xb002ee9a, 0xd6065bca, 0x02fac929, 0xc880ad5f, 0xca320818, 0xc848d245, 0xf9b06347};
 bn_uint_t mod_barret_256_a_8= {.number = mod_barret_256_a_8_tab, .length = 16};
-//variable 'mod_barret_256_res_8' value: 0x1a0e7ce3b6ef1a553cb5129c9eb45906205c84e8c61c39e991198393121a1ee3
-uint32_t mod_barret_256_res_8_tab [8] = {0x121a1ee3, 0x91198393, 0xc61c39e9, 0x205c84e8, 0x9eb45906, 0x3cb5129c, 0xb6ef1a55, 0x1a0e7ce3};
+//variable 'mod_barret_256_res_8' value: 0xbb81f5a14180b797c8857eafb527b16eca7808be825e5ee9f7a851b2ae7b2799
+uint32_t mod_barret_256_res_8_tab [8] = {0xae7b2799, 0xf7a851b2, 0x825e5ee9, 0xca7808be, 0xb527b16e, 0xc8857eaf, 0x4180b797, 0xbb81f5a1};
 bn_uint_t mod_barret_256_res_8= {.number = mod_barret_256_res_8_tab, .length = 8};
-//variable 'mod_barret_256_a_9' value: 0xcd4f163177050fffcaf33eb1c05d4922791fc74011816f7ab49d6bfa669c608ebf5ed80cbb39e93f536f86be22d7afa1f622149fae346a4130259da88dae34b
-uint32_t mod_barret_256_a_9_tab [16] = {0x88dae34b, 0x130259da, 0xfae346a4, 0x1f622149, 0xe22d7afa, 0xf536f86b, 0xcbb39e93, 0xebf5ed80, 0xa669c608, 0xab49d6bf, 0x011816f7, 0x2791fc74, 0x1c05d492, 0xfcaf33eb, 0x177050ff, 0xcd4f163};
+//variable 'mod_barret_256_a_9' value: 0xeaeff61b8b1d37af1fb893d54165971724c505c5fa1f5ea9621f63c9dde74163154171d9c0a60e406924f746f74fc63363f74d758a2d7b95da4f7e0cd293e9aa
+uint32_t mod_barret_256_a_9_tab [16] = {0xd293e9aa, 0xda4f7e0c, 0x8a2d7b95, 0x63f74d75, 0xf74fc633, 0x6924f746, 0xc0a60e40, 0x154171d9, 0xdde74163, 0x621f63c9, 0xfa1f5ea9, 0x24c505c5, 0x41659717, 0x1fb893d5, 0x8b1d37af, 0xeaeff61b};
 bn_uint_t mod_barret_256_a_9= {.number = mod_barret_256_a_9_tab, .length = 16};
-//variable 'mod_barret_256_res_9' value: 0x777f6bc9d6aa0b7d01a0e0397ea5ef3d44b869160298e3c18269fcb182d72a22
-uint32_t mod_barret_256_res_9_tab [8] = {0x82d72a22, 0x8269fcb1, 0x0298e3c1, 0x44b86916, 0x7ea5ef3d, 0x01a0e039, 0xd6aa0b7d, 0x777f6bc9};
+//variable 'mod_barret_256_res_9' value: 0x33f60638178f902b8adc1ffbe86a9147250e7fb9134c1e645f62e7c9019a2678
+uint32_t mod_barret_256_res_9_tab [8] = {0x019a2678, 0x5f62e7c9, 0x134c1e64, 0x250e7fb9, 0xe86a9147, 0x8adc1ffb, 0x178f902b, 0x33f60638};
 bn_uint_t mod_barret_256_res_9= {.number = mod_barret_256_res_9_tab, .length = 8};
 //variable 'mod_barret_256_mi_' value: 0x100000000fffffffffffffffefffffffefffffffeffffffff0000000000000003
 uint32_t mod_barret_256_mi__tab [9] = {0x00000003, 0x00000000, 0xffffffff, 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xffffffff, 0x00000000, 0x1};
@@ -1774,95 +1774,95 @@ bn_uint_t *mod_barret_256_test_tab[10][2]={
 {&mod_barret_256_a_8,&mod_barret_256_res_8},
 {&mod_barret_256_a_9,&mod_barret_256_res_9},
 };
-//variable 'mul_mod_barret_256_a_0' value: 0x5cc019ff927095e883e91e630fc1c0b8bcf5492869de2ab984da6dbfee2b0ec8
-uint32_t mul_mod_barret_256_a_0_tab [8] = {0xee2b0ec8, 0x84da6dbf, 0x69de2ab9, 0xbcf54928, 0x0fc1c0b8, 0x83e91e63, 0x927095e8, 0x5cc019ff};
+//variable 'mul_mod_barret_256_a_0' value: 0xa65ea29f0d83ee5f20bb4dc9b5b246f831acf21f3ec269a5eb31c91e05b6dabe
+uint32_t mul_mod_barret_256_a_0_tab [8] = {0x05b6dabe, 0xeb31c91e, 0x3ec269a5, 0x31acf21f, 0xb5b246f8, 0x20bb4dc9, 0x0d83ee5f, 0xa65ea29f};
 bn_uint_t mul_mod_barret_256_a_0= {.number = mul_mod_barret_256_a_0_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_0' value: 0x5da966f7c32ff47ea57ba2596984e73c2ae37c73aa4fabfa54b181b19d0e4c99
-uint32_t mul_mod_barret_256_b_0_tab [8] = {0x9d0e4c99, 0x54b181b1, 0xaa4fabfa, 0x2ae37c73, 0x6984e73c, 0xa57ba259, 0xc32ff47e, 0x5da966f7};
+//variable 'mul_mod_barret_256_b_0' value: 0xc88cdeeb2cb2d5e884cae8c7da12a2495769085df1cafc62614c701c148e187f
+uint32_t mul_mod_barret_256_b_0_tab [8] = {0x148e187f, 0x614c701c, 0xf1cafc62, 0x5769085d, 0xda12a249, 0x84cae8c7, 0x2cb2d5e8, 0xc88cdeeb};
 bn_uint_t mul_mod_barret_256_b_0= {.number = mul_mod_barret_256_b_0_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_0' value: 0x4794df1bb70f4dac4f935624237d3bf8f50152df96b1f0c6f2c1ad16b82ab458
-uint32_t mul_mod_barret_256_res_0_tab [8] = {0xb82ab458, 0xf2c1ad16, 0x96b1f0c6, 0xf50152df, 0x237d3bf8, 0x4f935624, 0xb70f4dac, 0x4794df1b};
+//variable 'mul_mod_barret_256_res_0' value: 0xc1b29f98a93c48fd5d6c045c543c4eee5f7af911a78ecb2eff31a3a7b23ed6b5
+uint32_t mul_mod_barret_256_res_0_tab [8] = {0xb23ed6b5, 0xff31a3a7, 0xa78ecb2e, 0x5f7af911, 0x543c4eee, 0x5d6c045c, 0xa93c48fd, 0xc1b29f98};
 bn_uint_t mul_mod_barret_256_res_0= {.number = mul_mod_barret_256_res_0_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_1' value: 0x40acb17512b7b7b9a656219e991dfe395717a81fb7dd68835bd4f8ec72d29896
-uint32_t mul_mod_barret_256_a_1_tab [8] = {0x72d29896, 0x5bd4f8ec, 0xb7dd6883, 0x5717a81f, 0x991dfe39, 0xa656219e, 0x12b7b7b9, 0x40acb175};
+//variable 'mul_mod_barret_256_a_1' value: 0xabfcb250b90f42edfbf9a05f766c13c9eb5de491190d05a48a297584a085bc0
+uint32_t mul_mod_barret_256_a_1_tab [8] = {0x4a085bc0, 0x48a29758, 0x1190d05a, 0x9eb5de49, 0xf766c13c, 0xdfbf9a05, 0x0b90f42e, 0xabfcb25};
 bn_uint_t mul_mod_barret_256_a_1= {.number = mul_mod_barret_256_a_1_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_1' value: 0xae58c6095d76e83051768deaeaaded95ea803da33927991082ef689a336f2e6a
-uint32_t mul_mod_barret_256_b_1_tab [8] = {0x336f2e6a, 0x82ef689a, 0x39279910, 0xea803da3, 0xeaaded95, 0x51768dea, 0x5d76e830, 0xae58c609};
+//variable 'mul_mod_barret_256_b_1' value: 0xc42ecb7999f53c4f45c6fc92c2f829fae50e8f0b4999702bb15b602b3506d5a0
+uint32_t mul_mod_barret_256_b_1_tab [8] = {0x3506d5a0, 0xb15b602b, 0x4999702b, 0xe50e8f0b, 0xc2f829fa, 0x45c6fc92, 0x99f53c4f, 0xc42ecb79};
 bn_uint_t mul_mod_barret_256_b_1= {.number = mul_mod_barret_256_b_1_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_1' value: 0x542aacd4772cba3865ec9882642b5bd5ca254954f1471fffbb00bf8091d8c560
-uint32_t mul_mod_barret_256_res_1_tab [8] = {0x91d8c560, 0xbb00bf80, 0xf1471fff, 0xca254954, 0x642b5bd5, 0x65ec9882, 0x772cba38, 0x542aacd4};
+//variable 'mul_mod_barret_256_res_1' value: 0x74956a2c707432eddcbab848b8f62b2581f851ee1c66de7653b2f5ba532155c1
+uint32_t mul_mod_barret_256_res_1_tab [8] = {0x532155c1, 0x53b2f5ba, 0x1c66de76, 0x81f851ee, 0xb8f62b25, 0xdcbab848, 0x707432ed, 0x74956a2c};
 bn_uint_t mul_mod_barret_256_res_1= {.number = mul_mod_barret_256_res_1_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_2' value: 0x306a0113948bee1d21ba68bcc9277409e984105b8c17948fa4e08bb43e2a803d
-uint32_t mul_mod_barret_256_a_2_tab [8] = {0x3e2a803d, 0xa4e08bb4, 0x8c17948f, 0xe984105b, 0xc9277409, 0x21ba68bc, 0x948bee1d, 0x306a0113};
+//variable 'mul_mod_barret_256_a_2' value: 0xe6045f64807d7ad3ff10a1e5bc9e574b762ed6a5fc24df2031ca440dd0593ffe
+uint32_t mul_mod_barret_256_a_2_tab [8] = {0xd0593ffe, 0x31ca440d, 0xfc24df20, 0x762ed6a5, 0xbc9e574b, 0xff10a1e5, 0x807d7ad3, 0xe6045f64};
 bn_uint_t mul_mod_barret_256_a_2= {.number = mul_mod_barret_256_a_2_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_2' value: 0xad69380dd8e84bfa0db430c2755f7f81c34da709e455f7e8be502dccf0efbd52
-uint32_t mul_mod_barret_256_b_2_tab [8] = {0xf0efbd52, 0xbe502dcc, 0xe455f7e8, 0xc34da709, 0x755f7f81, 0x0db430c2, 0xd8e84bfa, 0xad69380d};
+//variable 'mul_mod_barret_256_b_2' value: 0xec314baa50ee706763d292a4fafe9d8904470e8389fe24f77fde368c87bdf37d
+uint32_t mul_mod_barret_256_b_2_tab [8] = {0x87bdf37d, 0x7fde368c, 0x89fe24f7, 0x04470e83, 0xfafe9d89, 0x63d292a4, 0x50ee7067, 0xec314baa};
 bn_uint_t mul_mod_barret_256_b_2= {.number = mul_mod_barret_256_b_2_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_2' value: 0xc34703b78b5d536468d6a99e0b66a1b5aca4080c1b34ef7d5d16039200dd8cc8
-uint32_t mul_mod_barret_256_res_2_tab [8] = {0x00dd8cc8, 0x5d160392, 0x1b34ef7d, 0xaca4080c, 0x0b66a1b5, 0x68d6a99e, 0x8b5d5364, 0xc34703b7};
+//variable 'mul_mod_barret_256_res_2' value: 0x54b07befeb76c4bd54699a5315d4248187c708a0bdd06a4c25f8a41336595f15
+uint32_t mul_mod_barret_256_res_2_tab [8] = {0x36595f15, 0x25f8a413, 0xbdd06a4c, 0x87c708a0, 0x15d42481, 0x54699a53, 0xeb76c4bd, 0x54b07bef};
 bn_uint_t mul_mod_barret_256_res_2= {.number = mul_mod_barret_256_res_2_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_3' value: 0x18e02e4d270735908cd3c31d9ede63c5123635080ab53c50caaec6a70d6da3fe
-uint32_t mul_mod_barret_256_a_3_tab [8] = {0x0d6da3fe, 0xcaaec6a7, 0x0ab53c50, 0x12363508, 0x9ede63c5, 0x8cd3c31d, 0x27073590, 0x18e02e4d};
+//variable 'mul_mod_barret_256_a_3' value: 0x9ab9fba49352d87711a5356c536b5cf2edac9ee1205098aa836f275f97278d48
+uint32_t mul_mod_barret_256_a_3_tab [8] = {0x97278d48, 0x836f275f, 0x205098aa, 0xedac9ee1, 0x536b5cf2, 0x11a5356c, 0x9352d877, 0x9ab9fba4};
 bn_uint_t mul_mod_barret_256_a_3= {.number = mul_mod_barret_256_a_3_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_3' value: 0x7ba6b63ce82f80d7b42b2d6fa9eb87cf145decae52c741c1aa447fa8193409ac
-uint32_t mul_mod_barret_256_b_3_tab [8] = {0x193409ac, 0xaa447fa8, 0x52c741c1, 0x145decae, 0xa9eb87cf, 0xb42b2d6f, 0xe82f80d7, 0x7ba6b63c};
+//variable 'mul_mod_barret_256_b_3' value: 0xf255d039ca640aa8ef6bf324a1da266e81bce7238e8927b03ec96d7d79020fdc
+uint32_t mul_mod_barret_256_b_3_tab [8] = {0x79020fdc, 0x3ec96d7d, 0x8e8927b0, 0x81bce723, 0xa1da266e, 0xef6bf324, 0xca640aa8, 0xf255d039};
 bn_uint_t mul_mod_barret_256_b_3= {.number = mul_mod_barret_256_b_3_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_3' value: 0x4af3b8866a6f6ef1fe6b7cac930847a3adc62e88963f0484b9a7e2b3dd4a8fde
-uint32_t mul_mod_barret_256_res_3_tab [8] = {0xdd4a8fde, 0xb9a7e2b3, 0x963f0484, 0xadc62e88, 0x930847a3, 0xfe6b7cac, 0x6a6f6ef1, 0x4af3b886};
+//variable 'mul_mod_barret_256_res_3' value: 0x53c7b9a60ae4cd03145ecc3bb47d91e369751cf7b1075ecee0d439685a6df932
+uint32_t mul_mod_barret_256_res_3_tab [8] = {0x5a6df932, 0xe0d43968, 0xb1075ece, 0x69751cf7, 0xb47d91e3, 0x145ecc3b, 0x0ae4cd03, 0x53c7b9a6};
 bn_uint_t mul_mod_barret_256_res_3= {.number = mul_mod_barret_256_res_3_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_4' value: 0xf26266501e7aecd10473550a61a692fd03750794d98f07bd0f89dce02aa6ae58
-uint32_t mul_mod_barret_256_a_4_tab [8] = {0x2aa6ae58, 0x0f89dce0, 0xd98f07bd, 0x03750794, 0x61a692fd, 0x0473550a, 0x1e7aecd1, 0xf2626650};
+//variable 'mul_mod_barret_256_a_4' value: 0xfd1e98d7251db7e104cfbd177115981097cc1a9331a6552a7c414c2f2b44e345
+uint32_t mul_mod_barret_256_a_4_tab [8] = {0x2b44e345, 0x7c414c2f, 0x31a6552a, 0x97cc1a93, 0x71159810, 0x04cfbd17, 0x251db7e1, 0xfd1e98d7};
 bn_uint_t mul_mod_barret_256_a_4= {.number = mul_mod_barret_256_a_4_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_4' value: 0x32bcd8090efd4865ad032d83a76322319f3383c56610d508d0b0f4b6b739fe17
-uint32_t mul_mod_barret_256_b_4_tab [8] = {0xb739fe17, 0xd0b0f4b6, 0x6610d508, 0x9f3383c5, 0xa7632231, 0xad032d83, 0x0efd4865, 0x32bcd809};
+//variable 'mul_mod_barret_256_b_4' value: 0xd802cc675fbcfe98225e71d984d981eb4fad22aac61202b561dbb0f1d6b9ae1e
+uint32_t mul_mod_barret_256_b_4_tab [8] = {0xd6b9ae1e, 0x61dbb0f1, 0xc61202b5, 0x4fad22aa, 0x84d981eb, 0x225e71d9, 0x5fbcfe98, 0xd802cc67};
 bn_uint_t mul_mod_barret_256_b_4= {.number = mul_mod_barret_256_b_4_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_4' value: 0xa90cd7fc01412ebf0151e76ea4e63e12a6b92a727fa3edc8df1cf5058aa71ede
-uint32_t mul_mod_barret_256_res_4_tab [8] = {0x8aa71ede, 0xdf1cf505, 0x7fa3edc8, 0xa6b92a72, 0xa4e63e12, 0x0151e76e, 0x01412ebf, 0xa90cd7fc};
+//variable 'mul_mod_barret_256_res_4' value: 0xc573ab366ae063a2421bcf4a71defc92f5e5b9d4c316053c3522be2e8794c73d
+uint32_t mul_mod_barret_256_res_4_tab [8] = {0x8794c73d, 0x3522be2e, 0xc316053c, 0xf5e5b9d4, 0x71defc92, 0x421bcf4a, 0x6ae063a2, 0xc573ab36};
 bn_uint_t mul_mod_barret_256_res_4= {.number = mul_mod_barret_256_res_4_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_5' value: 0xb328d6111ede1ba7ca8bf7fa72a900807f30761e19d14cf144de801c45cfa446
-uint32_t mul_mod_barret_256_a_5_tab [8] = {0x45cfa446, 0x44de801c, 0x19d14cf1, 0x7f30761e, 0x72a90080, 0xca8bf7fa, 0x1ede1ba7, 0xb328d611};
+//variable 'mul_mod_barret_256_a_5' value: 0x5c11301b448720482fa642eae6023a610aa489e83c3458d9059c44e48374201e
+uint32_t mul_mod_barret_256_a_5_tab [8] = {0x8374201e, 0x059c44e4, 0x3c3458d9, 0x0aa489e8, 0xe6023a61, 0x2fa642ea, 0x44872048, 0x5c11301b};
 bn_uint_t mul_mod_barret_256_a_5= {.number = mul_mod_barret_256_a_5_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_5' value: 0x3cc9096882e5756db22183146a2c2c166a982c7fb2d92774f5c9c515b0c71ffc
-uint32_t mul_mod_barret_256_b_5_tab [8] = {0xb0c71ffc, 0xf5c9c515, 0xb2d92774, 0x6a982c7f, 0x6a2c2c16, 0xb2218314, 0x82e5756d, 0x3cc90968};
+//variable 'mul_mod_barret_256_b_5' value: 0xe2a08633cb967c185a30e3704f55e8d3c3c7c2395943d41de0630eceeb1b6a0a
+uint32_t mul_mod_barret_256_b_5_tab [8] = {0xeb1b6a0a, 0xe0630ece, 0x5943d41d, 0xc3c7c239, 0x4f55e8d3, 0x5a30e370, 0xcb967c18, 0xe2a08633};
 bn_uint_t mul_mod_barret_256_b_5= {.number = mul_mod_barret_256_b_5_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_5' value: 0xdb4fc022723ec2493b9f72b0cf1b4952157db6629041e03526a686a811eacdfc
-uint32_t mul_mod_barret_256_res_5_tab [8] = {0x11eacdfc, 0x26a686a8, 0x9041e035, 0x157db662, 0xcf1b4952, 0x3b9f72b0, 0x723ec249, 0xdb4fc022};
+//variable 'mul_mod_barret_256_res_5' value: 0xa84405199dd391925502792b50691f4686ef8d524971014133c4f7b1f0df246b
+uint32_t mul_mod_barret_256_res_5_tab [8] = {0xf0df246b, 0x33c4f7b1, 0x49710141, 0x86ef8d52, 0x50691f46, 0x5502792b, 0x9dd39192, 0xa8440519};
 bn_uint_t mul_mod_barret_256_res_5= {.number = mul_mod_barret_256_res_5_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_6' value: 0x2234a1894baa6827d65b3a298784373b6e983cb5c120af414685c214029ee5aa
-uint32_t mul_mod_barret_256_a_6_tab [8] = {0x029ee5aa, 0x4685c214, 0xc120af41, 0x6e983cb5, 0x8784373b, 0xd65b3a29, 0x4baa6827, 0x2234a189};
+//variable 'mul_mod_barret_256_a_6' value: 0x260d7feefcb5e9995bb40ee69f0024d422c30d3a8f15bc2c78f2ccaced0f9386
+uint32_t mul_mod_barret_256_a_6_tab [8] = {0xed0f9386, 0x78f2ccac, 0x8f15bc2c, 0x22c30d3a, 0x9f0024d4, 0x5bb40ee6, 0xfcb5e999, 0x260d7fee};
 bn_uint_t mul_mod_barret_256_a_6= {.number = mul_mod_barret_256_a_6_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_6' value: 0xa6a874fe388201aa5ca099af50fd3d78f352a29e8f640576a27aa2ed924abb0d
-uint32_t mul_mod_barret_256_b_6_tab [8] = {0x924abb0d, 0xa27aa2ed, 0x8f640576, 0xf352a29e, 0x50fd3d78, 0x5ca099af, 0x388201aa, 0xa6a874fe};
+//variable 'mul_mod_barret_256_b_6' value: 0xda61cb6e350651e528d4c650a545d45e086e81b38d972e262f9c68a2d4da27fb
+uint32_t mul_mod_barret_256_b_6_tab [8] = {0xd4da27fb, 0x2f9c68a2, 0x8d972e26, 0x086e81b3, 0xa545d45e, 0x28d4c650, 0x350651e5, 0xda61cb6e};
 bn_uint_t mul_mod_barret_256_b_6= {.number = mul_mod_barret_256_b_6_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_6' value: 0xc9211068f22ca0eb689ee71649f73f7947124acd36cbc95ed8176db463e9de17
-uint32_t mul_mod_barret_256_res_6_tab [8] = {0x63e9de17, 0xd8176db4, 0x36cbc95e, 0x47124acd, 0x49f73f79, 0x689ee716, 0xf22ca0eb, 0xc9211068};
+//variable 'mul_mod_barret_256_res_6' value: 0xefe512d7c7e69095cde3419f59728b287c653e4413dba387f2443d7fe066e9d6
+uint32_t mul_mod_barret_256_res_6_tab [8] = {0xe066e9d6, 0xf2443d7f, 0x13dba387, 0x7c653e44, 0x59728b28, 0xcde3419f, 0xc7e69095, 0xefe512d7};
 bn_uint_t mul_mod_barret_256_res_6= {.number = mul_mod_barret_256_res_6_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_7' value: 0xb144acec7cf72d386a1cbcb1b02e71680e8d2c8343fa8922224d38094ac81e13
-uint32_t mul_mod_barret_256_a_7_tab [8] = {0x4ac81e13, 0x224d3809, 0x43fa8922, 0x0e8d2c83, 0xb02e7168, 0x6a1cbcb1, 0x7cf72d38, 0xb144acec};
+//variable 'mul_mod_barret_256_a_7' value: 0xbfb281d9614b95f8f523479c907c2911e31c1176134b7a88be9f3fb652000a81
+uint32_t mul_mod_barret_256_a_7_tab [8] = {0x52000a81, 0xbe9f3fb6, 0x134b7a88, 0xe31c1176, 0x907c2911, 0xf523479c, 0x614b95f8, 0xbfb281d9};
 bn_uint_t mul_mod_barret_256_a_7= {.number = mul_mod_barret_256_a_7_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_7' value: 0x72dc72ea3e4128a4247e0c5c376408861bc3340fd6742baeefc8084e24ab4032
-uint32_t mul_mod_barret_256_b_7_tab [8] = {0x24ab4032, 0xefc8084e, 0xd6742bae, 0x1bc3340f, 0x37640886, 0x247e0c5c, 0x3e4128a4, 0x72dc72ea};
+//variable 'mul_mod_barret_256_b_7' value: 0xde5254989ebcd300c50d3e39645069f2b70264c06c6b49ed22a04517cb6f0d7f
+uint32_t mul_mod_barret_256_b_7_tab [8] = {0xcb6f0d7f, 0x22a04517, 0x6c6b49ed, 0xb70264c0, 0x645069f2, 0xc50d3e39, 0x9ebcd300, 0xde525498};
 bn_uint_t mul_mod_barret_256_b_7= {.number = mul_mod_barret_256_b_7_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_7' value: 0xe2603262f4cbc102d5cd8d473d7fec96302711fd887fd997c6c69532c6fe5b13
-uint32_t mul_mod_barret_256_res_7_tab [8] = {0xc6fe5b13, 0xc6c69532, 0x887fd997, 0x302711fd, 0x3d7fec96, 0xd5cd8d47, 0xf4cbc102, 0xe2603262};
+//variable 'mul_mod_barret_256_res_7' value: 0x61bd61cddeb53d189c840e5b85fbfbc47b0000e1b539b9d4875ee068ec4a40c7
+uint32_t mul_mod_barret_256_res_7_tab [8] = {0xec4a40c7, 0x875ee068, 0xb539b9d4, 0x7b0000e1, 0x85fbfbc4, 0x9c840e5b, 0xdeb53d18, 0x61bd61cd};
 bn_uint_t mul_mod_barret_256_res_7= {.number = mul_mod_barret_256_res_7_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_8' value: 0x4f69785c9e01d4e0029d54cc36bdb246ce6de371420184c068fde17c86cf01e0
-uint32_t mul_mod_barret_256_a_8_tab [8] = {0x86cf01e0, 0x68fde17c, 0x420184c0, 0xce6de371, 0x36bdb246, 0x029d54cc, 0x9e01d4e0, 0x4f69785c};
+//variable 'mul_mod_barret_256_a_8' value: 0x80fccf48688aff2beb5e83e875920c1243942789cc9cf1252f8937da9e053522
+uint32_t mul_mod_barret_256_a_8_tab [8] = {0x9e053522, 0x2f8937da, 0xcc9cf125, 0x43942789, 0x75920c12, 0xeb5e83e8, 0x688aff2b, 0x80fccf48};
 bn_uint_t mul_mod_barret_256_a_8= {.number = mul_mod_barret_256_a_8_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_8' value: 0x4b73169999eef6bc0a74f795e8b3fc407866714f61cf326a3577cf69c0b2f2b4
-uint32_t mul_mod_barret_256_b_8_tab [8] = {0xc0b2f2b4, 0x3577cf69, 0x61cf326a, 0x7866714f, 0xe8b3fc40, 0x0a74f795, 0x99eef6bc, 0x4b731699};
+//variable 'mul_mod_barret_256_b_8' value: 0x6853db24c13b0230190c9971b93ea355eb12625220b68de7ad2bfe683192d7b2
+uint32_t mul_mod_barret_256_b_8_tab [8] = {0x3192d7b2, 0xad2bfe68, 0x20b68de7, 0xeb126252, 0xb93ea355, 0x190c9971, 0xc13b0230, 0x6853db24};
 bn_uint_t mul_mod_barret_256_b_8= {.number = mul_mod_barret_256_b_8_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_8' value: 0xdbca39780c23cb700c1573a3a9a9c5d466ab41701a899cf0de42404b52fbe64e
-uint32_t mul_mod_barret_256_res_8_tab [8] = {0x52fbe64e, 0xde42404b, 0x1a899cf0, 0x66ab4170, 0xa9a9c5d4, 0x0c1573a3, 0x0c23cb70, 0xdbca3978};
+//variable 'mul_mod_barret_256_res_8' value: 0x4e7bb999a48d49d3b52fdcb9436cb8c70ce1aae0fef97bb83c306558cc61db81
+uint32_t mul_mod_barret_256_res_8_tab [8] = {0xcc61db81, 0x3c306558, 0xfef97bb8, 0x0ce1aae0, 0x436cb8c7, 0xb52fdcb9, 0xa48d49d3, 0x4e7bb999};
 bn_uint_t mul_mod_barret_256_res_8= {.number = mul_mod_barret_256_res_8_tab, .length = 8};
-//variable 'mul_mod_barret_256_a_9' value: 0x5827839eb4c59c2b00fe9c228f8179dec48a821aecde136af9db549b03852a5
-uint32_t mul_mod_barret_256_a_9_tab [8] = {0xb03852a5, 0xaf9db549, 0xaecde136, 0xec48a821, 0x28f8179d, 0xb00fe9c2, 0xeb4c59c2, 0x5827839};
+//variable 'mul_mod_barret_256_a_9' value: 0x7c010764ae1cea0e7ef9a3a225b9339594d2087c6e31ec131e1b9af0d13456da
+uint32_t mul_mod_barret_256_a_9_tab [8] = {0xd13456da, 0x1e1b9af0, 0x6e31ec13, 0x94d2087c, 0x25b93395, 0x7ef9a3a2, 0xae1cea0e, 0x7c010764};
 bn_uint_t mul_mod_barret_256_a_9= {.number = mul_mod_barret_256_a_9_tab, .length = 8};
-//variable 'mul_mod_barret_256_b_9' value: 0xec870a31ea59a21cbb0174e166a3d5940473fd0b966f874b610011974c007111
-uint32_t mul_mod_barret_256_b_9_tab [8] = {0x4c007111, 0x61001197, 0x966f874b, 0x0473fd0b, 0x66a3d594, 0xbb0174e1, 0xea59a21c, 0xec870a31};
+//variable 'mul_mod_barret_256_b_9' value: 0xc99c1ff94760e30d119580a1ea72e1c4c08f7b9cf073dea7719f69bc5ae729f
+uint32_t mul_mod_barret_256_b_9_tab [8] = {0xc5ae729f, 0x7719f69b, 0xcf073dea, 0x4c08f7b9, 0x1ea72e1c, 0xd119580a, 0x94760e30, 0xc99c1ff};
 bn_uint_t mul_mod_barret_256_b_9= {.number = mul_mod_barret_256_b_9_tab, .length = 8};
-//variable 'mul_mod_barret_256_res_9' value: 0x61ec5db6b220527563652b190c562978cd1867baac6b9bdb3a838f32e0fb52f2
-uint32_t mul_mod_barret_256_res_9_tab [8] = {0xe0fb52f2, 0x3a838f32, 0xac6b9bdb, 0xcd1867ba, 0x0c562978, 0x63652b19, 0xb2205275, 0x61ec5db6};
+//variable 'mul_mod_barret_256_res_9' value: 0xa7eeb933ba9fb70c99b8b3b1dd824635f4f76593984fd14ecc241beffcce4289
+uint32_t mul_mod_barret_256_res_9_tab [8] = {0xfcce4289, 0xcc241bef, 0x984fd14e, 0xf4f76593, 0xdd824635, 0x99b8b3b1, 0xba9fb70c, 0xa7eeb933};
 bn_uint_t mul_mod_barret_256_res_9= {.number = mul_mod_barret_256_res_9_tab, .length = 8};
 //variable 'mul_mod_barret_256_mi_' value: 0x100000000fffffffffffffffefffffffefffffffeffffffff0000000000000003
 uint32_t mul_mod_barret_256_mi__tab [9] = {0x00000003, 0x00000000, 0xffffffff, 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xffffffff, 0x00000000, 0x1};

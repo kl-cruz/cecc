@@ -4,14 +4,14 @@
 
 PROJECT = test_main
 
-FWSRC = src/main.c src/seatest.c src/platform_utils.c src/format/src/format.c src/format/lib/format_printf.c src/format/lib/format_snprintf.c\
+FWSRC = src/main.c src/seatest.c targets/platform_utils/platform_utils.c src/format/src/format.c src/format/lib/format_printf.c src/format/lib/format_snprintf.c\
 		src/test_example.c \
 		../cecc-lib/bignum/bignum.c \
 		../cecc-lib/ecc/ecc.c \
 		src/test_bignum.c \
 		src/test_ecc.c
 
-FWINC = . src src/format/src src/format/lib ../cecc-lib/bignum ../cecc-lib/ecc
+FWINC = . targets/platform_utils src src/format/src src/format/lib ../cecc-lib/bignum ../cecc-lib/ecc
 
 PRJ_ROOT = 
 
@@ -37,12 +37,13 @@ ifeq ($(target),posix)
     include targets/posix.mk
 else
 ifeq ($(target),stm32f4)
+    FWINC += targets/STM32F4
     CHIBIOS = ../../ChibiOS_2.4.2
     include targets/STM32F4.mk
     UDEFS += -DCHIBIOS_PRINTF
 else
-ifeq ($(target),arm32_linux)
-    include targets/arm-linux.mk
+ifeq ($(target),default-arch)
+    include targets/default_arch.mk
 else
 ifeq ($(target),)
 $(info Using default target -> posix)
@@ -68,7 +69,7 @@ help:
 	@echo "make clean-all                                   Deconfigure environement, remove additional and builds files"
 	@echo "make generate-fixtures [fix_num=...]             Generate new fixtures for tests. In fix_num please specify number of new fixtures"
 	@echo "make [target=...] all                            Simply compile test for target using available files"
-	@echo "make [target=...] [fix_num=...] compile-fixgen   Simply compile test for target with generate new fixtures"
+	@echo "make [target=...] [fix_num=...] all-fixgen       Simply compile test for target with generate new fixtures"
 	@echo "make [target=...] clean                          Simply clean all files for specific target"
 	@echo "make [target=...] test-nofixgen                  Simply test available code without generate new fixtures"
 	@echo "make [target=...] file=... test-nofixgen         Simply test available code without generate new fixtures and save result to file"
@@ -80,15 +81,15 @@ help:
 	@echo "    fix_num  -> 10"
 
 target-list:
-	@echo "|******************  CECC  *****************|"
-	@echo "|    Availatble targets : target=...        |"
-	@echo "|-------------------------------------------|"
-	@echo "|         TARGET         |      STRING      |"
-	@echo "|------------------------|------------------|"
-	@echo "| Linux posix (default)  | posix            |"
-	@echo "| STM32F4                | stm32f4          |"
-	@echo "| ARM, like raspberry pi | arm32_linux      |"
-	@echo "|-------------------------------------------|"
+	@echo "|******************************  TARGETS  ****************************|"
+	@echo "|    Availatble targets : target=...                                  |"
+	@echo "|---------------------------------------------------------------------|"
+	@echo "|         TARGET                                   |      STRING      |"
+	@echo "|--------------------------------------------------|------------------|"
+	@echo "| Linux posix 32bit (default)                      | posix            |"
+	@echo "| STM32F4                                          | stm32f4          |"
+	@echo "| None specify arch - Linux, Mac, maybe Windows    | default-arch     |"
+	@echo "|---------------------------------------------------------------------|"
 	
 configure:
 	@echo "Configure environement..."
@@ -97,7 +98,7 @@ configure:
 	@if test -e ext/NIST-186-3ecdsatestvectors/SigGen.txt; then echo "Find NIST ecdsa test vectors! Download abort!"; else wget -P ext/NIST-186-3ecdsatestvectors http://csrc.nist.gov/groups/STM/cavp/documents/dss/186-3ecdsatestvectors.zip; unzip ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip -d ext/NIST-186-3ecdsatestvectors/ ;rm -f ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip; fi
 	@echo "Done!"
 	
-clean-all:
+clean-all: clean
 	@echo "Deconfigure environement..."
 	@echo "Removing ext..."
 	@rm -Rf ext
@@ -121,7 +122,7 @@ generate-fixtures: configure
 	@java -cp java:ext/BC_java/bcpkix-jdk15on-150.jar:ext/BC_java/bcprov-jdk15on-150.jar Ecc_fixture_generator $(FIXTURES_ROOT)/test_ecc_fixtures.h ext/NIST-186-3ecdsatestvectors/SigGen.txt $(fix_num)
 	@echo "Created."
 
-compile-fixgen:clean generate-fixtures
+all-fixgen:clean generate-fixtures
 	@make target=$(target) all
 
 test: clean generate-fixtures

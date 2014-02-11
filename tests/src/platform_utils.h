@@ -2,7 +2,7 @@
 #define PLATFORM_UTILS_H_
 
 #include <stdint.h>
-#include "../cecc-lib/bignum/bignum.h"
+#include "bignum.h"
 
 //Platform dependent code
 

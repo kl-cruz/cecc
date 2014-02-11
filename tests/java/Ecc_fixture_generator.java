@@ -1,4 +1,3 @@
-package ecc_fixture_generator;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -409,6 +408,7 @@ public class Ecc_fixture_generator {
     public static void main(String args[]) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException, InvalidKeyException, SignatureException, UnsupportedEncodingException, IOException, InvalidKeySpecException {
         create_header_file(args[0]);
         Integer how_many = Integer.parseInt(args[2]);
+	System.out.println("Creating " + how_many.toString() + " fixtures");
         Security.addProvider(new BouncyCastleProvider());
         generate_points_add_fixture("secp256r1", how_many.intValue());
         generate_point_double_fixture("secp256r1", how_many.intValue());

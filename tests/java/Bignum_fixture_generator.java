@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package Fixture_generator;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +9,7 @@ import java.util.Random;
  *
  * @author cruz
  */
-public class Fixture_generator {
+public class Bignum_fixture_generator {
 
     /**/
     public static PrintWriter out = null;
@@ -23,7 +18,6 @@ public class Fixture_generator {
     public static void create_header_file(String filename) {
         try {
             FileWriter outFile = new FileWriter(filename);
-            System.out.println("Open file to write: " + filename);
             out = new PrintWriter(outFile);
             out.println("/*");
             out.println("File generate using external software");
@@ -430,8 +424,10 @@ public class Fixture_generator {
      */
     public static void main(String[] args) {
 
+	System.out.println("Open file to write: " + args[0]);
         create_header_file(args[0]);
         Integer how_many = Integer.parseInt(args[1]);
+	System.out.println("Creating " + how_many.toString() + " fixtures");
         add_list(how_many.intValue(), 128);
         add_list(how_many.intValue(), 256);
         

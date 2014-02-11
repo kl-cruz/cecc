@@ -11,3 +11,4 @@ build*
 *.dep*
 Generating
 *.jar
+*.class

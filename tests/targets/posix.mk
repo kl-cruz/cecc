@@ -74,7 +74,7 @@ ifeq ($(HOST_OSX),yes)
 else
   # Linux, or other
   CPFLAGS += -Wa,-alms=$(<:.c=.lst) -Wno-missing-field-initializers
-  LDFLAGS += -m32 -Wl,-Map=$(PROJECT).map,--cref,--no-warn-mismatch $(LLIBDIR)
+  LDFLAGS += -m32 -Wl,-Map=$(BUILDDIR)/$(PROJECT).map,--cref,--no-warn-mismatch $(LLIBDIR)
 endif
 
 # Generate dependency information

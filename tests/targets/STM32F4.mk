@@ -63,7 +63,7 @@ endif
 # Define project name here
 
 # Imported source files and paths
-CHIBIOS = ../../ChibiOS_2.4.2
+#CHIBIOS = ../../ChibiOS_2.4.2
 include $(CHIBIOS)/boards/ST_STM32F4_DISCOVERY/board.mk
 include $(CHIBIOS)/os/hal/platforms/STM32F4xx/platform.mk
 include $(CHIBIOS)/os/hal/hal.mk

@@ -11,9 +11,9 @@
 
 //tests
 #include "test_bignum.h"
-#include "test_bignum_fixtures.h"
+#include "fixtures/test_bignum_fixtures.h"
 #include "test_ecc.h"
-#include "test_ecc_fixtures.h"
+#include "fixtures/test_ecc_fixtures.h"
 #include "nist_curves.h"
 #include "seatest.h"
 

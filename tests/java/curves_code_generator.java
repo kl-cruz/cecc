@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package curvescodegenerator;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -135,7 +130,6 @@ public class curves_code_generator {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         ECParameterSpec ecSpec = ECNamedCurveTable.getParameterSpec("secp256r1");
 
         create_header_file(args[0]);

@@ -66,7 +66,7 @@ help:
 	@echo "make help                                        Show this help"
 	@echo "make target-list                                 List available targets"
 	@echo "make configure                                   Configure environement for fixture generators"
-	@echo "make clean-all                                   Deconfigure environement, remove additional and builds files"
+	@echo "make dist-clean                                  Deconfigure environement, remove additional and builds files"
 	@echo "make generate-fixtures [fix_num=...]             Generate new fixtures for tests. In fix_num please specify number of new fixtures"
 	@echo "make [target=...] all                            Simply compile test for target using available files"
 	@echo "make [target=...] [fix_num=...] all-fixgen       Simply compile test for target with generate new fixtures"
@@ -98,7 +98,7 @@ configure:
 	@if test -e ext/NIST-186-3ecdsatestvectors/SigGen.txt; then echo "Find NIST ecdsa test vectors! Download abort!"; else wget -P ext/NIST-186-3ecdsatestvectors http://csrc.nist.gov/groups/STM/cavp/documents/dss/186-3ecdsatestvectors.zip; unzip ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip -d ext/NIST-186-3ecdsatestvectors/ ;rm -f ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip; fi
 	@echo "Done!"
 	
-clean-all: clean
+dist-clean: clean
 	@echo "Deconfigure environement..."
 	@echo "Removing ext..."
 	@rm -Rf ext

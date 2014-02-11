@@ -76,8 +76,8 @@ help:
 	@echo "make [target=...] [fix_num=...] file=... test    Generate new fixtures, compile test for target and save result to file"
 	@echo ""
 	@echo "Default values:"
-	@echo "        target   -> posix"
-	@echo "        fix_num  -> 10"
+	@echo "    target   -> posix"
+	@echo "    fix_num  -> 10"
 
 target-list:
 	@echo "|******************  CECC  *****************|"

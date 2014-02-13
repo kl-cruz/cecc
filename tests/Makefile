@@ -98,7 +98,7 @@ configure:
 	@if test -e ext/NIST-186-3ecdsatestvectors/SigGen.txt; then echo "Find NIST ecdsa test vectors! Download abort!"; else wget -P ext/NIST-186-3ecdsatestvectors http://csrc.nist.gov/groups/STM/cavp/documents/dss/186-3ecdsatestvectors.zip; unzip ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip -d ext/NIST-186-3ecdsatestvectors/ ;rm -f ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip; fi
 	@echo "Done!"
 	
-dist-clean: clean
+distclean: clean
 	@echo "Deconfigure environement..."
 	@echo "Removing ext..."
 	@rm -Rf ext
@@ -108,6 +108,10 @@ dist-clean: clean
 	@echo "Done!"
 	@echo "Removing builds..."
 	@rm -Rf build*
+	@echo "Done!"
+	@echo "Recover old fixture files..."
+	@git co -- src/fixtures/test_bignum_fixtures.h
+	@git co -- src/fixtures/test_ecc_fixtures.h
 	@echo "Done!"
 	
 generate-fixtures: configure

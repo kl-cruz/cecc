@@ -74,6 +74,7 @@ uint32_t test_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 uint32_t test_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
 {
 	BN_CREATE_VARIABLE(res, expected_result->length);
+	start_count_time();
 	bn_field_add(a, b, p, &res);
 	stop_count_time();
 	info("working time: %d us", get_us());
@@ -131,8 +132,7 @@ uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *e
 	start_count_time();
 	bn_barret_modulus(a, mi, p, &res);
 	stop_count_time();
-	info("barret moduar reduction time:%f ms", get_us() / 1000.0);
-
+	info("working time: %d us", get_us());
 	return bn_compare(&res, expected_result);
 }
 

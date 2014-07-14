@@ -41,6 +41,7 @@ uint32_t ecc_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *qx, bn_uint_t *qy, 
 	bn_zero(sy);
 	bn_field_sub(py, qy, curve->p, sy);
 	bn_field_sub(px, qx, curve->p, sx);
+	//TODO check if this copy is hardly require
 	bn_field_inverse(sx, curve->p, &lambda);
 	bn_copy(&lambda, sx, sx->length);
 	//here is lambda
@@ -112,12 +113,13 @@ uint32_t ecc_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *outx
 	int32_t i;
 	for (i = (k->length * 32) - 1; i >= 0; i--) {
 		ecc_ec_double(outx, outy, &tmpx, &tmpy, curve);
-		bn_copy(&tmpx, outx, outx->length);
-		bn_copy(&tmpy, outy, outy->length);
 		if ((((k->number[i / 32]) >> (i % 32)) & 0x01) == 1) {
-			ecc_ec_add(outx, outy, px, py, &tmpx, &tmpy, curve); //eccAdd
-			bn_copy(&tmpx, outx, outx->length);
-			bn_copy(&tmpy, outy, outy->length);
+			ecc_ec_add(&tmpx, &tmpy,px, py,outx, outy , curve); //eccAdd
+		}
+		else
+		{
+		  bn_copy(&tmpx, outx, outx->length);
+		  bn_copy(&tmpy, outy, outy->length);
 		}
 	}
 	return 0;

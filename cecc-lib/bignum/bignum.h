@@ -20,8 +20,6 @@ typedef struct bn_uint {
 #define BN_CREATE_VARIABLE(_name, _len) uint32_t TAB_BN_CREATE_VARIABLE##_name[_len]; \
 				bn_uint_t _name = {.number = TAB_BN_CREATE_VARIABLE##_name, .length = _len}
 
-#define assert(c) (void)(c)
-
 //operators
 uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);

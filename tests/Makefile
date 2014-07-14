@@ -4,12 +4,21 @@
 
 PROJECT = test_main
 
-FWSRC = src/main.c src/seatest.c targets/platform_utils/platform_utils.c src/format/src/format.c src/format/lib/format_printf.c src/format/lib/format_snprintf.c\
+FWSRC = src/main.c \
+		src/seatest.c \
+		targets/platform_utils/platform_utils.c \
+		src/format/src/format.c \
+		src/format/lib/format_printf.c \
+		src/format/lib/format_snprintf.c\
 		src/test_example.c \
 		../cecc-lib/bignum/bignum.c \
 		../cecc-lib/ecc/ecc.c \
+		../cecc-lib/ecc/ecc_utils.c \
+		../cecc-lib/ecc/ecc_proj_coords.c \
 		src/test_bignum.c \
-		src/test_ecc.c
+		src/test_ecc.c \
+		src/test_ecc_utils.c \
+		src/test_ecc_proj_coords.c
 
 FWINC = . targets/platform_utils src src/format/src src/format/lib ../cecc-lib/bignum ../cecc-lib/ecc
 
@@ -19,6 +28,12 @@ FIXTURES_ROOT = src/fixtures
 
 ifeq ($(MAKECMDGOALS),)
 $(error Please specify make goals!. More info -> make help)
+endif
+
+ifeq ($(target),stm32f4)
+ifeq ($(CHIBIOS),)
+$(error "Please specify Chibios path!. CHIBIOS=[path]")
+endif
 endif
 
 ifeq ($(fix_num),)
@@ -38,7 +53,6 @@ ifeq ($(target),posix)
 else
 ifeq ($(target),stm32f4)
     FWINC += targets/STM32F4
-    CHIBIOS = ../../ChibiOS_2.4.2
     include targets/STM32F4.mk
     UDEFS += -DCHIBIOS_PRINTF
 else
@@ -81,20 +95,20 @@ help:
 	@echo "    fix_num  -> 10"
 
 target-list:
-	@echo "|******************************  TARGETS  ****************************|"
-	@echo "|    Availatble targets : target=...                                  |"
-	@echo "|---------------------------------------------------------------------|"
-	@echo "|         TARGET                                   |      STRING      |"
-	@echo "|--------------------------------------------------|------------------|"
-	@echo "| Linux posix 32bit (default)                      | posix            |"
-	@echo "| STM32F4                                          | stm32f4          |"
-	@echo "| None specify arch - Linux, Mac, maybe Windows    | default-arch     |"
-	@echo "|---------------------------------------------------------------------|"
+	@echo "┌──────────────────────────────  TARGETS  ────────────────────────────┐"
+	@echo "│    Availatble targets : target=...                                  │"
+	@echo "├──────────────────────────────────────────────────┬──────────────────┤"
+	@echo "│         TARGET                                   │      STRING      │"
+	@echo "├──────────────────────────────────────────────────┼──────────────────┤"
+	@echo "│ Linux posix 32bit (default)                      │ posix            │"
+	@echo "│ STM32F4                                          │ stm32f4          │"
+	@echo "│ None specify arch - Linux, Mac, maybe Windows    │ default-arch     │"
+	@echo "└──────────────────────────────────────────────────┴──────────────────┘"
 	
 configure:
 	@echo "Configure environement..."
-	@if test -e ext/BC_java/bcprov-jdk15on-150.jar; then echo "Find provider! Download abort!"; else wget -P ext/BC_java http://www.bouncycastle.org/download/bcprov-jdk15on-150.jar; fi
-	@if test -e ext/BC_java/bcpkix-jdk15on-150.jar; then echo "Find pkix! Download abort!"; else wget -P ext/BC_java http://www.bouncycastle.org/download/bcpkix-jdk15on-150.jar; fi
+	@if test -e ext/BC_java/bcprov-jdk15on-150.jar; then echo "Find provider! Download abort!"; else wget -P ext/BC_java www.bouncycastle.org/download/bcprov-jdk15on-150.jar; fi
+	@if test -e ext/BC_java/bcpkix-jdk15on-150.jar; then echo "Find pkix! Download abort!"; else wget -P ext/BC_java www.bouncycastle.org/download/bcpkix-jdk15on-150.jar; fi
 	@if test -e ext/NIST-186-3ecdsatestvectors/SigGen.txt; then echo "Find NIST ecdsa test vectors! Download abort!"; else wget -P ext/NIST-186-3ecdsatestvectors http://csrc.nist.gov/groups/STM/cavp/documents/dss/186-3ecdsatestvectors.zip; unzip ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip -d ext/NIST-186-3ecdsatestvectors/ ;rm -f ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip; fi
 	@echo "Done!"
 	

@@ -7,7 +7,8 @@
  *      Author: Karol Lasończyk
  */
 //Uncomment line below to disable asserts
-//#define NDEBUG
+#define NDEBUG
+#include <assert.h>
 #include "bignum.h"
 
 /**
@@ -161,17 +162,17 @@ uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 	/*result is number with length > a->length to reach some kind of precision on variable underflow
 	 * what does it mean...
 	 * imagine that we have got numbers like this:
-	 * a (32bit)=  0x527153b62ff316b846b7dab4861eff01
-	 * b (32bit)=  0xf42f2dcd176364c40ba6233d4bfd9153
-	 * p (32bit)=  0xffffffffab4325642feda869a8b80ef9
-	 * res (32bit)=0x5e4225e9188fb1f43b11b7773a216dae
+	 * a (32B)=  0x527153b62ff316b846b7dab4861eff01
+	 * b (32B)=  0xf42f2dcd176364c40ba6233d4bfd9153
+	 * p (32B)=  0xffffffffab4325642feda869a8b80ef9
+	 * res (32B)=0x5e4225e9188fb1f43b11b7773a216dae
 	 *
 	 * with first look everything is ok, but is't a little glitch.
-	 * Resolution 32bit for result is too small to show borrow (it is necessary to properly working)
+	 * Resolution 32B for result is too small to show borrow (it is necessary to properly working)
 	 * and with this small glitch it looks good. Now look at res with 48 bit resolution
-	 * res (48bit)=0xffffffff5e4225e9188fb1f43b11b7773a216dae
+	 * res (48B)=0xffffffff5e4225e9188fb1f43b11b7773a216dae
 	 * and compare it with p, also 48 bit:
-	 * p (48bit)=  0x00000000ffffffffab4325642feda869a8b80ef9
+	 * p (48B)=  0x00000000ffffffffab4325642feda869a8b80ef9
 	 * Now operation res mod p show what we must do to properly count the number ;)
 	 *
 	 * Other libraries forget about this little glitch. I don't know why...
@@ -315,9 +316,9 @@ uint32_t bn_and(bn_uint_t *a, bn_uint_t *and, bn_uint_t *result)
  * @param result and result
  * @return 0
  */
-uint32_t bn_and_32(bn_uint_t *a, uint32_t len, bn_uint_t *result)
+uint32_t bn_and_32(bn_uint_t *a, /*uint32_t len,*/ bn_uint_t *result)
 {
-	assert(a->length >= len);
+	//assert(a->length >= len);
 	assert(a->length == result->length);
 	uint32_t i;
 	for (i = 0; i < a->length; ++i) {
@@ -353,9 +354,9 @@ uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t 
 	bn_mul(mi, &q, &tmp);
 	bn_shr_word(&tmp, &q, p->length + 1);
 
-	bn_and_32(a, p->length + 1, &r1);
+	bn_and_32(a, /*p->length + 1,*/ &r1);
 	bn_mul(&q, p, &r2);
-	bn_and_32(&r2, p->length + 1, &r2);
+	bn_and_32(&r2, /*p->length + 1, */&r2);
 	if (bn_compare(&r1, &r2) == 2) {
 		bn_ffff(&z, p->length + 1);
 		bn_sub(&z, &r2, &z);

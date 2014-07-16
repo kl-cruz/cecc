@@ -11,11 +11,13 @@
 #include "bignum.h"
 #include "test_bignum.h"
 #include "platform_utils.h"
+#include <stdio.h>
 
 
 void print_number(bn_uint_t *a)
 {
 	uint32_t i = 0;
+	fm_printf("\n");
 	for (i = a->length; i > 0; --i) {
 		fm_printf("%8x ", a->number[i - 1]);
 	}
@@ -63,12 +65,26 @@ uint32_t test_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 
 uint32_t test_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
 {
-	BN_CREATE_VARIABLE(res, expected_result->length);
-	start_count_time();
-	bn_mul(a, b, &res);
-	stop_count_time();
-	info("working time: %d us", get_us());
-	return bn_compare(&res, expected_result);
+    BN_CREATE_VARIABLE(res, expected_result->length);
+    start_count_time();
+    bn_mul(a, b, &res);
+    stop_count_time();
+    info("working time: %d us", get_us());
+    return bn_compare(&res, expected_result);
+}
+
+uint32_t test_square(bn_uint_t *a, bn_uint_t *expected_result)
+{
+    BN_CREATE_VARIABLE(res, expected_result->length);
+    start_count_time();
+    bn_square(a, &res);
+    info("________________________________");
+    print_number(&res);
+    print_number(expected_result);
+    info("________________________________");
+    stop_count_time();
+    info("working time: %d us", get_us());
+    return bn_compare(&res, expected_result);
 }
 
 uint32_t test_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *expected_result)
@@ -117,13 +133,26 @@ uint32_t test_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uin
 
 uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
 {
-	BN_CREATE_VARIABLE(res, a->length);
-	bn_copy(a, &res, res.length);
-	start_count_time();
-	bn_shr(&res);
-	stop_count_time();
-	info("working time: %d us", get_us());
-	return bn_compare(&res, expected_result);
+    BN_CREATE_VARIABLE(res, a->length);
+    bn_copy(a, &res, res.length);
+    start_count_time();
+    bn_shr(&res);
+    stop_count_time();
+    info("working time: %d us", get_us());
+    return bn_compare(&res, expected_result);
+}
+
+uint32_t test_shl(bn_uint_t *a, bn_uint_t *expected_result)
+{
+    BN_CREATE_VARIABLE(res, a->length);
+    bn_copy(a, &res, res.length);
+    start_count_time();
+    bn_shl(&res);
+    print_number(expected_result);
+    print_number(&res);
+    stop_count_time();
+    info("working time: %d us", get_us());
+    return bn_compare(&res, expected_result);
 }
 
 uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result)

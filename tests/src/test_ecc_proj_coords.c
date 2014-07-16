@@ -125,7 +125,7 @@ uint32_t test_ecdsa_proj_val_sig(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
 {
     uint32_t res;
     start_count_time();
-    res = ecc_ECDSA_proj_signature_val(r, s, hash, pub_k_x, pub_k_y, curve);
+    res = ecc_proj_ECDSA_signature_val(r, s, hash, pub_k_x, pub_k_y, curve);
     stop_count_time();
     info("ECDSA signature validation time:%f ms", get_us() / 1000.0);
 

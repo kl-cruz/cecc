@@ -142,7 +142,6 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 			number = result->number[result->length - 1];
 			bn_sub(result, p, result);
 		} while (result->number[result->length - 1] < number);
-
 	}
 	bn_mod(result, 1, p);
 
@@ -271,6 +270,95 @@ uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result)
 
 	return 0;
 
+}
+
+uint32_t bn_square(bn_uint_t *a, bn_uint_t *result)
+{
+
+  assert(result->length>=a->length*2);
+  uint64_t uv;
+  uint32_t i,j,tmp;
+  bn_zero(result);
+  for(i=0;i<a->length;++i)
+  {
+    uv=uv>>32;
+    uv=uv<<32;
+    for(j=i+1;i<a->length;++i)
+    {
+      tmp=uv>>32;
+      uv=a->number[j];
+      uv*=a->number[i];
+      uv+=tmp;
+      uv+=result->number[i+j];
+      result->number[i+j-1]=(uint32_t)uv;
+    }
+    result->number[i+a->length]=uv>>32;
+    bn_shl(result);
+    uv&=0xFFFFFFFF;
+  }
+  for(i=1;i<a->length;++i)
+  {
+    tmp=uv>>32;
+    uv=a->number[i];
+    uv*=a->number[i];
+    uv+=tmp;
+    uv+=result->number[2*i];
+
+    result->number[2*i]=(uint32_t)uv;
+
+    uv=uv>>32;
+    uv+=result->number[(2*i)+1];
+    result->number[(2*i)+1]=(uint32_t)uv;
+  }
+
+
+
+  /* uint32_t C1;
+  uint32_t C2;
+  bn_zero(result);
+
+  uint64_t uv = 0, tmp=0;
+  uint32_t i,j;
+  print_number(a);
+  for(i=0;i<a->length;++i)
+  {
+    uv=(uint64_t)a->number[i];
+    uv*=(uint64_t)a->number[i];
+    uv+=result->number[2*i]; // (uv)<-c[2i]+a[i]^2
+    printf("\na:%x  lsb:%x msb:%x\n",a->number[i],uv,uv>>32);
+    result->number[2*i]=(uint32_t)uv; //c[2i]=v
+    print_number(result);
+    C1=uv>>32;
+    C2=0;
+    for(j=i+1;j<a->length;++j)
+    {
+      //printf("a[i]:%x a[j]:%x ",a->number[i],a->number[j]);
+      tmp=a->number[i];
+      tmp*=a->number[j];
+      printf("\n lsb:%x msb:%x\n",tmp,tmp>>32);
+      uv=(uint64_t)tmp;
+      uv+=result->number[i+j];
+      uv+=C1;
+      C1=uv>>32;
+      uv=(uint64_t)tmp;
+      uv+=(uv&0xFFFFFFFF);
+      uv+=C2;
+      result->number[i+j]=(uint32_t)uv;
+      C2=uv>>32;
+      printf("lsb:%x msb:%x\n",uv,uv>>32);
+      print_number(result);
+    }
+    uv=C1;
+    uv+=C2;
+    C2=uv>>32;
+    uv=result->number[i+a->length]+(uv&0xFFFFFFFF);
+    result->number[i+a->length]=(uint32_t)uv;
+    //print_number(result);
+    result->number[i+a->length+1]=C2;
+    //print_number(result);
+    result->number[i+a->length+1]+=uv>>32;
+    //print_number(result);
+  }*/
 }
 
 /**
@@ -431,14 +519,32 @@ uint32_t bn_zero(bn_uint_t *num)
  */
 uint32_t bn_shr(bn_uint_t *num)
 {
-	uint32_t i;
-	num->number[0] = num->number[0] >> 1;
-	for (i = 1; i < num->length; ++i) {
-		num->number[i - 1] &= ~(num->number[i - 1] & 0x80000000); //zero MSB
-		num->number[i - 1] |= (num->number[i] & 0x1) << 31;
-		num->number[i] = num->number[i] >> 1;
-	}
-	return 0;
+    uint32_t i;
+    num->number[0] = num->number[0] >> 1;
+    for (i = 1; i < num->length; ++i) {
+        num->number[i - 1] &= ~(num->number[i - 1] & 0x80000000); //zero MSB
+        num->number[i - 1] |= (num->number[i] & 0x1) << 31;
+        num->number[i] = num->number[i] >> 1;
+    }
+    return 0;
+}
+
+/**
+ * @brief Shift left
+ * @param num number
+ * @return 0
+ */
+uint32_t bn_shl(bn_uint_t *num)
+{
+    uint32_t i;
+
+    for (i = num->length-1; i > 0 ; --i) {
+      num->number[i] = num->number[i] << 1;
+      num->number[i] &= 0xFFFFFFFE;
+      num->number[i] |= num->number[i - 1]>>31; //zero MSB
+    }
+    num->number[0] = num->number[0] << 1;
+    return 0;
 }
 
 /**

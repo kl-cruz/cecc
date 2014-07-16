@@ -24,14 +24,14 @@ DLIBDIR =
 DLIBS = -lm
 
 # List C source files here
-SRC  = $(FWSRC)
+SRC  = targets/posix/platform_utils.c $(FWSRC)
 
 
 # List ASM source files here
 ASRC =
 
 # List all user directories here
-INCDIR = $(FWINC)
+INCDIR = targets $(FWINC)
 
 # List the user directory to look for the libraries here
 ULIBDIR =

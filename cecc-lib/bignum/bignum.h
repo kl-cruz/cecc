@@ -37,6 +37,7 @@ uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length);
 uint32_t bn_zero(bn_uint_t *num);
 uint32_t bn_compare(bn_uint_t *a, bn_uint_t *b);
 uint32_t bn_shr(bn_uint_t *num);
+uint32_t bn_shl(bn_uint_t *num);
 uint32_t bn_shr_word(bn_uint_t *num, bn_uint_t *result, uint32_t shift);
 uint32_t bn_mod(bn_uint_t *num, uint32_t is_number_positive, bn_uint_t *p);
 uint32_t bn_barret_modulus(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result);

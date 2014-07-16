@@ -6,7 +6,6 @@ PROJECT = test_main
 
 FWSRC = src/main.c \
 		src/seatest.c \
-		targets/platform_utils/platform_utils.c \
 		src/format/src/format.c \
 		src/format/lib/format_printf.c \
 		src/format/lib/format_snprintf.c\
@@ -56,6 +55,10 @@ ifeq ($(target),stm32f4)
     include targets/STM32F4.mk
     UDEFS += -DCHIBIOS_PRINTF
 else
+ifeq ($(target),stm32f103xd)
+    include targets/STM32F103xD.mk
+    UDEFS += -DCHIBIOS_PRINTF
+else
 ifeq ($(target),default-arch)
     include targets/default_arch.mk
 else
@@ -65,6 +68,7 @@ $(info Using default target -> posix)
     include targets/posix.mk
 else
 $(error Please specify properly target. More info -> make help)
+endif
 endif
 endif
 endif
@@ -101,6 +105,7 @@ target-list:
 	@echo "│         TARGET                                   │      STRING      │"
 	@echo "├──────────────────────────────────────────────────┼──────────────────┤"
 	@echo "│ Linux posix 32bit (default)                      │ posix            │"
+	@echo "│ STM32F103xD                                      │ stm32f103xd      │"
 	@echo "│ STM32F4                                          │ stm32f4          │"
 	@echo "│ None specify arch - Linux, Mac, maybe Windows    │ default-arch     │"
 	@echo "└──────────────────────────────────────────────────┴──────────────────┘"
@@ -122,6 +127,7 @@ distclean: clean
 	@echo "Done!"
 	@echo "Removing builds..."
 	@rm -Rf build*
+	@rm -f .build_number*
 	@echo "Done!"
 	@echo "Recover old fixture files..."
 	@git co -- src/fixtures/test_bignum_fixtures.h

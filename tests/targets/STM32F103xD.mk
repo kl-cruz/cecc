@@ -5,7 +5,7 @@
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16
+  USE_OPT = -std=gnu99 -ggdb -fomit-frame-pointer -falign-functions=16 -Wno-missing-field-initializers
 endif
 
 # C specific options here (added to USE_OPT).
@@ -63,13 +63,14 @@ endif
 # Define project name here
 
 # Imported source files and paths
-include $(CHIBIOS)/os/hal/platforms/STM32F4xx/platform.mk
+include $(CHIBIOS)/os/hal/platforms/STM32F1xx/platform.mk
 include $(CHIBIOS)/os/hal/hal.mk
-include $(CHIBIOS)/os/ports/GCC/ARMCMx/STM32F4xx/port.mk
+include $(CHIBIOS)/os/ports/GCC/ARMCMx/STM32F1xx/port.mk
 include $(CHIBIOS)/os/kernel/kernel.mk
 
 # Define linker script file here
-LDSCRIPT= $(PORTLD)/STM32F407xG.ld
+LDSCRIPT= targets/STM32F103xD/STM32F103xD.ld
+#LDSCRIPT= $(PORTLD)/STM32F103xB.ld
 #LDSCRIPT= $(PORTLD)/STM32F407xG_CCM.ld
 
 # C sources that can be compiled in ARM or THUMB mode depending on the global
@@ -79,7 +80,7 @@ CSRC += $(PORTSRC) \
        $(HALSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
-       $(FWSRC)
+       $(FWSRC) 
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -122,7 +123,7 @@ INCDIR += $(PORTINC) $(KERNINC) \
 # Compiler settings
 #
 
-MCU  = cortex-m4
+MCU  = cortex-m3
 
 #TRGT = arm-elf-
 TRGT = arm-none-eabi-
@@ -198,9 +199,8 @@ ULIBDIR =
 # List all user libraries here
 ULIBS =
 
-FWINC += targets targets/STM32F4
-FWSRC += targets/STM32F4/platform_utils.c targets/STM32F4/board.c
-
+FWINC += targets targets/STM32F103xD
+FWSRC += targets/STM32F103xD/board.c targets/STM32F103xD/platform_utils.c
 #
 # End of user defines
 ##############################################################################

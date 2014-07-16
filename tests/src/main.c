@@ -29,6 +29,16 @@ void tests_shr(void) {
   }
 }
 
+void tests_shl(void) {
+  uint32_t i;
+  for (i = 0; i < shl_128_tab_len; ++i) {
+    assert_true(test_shl(shl_128_test_tab[i][0], shl_128_test_tab[i][1]) == 0);
+  }
+  for (i = 0; i < shl_256_tab_len; ++i) {
+    assert_true(test_shl(shl_256_test_tab[i][0], shl_256_test_tab[i][1]) == 0);
+  }
+}
+
 void tests_add(void) {
   uint32_t i;
   for (i = 0; i < add_128_tab_len; ++i) {
@@ -68,6 +78,18 @@ void tests_mul(void) {
     assert_true(
         test_mul(mul_256_test_tab[i][0], mul_256_test_tab[i][1],
                  mul_256_test_tab[i][2]) == 0);
+  }
+}
+
+void tests_square(void) {
+  uint32_t i;
+  for (i = 0; i < square_128_tab_len; ++i) {
+    assert_true(
+        test_square(square_128_test_tab[i][0], square_128_test_tab[i][1]) == 0);
+  }
+  for (i = 0; i < square_256_tab_len; ++i) {
+    assert_true(
+        test_square(square_256_test_tab[i][0], square_256_test_tab[i][1]) == 0);
   }
 }
 
@@ -154,10 +176,12 @@ void tests_barret_modulus(void) {
 void bignum_tests(void) {
   test_fixture_start()
   ;
+  //run_test(tests_shl);
   run_test(tests_shr);
   run_test(tests_add);
   run_test(tests_sub);
   run_test(tests_mul);
+  //run_test(tests_square);
   run_test(tests_field_add);
   run_test(tests_field_sub);
   run_test(tests_field_mul);
@@ -244,6 +268,17 @@ void tests_ecc_gen_keys(void) {
   }
 }
 
+void tests_ecc_ECDSA(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+
+    assert_true(
+        test_ecdsa_sig_val_sig(&ec_secp256r1) == 0);
+
+  }
+}
+
 void tests_ecc_ECDH(void) {
   uint32_t i = 0;
 
@@ -274,6 +309,7 @@ void ecc_ops_tests(void) {
   run_test(tests_ecc_ECDSA_val_signature);
   run_test(tests_ecc_gen_keys);
   run_test(tests_ecc_ECDH);
+  run_test(tests_ecc_ECDSA);
   test_fixture_end()
   ;
 }

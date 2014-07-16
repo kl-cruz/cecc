@@ -10,8 +10,6 @@
 #include "ecc_proj_coords.h"
 #include "ecc_utils.h"
 
-#include "platform_utils.h"
-
 /**
  * @brief Point double, Jacobian projective coordinates
  * @param inx
@@ -300,8 +298,6 @@ uint32_t ecc_proj_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash,
 
   eccutils_projective_to_affine(&ox, &oy, &oz, r, s, curve);
 
-  //ecc_ec_mult(curve->Gx, curve->Gy, k, r, s, curve);
-
   if (bn_compare(r, &tmp) == 0) //if r==0 then exit. Change k
       {
     return 1;
@@ -338,7 +334,7 @@ uint32_t ecc_proj_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash,
  * @return 3 s is greater than field size
  */
 
-uint32_t ecc_ECDSA_proj_signature_val(bn_uint_t *r, bn_uint_t *s,
+uint32_t ecc_proj_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s,
                                       bn_uint_t *hash, bn_uint_t *pub_k_x,
                                       bn_uint_t *pub_k_y, ecc_curve_t *curve) {
   BN_CREATE_VARIABLE(u1, r->length);
@@ -364,7 +360,6 @@ uint32_t ecc_ECDSA_proj_signature_val(bn_uint_t *r, bn_uint_t *s,
   bn_zero(&tmpx2);
   bn_zero(&tmpy1);
   bn_zero(&tmpy2);
-
   if (bn_compare(r, curve->n) == 1) //if r>p then exit.
       {
     return 2;
@@ -380,9 +375,6 @@ uint32_t ecc_ECDSA_proj_signature_val(bn_uint_t *r, bn_uint_t *s,
   //count X
   bn_zero(&tmpx1);
 
-  //ecc_ec_mult(curve->Gx, curve->Gy, &u1, &tmpx1, &tmpy1, curve);
-  //ecc_ec_mult(pub_k_x, pub_k_y, &u2, &tmpx2, &tmpy2, curve);
-  //ecc_ec_add(&tmpx1, &tmpy1, &tmpx2, &tmpy2, &u1, &u2, curve);
   eccutils_affine_to_projective(curve->Gx, curve->Gy, &fpx, &fpy, &fpz, curve);
   eccutils_affine_to_projective(pub_k_x, pub_k_y, &pubk_j_x, &pubk_j_y,
                                 &pubk_j_z, curve);
@@ -429,7 +421,6 @@ uint32_t ecc_proj_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x,
 
   eccutils_projective_to_affine(&ox, &oy, &oz, pub_k_x, pub_k_y, curve);
 
-  //ecc_ec_mult(curve->Gx, curve->Gy, &random_value, pub_k_x, pub_k_y, curve);
   bn_zero(d);
   bn_copy(&random_value, d, d->length);
   return 0;

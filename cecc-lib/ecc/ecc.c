@@ -225,11 +225,11 @@ uint32_t ecc_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
 	bn_zero(&tmpy1);
 	bn_zero(&tmpy2);
 
-	if (bn_compare(r, curve->n) == 1) //if r>p then exit.
+	if (bn_compare(r, curve->n) == 1) //if r>n then exit.
 			{
 		return 2;
 	}
-	if (bn_compare(s, curve->n) == 1) //if s>p then exit.
+	if (bn_compare(s, curve->n) == 1) //if s>n then exit.
 			{
 		return 3;
 	}

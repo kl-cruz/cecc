@@ -9,7 +9,6 @@
 
 #include "ecc_utils.h"
 #include "ecc.h"
-#include "platform_utils.h"
 
 uint32_t eccutils_affine_to_projective(bn_uint_t *ax, bn_uint_t *ay,
                                        bn_uint_t *px, bn_uint_t *py,

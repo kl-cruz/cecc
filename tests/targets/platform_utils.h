@@ -5,21 +5,9 @@
 #include "bignum.h"
 
 //Platform dependent code
-
-#ifdef CHIBIOS_PRINTF //microcontrollers
-#include "ch.h"
-#include "hal.h"
-
-
-//STM32 not support assert for now
-#define assert(c) (void)(c)
-
-#else //PC
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
-#endif
-
 
 //Platform independent code
 

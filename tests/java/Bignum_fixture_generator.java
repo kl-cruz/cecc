@@ -151,6 +151,27 @@ public class Bignum_fixture_generator {
         add_to_header_file("};");
     }
 
+    public static void square_list(int samples, int bit_len) {
+        String var_name = "square_" + bit_len + "_";
+        String var_namea = var_name + "a_";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        for (int i = 0; i < samples; ++i) {
+            randomize_abp(bit_len);
+            translate_bigint_and_write(a, var_namea + i);
+            translate_bigint_and_write(a.multiply(a), var_nameres + i);
+        }
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][2]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+
     public static void add_mod_list(int samples, int bit_len) {
         String var_name = "add_mod_" + bit_len + "_";
         String var_namea = var_name + "a_";
@@ -373,6 +394,27 @@ public class Bignum_fixture_generator {
         add_to_header_file("};");
     }
 
+    public static void shl_list(int samples, int bit_len) {
+        String var_name = "shl_" + bit_len + "_";
+        String var_namea = var_name + "a_";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        for (int i = 0; i < samples; ++i) {
+            randomize_abp(bit_len);
+            translate_bigint_and_write(a, var_namea + i);
+            translate_bigint_and_write(a.shiftLeft(1), var_nameres + i);
+        }
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][2]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+
     public static boolean odd(BigInteger val) {
         if (!val.mod(new BigInteger("2")).equals(BigInteger.ZERO)) {
             return true;
@@ -442,12 +484,18 @@ public class Bignum_fixture_generator {
         
         shr_list(how_many.intValue(), 128);
         shr_list(how_many.intValue(), 256);
+
+	shl_list(how_many.intValue(), 128);
+        shl_list(how_many.intValue(), 256);
         
         inv_mod_list(how_many.intValue(), 128);
         inv_mod_list(how_many.intValue(), 256);
         
         mul_list(how_many.intValue(), 128);
         mul_list(how_many.intValue(), 256);
+
+	square_list(how_many.intValue(), 128);
+	square_list(how_many.intValue(), 256);
         
         //secp128r1
         mod_barret_list(how_many.intValue(), 128, "fffffffdffffffffffffffffffffffff");

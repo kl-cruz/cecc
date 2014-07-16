@@ -31,7 +31,7 @@ uint32_t ecc_proj_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash,
                                       bn_uint_t *d, bn_uint_t *r, bn_uint_t *s,
                                       ecc_curve_t *curve);
 
-uint32_t ecc_ECDSA_proj_signature_val(bn_uint_t *r, bn_uint_t *s,
+uint32_t ecc_proj_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s,
                                       bn_uint_t *hash, bn_uint_t *pub_k_x,
                                       bn_uint_t *pub_k_y, ecc_curve_t *curve);
 

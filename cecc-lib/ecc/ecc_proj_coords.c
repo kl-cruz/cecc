@@ -36,6 +36,9 @@ uint32_t ecc_proj_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *inz,
    X3 = alpha2-8*beta
    Z3 = (Y1+Z1)2-gamma-delta
    Y3 = alpha*(4*beta-X3)-8*gamma2
+   http://www.hyperelliptic.org/EFD/g1p/auto-shortw-jacobian-3.html#doubling-dbl-2001-b
+
+   THEORETICALLY WORKS ONLY WITH NIST CURVES!
    */
   BN_CREATE_VARIABLE(a, inx->length);
   BN_CREATE_VARIABLE(b, inx->length);

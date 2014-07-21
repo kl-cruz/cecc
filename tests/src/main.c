@@ -176,17 +176,17 @@ void tests_barret_modulus(void) {
 void bignum_tests(void) {
   test_fixture_start()
   ;
-  /*run_test(tests_shl);
+  run_test(tests_shl);
   run_test(tests_shr);
   run_test(tests_add);
   run_test(tests_sub);
-  run_test(tests_mul);*/
+  run_test(tests_mul);
   run_test(tests_square);
-  /*run_test(tests_field_add);
+  run_test(tests_field_add);
   run_test(tests_field_sub);
   run_test(tests_field_mul);
   run_test(tests_field_inv);
-  run_test(tests_barret_modulus);*/
+  run_test(tests_barret_modulus);
   test_fixture_end()
   ;
 }

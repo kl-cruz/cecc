@@ -25,62 +25,52 @@
 uint32_t ecc_proj_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *inz,
                             bn_uint_t *outx, bn_uint_t *outy, bn_uint_t *outz,
                             ecc_curve_t *curve) {
-  /*
-   * if (Y == 0)
-   return POINT_AT_INFINITY
-   S = 4*X*Y^2
-   M = 3*X^2 + a*Z^4
-   X' = M^2 - 2*S
-   Y' = M*(S - X') - 8*Y^4
-   Z' = 2*Y*Z
-   return (X', Y', Z')*/
-  //based on http://en.wikibooks.org/wiki/Cryptography/Prime_Curve/Jacobian_Coordinates
-  //Checked with book: Krzywe eliptyczne w kryptografii (Elliptic Curves in Cryptography)
-  //Ian F. Blake, Gadiel Seroussi, and Nigel P. Smart
-  //--------------COUNTING S
-  BN_CREATE_VARIABLE(S, inx->length);
-  BN_CREATE_VARIABLE(M, inx->length);
-  BN_CREATE_VARIABLE(Y2, inx->length);
-  bn_zero(outy);
-  //compare below is used to check if input point is validate point (inz=0 => point in infinity)
-  if (bn_compare(outx, inz) == 0) {
-    return 1;
+  /*  Cost: 3M + 5S + 8add + 1*4 + 2*8 + 1*3.
+   Source: 2001 Bernstein "A software implementation of NIST P-224".
+   Explicit formulas:
 
-  }
-  nist_square_curve_mod( iny, curve, &Y2);
-  nist_mul_curve_mod(&Y2, inx, curve, outz);
-  bn_zero(outx);
-  outx->number[0] = 4;
-  nist_mul_curve_mod(outz, outx, curve, &S); //now we've got 4*X*Y^2 in S OK
-  //--------------COUNTING M
-  bn_zero(outx);
-  outx->number[0] = 3;
-  nist_square_curve_mod(inx, curve, outz);
-  nist_mul_curve_mod(outz, outx, curve, outy); //outy=>3*X^2
-  nist_square_curve_mod(inz, curve, outz);//outz=>Z^2
-  nist_square_curve_mod(outz, curve, outx);//outx=>Z^4
-  nist_mul_curve_mod(outx, curve->a, curve, outz); //outz=>a*Z^4
-  bn_field_add(outy, outz, curve->p, &M); // now we've got 3*X^2 + a*Z^4 in M
-  //--------------COUNTING X
-  nist_mul_curve_mod(&M, &M, curve, outz); //outz=>M^2
-  bn_zero(outx);
-  outx->number[0] = 2;
-  nist_mul_curve_mod(outx, &S, curve, outy); //outy=>2*S
-  bn_field_sub(outz, outy, curve->p, outx);
-  //--------------COUNTING Y
-  bn_field_sub(&S, outx, curve->p, outy);
-  nist_mul_curve_mod(outy, &M, curve, outz);
+   delta = Z12
+   gamma = Y12
+   beta = X1*gamma
+   alpha = 3*(X1-delta)*(X1+delta)
+   X3 = alpha2-8*beta
+   Z3 = (Y1+Z1)2-gamma-delta
+   Y3 = alpha*(4*beta-X3)-8*gamma2
+   */
+  BN_CREATE_VARIABLE(a, inx->length);
+  BN_CREATE_VARIABLE(b, inx->length);
+  BN_CREATE_VARIABLE(g, inx->length);
+  BN_CREATE_VARIABLE(d, inx->length);
+  BN_CREATE_VARIABLE(tmp, inx->length);
+  nist_square_curve_mod(inz, curve, &d);
+  nist_square_curve_mod(iny, curve, &g);
+  nist_mul_curve_mod(inx, &g, curve, &b);
+  bn_field_add(inx, &d, curve->p, outx);
+  bn_field_sub(inx, &d, curve->p, outy);
+  nist_mul_curve_mod(outx, outy, curve, outz);
   bn_zero(outy);
+  outy->number[0] = 3;
+  nist_mul_curve_mod(outz, outy, curve, &a);
+
+  //XYZ
+  nist_square_curve_mod(&a, curve, &tmp); //a^2
   outy->number[0] = 8;
-  nist_square_curve_mod(&Y2, curve, &S);
-  nist_mul_curve_mod(outy, &S, curve, &M);
-  bn_field_sub(outz, &M, curve->p, outy);
-  //--------------COUNTING Z
-  bn_zero(&M);
-  M.number[0] = 2;
-  nist_mul_curve_mod(&M, iny, curve, &S);
-  nist_mul_curve_mod(&S, inz, curve, outz);
+  nist_mul_curve_mod(outy, &b, curve, outz);
+  bn_field_sub(&tmp, outz, curve->p, outx); //X!
 
+  bn_field_add(iny, inz, curve->p, outz);
+  nist_square_curve_mod(outz, curve, outz);
+  bn_field_sub(outz, &g, curve->p, &tmp);
+  bn_field_sub(&tmp, &d, curve->p, outz); //Z!
+
+  outy->number[0] = 8;
+  nist_square_curve_mod(&g, curve, &tmp);
+  nist_mul_curve_mod(outy, &tmp, curve, &g); //g -> 8*g^2
+  outy->number[0] = 4;
+  nist_mul_curve_mod(outy, &b, curve, &b); // b -> 4*b
+  bn_field_sub(&b, outx, curve->p, &tmp);
+  nist_mul_curve_mod(&a, &tmp, curve, &a); // b -> 4*b
+  bn_field_sub(&a, &g, curve->p, outy);
   return 0;
 }
 
@@ -478,9 +468,9 @@ uint32_t ecc_proj_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s,
 #ifdef ECC_ECDSA_MULTISCALAR_GENERIC
   ecc_proj_ec_mult(&fpx, &fpy, &fpz, &u1, &ox, &oy, &oz, curve);
   ecc_proj_ec_mult(&pubk_j_x, &pubk_j_y, &pubk_j_z, &u2, &fpx, &fpy, &fpz,
-      curve);
+                   curve);
   ecc_proj_ec_add(&ox, &oy, &oz, &fpx, &fpy, &fpz, &pubk_j_x, &pubk_j_y,
-      &pubk_j_z, curve);
+                  &pubk_j_z, curve);
 #endif
 #ifdef ECC_ECDSA_MULTISCALAR_SOLINAS
   /*Analysis of Multi-Scalar Multiplication in Elliptic Curve Cryptosystem ∗
@@ -552,6 +542,6 @@ uint32_t ecc_proj_ECDH_secret_gen(ecc_hash hash_func, bn_uint_t *d,
   eccutils_projective_to_affine(&ox, &oy, &oz, secret, &y, curve);
   (void)(hash_func);
   /*hash_func(secret, &y);
-  bn_copy(&y, secret, secret->length);*/
+   bn_copy(&y, secret, secret->length);*/
   return 0;
 }

@@ -21,9 +21,14 @@ uint32_t test_ecdsa_gen_sig(bn_uint_t *k, bn_uint_t *hash, bn_uint_t *d, bn_uint
 
 uint32_t test_ecdsa_val_sig(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn_uint_t *pub_k_x, bn_uint_t *pub_k_y, ecc_curve_t *curve);
 
+uint32_t test_ecdsa_sig_val_sig(ecc_curve_t *curve);
+
 uint32_t test_gen_key(bn_uint_t *d, bn_uint_t *exp_pub_k_x, bn_uint_t *exp_pub_k_y, ecc_curve_t *curve);
 
 uint32_t test_ecdh(bn_uint_t *d_alice, bn_uint_t *pubx_alice, bn_uint_t *puby_alice, bn_uint_t *d_bob, bn_uint_t *pubx_bob, bn_uint_t *puby_bob,
 		ecc_curve_t *curve);
+
+uint32_t test_curve_mod(bn_uint_t *a, bn_uint_t *expected_result, ecc_curve_t *curve);
+
 
 #endif /* TEST_ECC_H_ */

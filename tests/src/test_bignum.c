@@ -78,10 +78,6 @@ uint32_t test_square(bn_uint_t *a, bn_uint_t *expected_result)
     BN_CREATE_VARIABLE(res, expected_result->length);
     start_count_time();
     bn_square(a, &res);
-    info("________________________________");
-    print_number(&res);
-    print_number(expected_result);
-    info("________________________________");
     stop_count_time();
     info("working time: %d us", get_us());
     return bn_compare(&res, expected_result);
@@ -148,8 +144,6 @@ uint32_t test_shl(bn_uint_t *a, bn_uint_t *expected_result)
     bn_copy(a, &res, res.length);
     start_count_time();
     bn_shl(&res);
-    print_number(expected_result);
-    print_number(&res);
     stop_count_time();
     info("working time: %d us", get_us());
     return bn_compare(&res, expected_result);

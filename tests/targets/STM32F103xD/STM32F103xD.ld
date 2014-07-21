@@ -28,8 +28,8 @@
 /*
  * ST32F103xE memory setup.
  */
-__main_stack_size__     = 0x0800;
-__process_stack_size__  = 0x0800;
+__main_stack_size__     = 0x1000;
+__process_stack_size__  = 0x1000;
 
 MEMORY
 {

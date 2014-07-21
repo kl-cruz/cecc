@@ -14,6 +14,8 @@ FWSRC = src/main.c \
 		../cecc-lib/ecc/ecc.c \
 		../cecc-lib/ecc/ecc_utils.c \
 		../cecc-lib/ecc/ecc_proj_coords.c \
+		../cecc-lib/ecc/nist_curves_mod.c \
+		../cecc-lib/ecc/nist_curves_ops.c \
 		src/test_bignum.c \
 		src/test_ecc.c \
 		src/test_ecc_utils.c \

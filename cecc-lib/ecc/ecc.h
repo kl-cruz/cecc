@@ -21,6 +21,7 @@ typedef struct {
 	bn_uint_t *h;
 	bn_uint_t *barret_mi;
 	bn_uint_t *barret_mi_n;
+	void (*mod)(bn_uint_t *, bn_uint_t *);
 } ecc_curve_t;
 
 typedef void (*ecc_prgn)(bn_uint_t *);

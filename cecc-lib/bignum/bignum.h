@@ -24,6 +24,7 @@ typedef struct bn_uint {
 uint32_t bn_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 uint32_t bn_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
 uint32_t bn_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *result);
+uint32_t bn_square(bn_uint_t *a, bn_uint_t *result);
 
 
 //prime field operators
@@ -31,6 +32,7 @@ uint32_t bn_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *resul
 uint32_t bn_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *result);
 uint32_t bn_field_inverse(bn_uint_t *a, bn_uint_t *p, bn_uint_t *result);
 uint32_t bn_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *result);
+
 
 //functions
 uint32_t bn_copy(bn_uint_t *from, bn_uint_t *to, uint32_t length);

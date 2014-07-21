@@ -8,6 +8,7 @@
  */
 #include "test_ecc.h"
 #include "platform_utils.h"
+#include "nist_curves_mod.h"
 
 //TODO ustawić stos na 0x0400 i sprawdzić czemu nie działa dla takiego małego stosu a działa dla 0x0800
 uint32_t test_ecc_add(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *bx, bn_uint_t *by, bn_uint_t *expx, bn_uint_t *expy, ecc_curve_t *curve)
@@ -146,4 +147,15 @@ uint32_t test_ecdh(bn_uint_t *d_alice, bn_uint_t *pubx_alice, bn_uint_t *puby_al
 	if (bn_compare(&secret_alice, &secret_bob) == 0)
 		return 0;
 	return 1;
+}
+
+uint32_t test_curve_mod(bn_uint_t *a, bn_uint_t *expected_result, ecc_curve_t *curve)
+{
+    BN_CREATE_VARIABLE(res, expected_result->length);
+    start_count_time();
+    curve->mod(a,&res);
+    stop_count_time();
+    //print_values(2,expected_result,&res);
+    info("working time: %d us", get_us());
+    return bn_compare(&res, expected_result);
 }

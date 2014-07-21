@@ -176,17 +176,17 @@ void tests_barret_modulus(void) {
 void bignum_tests(void) {
   test_fixture_start()
   ;
-  //run_test(tests_shl);
+  /*run_test(tests_shl);
   run_test(tests_shr);
   run_test(tests_add);
   run_test(tests_sub);
-  run_test(tests_mul);
-  //run_test(tests_square);
-  run_test(tests_field_add);
+  run_test(tests_mul);*/
+  run_test(tests_square);
+  /*run_test(tests_field_add);
   run_test(tests_field_sub);
   run_test(tests_field_mul);
   run_test(tests_field_inv);
-  run_test(tests_barret_modulus);
+  run_test(tests_barret_modulus);*/
   test_fixture_end()
   ;
 }
@@ -299,6 +299,15 @@ void tests_ecc_ECDH(void) {
   }
 }
 
+void tests_ecc_curve_modulus(void) {
+  uint32_t i = 0;
+  for (i = 0; i < mod_barret_256_tab_len; ++i) {
+    assert_true(
+        test_curve_mod(mod_barret_256_test_tab[i][0],mod_barret_256_test_tab[i][1],&ec_secp256r1)
+            == 0);
+  }
+}
+
 void ecc_ops_tests(void) {
   test_fixture_start()
   ;
@@ -310,6 +319,7 @@ void ecc_ops_tests(void) {
   run_test(tests_ecc_gen_keys);
   run_test(tests_ecc_ECDH);
   run_test(tests_ecc_ECDSA);
+  run_test(tests_ecc_curve_modulus);
   test_fixture_end()
   ;
 }
@@ -429,6 +439,17 @@ void tests_ecc_proj_ECDH(void) {
   }
 }
 
+void tests_ecc_proj_ECDSA(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+
+    assert_true(
+        test_ecdsa_proj_sig_val_sig(&ec_secp256r1) == 0);
+
+  }
+}
+
 void ecc_ops_proj_coords_tests(void) {
   test_fixture_start()
   ;
@@ -437,6 +458,7 @@ void ecc_ops_proj_coords_tests(void) {
   run_test(tests_ecc_proj_coords_mul);
   run_test(tests_ecc_proj_ECDSA_gen_signature);
   run_test(tests_ecc_proj_ECDSA_val_signature);
+  run_test(tests_ecc_proj_ECDSA);
   run_test(tests_ecc_proj_gen_keys);
   run_test(tests_ecc_proj_ECDH);
   test_fixture_end()
@@ -444,7 +466,6 @@ void ecc_ops_proj_coords_tests(void) {
 }
 
 int main(void) {
-
   init();
   bignum_tests();
   ecc_ops_tests();

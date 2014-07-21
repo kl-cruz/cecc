@@ -400,10 +400,14 @@ public class Bignum_fixture_generator {
         String var_nameres = var_name + "res_";
         String var_nametab = var_name + "test_tab";
         String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+	String modulo_truncate="";
+	for (int i = 0; i < bit_len/32; ++i) {
+		modulo_truncate+="FFFFFFFF";
+	}
         for (int i = 0; i < samples; ++i) {
             randomize_abp(bit_len);
             translate_bigint_and_write(a, var_namea + i);
-            translate_bigint_and_write(a.shiftLeft(1), var_nameres + i);
+            translate_bigint_and_write(a.shiftLeft(1).and(new BigInteger(modulo_truncate,16)), var_nameres + i);
         }
         add_to_header_file(tablength);
         add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][2]={");

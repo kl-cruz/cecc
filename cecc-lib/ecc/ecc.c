@@ -8,6 +8,7 @@
  */
 
 #include "ecc.h"
+#include "nist_curves_ops.h"
 
 /**
  * @brief Points addition
@@ -45,13 +46,16 @@ uint32_t ecc_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *qx, bn_uint_t *qy, 
 	bn_field_inverse(sx, curve->p, &lambda);
 	bn_copy(&lambda, sx, sx->length);
 	//here is lambda
-	bn_field_mul_barret(sy, sx, curve->barret_mi, curve->p, &lambda);
-	bn_field_mul_barret(&lambda, &lambda, curve->barret_mi, curve->p, sx);
+	nist_mul_curve_mod(sy,sx,curve,&lambda);
+	//bn_field_mul_barret(sy, sx, curve->barret_mi, curve->p, &lambda);
+	nist_mul_curve_mod(&lambda, &lambda,curve,sx);
+	//bn_field_mul_barret(&lambda, &lambda, curve->barret_mi, curve->p, sx);
 	bn_field_sub(sx, px, curve->p, sy);
 	bn_field_sub(sy, qx, curve->p, sx);
 	//count Sy
 	bn_field_sub(qx, sx, curve->p, sy);
-	bn_field_mul_barret(sy, &lambda, curve->barret_mi, curve->p, &tmp);
+	nist_mul_curve_mod(sy, &lambda,curve,&tmp);
+	//bn_field_mul_barret(sy, &lambda, curve->barret_mi, curve->p, &tmp);
 	bn_field_sub(&tmp, qy, curve->p, sy);
 
 	return 0;
@@ -75,19 +79,25 @@ uint32_t ecc_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *outx, bn_uint_
 	bn_zero(outx);
 	tmp.number[0] = 3;
 
-	bn_field_mul_barret(inx, inx, curve->barret_mi, curve->p, outx); //outx = x^2
-	bn_field_mul_barret(&tmp, outx, curve->barret_mi, curve->p, outy); //outy = 3x^2
+
+	nist_mul_curve_mod(inx, inx,curve,outx);
+	//bn_field_mul_barret(inx, inx, curve->barret_mi, curve->p, outx); //outx = x^2
+	nist_mul_curve_mod(&tmp, outx,curve,outy);
+	//bn_field_mul_barret(&tmp, outx, curve->barret_mi, curve->p, outy); //outy = 3x^2
 	bn_field_add(outy, curve->a, curve->p, outx); //outx = 3x^2 + a (eg. a = 3)
 
 	bn_field_add(iny, iny, curve->p, outy);
 	bn_field_inverse(outy, curve->p, &tmp); //tmp=1/2*y
-	bn_field_mul_barret(outx, &tmp, curve->barret_mi, curve->p, &lambda); //lambda=(3*x^2 - a)/(2*y)
+    nist_mul_curve_mod(outx, &tmp,curve,&lambda);
+    //bn_field_mul_barret(outx, &tmp, curve->barret_mi, curve->p, &lambda); //lambda=(3*x^2 - a)/(2*y)
 	//counting result x
-	bn_field_mul_barret(&lambda, &lambda, curve->barret_mi, curve->p, outx); //outx=lambda^2
+    nist_mul_curve_mod(&lambda, &lambda,curve,outx);
+    //bn_field_mul_barret(&lambda, &lambda, curve->barret_mi, curve->p, outx); //outx=lambda^2
 	bn_field_sub(outx, inx, curve->p, outy); //outy=lambda^2-x
 	bn_field_sub(outy, inx, curve->p, outx); //outx=lambda^2-x-x
 	bn_field_sub(inx, outx, curve->p, outy); //outy=x-outx
-	bn_field_mul_barret(outy, &lambda, curve->barret_mi, curve->p, &tmp); //tmp=lambda*(x-outx)
+    nist_mul_curve_mod(outy, &lambda,curve,&tmp);
+    //bn_field_mul_barret(outy, &lambda, curve->barret_mi, curve->p, &tmp); //tmp=lambda*(x-outx)
 	bn_field_sub(&tmp, iny, curve->p, outy);
 	return 0;
 }

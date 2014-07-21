@@ -134,6 +134,33 @@ uint32_t test_ecdsa_proj_val_sig(bn_uint_t *r, bn_uint_t *s, bn_uint_t *hash, bn
     return 1;
 }
 
+uint32_t test_ecdsa_proj_sig_val_sig(ecc_curve_t *curve) {
+  uint32_t res;
+  BN_CREATE_VARIABLE(d, curve->p->length);
+  BN_CREATE_VARIABLE(k, curve->p->length);
+  BN_CREATE_VARIABLE(r, curve->p->length);
+  BN_CREATE_VARIABLE(s, curve->p->length);
+  BN_CREATE_VARIABLE(hash, curve->p->length);
+
+  BN_CREATE_VARIABLE(pubx, curve->p->length);
+  BN_CREATE_VARIABLE(puby, curve->p->length);
+
+  start_count_time();
+  default_prgn(&k);
+  default_prgn(&hash);
+  ecc_generate_key(&default_prgn, &d, &pubx, &puby, curve);
+
+  res = ecc_proj_ECDSA_signature_gen(&k, &hash, &d, &r, &s, curve);
+  res = ecc_proj_ECDSA_signature_val(&r, &s, &hash, &pubx, &puby, curve);
+  stop_count_time();
+  info("ECDSA signature generation and validation time:%f ms",
+       get_us() / 1000.0);
+
+  if (res == 0)
+    return 0;
+  return 1;
+}
+
 uint32_t test_gen_proj_key(bn_uint_t *d, bn_uint_t *exp_pub_k_x, bn_uint_t *exp_pub_k_y, ecc_curve_t *curve)
 {
     BN_CREATE_VARIABLE(dtmp, d->length);

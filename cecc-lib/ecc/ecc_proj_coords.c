@@ -9,6 +9,7 @@
 
 #include "ecc_proj_coords.h"
 #include "ecc_utils.h"
+#include "nist_curves_ops.h"
 
 /**
  * @brief Point double, Jacobian projective coordinates
@@ -40,47 +41,45 @@ uint32_t ecc_proj_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *inz,
   BN_CREATE_VARIABLE(S, inx->length);
   BN_CREATE_VARIABLE(M, inx->length);
   BN_CREATE_VARIABLE(Y2, inx->length);
-  bn_zero(outx);
   bn_zero(outy);
-  bn_zero(outz);
   //compare below is used to check if input point is validate point (inz=0 => point in infinity)
   if (bn_compare(outx, inz) == 0) {
     return 1;
 
   }
-  bn_field_mul_barret(iny, iny, curve->barret_mi, curve->p, &Y2);
-  bn_field_mul_barret(&Y2, inx, curve->barret_mi, curve->p, outz);
+  nist_square_curve_mod( iny, curve, &Y2);
+  nist_mul_curve_mod(&Y2, inx, curve, outz);
   bn_zero(outx);
   outx->number[0] = 4;
-  bn_field_mul_barret(outz, outx, curve->barret_mi, curve->p, &S); //now we've got 4*X*Y^2 in S OK
+  nist_mul_curve_mod(outz, outx, curve, &S); //now we've got 4*X*Y^2 in S OK
   //--------------COUNTING M
   bn_zero(outx);
   outx->number[0] = 3;
-  bn_field_mul_barret(inx, inx, curve->barret_mi, curve->p, outz);
-  bn_field_mul_barret(outz, outx, curve->barret_mi, curve->p, outy); //outy=>3*X^2
-  bn_field_mul_barret(inz, inz, curve->barret_mi, curve->p, outz); //outz=>Z^2
-  bn_field_mul_barret(outz, outz, curve->barret_mi, curve->p, outx); //outx=>Z^4
-  bn_field_mul_barret(outx, curve->a, curve->barret_mi, curve->p, outz); //outz=>a*Z^4
+  nist_square_curve_mod(inx, curve, outz);
+  nist_mul_curve_mod(outz, outx, curve, outy); //outy=>3*X^2
+  nist_square_curve_mod(inz, curve, outz);//outz=>Z^2
+  nist_square_curve_mod(outz, curve, outx);//outx=>Z^4
+  nist_mul_curve_mod(outx, curve->a, curve, outz); //outz=>a*Z^4
   bn_field_add(outy, outz, curve->p, &M); // now we've got 3*X^2 + a*Z^4 in M
   //--------------COUNTING X
-  bn_field_mul_barret(&M, &M, curve->barret_mi, curve->p, outz); //outz=>M^2
+  nist_mul_curve_mod(&M, &M, curve, outz); //outz=>M^2
   bn_zero(outx);
   outx->number[0] = 2;
-  bn_field_mul_barret(outx, &S, curve->barret_mi, curve->p, outy); //outy=>2*S
+  nist_mul_curve_mod(outx, &S, curve, outy); //outy=>2*S
   bn_field_sub(outz, outy, curve->p, outx);
   //--------------COUNTING Y
   bn_field_sub(&S, outx, curve->p, outy);
-  bn_field_mul_barret(outy, &M, curve->barret_mi, curve->p, outz);
+  nist_mul_curve_mod(outy, &M, curve, outz);
   bn_zero(outy);
   outy->number[0] = 8;
-  bn_field_mul_barret(&Y2, &Y2, curve->barret_mi, curve->p, &S);
-  bn_field_mul_barret(outy, &S, curve->barret_mi, curve->p, &M);
+  nist_square_curve_mod(&Y2, curve, &S);
+  nist_mul_curve_mod(outy, &S, curve, &M);
   bn_field_sub(outz, &M, curve->p, outy);
   //--------------COUNTING Z
   bn_zero(&M);
   M.number[0] = 2;
-  bn_field_mul_barret(&M, iny, curve->barret_mi, curve->p, &S);
-  bn_field_mul_barret(&S, inz, curve->barret_mi, curve->p, outz);
+  nist_mul_curve_mod(&M, iny, curve, &S);
+  nist_mul_curve_mod(&S, inz, curve, outz);
 
   return 0;
 }
@@ -134,19 +133,19 @@ uint32_t ecc_proj_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *pz,
       return 0;
     }
   }
-  bn_field_mul_barret(qz, qz, curve->barret_mi, curve->p, sz); //sz => Z2^2
-  bn_field_mul_barret(px, sz, curve->barret_mi, curve->p, &U1); //U1 = X1*Z2^2
+  nist_square_curve_mod(qz, curve, sz); //sz => Z2^2
+  nist_mul_curve_mod(px, sz, curve, &U1); //U1 = X1*Z2^2
 
-  bn_field_mul_barret(pz, pz, curve->barret_mi, curve->p, sy); //sy => Z1^2
-  bn_field_mul_barret(qx, sy, curve->barret_mi, curve->p, &U2); //U2 = X2*Z1^2
+  nist_square_curve_mod(pz, curve, sy); //sy => Z1^2
+  nist_mul_curve_mod(qx, sy, curve, &U2); //U2 = X2*Z1^2
 
-  bn_field_mul_barret(sz, qz, curve->barret_mi, curve->p, sx); //sx=Z2^3
-  bn_field_mul_barret(py, sx, curve->barret_mi, curve->p, &S1); //S1 = Y1*Z2^3
+  nist_mul_curve_mod(sz, qz, curve, sx); //sx=Z2^3
+  nist_mul_curve_mod(py, sx, curve, &S1); //S1 = Y1*Z2^3
 
-  bn_field_mul_barret(sy, pz, curve->barret_mi, curve->p, sx); //sx=Z1^3
-  bn_field_mul_barret(qy, sx, curve->barret_mi, curve->p, &S2); //S2 = Y2*Z1^3
+  nist_mul_curve_mod(sy, pz, curve, sx); //sx=Z1^3
+  nist_mul_curve_mod(qy, sx, curve, &S2); //S2 = Y2*Z1^3
 
-  bn_field_mul_barret(sz, qz, curve->barret_mi, curve->p, sz);
+  nist_mul_curve_mod(sz, qz, curve, sz);
 
   if (bn_compare(&U1, &U2) == 0) {
     if (bn_compare(&S1, &S2) != 0) {
@@ -161,28 +160,28 @@ uint32_t ecc_proj_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *pz,
   bn_field_sub(&U2, &U1, curve->p, &H);
   bn_field_sub(&S2, &S1, curve->p, &R);
 
-  bn_field_mul_barret(&H, &H, curve->barret_mi, curve->p, &H2); //H^2
-  bn_field_mul_barret(&H, &H2, curve->barret_mi, curve->p, &H3); //H^3
+  nist_square_curve_mod(&H, curve, &H2); //H^2
+  nist_mul_curve_mod(&H, &H2, curve, &H3); //H^3
 
   //COUNTING X3
   bn_zero(sy);
   sy->number[0] = 2;
-  bn_field_mul_barret(sy, &U1, curve->barret_mi, curve->p, sx); //sx => => 2*U1
-  bn_field_mul_barret(sx, &H2, curve->barret_mi, curve->p, sy); //sy => 2*U1*H^2
-  bn_field_mul_barret(&R, &R, curve->barret_mi, curve->p, sx); //sx => R^2
+  nist_mul_curve_mod(sy, &U1, curve, sx); //sx => => 2*U1
+  nist_mul_curve_mod(sx, &H2, curve, sy); //sy => 2*U1*H^2
+  nist_square_curve_mod(&R, curve, sx); //sx => R^2
   bn_field_sub(sx, &H3, curve->p, sz); //sz=R^2 - H^3
   bn_field_sub(sz, sy, curve->p, sx); //sx => X3 = R^2 - H^3 - 2*U1*H^2
 
   //COUNTING Y3
-  bn_field_mul_barret(&S1, &H3, curve->barret_mi, curve->p, &S2); //S2 => S1*H^3
-  bn_field_mul_barret(&U1, &H2, curve->barret_mi, curve->p, &U2); //U2 => U1*H^2
+  nist_mul_curve_mod(&S1, &H3, curve, &S2); //S2 => S1*H^3
+  nist_mul_curve_mod(&U1, &H2, curve, &U2); //U2 => U1*H^2
   bn_field_sub(&U2, sx, curve->p, sz); //sz=> U1*H^2 - X3
-  bn_field_mul_barret(&R, sz, curve->barret_mi, curve->p, &U2); //&U2 => R*(U1*H^2 - X3)
+  nist_mul_curve_mod(&R, sz, curve, &U2); //&U2 => R*(U1*H^2 - X3)
   bn_field_sub(&U2, &S2, curve->p, sy); // sy=> Y3 = R*(U1*H^2 - X3) - S1*H^3
 
   //COUNTING Z3
-  bn_field_mul_barret(&H, pz, curve->barret_mi, curve->p, &S2); //S2 => H*Z1
-  bn_field_mul_barret(&S2, qz, curve->barret_mi, curve->p, sz); //S2 => H*Z1
+  nist_mul_curve_mod(&H, pz, curve, &S2); //S2 => H*Z1
+  nist_mul_curve_mod(&S2, qz, curve, sz); //S2 => H*Z1
 
   //to see more interesting stuffs: http://www.hyperelliptic.org/EFD/g1p/auto-shortw-jacobian.html#addition-add-2007-bl
 
@@ -200,17 +199,55 @@ uint32_t ecc_proj_ec_add(bn_uint_t *px, bn_uint_t *py, bn_uint_t *pz,
  * @return 0
  */
 
-//TODO This binary algorithm is soooo slooooow...
+#define EC_MULT_RIGHT_TO_LEFT_NAF
+
 uint32_t ecc_proj_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *pz,
                           bn_uint_t *k, bn_uint_t *outx, bn_uint_t *outy,
                           bn_uint_t *outz, ecc_curve_t *curve) {
+#ifdef EC_MULT_RIGHT_TO_LEFT
+  bn_zero(outx);
+  bn_zero(outy);
+  bn_zero(outz);
+  BN_CREATE_VARIABLE(pcopyx, px->length);
+  BN_CREATE_VARIABLE(pcopyy, py->length);
+  BN_CREATE_VARIABLE(pcopyz, pz->length);
+  bn_copy(px, &pcopyx, px->length);
+  bn_copy(py, &pcopyy, py->length);
+  bn_copy(pz, &pcopyz, pz->length);
+
   BN_CREATE_VARIABLE(tmpx, outx->length);
   BN_CREATE_VARIABLE(tmpy, outy->length);
   BN_CREATE_VARIABLE(tmpz, outz->length);
 
-  bn_zero(&tmpx);
-  bn_zero(&tmpy);
-  bn_zero(&tmpz);
+  BN_CREATE_VARIABLE(kcopy, k->length);
+  bn_copy(k, &kcopy, k->length);
+
+  BN_CREATE_VARIABLE(zero, outx->length);
+  bn_zero(&zero);
+
+  while (bn_compare(&kcopy, &zero) == 1) {
+    if (kcopy.number[0] & 0x1) { //if k is odd
+      ecc_proj_ec_add(outx, outy, outz, &pcopyx, &pcopyy, &pcopyz, &tmpx, &tmpy,
+          &tmpz, curve);
+      bn_copy(&tmpx, outx, outx->length);
+      bn_copy(&tmpy, outy, outy->length);
+      bn_copy(&tmpz, outz, outz->length);
+    }
+    bn_shr(&kcopy);
+    ecc_proj_ec_double(&pcopyx, &pcopyy, &pcopyz, &tmpx, &tmpy, &tmpz, curve);
+    bn_copy(&tmpx, &pcopyx, pcopyx.length);
+    bn_copy(&tmpy, &pcopyy, pcopyy.length);
+    bn_copy(&tmpz, &pcopyz, pcopyz.length);
+
+    //k <- k - u
+  }
+#endif
+
+#ifdef EC_MULT_STANDARD_BINARY
+
+  BN_CREATE_VARIABLE(tmpx, outx->length);
+  BN_CREATE_VARIABLE(tmpy, outy->length);
+  BN_CREATE_VARIABLE(tmpz, outz->length);
 
   bn_zero(outx);
   bn_zero(outy);
@@ -232,7 +269,77 @@ uint32_t ecc_proj_ec_mult(bn_uint_t *px, bn_uint_t *py, bn_uint_t *pz,
 
     }
   }
+#endif
 
+#ifdef EC_MULT_RIGHT_TO_LEFT_NAF
+
+  /*
+   * Algorithm base on master thesis:
+   * HELSINKI UNIVERSITY OF TECHNOLOGY
+   * Department of Computer Science and Engineering
+   * Laboratory for Theoretical Computer Science
+   * Billy Bob Brumley
+   * Efficient Elliptic Curve Algorithms for
+   * Compact Digital Signatures
+   * 3.3.1 NAF, Addition-Subtraction Method page 21
+   */
+
+  bn_zero(outx);
+  bn_zero(outy);
+  bn_zero(outz);
+  BN_CREATE_VARIABLE(pcopyx, px->length);
+  BN_CREATE_VARIABLE(pcopyy, py->length);
+  BN_CREATE_VARIABLE(pcopyyminus, py->length);
+  BN_CREATE_VARIABLE(pcopyz, pz->length);
+  bn_copy(px, &pcopyx, px->length);
+  bn_copy(py, &pcopyy, py->length);
+  bn_copy(pz, &pcopyz, pz->length);
+
+  BN_CREATE_VARIABLE(tmpx, outx->length);
+  BN_CREATE_VARIABLE(tmpy, outy->length);
+  BN_CREATE_VARIABLE(tmpz, outz->length);
+
+  BN_CREATE_VARIABLE(kcopy, k->length);
+  bn_copy(k, &kcopy, k->length);
+
+  BN_CREATE_VARIABLE(zero, outx->length);
+  bn_zero(&zero);
+  bn_field_sub(&zero, py, curve->p, &pcopyyminus);
+  BN_CREATE_VARIABLE(one, outx->length);
+  bn_zero(&one);
+  one.number[0] = 1;
+
+  int32_t u;
+
+  while (bn_compare(&kcopy, &zero) == 1) {
+
+    if (kcopy.number[0] & 0x1) { //if k is odd
+      u = 2 - (kcopy.number[0] & 0x3);
+
+      if (u == -1) {
+        bn_add(&kcopy, &one, &kcopy);
+        ecc_proj_ec_add(outx, outy, outz, &pcopyx, &pcopyyminus, &pcopyz, &tmpx,
+                        &tmpy, &tmpz, curve);
+      }
+      if (u == 1) {
+        bn_sub(&kcopy, &one, &kcopy);
+        ecc_proj_ec_add(outx, outy, outz, &pcopyx, &pcopyy, &pcopyz, &tmpx,
+                        &tmpy, &tmpz, curve);
+      }
+      bn_copy(&tmpx, outx, outx->length);
+      bn_copy(&tmpy, outy, outy->length);
+      bn_copy(&tmpz, outz, outz->length);
+    }
+    bn_shr(&kcopy);
+    ecc_proj_ec_double(&pcopyx, &pcopyy, &pcopyz, &tmpx, &tmpy, &tmpz, curve);
+    bn_copy(&tmpx, &pcopyx, pcopyx.length);
+    bn_copy(&tmpy, &pcopyy, pcopyy.length);
+    bn_copy(&tmpz, &pcopyz, pcopyz.length);
+    bn_field_sub(&zero, &pcopyy, curve->p, &pcopyyminus);
+
+    //k <- k - u
+  }
+#endif
   return 0;
 }
 
@@ -282,9 +389,6 @@ uint32_t ecc_proj_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash,
     return 1;
   }
 
-  bn_zero(&tmp2);
-  bn_zero(r);
-
   BN_CREATE_VARIABLE(fpx, r->length);
   BN_CREATE_VARIABLE(fpy, r->length);
   BN_CREATE_VARIABLE(fpz, r->length);
@@ -309,7 +413,6 @@ uint32_t ecc_proj_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash,
   bn_field_inverse(k, curve->n, &tmp); //k^-1 mod n
   bn_field_mul_barret(d, r, curve->barret_mi_n, curve->n, s); //s=dr
   bn_field_add(s, hash, curve->n, &tmp2); //tmp2=dr+c
-  bn_zero(s);
   bn_field_mul_barret(&tmp, &tmp2, curve->barret_mi_n, curve->n, s); //s
   bn_zero(&tmp);
   if (bn_compare(s, &tmp) == 0) //if s==0 then exit. Change k
@@ -334,15 +437,14 @@ uint32_t ecc_proj_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash,
  * @return 3 s is greater than field size
  */
 
+#define ECC_ECDSA_MULTISCALAR_GENERIC
+
 uint32_t ecc_proj_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s,
                                       bn_uint_t *hash, bn_uint_t *pub_k_x,
                                       bn_uint_t *pub_k_y, ecc_curve_t *curve) {
   BN_CREATE_VARIABLE(u1, r->length);
   BN_CREATE_VARIABLE(u2, r->length);
   BN_CREATE_VARIABLE(tmpx1, r->length);
-  BN_CREATE_VARIABLE(tmpx2, r->length);
-  BN_CREATE_VARIABLE(tmpy1, r->length);
-  BN_CREATE_VARIABLE(tmpy2, r->length);
 
   BN_CREATE_VARIABLE(fpx, r->length);
   BN_CREATE_VARIABLE(fpy, r->length);
@@ -354,12 +456,6 @@ uint32_t ecc_proj_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s,
   BN_CREATE_VARIABLE(oy, r->length);
   BN_CREATE_VARIABLE(oz, r->length);
 
-  bn_zero(&u1);
-  bn_zero(&u2);
-  bn_zero(&tmpx1);
-  bn_zero(&tmpx2);
-  bn_zero(&tmpy1);
-  bn_zero(&tmpy2);
   if (bn_compare(r, curve->n) == 1) //if r>p then exit.
       {
     return 2;
@@ -372,18 +468,27 @@ uint32_t ecc_proj_ECDSA_signature_val(bn_uint_t *r, bn_uint_t *s,
   bn_field_mul_barret(&tmpx1, r, curve->barret_mi_n, curve->n, &u2); //u2=rw mod n
   bn_field_mul_barret(&tmpx1, hash, curve->barret_mi_n, curve->n, &u1); //u1=hash*w mod n
 
-  //count X
-  bn_zero(&tmpx1);
+//count X
 
   eccutils_affine_to_projective(curve->Gx, curve->Gy, &fpx, &fpy, &fpz, curve);
   eccutils_affine_to_projective(pub_k_x, pub_k_y, &pubk_j_x, &pubk_j_y,
                                 &pubk_j_z, curve);
 
+  /*For count k1P1+k2P2 we can use two algorithms, normal generic or Solinas*/
+#ifdef ECC_ECDSA_MULTISCALAR_GENERIC
   ecc_proj_ec_mult(&fpx, &fpy, &fpz, &u1, &ox, &oy, &oz, curve);
   ecc_proj_ec_mult(&pubk_j_x, &pubk_j_y, &pubk_j_z, &u2, &fpx, &fpy, &fpz,
-                   curve);
+      curve);
   ecc_proj_ec_add(&ox, &oy, &oz, &fpx, &fpy, &fpz, &pubk_j_x, &pubk_j_y,
-                  &pubk_j_z, curve);
+      &pubk_j_z, curve);
+#endif
+#ifdef ECC_ECDSA_MULTISCALAR_SOLINAS
+  /*Analysis of Multi-Scalar Multiplication in Elliptic Curve Cryptosystem ∗
+   Xinchun Yin, Hailing Zhang
+   Department of Information Technology and Engineering, Yangzhou University,Yangzhou, China
+   page 4*/
+
+#endif
   eccutils_projective_to_affine(&pubk_j_x, &pubk_j_y, &pubk_j_z, &u1, &u2,
                                 curve);
 
@@ -411,18 +516,15 @@ uint32_t ecc_proj_generate_key(ecc_prgn prgn, bn_uint_t *d, bn_uint_t *pub_k_x,
   BN_CREATE_VARIABLE(ox, d->length);
   BN_CREATE_VARIABLE(oy, d->length);
   BN_CREATE_VARIABLE(oz, d->length);
-  (*prgn)(d);
-  bn_copy(d, &random_value, d->length);
-  bn_barret_modulus(d, curve->barret_mi_n, curve->n, &random_value);
+  (*prgn)(&random_value);
+  bn_barret_modulus(&random_value, curve->barret_mi_n, curve->n, d);
 
   eccutils_affine_to_projective(curve->Gx, curve->Gy, &fpx, &fpy, &fpz, curve);
 
-  ecc_proj_ec_mult(&fpx, &fpy, &fpz, &random_value, &ox, &oy, &oz, curve);
+  ecc_proj_ec_mult(&fpx, &fpy, &fpz, d, &ox, &oy, &oz, curve);
 
   eccutils_projective_to_affine(&ox, &oy, &oz, pub_k_x, pub_k_y, curve);
 
-  bn_zero(d);
-  bn_copy(&random_value, d, d->length);
   return 0;
 }
 /**
@@ -448,7 +550,8 @@ uint32_t ecc_proj_ECDH_secret_gen(ecc_hash hash_func, bn_uint_t *d,
   eccutils_affine_to_projective(pub_k_x, pub_k_y, &fpx, &fpy, &fpz, curve);
   ecc_proj_ec_mult(&fpx, &fpy, &fpz, d, &ox, &oy, &oz, curve);
   eccutils_projective_to_affine(&ox, &oy, &oz, secret, &y, curve);
-  hash_func(secret, &y);
-  bn_copy(&y, secret, secret->length);
+  (void)(hash_func);
+  /*hash_func(secret, &y);
+  bn_copy(&y, secret, secret->length);*/
   return 0;
 }

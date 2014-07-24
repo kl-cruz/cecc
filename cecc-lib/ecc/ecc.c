@@ -188,13 +188,12 @@ uint32_t ecc_ECDSA_signature_gen(bn_uint_t *k, bn_uint_t *hash, bn_uint_t *d, bn
 		return 1;
 	}
 	/*
-	 * Zapamiętać na całe życie że tutaj nie jest coś mod P tylko mod N! Dokładne opisy są dostępne w art naukowych
+	 * Remember to use modulo n (order) not p (field size)
 	 */
 
 	bn_field_inverse(k, curve->n, &tmp); //k^-1 mod n
 	bn_field_mul_barret(d, r, curve->barret_mi_n, curve->n, s); //s=dr
 	bn_field_add(s, hash, curve->n, &tmp2); //tmp2=dr+c
-	bn_zero(s);
 	bn_field_mul_barret(&tmp, &tmp2, curve->barret_mi_n, curve->n, s); //s
 	bn_zero(&tmp);
 	if (bn_compare(s, &tmp) == 0) //if s==0 then exit. Change k

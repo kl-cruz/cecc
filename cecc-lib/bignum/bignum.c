@@ -10,7 +10,6 @@
 #define NDEBUG
 #include <assert.h>
 #include "bignum.h"
-#include "platform_utils.h"
 /**
  * @brief Addition function -> a+b=result
  * @param a addend

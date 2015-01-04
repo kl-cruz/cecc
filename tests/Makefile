@@ -86,7 +86,7 @@ help:
 	@echo "make help                                        Show this help"
 	@echo "make target-list                                 List available targets"
 	@echo "make configure                                   Configure environement for fixture generators"
-	@echo "make dist-clean                                  Deconfigure environement, remove additional and builds files"
+	@echo "make distclean   v                               Deconfigure environement, remove additional and builds files"
 	@echo "make generate-fixtures [fix_num=...]             Generate new fixtures for tests. In fix_num please specify number of new fixtures"
 	@echo "make [target=...] all                            Simply compile test for target using available files"
 	@echo "make [target=...] [fix_num=...] all-fixgen       Simply compile test for target with generate new fixtures"

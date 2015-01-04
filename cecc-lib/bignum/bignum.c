@@ -349,7 +349,7 @@ uint32_t bn_square(bn_uint_t *a, bn_uint_t *result) {
    * Department of Computer Science and Information Engineering TamKang University
    * Tamsui, Taipei County, Taiwan 251, R.O.C.
    * */
-  uint64_t cs;
+  uint64_t cs = 0;
   uint32_t i, j;
   bn_zero(result);
 

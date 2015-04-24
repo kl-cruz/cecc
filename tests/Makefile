@@ -1,7 +1,5 @@
 # Imported source files
 
-# 
-
 PROJECT = test_main
 
 FWSRC = src/main.c \

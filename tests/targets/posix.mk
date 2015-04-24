@@ -44,7 +44,7 @@ OBJDIR = $(BUILDDIR)/obj
 LSTDIR = $(BUILDDIR)/lst
 
 # Define optimisation level here
-OPT = -O0 -ggdb -fomit-frame-pointer -std=gnu99
+OPT = -O2 -fomit-frame-pointer -std=gnu99
 
 LLIBDIR  = $(patsubst %,-L%,$(DLIBDIR) $(ULIBDIR))
 IINCDIR  = $(patsubst %,-I%,$(INCDIR) $(DINCDIR) $(UINCDIR))
@@ -87,7 +87,10 @@ VPATH = $(sort $(dir $(SRC)))
 # makefile rules
 #
 
-all: $(OBJS) $(OUT) MAKE_ALL_RULE_HOOK
+.packages_check_ok:
+	./targets/posix_libs_check.sh
+
+all: .packages_check_ok $(OBJS) $(OUT) MAKE_ALL_RULE_HOOK
 
 MAKE_ALL_RULE_HOOK:
 

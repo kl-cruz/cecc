@@ -11,6 +11,8 @@
 #include "ecc_utils.h"
 #include "nist_curves_ops.h"
 
+//#define POINT_DBL_ECCBOOK
+#define POINT_DBL_HYPERELLIPTIC
 /**
  * @brief Point double, Jacobian projective coordinates
  * @param inx
@@ -25,6 +27,7 @@
 uint32_t ecc_proj_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *inz,
                             bn_uint_t *outx, bn_uint_t *outy, bn_uint_t *outz,
                             ecc_curve_t *curve) {
+#ifdef POINT_DBL_HYPERELLIPTIC
   /*  Cost: 3M + 5S + 8add + 1*4 + 2*8 + 1*3.
    Source: 2001 Bernstein "A software implementation of NIST P-224".
    Explicit formulas:
@@ -51,14 +54,21 @@ uint32_t ecc_proj_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *inz,
   bn_field_add(inx, &d, curve->p, outx);
   bn_field_sub(inx, &d, curve->p, outy);
   nist_mul_curve_mod(outx, outy, curve, outz);
-  bn_zero(outy);
+  bn_field_add(outz, outz, curve->p, outy);
+  bn_field_add(outz, outy, curve->p, &a);
+
+  /*bn_zero(outy);
   outy->number[0] = 3;
-  nist_mul_curve_mod(outz, outy, curve, &a);
+  nist_mul_curve_mod(outz, outy, curve, &a);*/
 
   //XYZ
   nist_square_curve_mod(&a, curve, &tmp); //a^2
-  outy->number[0] = 8;
-  nist_mul_curve_mod(outy, &b, curve, outz);
+  bn_field_add(&b, &b, curve->p, outz);
+  bn_field_add(outz, outz, curve->p, outy);
+  bn_field_add(outy, outy, curve->p, outz);
+
+  /*outy->number[0] = 8;
+  nist_mul_curve_mod(outy, &b, curve, outz);*/
   bn_field_sub(&tmp, outz, curve->p, outx); //X!
 
   bn_field_add(iny, inz, curve->p, outz);
@@ -66,15 +76,71 @@ uint32_t ecc_proj_ec_double(bn_uint_t *inx, bn_uint_t *iny, bn_uint_t *inz,
   bn_field_sub(outz, &g, curve->p, &tmp);
   bn_field_sub(&tmp, &d, curve->p, outz); //Z!
 
-  outy->number[0] = 8;
   nist_square_curve_mod(&g, curve, &tmp);
-  nist_mul_curve_mod(outy, &tmp, curve, &g); //g -> 8*g^2
-  outy->number[0] = 4;
-  nist_mul_curve_mod(outy, &b, curve, &b); // b -> 4*b
+  bn_field_add(&tmp, &tmp, curve->p, outy);
+  bn_field_add(outy, outy, curve->p, &tmp);
+  bn_field_add(&tmp, &tmp, curve->p, &g);
+  /*bn_zero(outy);
+  outy->number[0] = 8;
+  nist_mul_curve_mod(outy, &tmp, curve, &g); //g -> 8*g^2*/
+  bn_field_add(&b, &b, curve->p, outy);
+  bn_field_add(outy, outy, curve->p, &b);
+  /*outy->number[0] = 4;
+  nist_mul_curve_mod(outy, &b, curve, &b); // b -> 4*b*/
   bn_field_sub(&b, outx, curve->p, &tmp);
   nist_mul_curve_mod(&a, &tmp, curve, &a); // b -> 4*b
   bn_field_sub(&a, &g, curve->p, outy);
   return 0;
+#endif
+#ifdef POINT_DBL_ECCBOOK
+  BN_CREATE_VARIABLE(l1, inx->length);
+  BN_CREATE_VARIABLE(l2, inx->length);
+  BN_CREATE_VARIABLE(l3, inx->length);
+  BN_CREATE_VARIABLE(tmp, inx->length);
+  BN_CREATE_VARIABLE(tmp2, inx->length);
+  nist_square_curve_mod(inx, curve, outx); //X1^2
+  bn_field_add(outx, outx, curve->p, &tmp2);
+  bn_field_add(outx, &tmp2, curve->p, outz);
+  /*bn_zero(&tmp2);
+  tmp2.number[0] = 3;
+  nist_mul_curve_mod(outx, &tmp2, curve, outz); // 3X1^2*/
+  nist_square_curve_mod(inz, curve, outx); //Z1^2
+  nist_square_curve_mod(outx, curve, outy); //Z1^4
+  nist_mul_curve_mod(curve->a, outy, curve, outx); // aZ1^4
+  bn_field_add(outx, outz, curve->p, &l1); // l1=3X1^2+aZ1^4
+
+  nist_mul_curve_mod(iny, inz, curve, outx); // X3=Y1Z1
+  bn_field_add(outx, outx, curve->p, outz);
+  /*tmp2.number[0] = 2;
+  nist_mul_curve_mod(&tmp2, outx, curve, outz); // Z3=2Y1Z1*/
+
+  nist_square_curve_mod(iny, curve, outy); //temporary Y3=Y1^2
+  nist_mul_curve_mod(inx, outy, curve, &l3);
+  bn_field_add(&l3, &l3, curve->p, &tmp2);
+  bn_field_add(&tmp2, &tmp2, curve->p, &l2);
+  /*  tmp2.number[0] = 4;
+  nist_mul_curve_mod(&tmp2, &l3, curve, &l2); //l2=4X1Y1^2*/
+
+  nist_square_curve_mod(&l1, curve, &tmp); //temporary tmp=l1^2
+  bn_field_add(&l2, &l2, curve->p, &l3);
+  /*tmp2.number[0] = 2;
+  nist_mul_curve_mod(&tmp2, &l2, curve, &l3); //2*l2*/
+
+  bn_field_sub(&tmp, &l3, curve->p, outx); // X3=l1^2-2l2
+
+  nist_square_curve_mod(outy, curve, &tmp); //temporary tmp=Y1^4
+  bn_field_add(&tmp, &tmp, curve->p, &tmp2);
+  bn_field_add(&tmp2, &tmp2, curve->p, &tmp);
+  bn_field_add(&tmp, &tmp, curve->p, &l3);
+ /* tmp2.number[0] = 8;
+  nist_mul_curve_mod(&tmp2, &tmp, curve, &l3); //l3=8Y1^4*/
+
+  bn_field_sub(&l2, outx, curve->p, &tmp);
+  nist_mul_curve_mod(&l1, &tmp, curve, &tmp2);
+  bn_field_sub(&tmp2, &l3, curve->p, outy);
+  return 0;
+
+#endif
 }
 
 /**

@@ -86,7 +86,6 @@ include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/startup_stm32f1xx.mk
 # HAL-OSAL files (optional).
 include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/hal/ports/STM32/STM32F1xx/platform.mk
-include $(CHIBIOS)/os/hal/boards/OLIMEX_STM32_P103/board.mk
 include $(CHIBIOS)/os/hal/osal/rt/osal.mk
 # RTOS files (optional).
 include $(CHIBIOS)/os/rt/rt.mk
@@ -202,8 +201,7 @@ ULIBDIR =
 ULIBS =
 
 INCDIR += $(FWINC) targets targets/cBase
-CSRC += $(FWSRC) targets/cBase/platform_utils.c 
-#targets/STM32F4/board.c
+CSRC += $(FWSRC) targets/cBase/platform_utils.c targets/cBase/board.c
 
 #
 # End of user defines

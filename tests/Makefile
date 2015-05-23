@@ -59,6 +59,10 @@ ifeq ($(target),stm32f103xd)
     include targets/STM32F103xD.mk
     UDEFS += -DCHIBIOS_PRINTF
 else
+ifeq ($(target),cBase)
+    include targets/cBase.mk
+    UDEFS += -DCHIBIOS_PRINTF
+else
 ifeq ($(target),default-arch)
     include targets/default_arch.mk
 else
@@ -68,6 +72,7 @@ $(info Using default target -> posix)
     include targets/posix.mk
 else
 $(error Please specify properly target. More info -> make help)
+endif
 endif
 endif
 endif

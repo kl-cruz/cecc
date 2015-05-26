@@ -325,10 +325,10 @@ public class Ecc_fixture_generator {
  
             while (matcher.find()) {
                 if (var_name!=null) {
-                    String tablength = "uint32_t " + var_name + "_tab_len=" + (i-1) + ";";
+                    String tablength = "uint32_t " + var_name + "_tab_len=" + (i) + ";";
                     add_to_header_file(tablength);
-                    add_to_header_file("bn_uint_t *" + var_name + "_tab" + "[" + (i-1) + "][7]={");
-                    for (int j = 1; j <i; ++j) {
+                    add_to_header_file("bn_uint_t *" + var_name + "_tab" + "[" + (i) + "][7]={");
+                    for (int j = 1; j <= i; ++j) {
 
                         add_to_header_file("{&" + var_name+"_hash" + j + ",&" + var_name+"_d" + j + ",&" + var_name+"_Qx" + j + ",&" + var_name+"_Qy" + j + ",&" + var_name+"_k" + j + ",&" + var_name+"_R" + j + ",&" + var_name+"_S" + j + "},");
 
@@ -355,6 +355,7 @@ public class Ecc_fixture_generator {
                     String value = scannerl.next();
                     //System.out.println(name);
                     if (name.equals("Msg ")) {
+                        ++i;
                         MessageDigest hashmsg = MessageDigest.getInstance(hash_f);
                         byte[] hm = Hex.decode(value);
                         hashmsg.update(hm);
@@ -369,7 +370,7 @@ public class Ecc_fixture_generator {
                         System.out.println(e.getMessage());
                 }
             } else {
-                ++i;
+
             }
         }
     }

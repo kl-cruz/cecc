@@ -404,11 +404,11 @@ void tests_ecc_mul(void) {
 void tests_ecc_ECDSA_gen_signature(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
     assert_true(
-        test_ecdsa_gen_sig(P_256_SHA_1_tab[i][4], P_256_SHA_1_tab[i][0],
-                           P_256_SHA_1_tab[i][1], P_256_SHA_1_tab[i][5],
-                           P_256_SHA_1_tab[i][6], &ec_secp256r1) == 0);
+        test_ecdsa_gen_sig(P_256_SHA_256_tab[i][4], P_256_SHA_256_tab[i][0],
+                           P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][5],
+                           P_256_SHA_256_tab[i][6], &ec_secp256r1) == 0);
 
   }
 
@@ -417,12 +417,12 @@ void tests_ecc_ECDSA_gen_signature(void) {
 void tests_ecc_ECDSA_val_signature(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
 
     assert_true(
-        test_ecdsa_val_sig(P_256_SHA_1_tab[i][5], P_256_SHA_1_tab[i][6],
-                           P_256_SHA_1_tab[i][0], P_256_SHA_1_tab[i][2],
-                           P_256_SHA_1_tab[i][3], &ec_secp256r1) == 0);
+        test_ecdsa_val_sig(P_256_SHA_256_tab[i][5], P_256_SHA_256_tab[i][6],
+                           P_256_SHA_256_tab[i][0], P_256_SHA_256_tab[i][2],
+                           P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
 
   }
 }
@@ -430,11 +430,11 @@ void tests_ecc_ECDSA_val_signature(void) {
 void tests_ecc_gen_keys(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
 
     assert_true(
-        test_gen_key(P_256_SHA_1_tab[i][1], P_256_SHA_1_tab[i][2],
-                     P_256_SHA_1_tab[i][3], &ec_secp256r1) == 0);
+        test_gen_key(P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][2],
+                     P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
 
   }
 }
@@ -442,7 +442,7 @@ void tests_ecc_gen_keys(void) {
 void tests_ecc_ECDSA(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
 
     assert_true(
         test_ecdsa_sig_val_sig(&ec_secp256r1) == 0);
@@ -459,7 +459,7 @@ void tests_ecc_ECDH(void) {
   BN_CREATE_VARIABLE(alice_d, ec_secp256r1.n->length);
   BN_CREATE_VARIABLE(alice_pubx, ec_secp256r1.n->length);
   BN_CREATE_VARIABLE(alice_puby, ec_secp256r1.n->length);
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
     ecc_generate_key(&default_prgn, &bob_d, &bob_pubx, &bob_puby,
                      &ec_secp256r1);
     ecc_generate_key(&default_prgn, &alice_d, &alice_pubx, &alice_puby,
@@ -586,11 +586,11 @@ void tests_ecc_proj_coords_mul(void) {
 void tests_ecc_proj_ECDSA_gen_signature(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
     assert_true(
-        test_ecdsa_proj_gen_sig(P_256_SHA_1_tab[i][4], P_256_SHA_1_tab[i][0],
-                           P_256_SHA_1_tab[i][1], P_256_SHA_1_tab[i][5],
-                           P_256_SHA_1_tab[i][6], &ec_secp256r1) == 0);
+        test_ecdsa_proj_gen_sig(P_256_SHA_256_tab[i][4], P_256_SHA_256_tab[i][0],
+                           P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][5],
+                           P_256_SHA_256_tab[i][6], &ec_secp256r1) == 0);
 
   }
 
@@ -599,12 +599,12 @@ void tests_ecc_proj_ECDSA_gen_signature(void) {
 void tests_ecc_proj_ECDSA_val_signature(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
 
     assert_true(
-        test_ecdsa_proj_val_sig(P_256_SHA_1_tab[i][5], P_256_SHA_1_tab[i][6],
-                           P_256_SHA_1_tab[i][0], P_256_SHA_1_tab[i][2],
-                           P_256_SHA_1_tab[i][3], &ec_secp256r1) == 0);
+        test_ecdsa_proj_val_sig(P_256_SHA_256_tab[i][5], P_256_SHA_256_tab[i][6],
+                           P_256_SHA_256_tab[i][0], P_256_SHA_256_tab[i][2],
+                           P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
 
   }
 }
@@ -612,11 +612,11 @@ void tests_ecc_proj_ECDSA_val_signature(void) {
 void tests_ecc_proj_gen_keys(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
 
     assert_true(
-        test_gen_proj_key(P_256_SHA_1_tab[i][1], P_256_SHA_1_tab[i][2],
-                     P_256_SHA_1_tab[i][3], &ec_secp256r1) == 0);
+        test_gen_proj_key(P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][2],
+                     P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
 
   }
 }
@@ -630,7 +630,7 @@ void tests_ecc_proj_ECDH(void) {
   BN_CREATE_VARIABLE(alice_d, ec_secp256r1.n->length);
   BN_CREATE_VARIABLE(alice_pubx, ec_secp256r1.n->length);
   BN_CREATE_VARIABLE(alice_puby, ec_secp256r1.n->length);
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
     ecc_proj_generate_key(&default_prgn, &bob_d, &bob_pubx, &bob_puby,
                      &ec_secp256r1);
     ecc_proj_generate_key(&default_prgn, &alice_d, &alice_pubx, &alice_puby,
@@ -644,7 +644,7 @@ void tests_ecc_proj_ECDH(void) {
 void tests_ecc_proj_ECDSA(void) {
   uint32_t i = 0;
 
-  for (i = 0; i < P_256_SHA_1_tab_len; ++i) {
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
 
     assert_true(
         test_ecdsa_proj_sig_val_sig(&ec_secp256r1) == 0);

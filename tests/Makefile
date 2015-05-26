@@ -126,6 +126,7 @@ configure:
 	
 distclean: clean
 	@echo "Deconfigure environement..."
+	@rm -f .packages_check_ok
 	@echo "Removing ext..."
 	@rm -Rf ext
 	@echo "Done!"

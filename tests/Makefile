@@ -29,12 +29,6 @@ ifeq ($(MAKECMDGOALS),)
 $(error Please specify make goals!. More info -> make help)
 endif
 
-ifeq ($(target),stm32f4)
-ifeq ($(CHIBIOS),)
-$(error "Please specify Chibios path!. CHIBIOS=[path]")
-endif
-endif
-
 ifeq ($(fix_num),)
 $(info Using default number of fixtures -> 10)
 fix_num = 10
@@ -55,13 +49,20 @@ ifeq ($(target),stm32f4)
     include targets/STM32F4.mk
     UDEFS += -DCHIBIOS_PRINTF
 else
+ifeq ($(target),stm32l053_nucleo)
+    FWINC += targets/STM32L053_nucleo
+    include targets/STM32L053_nucleo.mk
+    UDEFS += -DCHIBIOS_PRINTF -DTEST_DISABLE_ALL
+$(info For more tests use dedicated script!)
+else
 ifeq ($(target),stm32f103xd)
     include targets/STM32F103xD.mk
     UDEFS += -DCHIBIOS_PRINTF
 else
 ifeq ($(target),cBase)
     include targets/cBase.mk
-    UDEFS += -DCHIBIOS_PRINTF
+    UDEFS += -DCHIBIOS_PRINTF -DTEST_DISABLE_ALL
+$(info For more tests use dedicated script!)
 else
 ifeq ($(target),default-arch)
     include targets/default_arch.mk
@@ -72,6 +73,7 @@ $(info Using default target -> posix)
     include targets/posix.mk
 else
 $(error Please specify properly target. More info -> make help)
+endif
 endif
 endif
 endif

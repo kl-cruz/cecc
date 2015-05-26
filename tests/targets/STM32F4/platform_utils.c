@@ -87,7 +87,7 @@ void stop_count_time(void)
  */
 uint32_t get_us(void)
 {
-    return RTC2US(168000000, tm.last);
+    return RTC2US(STM32_SYSCLK, tm.last);
 }
 /**
  * @brief Function required to properly using format library
@@ -96,8 +96,8 @@ uint32_t get_us(void)
  */
 int fm_putchar(int c)
 {
-    chThdSleepMilliseconds(2);
     chSequentialStreamPut(&SDU1, (uint8_t)c);
+    chThdSleepMilliseconds(10);
     return 1;
 }
 

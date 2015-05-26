@@ -261,6 +261,85 @@ public class Bignum_fixture_generator {
         add_to_header_file("};");
     }
 
+    public static void mul_mod_speed_2_list(int samples, int bit_len, String ps) {
+        String var_name = "mul_mod_speed_2_" + bit_len + "_";
+        String var_namea = var_name + "a_";
+        String var_nameb = var_name + "b_";
+        String var_namep = var_name + "p_";
+        String var_namemi = var_name + "mi_";
+        String bt = "";
+        String var_nameres = var_name + "res_";
+        String var_nametab = var_name + "test_tab";
+        String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+        int max_f = bit_len / 16;
+        for (int r = 0; r < max_f; ++r) {
+            bt += "ffffffff";
+        }
+        BigInteger bti = new BigInteger(bt, 16);
+        for (int i = 0; i < samples; ++i) {
+
+
+            randomize_abp(bit_len);
+            b = new BigInteger("2", 16);
+            p = new BigInteger(ps, 16);
+
+            translate_bigint_and_write(a, var_namea + i);
+            translate_bigint_and_write(b, var_nameb + i);
+
+            translate_bigint_and_write((a.multiply(b)).mod(p), var_nameres + i);
+        }
+        translate_bigint_and_write(bti.divide(p), var_namemi);
+        translate_bigint_and_write(p, var_namep);
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][3]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameb + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+
+        public static void mul_mod_speed_8_list(int samples, int bit_len, String ps) {
+            String var_name = "mul_mod_speed_8_" + bit_len + "_";
+            String var_namea = var_name + "a_";
+            String var_nameb = var_name + "b_";
+            String var_namep = var_name + "p_";
+            String var_namemi = var_name + "mi_";
+            String bt = "";
+            String var_nameres = var_name + "res_";
+            String var_nametab = var_name + "test_tab";
+            String tablength = "uint32_t " + var_name + "tab_len=" + samples + ";";
+            int max_f = bit_len / 16;
+            for (int r = 0; r < max_f; ++r) {
+                bt += "ffffffff";
+            }
+            BigInteger bti = new BigInteger(bt, 16);
+            for (int i = 0; i < samples; ++i) {
+
+
+                randomize_abp(bit_len);
+                b = new BigInteger("8", 16);
+                p = new BigInteger(ps, 16);
+
+                translate_bigint_and_write(a, var_namea + i);
+                translate_bigint_and_write(b, var_nameb + i);
+
+                translate_bigint_and_write((a.multiply(b)).mod(p), var_nameres + i);
+            }
+
+        translate_bigint_and_write(bti.divide(p), var_namemi);
+        translate_bigint_and_write(p, var_namep);
+        add_to_header_file(tablength);
+        add_to_header_file("bn_uint_t *" + var_nametab + "[" + samples + "][3]={");
+        for (int i = 0; i < samples; ++i) {
+
+            add_to_header_file("{&" + var_namea + i + ",&" + var_nameb + i + ",&" + var_nameres + i + "},");
+
+        }
+        add_to_header_file("};");
+    }
+
     public static void mod_barret_list_secp128r2(int samples) {
         String var_name = "mod_barret_128" + "_";
         String var_namea = var_name + "a_";
@@ -504,11 +583,14 @@ public class Bignum_fixture_generator {
         //secp128r1
         mod_barret_list(how_many.intValue(), 128, "fffffffdffffffffffffffffffffffff");
         mul_mod_barret_list(how_many.intValue(), 128, "fffffffdffffffffffffffffffffffff");
+        mul_mod_speed_2_list(how_many.intValue(), 128, "fffffffdffffffffffffffffffffffff");
+        mul_mod_speed_8_list(how_many.intValue(), 128, "fffffffdffffffffffffffffffffffff");
         
         //secp256r1
         mod_barret_list(how_many.intValue(), 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
         mul_mod_barret_list(how_many.intValue(), 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
-        
+        mul_mod_speed_2_list(how_many.intValue(), 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
+        mul_mod_speed_8_list(how_many.intValue(), 256, "ffffffff00000001000000000000000000000000ffffffffffffffffffffffff");
         
         close_header_file();
 

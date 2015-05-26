@@ -41,7 +41,7 @@ uint32_t test_ecc_utils_conversion(bn_uint_t *ax, bn_uint_t *ay,
   //eccutils_affine_to_projective(ax, ay, &px, &py, &pz, curve);
   eccutils_projective_to_affine(&px, &py, &pz, &counted_ax, &counted_ay, curve);
   stop_count_time();
-  info("working time: %d us", get_us());
+  info("working time: %u us", get_us());
 
   if ((bn_compare(&counted_ax, &expected_x) == 0)
       && (bn_compare(&counted_ay, &expected_y) == 0))

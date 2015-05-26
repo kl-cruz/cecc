@@ -18,7 +18,7 @@ uint32_t test_ecc_add(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *bx, bn_uint_t *by
 	start_count_time();
 	ecc_ec_add(ax, ay, bx, by, &outx, &outy, curve);
 	stop_count_time();
-	info("working time: %d us", get_us());
+        info("working time: %u us", get_us());
 
 	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
@@ -32,7 +32,7 @@ uint32_t test_ecc_double(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *expx, bn_uint_
 	start_count_time();
 	ecc_ec_double(ax, ay, &outx, &outy, curve);
 	stop_count_time();
-	info("working time: %d us", get_us());
+        info("working time: %u us", get_us());
 
 	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
@@ -46,7 +46,7 @@ uint32_t test_ecc_mul(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k, bn_uint_t *exp
 	start_count_time();
 	ecc_ec_mult(px, py, k, &outx, &outy, curve);
 	stop_count_time();
-	info("working time: %d us", get_us());
+        info("working time: %u us", get_us());
 
 	if ((bn_compare(&outx, expx) == 0) && (bn_compare(&outy, expy) == 0))
 		return 0;
@@ -156,6 +156,6 @@ uint32_t test_curve_mod(bn_uint_t *a, bn_uint_t *expected_result, ecc_curve_t *c
     curve->mod(a,&res);
     stop_count_time();
     //print_values(2,expected_result,&res);
-    info("working time: %d us", get_us());
+    info("working time: %u us", get_us());
     return bn_compare(&res, expected_result);
 }

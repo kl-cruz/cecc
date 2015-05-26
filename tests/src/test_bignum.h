@@ -21,6 +21,8 @@ uint32_t test_field_sub(bn_uint_t *a,bn_uint_t *b, bn_uint_t *p,bn_uint_t *expec
 uint32_t test_field_inv(bn_uint_t *a,bn_uint_t *p,bn_uint_t *expected_result);
 
 uint32_t test_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result);
+uint32_t test_field_mul_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result);
+
 uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *expected_result);
 
 uint32_t test_shl(bn_uint_t *a,bn_uint_t *expected_result);

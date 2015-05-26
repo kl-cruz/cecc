@@ -19,6 +19,128 @@
 #include "test_ecc_utils.h"
 #include "test_ecc_proj_coords.h"
 
+/*
+ * Test have some options to enable or disable test.
+ * Firstly, during normal compilation all tests are enabled.
+ * If you want to compile only interesting test you may use define:
+ *      TEST_DISABLE_ALL
+ * To disable all tests. Now you can check which test can be compile:
+ *
+ *      TEST_BIGNUM
+ *          TEST_BIGNUM_SHL                 -> Enable shift left tests
+ *          TEST_BIGNUM_SHR                 -> Enable shift right tests
+ *          TEST_BIGNUM_ADD                 -> Enable addition tests
+ *          TEST_BIGNUM_SUB                 -> Enable subtraction tests
+ *          TEST_BIGNUM_MUL                 -> Enable multiplication tests
+ *          TEST_BIGNUM_MUL_2_BARRET        -> Enable mul*2 using barret modulo tests
+ *          TEST_BIGNUM_MUL_2_ADD           -> Enable mul*2 using field add a+a tests
+ *          TEST_BIGNUM_MUL_8_BARRET        -> Enable mul*8 using barret modulo tests
+ *          TEST_BIGNUM_MUL_8_ADD           -> Enable mul*8 using field add a+a+a+a+a+a+a+a tests
+ *          TEST_BIGNUM_SQUARE              -> Enable square tests
+ *          TEST_BIGNUM_FIELD_ADD           -> Enable field add tests
+ *          TEST_BIGNUM_FIELD_SUB           -> Enable field sub tests
+ *          TEST_BIGNUM_FIELD_MUL           -> Enable field mul tests
+ *          TEST_BIGNUM_FIELD_INV           -> Enable field inv tests
+ *          TEST_BIGNUM_BARRET_MOD          -> Enable barret mod tests
+ *
+ *      TEST_ECC_AFFINE
+ *          TEST_ECC_AFFINE_ADD             -> Enable affine points add tests
+ *          TEST_ECC_AFFINE_DBL             -> Enable affine point double tests
+ *          TEST_ECC_AFFINE_MUL             -> Enable affine point multiplication tests
+ *          TEST_ECC_AFFINE_ECDSA_SIG_GEN   -> Enable affine ECDSA signature generation tests
+ *          TEST_ECC_AFFINE_ECDSA_SIG_VAL   -> Enable affine ECDSA signature validation tests
+ *          TEST_ECC_AFFINE_KEYGEN          -> Enable affine keys generation tests
+ *          TEST_ECC_AFFINE_ECDH            -> Enable affine ECDH tests
+ *          TEST_ECC_AFFINE_SIG_GEN_VAL     -> Enable affine ECDSA signature generation and validation tests
+ *
+ *      TEST_ECC_UTILS
+ *          TEST_ECC_UTILS_CONV             -> Enable convertion between afiine and projective systems tests
+ *          TEST_ECC_UTILS_CURVE_MOD        -> Enable dedicated modulo secp256r1 tests
+ *
+ *      TEST_ECC_PROJ
+ *          TEST_ECC_PROJ_DBL               -> Enable projective point double tests
+ *          TEST_ECC_PROJ_ADD               -> Enable projective points add tests
+ *          TEST_ECC_PROJ_MUL               -> Enable projective point multiplication tests
+ *          TEST_ECC_PROJ_ECDSA_SIG_GEN     -> Enable projective ECDSA signature generation tests
+ *          TEST_ECC_PROJ_ECDSA_SIG_VAL     -> Enable projective ECDSA signature validation tests
+ *          TEST_ECC_PROJ_ECDSA_SIG_GEN_VAL -> Enable projective ECDSA signature generation and validation tests
+ *          TEST_ECC_PROJ_KEYGEN            -> Enable projective keys generation tests
+ *          TEST_ECC_PROJ_ECDH              -> Enable projective ECDH tests
+ *
+ */
+
+void speed_test_mul_2_barret(void) {
+    uint32_t i;
+    for (i = 0; i < mul_mod_barret_128_tab_len; ++i) {
+      assert_true(
+          test_field_mul_barret(mul_mod_speed_2_128_test_tab[i][0],
+                                mul_mod_speed_2_128_test_tab[i][1],
+                                &mul_mod_speed_2_128_mi_, &mul_mod_speed_2_128_p_,
+                                mul_mod_speed_2_128_test_tab[i][2]) == 0);
+    }
+    for (i = 0; i < mul_mod_barret_256_tab_len; ++i) {
+      assert_true(
+          test_field_mul_barret(mul_mod_speed_2_256_test_tab[i][0],
+                                mul_mod_speed_2_256_test_tab[i][1],
+                                &mul_mod_speed_2_256_mi_, &mul_mod_speed_2_256_p_,
+                                mul_mod_speed_2_256_test_tab[i][2]) == 0);
+    }
+}
+
+void speed_test_mul_2(void) {
+    uint32_t i;
+    for (i = 0; i < mul_mod_barret_128_tab_len; ++i) {
+      assert_true(
+          test_field_mul_add(mul_mod_speed_2_128_test_tab[i][0],
+                                mul_mod_speed_2_128_test_tab[i][1],
+                                &mul_mod_speed_2_128_mi_, &mul_mod_speed_2_128_p_,
+                                mul_mod_speed_2_128_test_tab[i][2]) == 0);
+    }
+    for (i = 0; i < mul_mod_barret_256_tab_len; ++i) {
+      assert_true(
+          test_field_mul_add(mul_mod_speed_2_256_test_tab[i][0],
+                                mul_mod_speed_2_256_test_tab[i][1],
+                                &mul_mod_speed_2_256_mi_, &mul_mod_speed_2_256_p_,
+                                mul_mod_speed_2_256_test_tab[i][2]) == 0);
+    }
+}
+
+void speed_test_mul_8_barret(void) {
+    uint32_t i;
+    for (i = 0; i < mul_mod_speed_8_128_tab_len; ++i) {
+      assert_true(
+          test_field_mul_barret(mul_mod_speed_8_128_test_tab[i][0],
+                                mul_mod_speed_8_128_test_tab[i][1],
+                                &mul_mod_speed_8_128_mi_, &mul_mod_speed_8_128_p_,
+                                mul_mod_speed_8_128_test_tab[i][2]) == 0);
+    }
+    for (i = 0; i < mul_mod_speed_8_256_tab_len; ++i) {
+      assert_true(
+          test_field_mul_barret(mul_mod_speed_8_256_test_tab[i][0],
+                                mul_mod_speed_8_256_test_tab[i][1],
+                                &mul_mod_speed_8_256_mi_, &mul_mod_speed_8_256_p_,
+                                mul_mod_speed_8_256_test_tab[i][2]) == 0);
+    }
+}
+
+void speed_test_mul_8(void) {
+    uint32_t i;
+    for (i = 0; i < mul_mod_speed_8_128_tab_len; ++i) {
+      assert_true(
+          test_field_mul_add(mul_mod_speed_8_128_test_tab[i][0],
+                                mul_mod_speed_8_128_test_tab[i][1],
+                                &mul_mod_speed_8_128_mi_, &mul_mod_speed_8_128_p_,
+                                mul_mod_speed_8_128_test_tab[i][2]) == 0);
+    }
+    for (i = 0; i < mul_mod_speed_8_256_tab_len; ++i) {
+      assert_true(
+          test_field_mul_add(mul_mod_speed_8_256_test_tab[i][0],
+                                mul_mod_speed_8_256_test_tab[i][1],
+                                &mul_mod_speed_8_256_mi_, &mul_mod_speed_8_256_p_,
+                                mul_mod_speed_8_256_test_tab[i][2]) == 0);
+    }
+}
+
 void tests_shr(void) {
   uint32_t i;
   for (i = 0; i < shr_128_tab_len; ++i) {
@@ -176,17 +298,66 @@ void tests_barret_modulus(void) {
 void bignum_tests(void) {
   test_fixture_start()
   ;
+#if defined(TEST_BIGNUM_SHL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_shl);
+#endif
+
+#if defined(TEST_BIGNUM_SHR) || !defined(TEST_DISABLE_ALL)
   run_test(tests_shr);
+#endif
+
+#if defined(TEST_BIGNUM_ADD) || !defined(TEST_DISABLE_ALL)
   run_test(tests_add);
+#endif
+
+#if defined(TEST_BIGNUM_SUB) || !defined(TEST_DISABLE_ALL)
   run_test(tests_sub);
+#endif
+
+#if defined(TEST_BIGNUM_MUL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_mul);
+#endif
+
+#if defined(TEST_BIGNUM_MUL_2_BARRET) || !defined(TEST_DISABLE_ALL)
+  run_test(speed_test_mul_2_barret);
+#endif
+
+#if defined(TEST_BIGNUM_MUL_2_ADD) || !defined(TEST_DISABLE_ALL)
+  run_test(speed_test_mul_2);
+#endif
+
+#if defined(TEST_BIGNUM_MUL_8_BARRET) || !defined(TEST_DISABLE_ALL)
+  run_test(speed_test_mul_8_barret);
+#endif
+
+#if defined(TEST_BIGNUM_MUL_8_ADD) || !defined(TEST_DISABLE_ALL)
+  run_test(speed_test_mul_8);
+#endif
+
+#if defined(TEST_BIGNUM_SQUARE) || !defined(TEST_DISABLE_ALL)
   run_test(tests_square);
+#endif
+
+#if defined(TEST_BIGNUM_FIELD_ADD) || !defined(TEST_DISABLE_ALL)
   run_test(tests_field_add);
+#endif
+
+#if defined(TEST_BIGNUM_FIELD_SUB) || !defined(TEST_DISABLE_ALL)
   run_test(tests_field_sub);
+#endif
+
+#if defined(TEST_BIGNUM_FIELD_MUL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_field_mul);
+#endif
+
+#if defined(TEST_BIGNUM_FIELD_INV) || !defined(TEST_DISABLE_ALL)
   run_test(tests_field_inv);
+#endif
+
+#if defined(TEST_BIGNUM_BARRET_MOD) || !defined(TEST_DISABLE_ALL)
   run_test(tests_barret_modulus);
+#endif
+
   test_fixture_end()
   ;
 }
@@ -311,15 +482,38 @@ void tests_ecc_curve_modulus(void) {
 void ecc_ops_tests(void) {
   test_fixture_start()
   ;
+#if defined(TEST_ECC_AFFINE_ADD) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_add);
+#endif
+
+#if defined(TEST_ECC_AFFINE_DBL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_double);
+#endif
+
+#if defined(TEST_ECC_AFFINE_MUL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_mul);
+#endif
+
+#if defined(TEST_ECC_AFFINE_ECDSA_SIG_GEN) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_ECDSA_gen_signature);
+#endif
+
+#if defined(TEST_ECC_AFFINE_ECDSA_SIG_VAL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_ECDSA_val_signature);
+#endif
+
+#if defined(TEST_ECC_AFFINE_KEYGEN) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_gen_keys);
+#endif
+
+#if defined(TEST_ECC_AFFINE_ECDH) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_ECDH);
+#endif
+
+#if defined(TEST_ECC_AFFINE_SIG_GEN_VAL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_ECDSA);
-  run_test(tests_ecc_curve_modulus);
+#endif
+
   test_fixture_end()
   ;
 }
@@ -337,7 +531,15 @@ void tests_ecc_utils_conv(void) {
 void ecc_utils_tests(void) {
   test_fixture_start()
   ;
+
+#if defined(TEST_ECC_UTILS_CONV) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_utils_conv);
+#endif
+
+#if defined(TEST_ECC_UTILS_CURVE_MOD) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_ecc_curve_modulus);
+#endif
+
   test_fixture_end()
   ;
 }
@@ -453,14 +655,38 @@ void tests_ecc_proj_ECDSA(void) {
 void ecc_ops_proj_coords_tests(void) {
   test_fixture_start()
   ;
+#if defined(TEST_ECC_PROJ_DBL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_coords_double);
+#endif
+
+#if defined(TEST_ECC_PROJ_ADD) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_coords_add);
+#endif
+
+#if defined(TEST_ECC_PROJ_MUL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_coords_mul);
+#endif
+
+#if defined(TEST_ECC_PROJ_ECDSA_SIG_GEN) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_ECDSA_gen_signature);
+#endif
+
+#if defined(TEST_ECC_PROJ_ECDSA_SIG_VAL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_ECDSA_val_signature);
+#endif
+
+#if defined(TEST_ECC_PROJ_ECDSA_SIG_GEN_VAL) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_ECDSA);
+#endif
+
+#if defined(TEST_ECC_PROJ_KEYGEN) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_gen_keys);
+#endif
+
+#if defined(TEST_ECC_PROJ_ECDH) || !defined(TEST_DISABLE_ALL)
   run_test(tests_ecc_proj_ECDH);
+#endif
+
   test_fixture_end()
   ;
 }

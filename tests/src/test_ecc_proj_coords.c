@@ -32,7 +32,7 @@ uint32_t test_ecc_proj_coords_double(bn_uint_t *ax, bn_uint_t *ay,
   ecc_proj_ec_double(&px, &py, &pz, &ox, &oy, &oz, curve);
   eccutils_projective_to_affine(&ox, &oy, &oz, &counted_ax, &counted_ay, curve);
   stop_count_time();
-  info("working time: %d us", get_us());
+  info("working time: %u us", get_us());
 
   if ((bn_compare(&counted_ax, expx) == 0)
       && (bn_compare(&counted_ay, expy) == 0))
@@ -67,7 +67,7 @@ uint32_t test_ecc_proj_coords_add(bn_uint_t *ax, bn_uint_t *ay, bn_uint_t *bx,
 
   eccutils_projective_to_affine(&ox, &oy, &oz, &counted_ax, &counted_ay, curve);
   stop_count_time();
-  info("working time: %d us", get_us());
+  info("working time: %u us", get_us());
 
   if ((bn_compare(&counted_ax, expx) == 0)
       && (bn_compare(&counted_ay, expy) == 0))
@@ -96,7 +96,7 @@ uint32_t test_ecc_proj_coords_mul(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k,
 
   eccutils_projective_to_affine(&ox, &oy, &oz, &counted_ax, &counted_ay, curve);
   stop_count_time();
-  info("working time: %d us", get_us());
+  info("working time: %u us", get_us());
 
   if ((bn_compare(&counted_ax, expx) == 0)
       && (bn_compare(&counted_ay, expy) == 0))

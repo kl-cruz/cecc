@@ -111,6 +111,12 @@ void init(void)
 #endif
 }
 
+void inf_loop(void){
+    while(1){
+        chThdSleepSeconds(1);
+    }
+}
+
 
 /**
  * @brief start counting time

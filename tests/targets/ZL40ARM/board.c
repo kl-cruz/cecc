@@ -25,37 +25,37 @@
     for full details of how and when the exception can be applied.
 */
 
-#ifndef _BOARD_H_
-#define _BOARD_H_
+#include "ch.h"
+#include "hal.h"
 
-/*
- * Setup for the Olimex STM32-P103 proto board.
+/**
+ * @brief   PAL setup.
+ * @details Digital I/O ports static configuration as defined in @p board.h.
+ *          This variable is used by the HAL when initializing the PAL driver.
  */
-
-/*
- * Board identifier.
- */
-#define BOARD_NAME              "Generic STM32F103"
-
-/*
- * Board frequencies.
- */
-#define STM32_LSECLK            32768
-#define STM32_HSECLK            8000000
-
-/*
- * MCU type, supported types are defined in ./os/hal/platforms/hal_lld.h.
- */
-#define STM32F10X_HD
-
-#if !defined(_FROM_ASM_)
-#ifdef __cplusplus
-extern "C" {
+#if HAL_USE_PAL || defined(__DOXYGEN__)
+const PALConfig pal_default_config =
+{
+  {VAL_GPIOAODR, VAL_GPIOACRL, VAL_GPIOACRH},
+  {VAL_GPIOBODR, VAL_GPIOBCRL, VAL_GPIOBCRH},
+  {VAL_GPIOCODR, VAL_GPIOCCRL, VAL_GPIOCCRH},
+  {VAL_GPIODODR, VAL_GPIODCRL, VAL_GPIODCRH},
+  {VAL_GPIOEODR, VAL_GPIOECRL, VAL_GPIOECRH},
+};
 #endif
-  void boardInit(void);
-#ifdef __cplusplus
+
+/*
+ * Early initialization code.
+ * This initialization must be performed just after stack setup and before
+ * any other initialization.
+ */
+void __early_init(void) {
+
+  stm32_clock_init();
 }
-#endif
-#endif /* _FROM_ASM_ */
 
-#endif /* _BOARD_H_ */
+/*
+ * Board-specific initialization code.
+ */
+void boardInit(void) {
+}

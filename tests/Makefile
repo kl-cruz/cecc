@@ -55,9 +55,9 @@ ifeq ($(target),stm32l053_nucleo)
     UDEFS += -DCHIBIOS_PRINTF -DTEST_DISABLE_ALL
 $(info For more tests use dedicated script!)
 else
-ifeq ($(target),stm32f103xd)
-    include targets/STM32F103xD.mk
-    UDEFS += -DCHIBIOS_PRINTF
+ifeq ($(target),zl40arm)
+    include targets/ZL40ARM.mk
+    UDEFS += -DCHIBIOS_PRINTF -DTEST_DISABLE_ALL
 else
 ifeq ($(target),cBase)
     include targets/cBase.mk

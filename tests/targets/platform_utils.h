@@ -33,7 +33,7 @@
 
 
 void init(void);
-
+void inf_loop(void);
 
 void start_count_time(void);
 void stop_count_time(void);

@@ -693,10 +693,13 @@ void ecc_ops_proj_coords_tests(void) {
 
 int main(void) {
   init();
+
   bignum_tests();
   ecc_ops_tests();
   ecc_utils_tests();
   ecc_ops_proj_coords_tests();
+
   fm_printf("\n");
+  inf_loop();
   return 0;
 }

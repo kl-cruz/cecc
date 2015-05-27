@@ -21,6 +21,11 @@ void init(void)
 {
 
 }
+
+void inf_loop(void)
+{
+
+}
 /**
  * @brief start counting time
  */

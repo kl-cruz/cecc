@@ -11,7 +11,7 @@
 
 #include "ch.h"
 #include "hal.h"
-#include "usb.h"
+
 /**
  * @brief Init function executed in first lines of tests. Started properly Chibios and ARM
  */
@@ -28,47 +28,41 @@ void init(void)
 	chSysInit();
 
         /* Timer configuration.*/
-        rccEnableTIM5(FALSE);
-        rccResetTIM5();
-        TIM5->CR1  = 0;                          /* Initially stopped.       */
+        rccEnableTIM3(FALSE);
+        rccResetTIM3();
+        rccEnableTIM4(FALSE);
+        rccResetTIM4();
 
-        TIM5->CR2  = 0;
-        TIM5->PSC  = ((STM32_TIMCLK1 / 1000000) - 1);                        /* Prescaler value.         */
-        TIM5->SR   = 0;                          /* Clear pending IRQs.      */
-        TIM5->DIER = 0;
-        TIM5->SMCR = 0;
+        TIM3->CR1  = 0;                          /* Initially stopped.       */
+        TIM4->CR1  = 0;                          /* Initially stopped.       */
 
-        TIM5->CNT  = 0;                          /* Initially stopped.       */
+        TIM3->CR2  = TIM_CR2_MMS_1;
+        TIM3->PSC  = ((STM32_TIMCLK2 / 1000000) - 1);                        /* Prescaler value.         */
+        TIM3->SR   = 0;                          /* Clear pending IRQs.      */
+        TIM3->DIER = 0;
+        TIM3->SMCR = TIM_SMCR_MSM;
+
+        TIM4->CR2  = 0;
+        TIM4->PSC  = 0;                        /* Prescaler value.         */
+        TIM4->SR   = 0;                          /* Clear pending IRQs.      */
+        TIM4->DIER = 0;
+        TIM4->SMCR = TIM_SMCR_TS_1 | TIM_SMCR_MSM | TIM_SMCR_SMS_2 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0;
+
+        TIM4->CR1 = TIM_CR1_CEN;
+
+        TIM3->CNT  = 0;                          /* Initially stopped.       */
+        TIM4->CNT  = 0;                          /* Initially stopped.       */
 
         start_count_time();
         chThdSleepMilliseconds(1000);
         stop_count_time();
 
+        sdStart(&SD2, NULL);
 
-        /*
-         * Initializes a serial-over-USB CDC driver.
-         */
-        sduObjectInit(&SDU1);
-        sduStart(&SDU1, &serusbcfg);
 
-        /*
-         * Activates the USB driver and then the USB bus pull-up on D+.
-         * Note, a delay is inserted in order to not have to disconnect the cable
-         * after a reset.
-         */
-        usbDisconnectBus(serusbcfg.usbp);
-        chThdSleepMilliseconds(250);
-        usbStart(serusbcfg.usbp, &usbcfg);
-        usbConnectBus(serusbcfg.usbp);
-
-        /*
-         * Stopping and restarting the USB in order to test the stop procedure. The
-         * following lines are not usually required.
-         */
-        chThdSleepMilliseconds(3000);
-	info("---------------ECDSA ECDH Test Suite---------------");
+        info("---------------ECDSA ECDH Test Suite---------------");
         info("CPU frequency %f MHz", STM32_SYSCLK/1000000.0);
-	info("---------------------------------------------------");
+        info("---------------------------------------------------");
         info("-----------------Timer second test-----------------");
         info("Start timer and wait 1 sec");
         start_count_time();
@@ -89,8 +83,9 @@ void inf_loop(void){
  */
 void start_count_time(void)
 {
-    TIM5->CNT  = 0;
-    TIM5->CR1 = TIM_CR1_CEN;
+    TIM3->CNT  = 0;                          /* Initially stopped.       */
+    TIM4->CNT  = 0;                          /* Initially stopped.       */
+    TIM3->CR1 = TIM_CR1_CEN;
 }
 
 /**
@@ -98,7 +93,7 @@ void start_count_time(void)
  */
 void stop_count_time(void)
 {
-    TIM5->CR1 = 0;
+    TIM3->CR1 = 0;
 }
 /**
  * @brief Function returns elapsed time (stop-start) in µs
@@ -106,7 +101,9 @@ void stop_count_time(void)
  */
 uint32_t get_us(void)
 {
-    return RTC2US(STM32_TIMCLK1, TIM5->CNT);
+    uint32_t result = TIM4->CNT << 16;
+    result |= TIM3->CNT;
+    return result;
 }
 /**
  * @brief Function required to properly using format library
@@ -115,8 +112,8 @@ uint32_t get_us(void)
  */
 int fm_putchar(int c)
 {
-    chSequentialStreamPut(&SDU1, (uint8_t)c);
-    return 1;
+  sdPut(&SD2, c);
+  return 1;
 }
 
 /*Not pseudo random generator but function returns different numbers*/
@@ -133,8 +130,8 @@ void default_prgn(bn_uint_t *output)
 
 	for(i=0;i<tmp.length;++i)
 	{
-            tmp.number[i]=i*42*j*rand();
-                ++j;
+                tmp.number[i]=i*442*j*j*j*j*j*j;
+		++j;
 	}
 	bn_copy(&tmp, output, output->length);
 }

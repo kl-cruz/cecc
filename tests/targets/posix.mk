@@ -1,3 +1,4 @@
+PROJECT = test_main
 
 ifeq ($(BUILDDIR),)
   BUILDDIR = build

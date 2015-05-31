@@ -76,9 +76,6 @@ endif
 # Project, sources and paths
 #
 
-# Define project name here
-PROJECT = ch
-
 # Imported source files and paths
 CHIBIOS = ../ExtraRepos/ChibiOS
 # Startup files.

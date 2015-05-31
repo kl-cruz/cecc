@@ -1,3 +1,5 @@
+include targets/ZL40ARM/cfg_build.mk
+
 #############################################################################
 # Build global options
 # NOTE: Can be overridden externally.
@@ -75,9 +77,6 @@ endif
 ##############################################################################
 # Project, sources and paths
 #
-
-# Define project name here
-PROJECT = ch
 
 # Imported source files and paths
 CHIBIOS = ../ExtraRepos/ChibiOS

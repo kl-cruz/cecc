@@ -146,6 +146,13 @@ uint32_t get_us(void)
     return result;
 }
 
+uint32_t get_ticks(void)
+{
+    uint32_t result = TIM22->CNT << 16;
+    result |= TIM21->CNT;
+    return result;
+}
+
 /**
  * @brief Function required to properly using format library
  * @param c char
@@ -172,7 +179,7 @@ void default_prgn(bn_uint_t *output)
 
         for(i=0;i<tmp.length;++i)
 	{
-            tmp.number[i]=i*42*j*rand();
+            tmp.number[i]=j*rand();
                 ++j;
 	}
         bn_copy(&tmp, output, output->length);

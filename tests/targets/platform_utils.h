@@ -38,6 +38,7 @@ void inf_loop(void);
 void start_count_time(void);
 void stop_count_time(void);
 uint32_t get_us(void);
+uint32_t get_ticks(void);
 void default_prgn(bn_uint_t *output);
 
 int fm_putchar(int c);

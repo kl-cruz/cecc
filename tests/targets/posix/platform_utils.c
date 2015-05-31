@@ -49,6 +49,12 @@ uint32_t get_us(void)
 	int diff = (stop.tv_usec + 1000000 * stop.tv_sec) - (start.tv_usec + 1000000 * start.tv_sec);
 	return diff;
 }
+
+uint32_t get_ticks(void)
+{
+    return 0;
+}
+
 /**
  * @brief Function required to properly using format library
  * @param c char

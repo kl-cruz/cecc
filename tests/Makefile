@@ -1,7 +1,5 @@
 # Imported source files
 
-PROJECT = test_main
-
 FWSRC = src/main.c \
 		src/seatest.c \
 		src/format/src/format.c \
@@ -17,9 +15,15 @@ FWSRC = src/main.c \
 		src/test_bignum.c \
 		src/test_ecc.c \
 		src/test_ecc_utils.c \
-		src/test_ecc_proj_coords.c
+		src/test_ecc_proj_coords.c \
+		../ExtraRepos/micro-ecc/uECC.c \
+		src/test_microecc.c \
+		src/test_tinydtls_ecc.c \
+		../ExtraRepos/tinydtls-0.8.2/ecc/tecc.c \
 
-FWINC = . targets/platform_utils src src/format/src src/format/lib ../cecc-lib/bignum ../cecc-lib/ecc
+FWINC = . targets/platform_utils src src/format/src src/format/lib \
+	../cecc-lib/bignum ../cecc-lib/ecc ../ExtraRepos/tinydtls-0.8.2/ecc/ \
+	../ExtraRepos/micro-ecc/
 
 PRJ_ROOT = 
 
@@ -112,7 +116,9 @@ target-list:
 	@echo "│         TARGET                                   │      STRING      │"
 	@echo "├──────────────────────────────────────────────────┼──────────────────┤"
 	@echo "│ Linux posix 32bit (default)                      │ posix            │"
-	@echo "│ STM32F103xD                                      │ stm32f103xd      │"
+	@echo "│ STM32L053 nucleo dev board                       │ stm32l053_nucleo │"
+	@echo "│ ZL40ARM dev board                                │ zl40arm          │"
+	@echo "│ cBase board                                      │ cBase            │"
 	@echo "│ STM32F4                                          │ stm32f4          │"
 	@echo "│ None specify arch - Linux, Mac, maybe Windows    │ default-arch     │"
 	@echo "└──────────────────────────────────────────────────┴──────────────────┘"

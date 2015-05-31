@@ -105,6 +105,13 @@ uint32_t get_us(void)
     result |= TIM3->CNT;
     return result;
 }
+
+uint32_t get_ticks(void)
+{
+    uint32_t result = TIM4->CNT << 16;
+    result |= TIM3->CNT;
+    return result;
+}
 /**
  * @brief Function required to properly using format library
  * @param c char
@@ -130,7 +137,7 @@ void default_prgn(bn_uint_t *output)
 
 	for(i=0;i<tmp.length;++i)
 	{
-                tmp.number[i]=i*442*j*j*j*j*j*j;
+                tmp.number[i]=j*rand();
 		++j;
 	}
 	bn_copy(&tmp, output, output->length);

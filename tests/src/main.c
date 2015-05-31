@@ -18,6 +18,8 @@
 #include "seatest.h"
 #include "test_ecc_utils.h"
 #include "test_ecc_proj_coords.h"
+#include "test_microecc.h"
+#include "test_tinydtls_ecc.h"
 
 /*
  * Test have some options to enable or disable test.
@@ -691,6 +693,201 @@ void ecc_ops_proj_coords_tests(void) {
   ;
 }
 
+
+void tests_microecc_ECDSA(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+
+    assert_true(
+	test_ecdsa_microecc_sig_val_sig(&ec_secp256r1) == 0);
+
+  }
+}
+
+void tests_microecc_gen_keys(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+
+    assert_true(
+	test_gen_proj_microecc_key(P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][2],
+		     P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
+
+  }
+}
+
+void tests_microecc_ECDSA_gen_signature(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+    assert_true(
+	test_ecdsa_microecc_gen_sig(P_256_SHA_256_tab[i][4], P_256_SHA_256_tab[i][0],
+			   P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][5],
+			   P_256_SHA_256_tab[i][6], &ec_secp256r1) == 0);
+
+  }
+
+}
+
+void tests_microecc_ECDSA_val_signature(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+
+    assert_true(
+	test_ecdsa_microecc_val_sig(P_256_SHA_256_tab[i][5], P_256_SHA_256_tab[i][6],
+			   P_256_SHA_256_tab[i][0], P_256_SHA_256_tab[i][2],
+			   P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
+
+  }
+}
+
+void tests_microecc_ECDH(void) {
+  uint32_t i = 0;
+
+  BN_CREATE_VARIABLE(bob_d, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(bob_pubx, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(bob_puby, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(alice_d, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(alice_pubx, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(alice_puby, ec_secp256r1.n->length);
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+    ecc_proj_generate_key(&default_prgn, &bob_d, &bob_pubx, &bob_puby,
+		     &ec_secp256r1);
+    ecc_proj_generate_key(&default_prgn, &alice_d, &alice_pubx, &alice_puby,
+		     &ec_secp256r1);
+    assert_true(
+	test_microecc_ecdh(&alice_d, &alice_pubx, &alice_puby, &bob_d, &bob_pubx,
+		  &bob_puby, &ec_secp256r1) == 0);
+  }
+}
+
+void ecc_ops_microecc_tests(void) {
+  test_fixture_start()
+  ;
+
+#if defined(TEST_MICROECC_ECDSA_SIG_GEN) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_microecc_ECDSA_gen_signature); //OK
+#endif
+
+#if defined(TEST_MICROECC_ECDSA_SIG_VAL) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_microecc_ECDSA_val_signature); //OK
+#endif
+
+#if defined(TEST_MICROECC_ECDSA_SIG_GEN_VAL) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_microecc_ECDSA); //OK
+#endif
+
+#if defined(TEST_MICROECC_KEYGEN) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_microecc_gen_keys); //OK!
+#endif
+
+#if defined(TEST_MICROECC_ECDH) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_microecc_ECDH); //OK
+#endif
+
+  test_fixture_end()
+  ;
+}
+
+void tests_tinydtls_ECDSA(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+
+    assert_true(
+	test_ecdsa_tinydtls_sig_val_sig(&ec_secp256r1) == 0);
+
+  }
+}
+
+void tests_tinydtls_gen_keys(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+
+    assert_true(
+	test_gen_proj_tinydtls_key(P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][2],
+		     P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
+
+  }
+}
+
+void tests_tinydtls_ECDSA_gen_signature(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+    assert_true(
+	test_ecdsa_tinydtls_gen_sig(P_256_SHA_256_tab[i][4], P_256_SHA_256_tab[i][0],
+			   P_256_SHA_256_tab[i][1], P_256_SHA_256_tab[i][5],
+			   P_256_SHA_256_tab[i][6], &ec_secp256r1) == 0);
+
+  }
+
+}
+
+void tests_tinydtls_ECDSA_val_signature(void) {
+  uint32_t i = 0;
+
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+
+    assert_true(
+	test_ecdsa_tinydtls_val_sig(P_256_SHA_256_tab[i][5], P_256_SHA_256_tab[i][6],
+			   P_256_SHA_256_tab[i][0], P_256_SHA_256_tab[i][2],
+			   P_256_SHA_256_tab[i][3], &ec_secp256r1) == 0);
+
+  }
+}
+
+void tests_tinydtls_ECDH(void) {
+  uint32_t i = 0;
+
+  BN_CREATE_VARIABLE(bob_d, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(bob_pubx, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(bob_puby, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(alice_d, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(alice_pubx, ec_secp256r1.n->length);
+  BN_CREATE_VARIABLE(alice_puby, ec_secp256r1.n->length);
+  for (i = 0; i < P_256_SHA_256_tab_len; ++i) {
+    ecc_proj_generate_key(&default_prgn, &bob_d, &bob_pubx, &bob_puby,
+		     &ec_secp256r1);
+    ecc_proj_generate_key(&default_prgn, &alice_d, &alice_pubx, &alice_puby,
+		     &ec_secp256r1);
+    assert_true(
+	test_tinydtls_ecdh(&alice_d, &alice_pubx, &alice_puby, &bob_d, &bob_pubx,
+		  &bob_puby, &ec_secp256r1) == 0);
+  }
+}
+
+void ecc_ops_tinydtls_tests(void) {
+  test_fixture_start()
+  ;
+
+#if defined(TEST_TINYDTLS_ECDSA_SIG_GEN) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_tinydtls_ECDSA_gen_signature); //OK
+#endif
+
+#if defined(TEST_TINYDTLS_ECDSA_SIG_VAL) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_tinydtls_ECDSA_val_signature); //OK
+#endif
+
+#if defined(TEST_TINYDTLS_ECDSA_SIG_GEN_VAL) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_tinydtls_ECDSA);
+#endif
+
+#if defined(TEST_TINYDTLS_KEYGEN) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_tinydtls_gen_keys);//OK
+#endif
+
+#if defined(TEST_TINYDTLS_ECDH) || !defined(TEST_DISABLE_ALL)
+  run_test(tests_tinydtls_ECDH); //OK
+#endif
+
+  test_fixture_end()
+  ;
+}
+
 int main(void) {
   init();
 
@@ -698,6 +895,9 @@ int main(void) {
   ecc_ops_tests();
   ecc_utils_tests();
   ecc_ops_proj_coords_tests();
+
+  ecc_ops_microecc_tests();
+  ecc_ops_tinydtls_tests();
 
   fm_printf("\n");
   inf_loop();

@@ -108,6 +108,12 @@ uint32_t get_us(void)
 {
     return RTC2US(STM32_TIMCLK1, TIM5->CNT);
 }
+
+uint32_t get_ticks(void)
+{
+    return TIM5->CNT;
+}
+
 /**
  * @brief Function required to properly using format library
  * @param c char

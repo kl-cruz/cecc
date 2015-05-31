@@ -47,7 +47,7 @@ uint32_t test_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
     start_count_time();
     bn_add(a, b, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("add_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 
 }
@@ -59,7 +59,7 @@ uint32_t test_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
     start_count_time();
     bn_sub(a, b, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("sub_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -69,7 +69,7 @@ uint32_t test_mul(bn_uint_t *a, bn_uint_t *b, bn_uint_t *expected_result)
     start_count_time();
     bn_mul(a, b, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("mul_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -79,7 +79,7 @@ uint32_t test_square(bn_uint_t *a, bn_uint_t *expected_result)
     start_count_time();
     bn_square(a, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("square_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -89,7 +89,7 @@ uint32_t test_field_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *exp
     start_count_time();
     bn_field_add(a, b, p, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("field_add_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -99,7 +99,7 @@ uint32_t test_field_sub(bn_uint_t *a, bn_uint_t *b, bn_uint_t *p, bn_uint_t *exp
     start_count_time();
     bn_field_sub(a, b, p, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("field_sub_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -109,7 +109,7 @@ uint32_t test_field_inv(bn_uint_t *a, bn_uint_t *p, bn_uint_t *expected_result)
     start_count_time();
     uint32_t r = bn_field_inverse(a, p, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("field_inv_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     if(r==1)
     {
         error("bad numbers!");
@@ -123,7 +123,7 @@ uint32_t test_field_mul_barret(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uin
     start_count_time();
     bn_field_mul_barret(a, b, mi, p, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("field_mul_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -138,7 +138,7 @@ uint32_t test_field_mul_add(bn_uint_t *a, bn_uint_t *b, bn_uint_t *mi, bn_uint_t
         bn_field_add(&res, a, p, &res);
     }
     stop_count_time();
-    info("mul by %d add working time: %u us",b->number[0], get_us());
+    info("field_mul_by_%d_time_%dB: %u us %u ticks", b->number[0], a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -149,7 +149,7 @@ uint32_t test_shr(bn_uint_t *a, bn_uint_t *expected_result)
     start_count_time();
     bn_shr(&res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("shr_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -160,7 +160,7 @@ uint32_t test_shl(bn_uint_t *a, bn_uint_t *expected_result)
     start_count_time();
     bn_shl(&res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("shl_time_%dB: %u us %u ticks", a->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 
@@ -170,7 +170,7 @@ uint32_t test_barret_mod(bn_uint_t *a, bn_uint_t *mi, bn_uint_t *p, bn_uint_t *e
     start_count_time();
     bn_barret_modulus(a, mi, p, &res);
     stop_count_time();
-    info("working time: %u us", get_us());
+    info("barret_mod_time_%dB: %u us %u ticks", p->length, get_us(), get_ticks());
     return bn_compare(&res, expected_result);
 }
 

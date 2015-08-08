@@ -12,6 +12,10 @@
 #include "ch.h"
 #include "hal.h"
 
+volatile uint32_t *DWT_CONTROL = (uint32_t *)0xE0001000;
+volatile uint32_t *DWT_CYCCNT = (uint32_t *)0xE0001004;
+volatile uint32_t *DEMCR = (uint32_t *)0xE000EDFC;
+
 /**
  * @brief Init function executed in first lines of tests. Started properly Chibios and ARM
  */
@@ -28,6 +32,9 @@ void init(void)
 	chSysInit();
 
         /* Timer configuration.*/
+
+        *DEMCR = *DEMCR | 0x01000000;
+
         rccEnableTIM3(FALSE);
         rccResetTIM3();
         rccEnableTIM4(FALSE);
@@ -37,7 +44,7 @@ void init(void)
         TIM4->CR1  = 0;                          /* Initially stopped.       */
 
         TIM3->CR2  = TIM_CR2_MMS_1;
-        TIM3->PSC  = ((STM32_TIMCLK2 / 1000000) - 1);                        /* Prescaler value.         */
+        TIM3->PSC  = 0;//((STM32_TIMCLK2 / 1000000) - 1);                        /* Prescaler value.         */
         TIM3->SR   = 0;                          /* Clear pending IRQs.      */
         TIM3->DIER = 0;
         TIM3->SMCR = TIM_SMCR_MSM;
@@ -62,6 +69,7 @@ void init(void)
 
         info("---------------ECDSA ECDH Test Suite---------------");
         info("CPU frequency %f MHz", STM32_SYSCLK/1000000.0);
+        info("TIM frequency %f MHz", STM32_TIMCLK1/1000000.0);
         info("---------------------------------------------------");
         info("-----------------Timer second test-----------------");
         info("Start timer and wait 1 sec");
@@ -86,6 +94,8 @@ void start_count_time(void)
     TIM3->CNT  = 0;                          /* Initially stopped.       */
     TIM4->CNT  = 0;                          /* Initially stopped.       */
     TIM3->CR1 = TIM_CR1_CEN;
+    *DWT_CYCCNT = 0;
+    *DWT_CONTROL = *DWT_CONTROL | 1 ;
 }
 
 /**
@@ -93,6 +103,7 @@ void start_count_time(void)
  */
 void stop_count_time(void)
 {
+    *DWT_CONTROL &= 0xFE ;
     TIM3->CR1 = 0;
 }
 /**
@@ -103,7 +114,12 @@ uint32_t get_us(void)
 {
     uint32_t result = TIM4->CNT << 16;
     result |= TIM3->CNT;
-    return result;
+    return RTC2US(STM32_TIMCLK1, result);
+}
+
+uint32_t get_ticks_DWT(void)
+{
+    return *DWT_CYCCNT;
 }
 
 uint32_t get_ticks(void)

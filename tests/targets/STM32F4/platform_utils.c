@@ -12,6 +12,13 @@
 #include "ch.h"
 #include "hal.h"
 #include "usb.h"
+
+// addresses of registers
+volatile uint32_t *DWT_CONTROL = (uint32_t *)0xE0001000;
+volatile uint32_t *DWT_CYCCNT = (uint32_t *)0xE0001004;
+volatile uint32_t *DEMCR = (uint32_t *)0xE000EDFC;
+
+
 /**
  * @brief Init function executed in first lines of tests. Started properly Chibios and ARM
  */
@@ -28,12 +35,13 @@ void init(void)
 	chSysInit();
 
         /* Timer configuration.*/
+        *DEMCR = *DEMCR | 0x01000000;
         rccEnableTIM5(FALSE);
         rccResetTIM5();
         TIM5->CR1  = 0;                          /* Initially stopped.       */
 
         TIM5->CR2  = 0;
-        TIM5->PSC  = ((STM32_TIMCLK1 / 1000000) - 1);                        /* Prescaler value.         */
+        TIM5->PSC  = 0;                          /* Prescaler value.         */
         TIM5->SR   = 0;                          /* Clear pending IRQs.      */
         TIM5->DIER = 0;
         TIM5->SMCR = 0;
@@ -43,7 +51,6 @@ void init(void)
         start_count_time();
         chThdSleepMilliseconds(1000);
         stop_count_time();
-
 
         /*
          * Initializes a serial-over-USB CDC driver.
@@ -68,6 +75,7 @@ void init(void)
         chThdSleepMilliseconds(3000);
 	info("---------------ECDSA ECDH Test Suite---------------");
         info("CPU frequency %f MHz", STM32_SYSCLK/1000000.0);
+        info("TIMER frequency %f MHz", STM32_TIMCLK1/1000000.0);
 	info("---------------------------------------------------");
         info("-----------------Timer second test-----------------");
         info("Start timer and wait 1 sec");
@@ -79,6 +87,8 @@ void init(void)
 }
 
 void inf_loop(void){
+    chThdSleepMilliseconds(1000);
+    usbDisconnectBus(serusbcfg.usbp);
     while(1){
         chThdSleepSeconds(1);
     }
@@ -91,6 +101,9 @@ void start_count_time(void)
 {
     TIM5->CNT  = 0;
     TIM5->CR1 = TIM_CR1_CEN;
+    *DWT_CYCCNT = 0;
+    *DWT_CONTROL = *DWT_CONTROL | 1 ;
+
 }
 
 /**
@@ -99,6 +112,7 @@ void start_count_time(void)
 void stop_count_time(void)
 {
     TIM5->CR1 = 0;
+    *DWT_CONTROL &= 0xFE;
 }
 /**
  * @brief Function returns elapsed time (stop-start) in µs
@@ -106,12 +120,13 @@ void stop_count_time(void)
  */
 uint32_t get_us(void)
 {
-    return RTC2US(STM32_TIMCLK1, TIM5->CNT);
+    return RTC2US(STM32_SYSCLK, *DWT_CYCCNT);
+    //return RTC2US(STM32_TIMCLK1, TIM5->CNT);
 }
 
 uint32_t get_ticks(void)
 {
-    return TIM5->CNT;
+    return *DWT_CYCCNT;
 }
 
 /**

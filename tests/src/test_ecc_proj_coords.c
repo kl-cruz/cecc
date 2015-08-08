@@ -93,7 +93,7 @@ uint32_t test_ecc_proj_coords_mul(bn_uint_t *px, bn_uint_t *py, bn_uint_t *k,
 
   stop_count_time();
 
-  info("ecc_proj_mul_time_%dB: %u us %u ticks", curve->p->length, get_us(), get_ticks());
+//  info("ecc_proj_mul_time_%dB: %u us %u ticks %u DWT ticks", curve->p->length, get_us(), get_ticks(), get_ticks_DWT());
   if ((bn_compare(&counted_ax, expx) == 0)
       && (bn_compare(&counted_ay, expy) == 0))
     return 0;

@@ -49,7 +49,7 @@ OPT = -O2 -fomit-frame-pointer -std=gnu99
 
 LLIBDIR  = $(patsubst %,-L%,$(DLIBDIR) $(ULIBDIR))
 IINCDIR  = $(patsubst %,-I%,$(INCDIR) $(DINCDIR) $(UINCDIR))
-DEFS    = $(DDEFS) $(UDEFS)
+DEFS    = $(DDEFS) $(UDEFS) $(CUSTOM_DEFINES)
 ADEFS   = $(DADEFS) $(UADEFS)
 AOBJS   = $(addprefix $(OBJDIR)/, $(notdir $(ASRC:.s=.o))) 
 COBJS   = $(addprefix $(OBJDIR)/, $(notdir $(SRC:.c=.o)))

@@ -29,6 +29,8 @@ PRJ_ROOT =
 
 FIXTURES_ROOT = src/fixtures
 
+CUSTOM_DEFINES = -DuECC_CURVE=uECC_secp256r1
+
 ifeq ($(MAKECMDGOALS),)
 $(error Please specify make goals!. More info -> make help)
 endif
@@ -128,6 +130,9 @@ configure:
 	@if test -e ext/BC_java/bcprov-jdk15on-150.jar; then echo "Find provider! Download abort!"; else wget -P ext/BC_java www.bouncycastle.org/download/bcprov-jdk15on-150.jar; fi
 	@if test -e ext/BC_java/bcpkix-jdk15on-150.jar; then echo "Find pkix! Download abort!"; else wget -P ext/BC_java www.bouncycastle.org/download/bcpkix-jdk15on-150.jar; fi
 	@if test -e ext/NIST-186-3ecdsatestvectors/SigGen.txt; then echo "Find NIST ecdsa test vectors! Download abort!"; else wget -P ext/NIST-186-3ecdsatestvectors http://csrc.nist.gov/groups/STM/cavp/documents/dss/186-3ecdsatestvectors.zip; unzip ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip -d ext/NIST-186-3ecdsatestvectors/ ;rm -f ext/NIST-186-3ecdsatestvectors/186-3ecdsatestvectors.zip; fi
+	@if test -d ../ExtraRepos/ChibiOS; then echo "ChibiOS exists"; else git clone git@github.com:cruz91/ChibiOS.git ../ExtraRepos/ChibiOS; fi
+	@cd ../ExtraRepos/ChibiOS && git checkout feature-stm32l053-support
+	@if test -d ../ExtraRepos/micro-ecc; then echo "micro-ecc exists"; else git clone git@github.com:kmackay/micro-ecc.git ../ExtraRepos/micro-ecc
 	@echo "Done!"
 	
 distclean: clean

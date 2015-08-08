@@ -52,7 +52,7 @@ void init(void)
         TIM22->CR1  = 0;                          /* Initially stopped.       */
 
         TIM21->CR2  = TIM_CR2_MMS_1;
-        TIM21->PSC  = ((STM32_TIMCLK2 / 1000000) - 1);                        /* Prescaler value.         */
+        TIM21->PSC  = 0;                          /* Prescaler value.         */
         TIM21->SR   = 0;                          /* Clear pending IRQs.      */
         TIM21->DIER = 0;
         TIM21->SMCR = TIM_SMCR_MSM;
@@ -81,8 +81,8 @@ void init(void)
          * Activates the serial driver 2 using the driver default configuration.
          * PA2(TX) and PA3(RX) are routed to USART2.
          */
-        palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(4));
-        palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(4));
+        /*palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(4));
+        palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(4));*/
 
         /*
          * Stopping and restarting the USB in order to test the stop procedure. The
@@ -143,7 +143,7 @@ uint32_t get_us(void)
 {
     uint32_t result = TIM22->CNT << 16;
     result |= TIM21->CNT;
-    return result;
+    return RTC2US(STM32_TIMCLK2, result);
 }
 
 uint32_t get_ticks(void)

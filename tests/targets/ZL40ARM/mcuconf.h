@@ -30,7 +30,7 @@
  * 0...3        Lowest...Highest.
  */
 
-#define TEST_32MHZ
+#define TEST_48MHZ
 
 /*
  * HAL driver system settings.
@@ -44,18 +44,61 @@
 #define STM32_PLLSRC                        STM32_PLLSRC_HSE
 #define STM32_PLLXTPRE                      STM32_PLLXTPRE_DIV1
 
+#ifdef TEST_16MHZ
+#define STM32_PLLXTPRE                      STM32_PLLXTPRE_DIV1
+#define STM32_HPRE                          STM32_HPRE_DIV1
+#define STM32_PPRE1                         STM32_PPRE1_DIV1
+#define STM32_PPRE2                         STM32_PPRE2_DIV1
+#define STM32_ADCPRE                        STM32_ADCPRE_DIV4
+#define STM32_PLLMUL_VALUE                  2
+#endif
+
+#ifdef TEST_20MHZ
+#define STM32_PLLXTPRE                      STM32_PLLXTPRE_DIV2
+#define STM32_HPRE                          STM32_HPRE_DIV1
+#define STM32_PPRE1                         STM32_PPRE1_DIV1
+#define STM32_PPRE2                         STM32_PPRE2_DIV1
+#define STM32_ADCPRE                        STM32_ADCPRE_DIV4
+#define STM32_PLLMUL_VALUE                  5
+#endif
+
+#ifdef TEST_24MHZ
+#define STM32_PLLXTPRE                      STM32_PLLXTPRE_DIV1
+#define STM32_HPRE                          STM32_HPRE_DIV1
+#define STM32_PPRE1                         STM32_PPRE1_DIV1
+#define STM32_PPRE2                         STM32_PPRE2_DIV1
+#define STM32_ADCPRE                        STM32_ADCPRE_DIV4
+#define STM32_PLLMUL_VALUE                  3
+#endif
+
 #ifdef TEST_32MHZ
+#define STM32_PLLXTPRE                      STM32_PLLXTPRE_DIV1
+#define STM32_HPRE                          STM32_HPRE_DIV1
+#define STM32_PPRE1                         STM32_PPRE1_DIV1
+#define STM32_PPRE2                         STM32_PPRE2_DIV1
+#define STM32_ADCPRE                        STM32_ADCPRE_DIV4
 #define STM32_PLLMUL_VALUE                  4
 #endif
 
+#ifdef TEST_48MHZ
+#define STM32_PLLXTPRE                      STM32_PLLXTPRE_DIV2
+#define STM32_HPRE                          STM32_HPRE_DIV1
+#define STM32_PPRE1                         STM32_PPRE1_DIV2
+#define STM32_PPRE2                         STM32_PPRE2_DIV1
+#define STM32_ADCPRE                        STM32_ADCPRE_DIV4
+#define STM32_PLLMUL_VALUE                  12
+#endif
+
 #ifdef TEST_72MHZ
+#define STM32_PLLXTPRE                      STM32_PLLXTPRE_DIV1
+#define STM32_HPRE                          STM32_HPRE_DIV1
+#define STM32_PPRE1                         STM32_PPRE1_DIV2
+#define STM32_PPRE2                         STM32_PPRE2_DIV1
+#define STM32_ADCPRE                        STM32_ADCPRE_DIV8
 #define STM32_PLLMUL_VALUE                  9
 #endif
 
-#define STM32_HPRE                          STM32_HPRE_DIV1
-#define STM32_PPRE1                         STM32_PPRE1_DIV2
-#define STM32_PPRE2                         STM32_PPRE2_DIV2
-#define STM32_ADCPRE                        STM32_ADCPRE_DIV4
+
 #define STM32_USB_CLOCK_REQUIRED            TRUE
 #define STM32_USBPRE                        STM32_USBPRE_DIV1P5
 #define STM32_MCOSEL                        STM32_MCOSEL_NOCLOCK

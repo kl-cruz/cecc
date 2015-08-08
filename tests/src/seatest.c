@@ -111,11 +111,9 @@ void seatest_simple_test_result_log(int passed, char* reason, const char* functi
 
 		sea_tests_failed++;
 	} else {
-		/*if (seatest_verbose)*/{
-
+#ifdef SEATEST_VERBOSE
 			info("%-30s Line %-5d Passed", function, line);
-
-		}
+#endif
 		sea_tests_passed++;
 	}
 }
